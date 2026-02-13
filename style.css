@@ -1,0 +1,510 @@
+/* Basic styling for the SAQ exam simulator */
+
+body {
+  /* Use Open Sans across the site with fallbacks */
+  font-family: 'Open Sans', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #222;
+}
+
+header {
+  background-color: #003366;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+main {
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#landing {
+  text-align: center;
+  position: relative; /* allow absolute positioning of credits */
+}
+
+.options button {
+  margin: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #0078d7;
+  color: #fff;
+}
+
+.options button:hover {
+  background-color: #005a9e;
+}
+
+.hidden {
+  display: none;
+}
+
+#exam {
+  display: flex;
+  flex-direction: column;
+}
+
+.exam-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+#timer {
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer; /* allow pausing/resuming on click */
+  user-select: none;
+}
+
+/* Points indicator displayed next to the timer */
+#points-indicator {
+  font-size: 0.9rem;
+  margin-left: 0.75rem;
+  color: #555;
+}
+
+/* Ensure the timer and points indicator are grouped together */
+.timer-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.exam-body {
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+  border-right: 1px solid #ccc;
+  padding-right: 1rem;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+}
+
+#question-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#question-list li {
+  padding: 0.5rem;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+}
+
+#question-list li.active {
+  background-color: #e7f3ff;
+  font-weight: bold;
+}
+
+#question-list li.flagged {
+  background-color: #fff8e1;
+}
+
+.question-container {
+  flex: 1;
+  padding-left: 1rem;
+}
+
+#question-content {
+  margin-bottom: 1rem;
+}
+
+.question-navigation {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.question-navigation button,
+#review-button,
+#back-to-exam,
+#final-submit {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #0078d7;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.question-navigation button:hover,
+#review-button:hover,
+#back-to-exam:hover,
+#final-submit:hover {
+  background-color: #005a9e;
+}
+
+#review-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#review-list li {
+  padding: 0.5rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#review-list li.unanswered {
+  background-color: #ffe5e5;
+}
+
+#review-list li.flagged {
+  background-color: #fff8e1;
+}
+
+/* Completed questions in review list */
+#review-list li.complete {
+  background-color: #e6ffed;
+}
+
+/* When a question is both unanswered and flagged, prioritize the unanswered styling */
+#review-list li.unanswered.flagged {
+  background-color: #ffe5e5;
+}
+
+.review-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+#results-container {
+  margin-top: 1rem;
+}
+
+#results-container .result-item {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1rem;
+}
+
+#results-container .result-item h3 {
+  margin-top: 0;
+}
+
+/* Increase readability of user and model answers in results */
+#results-container .result-item pre {
+  /* Reduced font size and line height for the results page to avoid overly large text */
+  font-size: 0.95rem;
+  line-height: 1.35;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+
+/* Slightly larger headings for results */
+#results-container .result-item h4 {
+  font-size: 1.0rem;
+  margin-bottom: 0.25rem;
+}
+
+.answer-area textarea {
+  width: 100%;
+  /* Increase height and font size for better readability */
+  height: 180px;
+  resize: vertical;
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+
+/* List-style answer inputs */
+.answer-area .list-item-input {
+  width: 100%;
+  padding: 0.4rem;
+  margin-bottom: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  /* Match textarea font size for consistency */
+  font-size: 1.15rem;
+}
+
+/* Domain info appended to part headings */
+.domain-info {
+  font-size: 0.85rem;
+  color: #555;
+  font-style: italic;
+  margin-left: 0.5rem;
+}
+
+/* Ensure question and part headings are not bold */
+.question-container h3,
+.question-container h4,
+#question-content h3,
+#question-content h4 {
+  font-weight: normal;
+}
+
+/* Styling for disabled exam buttons and coming soon text */
+.options button[disabled] {
+  background-color: #b2cce5;
+  cursor: default;
+  opacity: 0.6;
+}
+
+.coming-soon {
+  font-size: 0.8rem;
+  color: #004a80;
+  margin-top: 0.2rem;
+}
+
+/* Wrapper for each exam option (button + label) */
+.exam-option {
+  display: inline-block;
+  text-align: center;
+  margin: 0.5rem;
+}
+.exam-option button {
+  margin-bottom: 0;
+}
+
+/* Scoring section styling */
+#scoring-section {
+  margin-top: 2rem;
+}
+
+#scoring-section h3 {
+  margin-top: 0;
+}
+
+.score-row {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.score-row input[type='number'] {
+  width: 80px;
+  padding: 0.3rem;
+}
+
+#score-summary {
+  margin-top: 1rem;
+}
+
+#score-summary ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#score-summary li {
+  margin-bottom: 0.25rem;
+}
+
+/* Bar chart styling */
+#score-chart {
+  margin-top: 1rem;
+}
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.4rem;
+}
+
+.bar-label {
+  width: 150px;
+  flex-shrink: 0;
+}
+
+.bar-wrapper {
+  flex-grow: 1;
+  background-color: #f0f0f0;
+  height: 1rem;
+  margin-right: 0.5rem;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bar {
+  background-color: #0078d7;
+  height: 100%;
+}
+
+.bar-percent {
+  width: 60px;
+  text-align: right;
+}
+
+/* Instructions section styling */
+#instructions-section {
+  margin-top: 2rem;
+}
+
+#instructions-section pre {
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  /* Increase font size and line height for readability of instructions */
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+#copy-instructions {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #0078d7;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+#copy-instructions:hover {
+  background-color: #005a9e;
+}
+
+/* Primary buttons for actions such as returning to the landing page */
+button.primary {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #0078d7;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button.primary:hover {
+  background-color: #005a9e;
+}
+
+/* Note styling for advisory text */
+.note {
+  font-style: italic;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  color: #555;
+}
+
+/* Landing page decorative art */
+.landing-art {
+  margin-top: 1rem;
+}
+
+.landing-art img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Credits displayed at bottom right of the landing section */
+#credits {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 0.75rem;
+  color: #555;
+  text-align: right;
+  line-height: 1.2;
+}
+
+/* Calculator icon and panel */
+#calculator-icon {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: #0078d7;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
+  font-size: 0.9rem;
+
+  /* Hide the calculator icon by default; it will be shown when entering the exam */
+  display: none;
+}
+#calculator-icon:hover {
+  background-color: #005a9e;
+}
+
+#calculator-panel {
+  position: fixed;
+  bottom: 60px;
+  left: 10px;
+  width: 220px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 10px;
+  display: none; /* hidden by default */
+  z-index: 1000;
+}
+
+#calculator-panel input.display {
+  width: 100%;
+  margin-bottom: 5px;
+  height: 32px;
+  text-align: right;
+  padding-right: 5px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#calculator-panel .calc-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+#calculator-panel .calc-buttons button {
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+  cursor: pointer;
+}
+
+#calculator-panel .calc-buttons button:hover {
+  background-color: #e7f3ff;
+}
+
+/* Developer note styling */
+.developer-note {
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 1rem;
+  text-align: center;
+}
+.developer-note code {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #f2f2f2;
+  padding: 0 0.2rem;
+  border-radius: 2px;
+}

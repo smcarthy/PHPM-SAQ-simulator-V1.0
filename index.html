@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PHPM SAQ Exam Simulator</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Import Open Sans font for a consistent modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1>Public Health &amp; Preventive Medicine SAQ Exam Simulator</h1>
+    </header>
+    <main>
+      <!-- Landing page -->
+      <section id="landing">
+        <h2>Welcome</h2>
+        <p>This simulator approximates the written short‑answer question (SAQ) portion of the Royal College Public Health and Preventive Medicine exam.</p>
+        <div id="what-to-expect">
+          <h3>What to Expect</h3>
+          <!-- Order of paragraphs adjusted to follow the requested narrative -->
+          <p>
+            This simulation is timed and contains multi‑part questions. Each sub‑question has an assigned point value. Some prompts instruct you to list a specific number of items; each item should be entered separately. Certain prompts may also include “must‑have” points that are required to obtain any credit for that part.
+          </p>
+          <p>
+            Example: You might be asked to list FIVE steps in the progressive management of an underperforming employee. You must provide FIVE discrete steps, and the rubric includes at least one mandatory item. Another part might ask for TWO <u>immediate</u> recommendations for contaminated well water; failure to mention boiling or disinfecting means zero points even if other suggestions are provided.
+          </p>
+          <p>
+            Workflow: choose an exam length below, answer the questions in sequence (flag any you want to revisit), review your answers, then submit. You may pause the timer if you need a break, but be aware that the timer runs continuously for the real exam. Upon submission your answers will be automatically downloaded as a file. You can upload this file into the recommended Custom GPT for grading and feedback. Good luck!
+          </p>
+        </div>
+        <div class="options">
+          <!-- Disable full and half exam buttons; show coming soon -->
+          <div class="exam-option">
+            <button id="start-full" disabled>Start Full Exam (3:00)</button>
+            <div class="coming-soon">Coming soon</div>
+          </div>
+          <div class="exam-option">
+            <button id="start-half" disabled>Start Half Exam (1:30)</button>
+            <div class="coming-soon">Coming soon</div>
+          </div>
+          <div class="exam-option">
+            <button id="start-practice">Start Practice Exam (0:30)</button>
+          </div>
+        </div>
+
+        <!-- Decorative art for the landing page -->
+        <div class="landing-art">
+          <!-- The decorative art image is stored in the project root as landing_art.png -->
+          <img src="landing_art.png" alt="Decorative art">
+        </div>
+
+        <!-- Credits positioned at the bottom right of the landing section -->
+        <div id="credits">
+          Created by Stephen McCarthy, uOttawa PGY5. Version 1.0 Feb 12, 2026.
+          For questions, feedback or suggestions, email: <a href="mailto:smcca104@uottawa.ca">smcca104@uottawa.ca</a>.
+        </div>
+
+        <!-- Developer note removed as requested -->
+      </section>
+
+      <!-- Exam interface -->
+      <section id="exam" class="hidden">
+        <div class="exam-header">
+          <div class="timer-wrapper">
+            <span id="timer">Time Remaining: --:--:--</span>
+            <span id="points-indicator"></span>
+          </div>
+          <button id="review-button">Review/Submit</button>
+        </div>
+        <div class="exam-body">
+          <aside class="sidebar">
+            <h2>Questions</h2>
+            <ul id="question-list"></ul>
+          </aside>
+          <div class="question-container">
+            <div id="question-content"></div>
+            <div class="question-navigation">
+              <button id="prev-question">Previous</button>
+              <button id="flag-question">Flag/Unflag</button>
+              <button id="next-question">Next</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Review page -->
+      <section id="review" class="hidden">
+        <h2>Review &amp; Submit</h2>
+        <p>Use this page to verify your answers. Any unanswered or flagged questions are highlighted.</p>
+        <!-- Summary of counts will be inserted here -->
+        <div id="review-summary"></div>
+        <ul id="review-list"></ul>
+        <div class="review-actions">
+          <button id="back-to-exam">Back to Exam</button>
+          <button id="final-submit">Submit Exam</button>
+        </div>
+      </section>
+
+      <!-- Submission/Results page -->
+      <section id="results" class="hidden">
+        <h2>Exam Submitted</h2>
+        <p>Your attempt has been submitted.</p>
+        <!-- Instructions section appears before the rubric for automated feedback guidance -->
+        <div id="instructions-section"></div>
+        <!-- Model rubric for self‑assessment -->
+        <h3>Model rubric for self‑assessment</h3>
+        <div id="results-container"></div>
+        <!-- Note: scoring section has been removed per user request -->
+        <p id="thank-you-text">Thank you for using the simulator.</p>
+        <!-- Return to landing page button -->
+        <button id="return-home" class="primary">Return to Landing Page</button>
+      </section>
+    </main>
+    <script src="script.js"></script>
+    
+    <!-- Calculator icon and panel (pop-up) -->
+    <div id="calculator-icon">Calc</div>
+    <div id="calculator-panel">
+      <input id="calc-display" class="display" type="text" readonly />
+      <div class="calc-buttons">
+        <!-- Row 1 -->
+        <button class="calc-btn" data-val="7">7</button>
+        <button class="calc-btn" data-val="8">8</button>
+        <button class="calc-btn" data-val="9">9</button>
+        <button class="calc-btn" data-val="/">÷</button>
+        <!-- Row 2 -->
+        <button class="calc-btn" data-val="4">4</button>
+        <button class="calc-btn" data-val="5">5</button>
+        <button class="calc-btn" data-val="6">6</button>
+        <button class="calc-btn" data-val="*">×</button>
+        <!-- Row 3 -->
+        <button class="calc-btn" data-val="1">1</button>
+        <button class="calc-btn" data-val="2">2</button>
+        <button class="calc-btn" data-val="3">3</button>
+        <button class="calc-btn" data-val="-">−</button>
+        <!-- Row 4 -->
+        <button class="calc-btn" data-val="0">0</button>
+        <button class="calc-btn" data-val=".">.</button>
+        <button class="calc-btn" data-val="^">^</button>
+        <button class="calc-btn" data-val="+">+</button>
+        <!-- Row 5 -->
+        <button class="calc-btn" data-val="(">(</button>
+        <button class="calc-btn" data-val=")">)</button>
+        <button class="calc-btn" data-val="log(">log</button>
+        <button class="calc-btn" data-val="ln(">ln</button>
+        <!-- Row 6: Clear and Equals -->
+        <button class="calc-btn" data-val="C">C</button>
+        <button class="calc-btn" data-val="">
+          <!-- empty placeholder for grid alignment -->
+        </button>
+        <button class="calc-btn" data-val="">
+          <!-- empty placeholder for grid alignment -->
+        </button>
+        <button class="calc-btn" data-val="=">=</button>
+      </div>
+    </div>
+  </body>
+</html>
