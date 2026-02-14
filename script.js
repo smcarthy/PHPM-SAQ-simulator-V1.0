@@ -452,6 +452,7 @@
   const STORAGE_KEY_MODE = 'saq_mode';
   const STORAGE_KEY_STARTED_AT = 'saq_started_at';
   const STORAGE_KEY_SCORES = 'saq_awarded_scores';
+  const STORAGE_KEY_LAST_TICK = 'saq_last_tick_epoch_ms';
 
   // Fetch exam data.  Because the page is loaded via file://, fetch() will
   // fail.  Instead, this function returns the embedded data immediately.
@@ -471,8 +472,12 @@
 
   // Start timer
   function startTimer(totalSeconds) {
+    if (timerInterval) {
+      clearInterval(timerInterval);
+    }
     timerPaused = false; // ensure timer is considered running
     timeRemaining = totalSeconds;
+    localStorage.setItem(STORAGE_KEY_LAST_TICK, String(Date.now()));
     updateTimerDisplay();
     timerInterval = setInterval(() => {
       timeRemaining -= 1;
@@ -489,6 +494,7 @@
       }
       // Save time remaining to localStorage for autosave
       localStorage.setItem(STORAGE_KEY_TIME, timeRemaining);
+      localStorage.setItem(STORAGE_KEY_LAST_TICK, String(Date.now()));
     }, 1000);
   }
 
@@ -673,7 +679,16 @@
       let unanswered = false;
       q.parts.forEach((p) => {
         const ans = answers[q.id] ? answers[q.id][p.id] : '';
-        if (!ans || ans.trim().length === 0) {
+        if (p.response_type === 'list') {
+          const expectedCount = p.list_count || 0;
+          const provided = (ans || '')
+            .split('\n')
+            .slice(0, expectedCount)
+            .filter((item) => item.trim().length > 0).length;
+          if (provided < expectedCount) {
+            unanswered = true;
+          }
+        } else if (!ans || ans.trim().length === 0) {
           unanswered = true;
         }
       });
@@ -774,6 +789,7 @@
     localStorage.removeItem(STORAGE_KEY_SELECTED);
     localStorage.removeItem(STORAGE_KEY_MODE);
     localStorage.removeItem(STORAGE_KEY_STARTED_AT);
+    localStorage.removeItem(STORAGE_KEY_LAST_TICK);
     // Show results section
     switchSection('results');
   }
@@ -808,8 +824,7 @@
   /**
    * Export the exam attempt as a JSON file and trigger download. The exported
    * object includes metadata (mode, start/end times, duration) and the list
-   * of questions with user answers and flagged status. Rubrics are not
-   * included to respect IP constraints.
+   * of questions with user answers and flagged status.
    *
    * @param {number} remainingSec - The number of seconds remaining when the exam was submitted.
    */
@@ -1140,6 +1155,7 @@
     localStorage.removeItem(STORAGE_KEY_MODE);
     localStorage.removeItem(STORAGE_KEY_STARTED_AT);
     localStorage.removeItem(STORAGE_KEY_SCORES);
+    localStorage.removeItem(STORAGE_KEY_LAST_TICK);
 
     examMode = mode;
     // Determine exam duration based on mode
@@ -1264,6 +1280,7 @@
         if (timerInterval) clearInterval(timerInterval);
         timerPaused = true;
         updateTimerDisplay();
+        localStorage.removeItem(STORAGE_KEY_LAST_TICK);
         // Save the current time remaining (already in localStorage)
       } else {
         // Resume: start a new timer interval with the remaining time
@@ -1296,11 +1313,10 @@
     }
     // Check if there is a saved session to resume
     const savedTime = localStorage.getItem(STORAGE_KEY_TIME);
-    const savedAnswers = localStorage.getItem(STORAGE_KEY_ANSWERS);
     const savedMode = localStorage.getItem(STORAGE_KEY_MODE);
     const savedSelected = localStorage.getItem(STORAGE_KEY_SELECTED);
     const savedStarted = localStorage.getItem(STORAGE_KEY_STARTED_AT);
-    if (savedTime && savedAnswers && savedMode && savedSelected) {
+    if (savedTime && savedMode && savedSelected) {
       const resume = confirm('You have an unfinished exam. Would you like to resume?');
       if (resume) {
         examMode = savedMode;
@@ -1318,17 +1334,37 @@
         }
         // Rebuild activeQuestions using saved selected ids
         const ids = JSON.parse(savedSelected);
-        activeQuestions = examData.questions
-          .filter((q) => ids.includes(q.id))
+        const questionById = {};
+        examData.questions.forEach((q) => {
+          questionById[q.id] = q;
+        });
+        activeQuestions = ids
+          .map((id) => questionById[id])
+          .filter(Boolean)
           .map((q) => JSON.parse(JSON.stringify(q)));
         // Assign sequential numbers
         activeQuestions.forEach((q, idx) => {
           q.number = idx + 1;
         });
+        if (pointsIndicator) {
+          const totalPoints = activeQuestions.reduce((sum, q) => {
+            return sum + q.parts.reduce((partSum, part) => partSum + (part.max_score || 0), 0);
+          }, 0);
+          pointsIndicator.textContent = 'Total Points: ' + totalPoints;
+        }
+
+        const lastTickRaw = localStorage.getItem(STORAGE_KEY_LAST_TICK);
+        let adjustedTime = parseInt(savedTime, 10);
+        if (lastTickRaw) {
+          const elapsedSec = Math.floor((Date.now() - parseInt(lastTickRaw, 10)) / 1000);
+          if (!Number.isNaN(elapsedSec) && elapsedSec > 0) {
+            adjustedTime = Math.max(0, adjustedTime - elapsedSec);
+          }
+        }
         currentIndex = 0;
         renderQuestionList();
         renderQuestion();
-        startTimer(parseInt(savedTime, 10));
+        startTimer(adjustedTime);
         switchSection('exam');
         return;
       } else {
@@ -1340,6 +1376,7 @@
         localStorage.removeItem(STORAGE_KEY_MODE);
         localStorage.removeItem(STORAGE_KEY_STARTED_AT);
         localStorage.removeItem(STORAGE_KEY_SCORES);
+        localStorage.removeItem(STORAGE_KEY_LAST_TICK);
       }
     }
     // Otherwise show landing page
