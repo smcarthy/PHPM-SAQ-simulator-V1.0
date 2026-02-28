@@ -39,7 +39,7 @@
         }
       ],
       "title": "Legacy Practice Question Q1",
-      "stem": "Legacy 30-minute SAQ practice block question."
+      "stem": ""
     },
     {
       "id": "Q2",
@@ -61,7 +61,7 @@
         }
       ],
       "title": "Legacy Practice Question Q2",
-      "stem": "Legacy 30-minute SAQ practice block question."
+      "stem": ""
     },
     {
       "id": "Q3",
@@ -101,7 +101,7 @@
         }
       ],
       "title": "Legacy Practice Question Q3",
-      "stem": "Legacy 30-minute SAQ practice block question."
+      "stem": ""
     },
     {
       "id": "Q4",
@@ -145,7 +145,7 @@
         }
       ],
       "title": "Legacy Practice Question Q4",
-      "stem": "Legacy 30-minute SAQ practice block question."
+      "stem": ""
     },
     {
       "id": "Q5",
@@ -165,7 +165,7 @@
         }
       ],
       "title": "Legacy Practice Question Q5",
-      "stem": "Legacy 30-minute SAQ practice block question."
+      "stem": ""
     },
     {
       "id": "Q6",
@@ -213,7 +213,7 @@
         }
       ],
       "title": "Legacy Practice Question Q6",
-      "stem": "Legacy 30-minute SAQ practice block question."
+      "stem": ""
     },
     {
       "id": "Q7",
@@ -271,7 +271,7 @@
         }
       ],
       "title": "Legacy Practice Question Q7",
-      "stem": "Legacy 30-minute SAQ practice block question."
+      "stem": ""
     },
     {
       "id": "Q01",
@@ -375,7 +375,9 @@
           ],
           "must_have": [],
           "rc_classification": 4,
-          "theme": "F"
+          "theme": "F",
+          "haddon_time_as_rows": true,
+          "haddon_include_workspace": true
         }
       ]
     },
@@ -1067,14 +1069,15 @@
           "id": "Q20_20c",
           "prompt": "List THREE approaches to improve oral medication adherence.",
           "max_score": 1.5,
-          "response_type": "list",
-          "list_count": 3,
+          "response_type": "text",
+          "list_count": null,
           "rubric": [
             "0.5 mark each, 1.5 marks total Any THREE: - DOT or video‑enabled DOT (VDOT) - Case management, reminders, incentives/enablers - Education on duration, side effects, and missed dose plan"
           ],
           "must_have": [],
           "rc_classification": 5,
-          "theme": "A"
+          "theme": "A",
+          "single_line": true
         },
         {
           "id": "Q20_20d",
@@ -1099,14 +1102,15 @@
           "id": "Q21_21a",
           "prompt": "List THREE clinical severity features suggesting streptococcal toxic shock syndrome (STSS).",
           "max_score": 1.5,
-          "response_type": "list",
-          "list_count": 3,
+          "response_type": "text",
+          "list_count": null,
           "rubric": [
             "0.5 mark each, 1.5 marks total Any THREE: - Hypotension/shock - Multi‑organ dysfunction (renal impairment, coagulopathy, liver involvement) - Soft tissue necrosis / severe pain out of proportion / rapidly progressive infection"
           ],
           "must_have": [],
           "rc_classification": 5,
-          "theme": "A"
+          "theme": "A",
+          "single_line": true
         },
         {
           "id": "Q21_21b",
