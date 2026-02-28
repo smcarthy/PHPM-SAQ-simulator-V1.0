@@ -1813,6 +1813,19 @@
     const heading = document.createElement('h3');
     heading.textContent = `Question ${q.number} (Total marks: ${totalMarks})`;
     container.appendChild(heading);
+    if (q.stem) {
+      const stem = document.createElement('p');
+      stem.classList.add('question-stem');
+      stem.textContent = q.stem;
+      container.appendChild(stem);
+    }
+    if (q.stem_image) {
+      const stemImage = document.createElement('img');
+      stemImage.src = q.stem_image;
+      stemImage.alt = `Reference image for question ${q.number}`;
+      stemImage.classList.add('question-stem-image');
+      container.appendChild(stemImage);
+    }
     q.parts.forEach((part, partIndex) => {
       const partDiv = document.createElement('div');
       partDiv.classList.add('question-part');
@@ -1855,13 +1868,57 @@
           input.value = items[i] || '';
           answerDiv.appendChild(input);
         }
+      } else if (part.response_type === 'haddon_matrix') {
+        const saved = getSavedAnswer(q.id, part.id);
+        const items = saved ? saved.split('\n') : [];
+        const matrix = document.createElement('div');
+        matrix.classList.add('haddon-matrix');
+        const rowLabels = ['Host', 'Agent/Vehicle', 'Physical/Social Environment'];
+        const colLabels = ['Pre-event', 'Event', 'Post-event'];
+        const corner = document.createElement('div');
+        corner.classList.add('haddon-label');
+        matrix.appendChild(corner);
+        colLabels.forEach((label) => {
+          const col = document.createElement('div');
+          col.classList.add('haddon-label');
+          col.textContent = label;
+          matrix.appendChild(col);
+        });
+        for (let row = 0; row < rowLabels.length; row++) {
+          const rowLabel = document.createElement('div');
+          rowLabel.classList.add('haddon-label');
+          rowLabel.textContent = rowLabels[row];
+          matrix.appendChild(rowLabel);
+          for (let col = 0; col < colLabels.length; col++) {
+            const index = row * colLabels.length + col;
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.classList.add('haddon-input');
+            input.dataset.itemIndex = index;
+            input.value = items[index] || '';
+            matrix.appendChild(input);
+          }
+        }
+        answerDiv.appendChild(matrix);
       } else {
-        // Render a textarea for free-form answer
+        // Render a textarea for free-form answer or a single-line input
+        const useSingleLine = !!part.single_line;
+        const value = getSavedAnswer(q.id, part.id);
+        if (useSingleLine) {
+          const input = document.createElement('input');
+          input.type = 'text';
+          input.classList.add('single-line-input');
+          input.dataset.qId = q.id;
+          input.dataset.partId = part.id;
+          input.value = value;
+          answerDiv.appendChild(input);
+        } else {
         const textarea = document.createElement('textarea');
         textarea.dataset.qId = q.id;
         textarea.dataset.partId = part.id;
-        textarea.value = getSavedAnswer(q.id, part.id);
+        textarea.value = value;
         answerDiv.appendChild(textarea);
+        }
       }
       partDiv.appendChild(answerDiv);
       container.appendChild(partDiv);
@@ -1923,7 +1980,16 @@
         const inputs = area.querySelectorAll('input');
         const lines = Array.from(inputs).map((inp) => inp.value.trim());
         answers[qId][partId] = lines.join('\n');
+      } else if (responseType === 'haddon_matrix') {
+        const inputs = area.querySelectorAll('.haddon-input');
+        const lines = Array.from(inputs).map((inp) => inp.value.trim());
+        answers[qId][partId] = lines.join('\n');
       } else {
+        const input = area.querySelector('input.single-line-input');
+        if (input) {
+          answers[qId][partId] = input.value.trim();
+          return;
+        }
         const textarea = area.querySelector('textarea');
         if (textarea) {
           answers[qId][partId] = textarea.value;
@@ -1954,6 +2020,14 @@
             .slice(0, expectedCount)
             .filter((item) => item.trim().length > 0).length;
           if (provided < expectedCount) {
+            unanswered = true;
+          }
+        } else if (p.response_type === 'haddon_matrix') {
+          const provided = (ans || '')
+            .split('\n')
+            .slice(0, 9)
+            .filter((item) => item.trim().length > 0).length;
+          if (provided < 9) {
             unanswered = true;
           }
         } else if (!ans || ans.trim().length === 0) {
