@@ -307,30 +307,17 @@ main {
 }
 
 .workspace-2x2 {
-  display: grid;
-  grid-template-columns: minmax(280px, 1fr) minmax(280px, 1fr);
-  gap: 0.75rem;
-  align-items: start;
+  display: block;
 }
 
-@media (max-width: 880px) {
-  .workspace-2x2 {
-    grid-template-columns: 1fr;
-  }
-}
-
-.workspace-cell,
-.workspace-calculations {
+.workspace-cell {
   width: 100%;
   box-sizing: border-box;
-  padding: 0.4rem;
+  padding: 0.35rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 1.05rem;
-}
-
-.workspace-calculations {
-  min-height: 16rem;
+  font-size: 1rem;
+  min-height: 2rem;
 }
 
 .stem-missing-warning {
