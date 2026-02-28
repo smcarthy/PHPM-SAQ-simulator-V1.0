@@ -296,7 +296,7 @@
     {
       "id": "Q01",
       "title": "Public Health Surveillance and QALYs (Methods)",
-      "stem": "Sources (brief): PHAC, 2024–2026 (surveillance resources); CADTH, 2024 (health economics methods)",
+      "stem": "",
       "parts": [
         {
           "id": "Q01_1a",
@@ -329,7 +329,7 @@
     {
       "id": "Q02",
       "title": "Child Mortality (Canada)",
-      "stem": "Sources (brief): Statistics Canada (Leading Causes of Death tables), most recent available series",
+      "stem": "",
       "parts": [
         {
           "id": "Q02_2",
@@ -349,7 +349,7 @@
     {
       "id": "Q03",
       "title": "Adverse Childhood Experiences (ACEs)",
-      "stem": "Sources (brief): PHAC, 2023–2025",
+      "stem": "",
       "parts": [
         {
           "id": "Q03_3a",
@@ -383,11 +383,11 @@
     {
       "id": "Q04",
       "title": "Drowning Prevention – Haddon Matrix",
-      "stem": "Sources (brief): Health Canada, 2024–2026 (water/safety guidance)",
+      "stem": "",
       "parts": [
         {
           "id": "Q04_4",
-          "prompt": "Using Haddon’s matrix (host/agent/physical environment/social environment across pre‑event, event, post‑event), propose NINE interventions to address drownings among children.",
+          "prompt": "Using Haddon’s matrix, propose NINE interventions to address drownings among children.",
           "max_score": 4.5,
           "response_type": "haddon_matrix",
           "rubric": [
@@ -594,7 +594,7 @@
     {
       "id": "Q10",
       "title": "Occupational Health – Fatigue and Shift Work",
-      "stem": "Sources (brief): CCOHS, 2024–2026",
+      "stem": "Consider this table of annual suicides in an Indigenous population and the overall suicides reported for that province.",
       "parts": [
         {
           "id": "Q10_10a",
@@ -824,7 +824,7 @@
     {
       "id": "Q15",
       "title": "Extreme Heat and Air Quality – Vulnerability, Indices, Syndemics",
-      "stem": "Differentiate between the Air Quality Health Index (AQHI) and an Air Quality Index (AQI).\nSources (brief): ECCC/Health Canada AQHI resources, 2024–2026; syndemics literature (general)",
+      "stem": "Differentiate between the Air Quality Health Index (AQHI) and an Air Quality Index (AQI).",
       "parts": [
         {
           "id": "Q15_15a",
@@ -922,7 +922,8 @@
           "prompt": "Apply each phase to a respiratory virus season cycle by listing ONE concrete activity under each phase.",
           "max_score": 2,
           "domain": "8",
-          "response_type": "text",
+          "response_type": "list",
+          "list_count": 4,
           "rubric": [
             "Mitigation activity.",
             "Preparedness activity.",
@@ -1466,6 +1467,7 @@
           "max_score": 2.5,
           "response_type": "text",
           "list_count": null,
+          "single_line": true,
           "rubric": [
             "PPV decreases and NPV increases as prevalence decreases (base-rate effect)."
           ],
@@ -1534,35 +1536,35 @@
       "duration_sec": 10800,
       "total_points": 180.0,
       "question_ids": [
-        "Q17",
-        "Q03",
-        "Q25",
-        "Q11",
-        "Q01",
-        "Q19",
-        "Q07",
-        "Q28",
-        "Q14",
-        "Q05",
-        "Q22",
-        "Q09",
-        "Q15",
-        "Q29",
-        "Q04",
-        "Q23",
-        "Q12",
-        "Q02",
-        "Q27",
-        "Q16",
-        "Q08",
-        "Q20",
-        "Q06",
         "Q24",
+        "Q11",
+        "Q03",
+        "Q28",
+        "Q17",
+        "Q06",
+        "Q25",
         "Q13",
-        "Q18",
+        "Q20",
+        "Q08",
+        "Q02",
+        "Q16",
+        "Q27",
+        "Q29",
+        "Q15",
+        "Q21",
+        "Q09",
+        "Q04",
         "Q10",
+        "Q22",
+        "Q18",
+        "Q07",
+        "Q19",
+        "Q12",
+        "Q05",
         "Q26",
-        "Q21"
+        "Q23",
+        "Q14",
+        "Q01"
       ],
       "notice": ""
     }
@@ -2097,11 +2099,8 @@
           stem.appendChild(document.createElement('br'));
         }
       });
-    } else {
-      stem.classList.add('stem-missing-warning');
-      stem.textContent = '(Stem missing in bank)';
+      container.appendChild(stem);
     }
-    container.appendChild(stem);
     if (q.stem_image) {
       const stemImage = document.createElement('img');
       stemImage.src = q.stem_image;
@@ -2162,8 +2161,8 @@
         const items = saved ? saved.split('\n') : [];
         const matrix = document.createElement('table');
         matrix.classList.add('haddon-matrix');
-        const rowLabels = q.id === 'Q04' ? ['Pre-event', 'Event', 'Post-event'] : ['Host', 'Agent/Vehicle', 'Physical/Social Environment'];
-        const colLabels = q.id === 'Q04' ? ['Host', 'Agent/Vehicle', 'Physical/Social Environment'] : ['Pre-event', 'Event', 'Post-event'];
+        const rowLabels = ['Host', 'Agent/Vehicle', 'Physical/Social Environment'];
+        const colLabels = ['Pre-event', 'Event', 'Post-event'];
 
         const headerRow = document.createElement('tr');
         const corner = document.createElement('th');
