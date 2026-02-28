@@ -30,18 +30,17 @@
             Workflow: choose an exam length below, answer the questions in sequence (flag any you want to revisit), review your answers, then submit. You may pause the timer if you need a break, but be aware that the timer runs continuously for the real exam. Upon submission your answers will be automatically downloaded as a file. You can upload this file into the recommended Custom GPT for grading and feedback. Good luck!
           </p>
         </div>
+        <p id="data-warning" class="hidden" role="alert"></p>
         <div class="options">
-          <!-- Disable full and half exam buttons; show coming soon -->
           <div class="exam-option">
-            <button id="start-full" disabled>Start Full Exam (3:00)</button>
-            <div class="coming-soon">Coming soon</div>
+            <button id="start-full">Start Full Exam (3:00)</button>
           </div>
           <div class="exam-option">
             <button id="start-half" disabled>Start Half Exam (1:30)</button>
             <div class="coming-soon">Coming soon</div>
           </div>
           <div class="exam-option">
-            <button id="start-practice">Start Practice Exam (0:30)</button>
+            <button id="start-practice">Start Practice Block (0:30)</button>
           </div>
         </div>
 

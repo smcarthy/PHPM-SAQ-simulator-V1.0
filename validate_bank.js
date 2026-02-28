@@ -1,30 +1,5 @@
 #!/usr/bin/env node
 const fs = require('fs');
-const vm = require('vm');
-
-function extractEmbeddedExamData(source) {
-  const marker = 'const embeddedExamData = ';
-  const start = source.indexOf(marker);
-  if (start === -1) throw new Error('embeddedExamData definition not found');
-  const braceStart = source.indexOf('{', start);
-  let depth = 0;
-  let end = -1;
-  for (let i = braceStart; i < source.length; i += 1) {
-    const ch = source[i];
-    if (ch === '{') depth += 1;
-    if (ch === '}') {
-      depth -= 1;
-      if (depth === 0) {
-        end = i;
-        break;
-      }
-    }
-  }
-  if (end === -1) throw new Error('Could not parse embeddedExamData object');
-  const objectLiteral = source.slice(braceStart, end + 1);
-  return vm.runInNewContext(`(${objectLiteral})`);
-}
-
 const NUMBER_WORDS = {
   ONE: 1,
   TWO: 2,
@@ -103,8 +78,7 @@ function validate(data) {
 }
 
 try {
-  const source = fs.readFileSync('script.js', 'utf8');
-  const data = extractEmbeddedExamData(source);
+  const data = JSON.parse(fs.readFileSync('question_bank.json', 'utf8'));
   const { errors, warnings, totalMarks } = validate(data);
 
   console.log(`Questions: ${data.questions.length}`);
