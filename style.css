@@ -135,6 +135,17 @@ main {
   margin-bottom: 1rem;
 }
 
+.question-stem {
+  white-space: pre-wrap;
+}
+
+.question-stem-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0.5rem 0 1rem;
+}
+
 .question-navigation {
   display: flex;
   justify-content: flex-end;
@@ -250,6 +261,34 @@ main {
   box-sizing: border-box;
   /* Match textarea font size for consistency */
   font-size: 1.15rem;
+}
+
+.answer-area .single-line-input {
+  width: 100%;
+  padding: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1.15rem;
+}
+
+.haddon-matrix {
+  display: grid;
+  grid-template-columns: 220px repeat(3, minmax(140px, 1fr));
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.haddon-label {
+  font-weight: 600;
+}
+
+.haddon-input {
+  width: 100%;
+  padding: 0.35rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 /* Domain info appended to part headings */
