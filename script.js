@@ -388,7 +388,7 @@
           "id": "Q04_4",
           "prompt": "Using Haddon\u2019s matrix (host/agent/physical environment/social environment across pre\u2011event, event, post\u2011event), propose NINE interventions to address drownings among children.",
           "max_score": 4.5,
-          "response_type": "list",
+          "response_type": "haddon_matrix",
           "list_count": 9,
           "rubric": [
             "0.5 mark each, 4.5 marks total Any NINE reasonable interventions are acceptable. Examples: - Active adult supervision (close supervision; within arm\u2019s reach for young children) - Four\u2011sided pool fencing with self\u2011closing/self\u2011latching gates - Remove/secure portable pools; eliminate standing\u2011water hazards - Water safety education and swim skills (not a substitute for supervision) - Lifejacket/PFD use near open water - Lifeguards / supervised swimming areas - Rescue equipment accessible (ring buoy/rope) and first aid kit - CPR/first aid training for caregivers - Rapid EMS activation and clear wayfinding/addressing"
@@ -494,7 +494,7 @@
     {
       "id": "Q07",
       "title": "Fluoridation \u2013 Scientific and Ethical Arguments",
-      "stem": "Provide TWO ethical arguments in support AND TWO ethical arguments against.\nSources (brief): Health Canada, 2011; Health Canada, 2024",
+      "stem": "A municipality is reviewing a proposal to initiate community water fluoridation. Consider both scientific evidence and ethics in your response.",
       "parts": [
         {
           "id": "Q07_7a",
@@ -613,7 +613,8 @@
     {
       "id": "Q11",
       "title": "Standardization and Comparative Rates (High\u2011Marks Calculations)",
-      "stem": "For practice purposes, consider the following hypothetical data on suicides in a small community compared with the overall provincial rate.\nTable 1. Community suicides and population by age group, and provincial age\u2011specific suicide rates\nMarking principle: For each calculation, award partial marks for Formula \u2192 Working \u2192 Answer/interpretation.\nSources (brief): Standard epidemiology methods (direct/indirect standardization)",
+      "stem": "Consider this table of annual suicides in an Indigenous population compared and the overall suicides reported for that province. Table 11 is shown below.",
+      "stem_image": "Q11table.png",
       "parts": [
         {
           "id": "Q11_11a",
@@ -1609,7 +1610,8 @@
     const normalized = {
       id: question.id,
       title: question.title || `Question ${question.id || ''}`,
-      stem: question.stem || '',
+      stem: question.stem || question.questionStem || '',
+      stem_image: question.stem_image || question.stemImage || '',
       number: question.number || fallbackNumber,
       parts: Array.isArray(question.parts)
         ? question.parts.map((part, idx) => ({
@@ -1683,10 +1685,126 @@
   }
 
   function updateLandingButtonState() {
-    const formIds = new Set((examDataFull.forms.forms || []).map((form) => form.form_id));
-    if (startFullBtn) startFullBtn.disabled = !formIds.has(MODE_TO_FORM_ID.full);
+    const forms = examDataFull.forms.forms || [];
+    const formIds = new Set(forms.map((form) => form.form_id));
+    const fullForm = forms.find((form) => form.form_id === MODE_TO_FORM_ID.full);
+    const fullResolved = fullForm
+      ? resolveQuestionsForForm(examDataFull.bank, fullForm).missingIds.length === 0
+      : false;
+    if (startFullBtn) startFullBtn.disabled = !fullResolved;
     if (startHalfBtn) startHalfBtn.disabled = !formIds.has(MODE_TO_FORM_ID.half);
     if (startPracticeBtn) startPracticeBtn.disabled = !formIds.has(MODE_TO_FORM_ID.practice);
+
+    if (!fullForm) {
+      showDataWarning(`Warning: ${MODE_TO_FORM_ID.full} is missing from exam_forms.json.`);
+      return;
+    }
+    const unresolved = resolveQuestionsForForm(examDataFull.bank, fullForm).missingIds;
+    if (unresolved.length > 0) {
+      showDataWarning(
+        `Warning: ${MODE_TO_FORM_ID.full} cannot start because these question IDs are missing in the bank: ${unresolved.join(', ')}.`
+      );
+    } else if (!examDataFull.usingFallback) {
+      hideDataWarning();
+    }
+  }
+
+  function runBankSanityChecks() {
+    const checks = [];
+    const forms = examDataFull.forms.forms || [];
+    const bankQuestions = examDataFull.bank.questions || [];
+    const fullForm = forms.find((form) => form.form_id === MODE_TO_FORM_ID.full);
+    checks.push({
+      name: 'EXAM_180 form exists',
+      ok: !!fullForm,
+      detail: fullForm ? `Found ${fullForm.form_id}.` : 'EXAM_180_V1 is missing.'
+    });
+
+    const questionById = {};
+    bankQuestions.forEach((q) => {
+      questionById[q.id] = q;
+    });
+
+    const stemFailures = [];
+    if (fullForm) {
+      fullForm.question_ids.forEach((id) => {
+        const question = questionById[id];
+        if (!question || !(question.stem || '').trim()) {
+          stemFailures.push(id);
+        }
+      });
+    }
+    checks.push({
+      name: 'Every EXAM_180 question has a stem',
+      ok: stemFailures.length === 0,
+      detail:
+        stemFailures.length === 0
+          ? 'All EXAM_180 stems are populated.'
+          : `Missing stems: ${stemFailures.join(', ')}`
+    });
+
+    const q4 = questionById.Q04;
+    const q4HasHaddon = !!(
+      q4 &&
+      Array.isArray(q4.parts) &&
+      q4.parts.some((part) => part.response_type === 'haddon_matrix')
+    );
+    checks.push({
+      name: 'Q4 haddon_matrix wiring',
+      ok: q4HasHaddon,
+      detail: q4HasHaddon
+        ? 'Q04 includes response_type=haddon_matrix and renderer supports it.'
+        : 'Q04 part is not configured with response_type=haddon_matrix.'
+    });
+
+    const q11 = questionById.Q11;
+    const q11ImagePath = q11 ? q11.stem_image || '' : '';
+    const hasImageReference = !!q11ImagePath && /Q11table\.png$/i.test(q11ImagePath);
+    checks.push({
+      name: 'Q11 stem image reference',
+      ok: hasImageReference,
+      detail: hasImageReference
+        ? `Q11 stem_image points to ${q11ImagePath}.`
+        : 'Q11 does not reference Q11table.png.'
+    });
+
+    const imageProbe = new Image();
+    imageProbe.onload = () => {
+      checks.push({
+        name: 'Q11 image file loads',
+        ok: true,
+        detail: `Loaded ${q11ImagePath}.`
+      });
+      reportSanityChecks(checks);
+    };
+    imageProbe.onerror = () => {
+      checks.push({
+        name: 'Q11 image file loads',
+        ok: false,
+        detail: `Could not load ${q11ImagePath || 'image path missing'}.`
+      });
+      reportSanityChecks(checks);
+    };
+
+    if (q11ImagePath) {
+      imageProbe.src = q11ImagePath;
+    } else {
+      checks.push({ name: 'Q11 image file loads', ok: false, detail: 'No image path configured.' });
+      reportSanityChecks(checks);
+    }
+  }
+
+  function reportSanityChecks(checks) {
+    const failures = checks.filter((check) => !check.ok);
+    console.group('PHPM bank sanity checks');
+    checks.forEach((check) => {
+      const prefix = check.ok ? 'PASS' : 'FAIL';
+      console.log(`[${prefix}] ${check.name}: ${check.detail}`);
+    });
+    console.groupEnd();
+    if (failures.length > 0) {
+      showDataWarning(`Sanity checks failed: ${failures.map((item) => item.name).join('; ')}`);
+    }
   }
 
   async function loadExamData() {
@@ -1813,17 +1931,32 @@
     const heading = document.createElement('h3');
     heading.textContent = `Question ${q.number} (Total marks: ${totalMarks})`;
     container.appendChild(heading);
-    if (q.stem) {
-      const stem = document.createElement('p');
-      stem.classList.add('question-stem');
-      stem.textContent = q.stem;
-      container.appendChild(stem);
+    const stem = document.createElement('p');
+    stem.classList.add('question-stem');
+    if ((q.stem || '').trim().length > 0) {
+      const lines = q.stem.split('\n');
+      lines.forEach((line, idx) => {
+        stem.appendChild(document.createTextNode(line));
+        if (idx < lines.length - 1) {
+          stem.appendChild(document.createElement('br'));
+        }
+      });
+    } else {
+      stem.classList.add('stem-missing-warning');
+      stem.textContent = '(Stem missing in bank)';
     }
+    container.appendChild(stem);
     if (q.stem_image) {
       const stemImage = document.createElement('img');
       stemImage.src = q.stem_image;
       stemImage.alt = `Reference image for question ${q.number}`;
       stemImage.classList.add('question-stem-image');
+      stemImage.addEventListener('error', () => {
+        const imageWarning = document.createElement('p');
+        imageWarning.classList.add('stem-missing-warning');
+        imageWarning.textContent = `(Stem image missing: ${q.stem_image})`;
+        container.appendChild(imageWarning);
+      });
       container.appendChild(stemImage);
     }
     q.parts.forEach((part, partIndex) => {
@@ -1871,33 +2004,44 @@
       } else if (part.response_type === 'haddon_matrix') {
         const saved = getSavedAnswer(q.id, part.id);
         const items = saved ? saved.split('\n') : [];
-        const matrix = document.createElement('div');
+        const matrix = document.createElement('table');
         matrix.classList.add('haddon-matrix');
         const rowLabels = ['Host', 'Agent/Vehicle', 'Physical/Social Environment'];
         const colLabels = ['Pre-event', 'Event', 'Post-event'];
-        const corner = document.createElement('div');
+
+        const headerRow = document.createElement('tr');
+        const corner = document.createElement('th');
         corner.classList.add('haddon-label');
-        matrix.appendChild(corner);
+        corner.scope = 'col';
+        headerRow.appendChild(corner);
         colLabels.forEach((label) => {
-          const col = document.createElement('div');
+          const col = document.createElement('th');
           col.classList.add('haddon-label');
+          col.scope = 'col';
           col.textContent = label;
-          matrix.appendChild(col);
+          headerRow.appendChild(col);
         });
+        matrix.appendChild(headerRow);
+
         for (let row = 0; row < rowLabels.length; row++) {
-          const rowLabel = document.createElement('div');
+          const tr = document.createElement('tr');
+          const rowLabel = document.createElement('th');
           rowLabel.classList.add('haddon-label');
+          rowLabel.scope = 'row';
           rowLabel.textContent = rowLabels[row];
-          matrix.appendChild(rowLabel);
+          tr.appendChild(rowLabel);
           for (let col = 0; col < colLabels.length; col++) {
             const index = row * colLabels.length + col;
-            const input = document.createElement('input');
-            input.type = 'text';
+            const td = document.createElement('td');
+            const input = document.createElement('textarea');
             input.classList.add('haddon-input');
             input.dataset.itemIndex = index;
+            input.rows = 2;
             input.value = items[index] || '';
-            matrix.appendChild(input);
+            td.appendChild(input);
+            tr.appendChild(td);
           }
+          matrix.appendChild(tr);
         }
         answerDiv.appendChild(matrix);
       } else {
@@ -2676,6 +2820,7 @@
       examDataFull = examData;
     }
     updateLandingButtonState();
+    runBankSanityChecks();
     // Check if there is a saved session to resume
     const savedTime = localStorage.getItem(STORAGE_KEY_TIME);
     const savedMode = localStorage.getItem(STORAGE_KEY_MODE);
