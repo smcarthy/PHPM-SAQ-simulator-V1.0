@@ -306,6 +306,27 @@ main {
   resize: vertical;
 }
 
+.workspace-2x2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.workspace-cell,
+.workspace-calculations {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1.05rem;
+}
+
+.workspace-calculations {
+  min-height: 16rem;
+}
+
 .stem-missing-warning {
   color: #b42318;
   font-weight: 600;

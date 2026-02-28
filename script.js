@@ -102,7 +102,7 @@
             "Natural quality of surrounding soil (e.g., elevated heavy metals).",
             "Surface water infiltration.",
             "Well and local hydrogeology (integrity of bedrock).",
-            "Quality of well\u2011head construction (grouting/casing).",
+            "Quality of well‑head construction (grouting/casing).",
             "Location/distance from sources of contamination (e.g., septic tank)."
           ]
         },
@@ -137,9 +137,9 @@
           "rubric": [
             "Reduced rate of infections (otitis media, respiratory, gastrointestinal).",
             "Reduced incidence of atopic diseases.",
-            "Prevention of certain chronic diseases (e.g., diabetes, obesity, Crohn\u2019s disease).",
+            "Prevention of certain chronic diseases (e.g., diabetes, obesity, Crohn’s disease).",
             "Prevention of cognitive development abnormalities.",
-            "Enhanced mother\u2013child bonding.",
+            "Enhanced mother–child bonding.",
             "Transfer of immunoglobulins from mother to child.",
             "Decreased risk of childhood leukemia, SIDS and necrotising enterocolitis.",
             "Provides optimal nutrition."
@@ -156,8 +156,8 @@
             "Process: number or proportion of staff trained to promote/support breastfeeding.",
             "Process: number or proportion of program participants.",
             "Process: duration of participation in the program.",
-            "Process: number of service organisations favourable to breastfeeding (e.g., baby\u2011friendly hospitals).",
-            "Outcome: participants\u2019 knowledge/attitudes regarding benefits of breastfeeding.",
+            "Process: number of service organisations favourable to breastfeeding (e.g., baby‑friendly hospitals).",
+            "Outcome: participants’ knowledge/attitudes regarding benefits of breastfeeding.",
             "Outcome: staff knowledge/attitudes regarding importance of breastfeeding.",
             "Outcome: uptake of breastfeeding among participants (number/proportion).",
             "Outcome: duration of breastfeeding among participants (average, median)."
@@ -250,7 +250,7 @@
             "Reduced dental caries in primary baby teeth",
             "Reduced dental caries in permanent teeth",
             "Reduced severity/complications of caries in children (e.g., fewer cavities progressing to pain/infection, fewer extractions/restorations)",
-            "Equitable, population\u2011wide preventive benefit: does not depend on individual behaviour or ability to access or afford dental care",
+            "Equitable, population‑wide preventive benefit: does not depend on individual behaviour or ability to access or afford dental care",
             "Promotes remineralization of enamel",
             "Inhibits demineralization of enamel",
             "Reduces cariogenic bacterial acid effects"
@@ -274,7 +274,7 @@
         },
         {
           "id": "Q7c",
-          "prompt": "The community\u2011wide fluoridation program aims to achieve the benefits of CWF while minimizing risk of excess fluoride exposure, especially in young children. List FIVE key program components required to do this safely and effectively.",
+          "prompt": "The community‑wide fluoridation program aims to achieve the benefits of CWF while minimizing risk of excess fluoride exposure, especially in young children. List FIVE key program components required to do this safely and effectively.",
           "max_score": 2.5,
           "domain": "2",
           "response_type": "list",
@@ -284,8 +284,8 @@
             "Routine monitoring of fluoride concentration with quality assurance/quality control, calibration, documentation, and rapid corrective action if levels drift",
             "Use certified fluoridation agents and equipment, and standard operating procedures at the treatment plant",
             "Defined governance: Roles and accountability across water utility and public health, with reporting and oversight arrangements",
-            "Incident response plan for overfeed or underfeed: thresholds, mitigation steps, timely public notification, and after\u2011action review",
-            "Risk communication for families to reduce total fluoride ingestion from other sources (e.g., appropriate toothpaste amount/supervision for children, avoid swallowing), focused on the most susceptible ages: 0\u201136 months old (rice\u2011sized grain of toothpaste), 3\u20116 years old (small pea sized amount of toothpaste)",
+            "Incident response plan for overfeed or underfeed: thresholds, mitigation steps, timely public notification, and after‑action review",
+            "Risk communication for families to reduce total fluoride ingestion from other sources (e.g., appropriate toothpaste amount/supervision for children, avoid swallowing), focused on the most susceptible ages: 0‑36 months old (rice‑sized grain of toothpaste), 3‑6 years old (small pea sized amount of toothpaste)",
             "Evaluation/surveillance plan: track oral health outcomes (e.g. caries trends, service use) and monitor fluorosis, especially in cohorts exposed during early childhood"
           ]
         }
@@ -296,16 +296,16 @@
     {
       "id": "Q01",
       "title": "Public Health Surveillance and QALYs (Methods)",
-      "stem": "Sources (brief): PHAC, 2024\u20132026 (surveillance resources); CADTH, 2024 (health economics methods)",
+      "stem": "Sources (brief): PHAC, 2024–2026 (surveillance resources); CADTH, 2024 (health economics methods)",
       "parts": [
         {
           "id": "Q01_1a",
           "prompt": "List FOUR types of public health surveillance and give one example of each.",
-          "max_score": 2.0,
+          "max_score": 2,
           "response_type": "list",
-          "list_count": 1,
+          "list_count": 4,
           "rubric": [
-            "0.5 mark each, 2 marks total Any FOUR of the following (with an example): - Passive surveillance (routine reportable disease reporting) - Active surveillance (active case finding during an outbreak) - Sentinel surveillance (sentinel clinics for influenza\u2011like illness) - Syndromic surveillance (ED visits / telehealth calls for early signals) - Laboratory\u2011based surveillance (public health lab reporting, genomics) - Event\u2011based surveillance (monitoring media/social signals)"
+            "0.5 mark each, 2 marks total Any FOUR of the following (with an example): - Passive surveillance (routine reportable disease reporting) - Active surveillance (active case finding during an outbreak) - Sentinel surveillance (sentinel clinics for influenza‑like illness) - Syndromic surveillance (ED visits / telehealth calls for early signals) - Laboratory‑based surveillance (public health lab reporting, genomics) - Event‑based surveillance (monitoring media/social signals)"
           ],
           "must_have": [],
           "rc_classification": 3,
@@ -313,10 +313,10 @@
         },
         {
           "id": "Q01_1b",
-          "prompt": "Define a quality\u2011adjusted life year (QALY) and list one advantage and one disadvantage.",
+          "prompt": "Define a quality‑adjusted life year (QALY) and list one advantage and one disadvantage.",
           "max_score": 1.5,
           "response_type": "list",
-          "list_count": 1,
+          "list_count": 3,
           "rubric": [
             "1.5 marks total - Definition (0.5 mark): a measure combining quantity and quality of life; 1 year in perfect health = 1 QALY. - Advantage (0.5 mark): enables comparison across interventions/conditions by using a common outcome metric. - Disadvantage (0.5 mark): may not capture equity/distributional concerns; depends on preference weights."
           ],
@@ -333,10 +333,10 @@
       "parts": [
         {
           "id": "Q02_2",
-          "prompt": "List the THREE most common causes of death in children aged 1\u201314 years in Canada.",
+          "prompt": "List the THREE most common causes of death in children aged 1–14 years in Canada.",
           "max_score": 1.5,
           "response_type": "list",
-          "list_count": 1,
+          "list_count": 3,
           "rubric": [
             "0.5 mark each, 1.5 marks total - Accidents (unintentional injuries) - Malignant neoplasms - Congenital malformations, deformations and chromosomal abnormalities"
           ],
@@ -349,12 +349,12 @@
     {
       "id": "Q03",
       "title": "Adverse Childhood Experiences (ACEs)",
-      "stem": "Sources (brief): PHAC, 2023\u20132025",
+      "stem": "Sources (brief): PHAC, 2023–2025",
       "parts": [
         {
           "id": "Q03_3a",
           "prompt": "Define adverse childhood experiences (ACEs).",
-          "max_score": 1.0,
+          "max_score": 1,
           "response_type": "text",
           "list_count": null,
           "rubric": [
@@ -362,11 +362,12 @@
           ],
           "must_have": [],
           "rc_classification": 1,
-          "theme": "C"
+          "theme": "C",
+          "single_line": true
         },
         {
           "id": "Q03_3b",
-          "prompt": "List FIVE ACE categories from commonly used ACE frameworks.",
+          "prompt": "List FIVE types of ACE that negatively impact childhood development.",
           "max_score": 2.5,
           "response_type": "list",
           "list_count": 5,
@@ -381,17 +382,16 @@
     },
     {
       "id": "Q04",
-      "title": "Drowning Prevention \u2013 Haddon Matrix",
-      "stem": "Sources (brief): Health Canada, 2024\u20132026 (water/safety guidance)",
+      "title": "Drowning Prevention – Haddon Matrix",
+      "stem": "Sources (brief): Health Canada, 2024–2026 (water/safety guidance)",
       "parts": [
         {
           "id": "Q04_4",
-          "prompt": "Using Haddon\u2019s matrix (host/agent/physical environment/social environment across pre\u2011event, event, post\u2011event), propose NINE interventions to address drownings among children.",
+          "prompt": "Using Haddon’s matrix (host/agent/physical environment/social environment across pre‑event, event, post‑event), propose NINE interventions to address drownings among children.",
           "max_score": 4.5,
           "response_type": "haddon_matrix",
-          "list_count": 9,
           "rubric": [
-            "0.5 mark each, 4.5 marks total Any NINE reasonable interventions are acceptable. Examples: - Active adult supervision (close supervision; within arm\u2019s reach for young children) - Four\u2011sided pool fencing with self\u2011closing/self\u2011latching gates - Remove/secure portable pools; eliminate standing\u2011water hazards - Water safety education and swim skills (not a substitute for supervision) - Lifejacket/PFD use near open water - Lifeguards / supervised swimming areas - Rescue equipment accessible (ring buoy/rope) and first aid kit - CPR/first aid training for caregivers - Rapid EMS activation and clear wayfinding/addressing"
+            "0.5 mark each, 4.5 marks total Any NINE reasonable interventions are acceptable. Examples: - Active adult supervision (close supervision; within arm’s reach for young children) - Four‑sided pool fencing with self‑closing/self‑latching gates - Remove/secure portable pools; eliminate standing‑water hazards - Water safety education and swim skills (not a substitute for supervision) - Lifejacket/PFD use near open water - Lifeguards / supervised swimming areas - Rescue equipment accessible (ring buoy/rope) and first aid kit - CPR/first aid training for caregivers - Rapid EMS activation and clear wayfinding/addressing"
           ],
           "must_have": [],
           "rc_classification": 4,
@@ -401,8 +401,8 @@
     },
     {
       "id": "Q05",
-      "title": "Municipal Drinking Water Incident \u2013 Elevated Lead",
-      "stem": "A municipality identifies elevated lead levels in drinking water due to a system issue. Some schools/daycares are supplied directly.\nSources (brief): Health Canada, 2019 (Lead in drinking water technical document) + local guidance",
+      "title": "Municipal Drinking Water Incident – Elevated Lead",
+      "stem": "A municipality identifies elevated lead levels in drinking water due to a system issue. Some schools/daycares are supplied directly.",
       "parts": [
         {
           "id": "Q05_5a",
@@ -424,7 +424,7 @@
           "response_type": "list",
           "list_count": 6,
           "rubric": [
-            "0.25 mark each, 1.5 marks total Any SIX of the following: - Do not use tap water for drinking, preparing infant formula, or cooking at affected sites until further notice MUST HAVE THIS POINT (some form of immediate exposure reduction advice) - Provide safe alternative water supply (bottled water/tankers) prioritized to daycares/schools - Do NOT boil water to remove lead (boiling does not remove lead and may concentrate it) - Use cold water only for consumption (hot water can increase lead levels) - Remove fountains from service and post clear signage - Consider certified point\u2011of\u2011use filtration where appropriate (with clear instructions on use/maintenance) - Clear public communication plan (FAQ, hotline, frequent updates, uncertainty)"
+            "0.25 mark each, 1.5 marks total Any SIX of the following: - Do not use tap water for drinking, preparing infant formula, or cooking at affected sites until further notice MUST HAVE THIS POINT (some form of immediate exposure reduction advice) - Provide safe alternative water supply (bottled water/tankers) prioritized to daycares/schools - Do NOT boil water to remove lead (boiling does not remove lead and may concentrate it) - Use cold water only for consumption (hot water can increase lead levels) - Remove fountains from service and post clear signage - Consider certified point‑of‑use filtration where appropriate (with clear instructions on use/maintenance) - Clear public communication plan (FAQ, hotline, frequent updates, uncertainty)"
           ],
           "must_have": [],
           "rc_classification": 5,
@@ -437,7 +437,7 @@
           "response_type": "list",
           "list_count": 5,
           "rubric": [
-            "0.5 mark each, 2.5 marks total Any FIVE: - Incident command/coordination with water utility, education/childcare partners - Sampling strategy with QA/QC (treatment plant + distribution + priority buildings) - Exposure assessment (zones/sites affected; duration; populations served; critical facilities) - Clinical guidance for blood lead testing and follow\u2011up pathways - Equity\u2011informed outreach/supports for priority populations - Documentation and after\u2011action review plan"
+            "0.5 mark each, 2.5 marks total Any FIVE: - Incident command/coordination with water utility, education/childcare partners - Sampling strategy with QA/QC (treatment plant + distribution + priority buildings) - Exposure assessment (zones/sites affected; duration; populations served; critical facilities) - Clinical guidance for blood lead testing and follow‑up pathways - Equity‑informed outreach/supports for priority populations - Documentation and after‑action review plan"
           ],
           "must_have": [],
           "rc_classification": 6,
@@ -447,8 +447,8 @@
     },
     {
       "id": "Q06",
-      "title": "Randomized Trial \u2013 Risk Measures (Calculations)",
-      "stem": "People aged 50\u201360 years were randomized to annual FOBT or a control group and followed for 13 years.\nScreened (n=15,570): 82 colorectal cancer deaths Control (n=15,394): 121 colorectal cancer deaths\nMarking principle: For each calculation, award partial marks for Formula \u2192 Working \u2192 Answer/interpretation.\nSources (brief): CTFPHC, 2016",
+      "title": "Randomized Trial – Risk Measures (Calculations)",
+      "stem": "2. A study was conducted to determine whether fecal immunochemical test (FIT) reduced mortality from colorectal cancer. People aged 50 to 60 years were randomized to the screening test or to a control group and followed for 13 years. Over this period of time, there were 323 cancer cases and 82 colorectal cancer deaths in the 15,570 people randomized to annual screening. There were 356 cancers and 121 colorectal cancer deaths in the 15,394 people randomized to the control group. The sensitivity and specificity of the test for colon cancer were both about 90%.",
       "parts": [
         {
           "id": "Q06_6a",
@@ -457,7 +457,7 @@
           "response_type": "text",
           "list_count": null,
           "rubric": [
-            "1.5 marks total - Formula (0.5 mark): ARR = Risk(control) \u2212 Risk(screened) - Working (0.5 mark): 121/15,394 \u2248 0.00786; 82/15,570 \u2248 0.00527 - Answer + interpretation (0.5 mark): ARR \u2248 0.00259 (\u2248 2.6 per 1,000 over 13 years)"
+            "1.5 marks total - Formula (0.5 mark): ARR = Risk(control) − Risk(screened) - Working (0.5 mark): 121/15,394 ≈ 0.00786; 82/15,570 ≈ 0.00527 - Answer + interpretation (0.5 mark): ARR ≈ 0.00259 (≈ 2.6 per 1,000 over 13 years)"
           ],
           "must_have": [],
           "rc_classification": 3,
@@ -470,7 +470,7 @@
           "response_type": "text",
           "list_count": null,
           "rubric": [
-            "1.5 marks total - Formula (0.5 mark) - Working (0.5 mark): RR \u2248 0.00527 / 0.00786 \u2248 0.67 - Answer (0.5 mark): RRR = 1 \u2212 RR \u2248 0.33 (\u2248 33%)"
+            "1.5 marks total - Formula (0.5 mark) - Working (0.5 mark): RR ≈ 0.00527 / 0.00786 ≈ 0.67 - Answer (0.5 mark): RRR = 1 − RR ≈ 0.33 (≈ 33%)"
           ],
           "must_have": [],
           "rc_classification": 3,
@@ -483,7 +483,7 @@
           "response_type": "text",
           "list_count": null,
           "rubric": [
-            "1.5 marks total - Formula (0.5 mark) - Working (0.5 mark): NNS = 1 / ARR - Answer (0.5 mark): NNS \u2248 386"
+            "1.5 marks total - Formula (0.5 mark) - Working (0.5 mark): NNS = 1 / ARR - Answer (0.5 mark): NNS ≈ 386"
           ],
           "must_have": [],
           "rc_classification": 3,
@@ -493,37 +493,51 @@
     },
     {
       "id": "Q07",
-      "title": "Fluoridation \u2013 Scientific and Ethical Arguments",
+      "title": "Fluoridation – Scientific and Ethical Arguments",
       "stem": "A municipality is reviewing a proposal to initiate community water fluoridation. Consider both scientific evidence and ethics in your response.",
       "parts": [
         {
           "id": "Q07_7a",
           "prompt": "List TWO scientific reasons supporting community water fluoridation.",
-          "max_score": 1.0,
+          "max_score": 1,
           "response_type": "list",
           "list_count": 2,
           "rubric": [
-            "0.5 mark each, 1 mark total Any TWO: - At optimal concentration, reduces dental caries at the population level - Population\u2011wide benefit not dependent on individual behaviour - Implemented at concentrations below Canadian guideline maximum"
+            "0.5 mark each, 1 mark total Any TWO: - At optimal concentration, reduces dental caries at the population level - Population‑wide benefit not dependent on individual behaviour - Implemented at concentrations below Canadian guideline maximum"
           ],
           "must_have": [],
           "rc_classification": 4,
           "theme": "B"
+        },
+        {
+          "id": "Q07_7b",
+          "prompt": "Provide TWO ethical arguments in support AND TWO ethical arguments against. (0.5 mark each, 2 marks total)",
+          "max_score": 2,
+          "domain": "5",
+          "response_type": "list",
+          "list_count": 4,
+          "rubric": [
+            "Support: promotes population oral health and equity benefits.",
+            "Support: effective and cost-saving intervention.",
+            "Against: autonomy/consent concerns with mass exposure.",
+            "Against: concerns about potential harms or acceptability."
+          ]
         }
       ]
     },
     {
       "id": "Q08",
       "title": "Consensus Techniques (Guideline Update Context)",
-      "stem": "Expert scientists and clinicians are convened to propose updates to breast cancer screening guidelines in Canada.\nAcceptable differentiation points: anonymity vs in\u2011person; iteration; handling dominance; ranking/voting mechanics; time/resource requirements.\nSources (brief): Standard guideline development methods (general)",
+      "stem": "Expert scientists and clinicians are convened to propose updates to breast cancer screening guidelines in Canada.",
       "parts": [
         {
           "id": "Q08_8",
           "prompt": "Describe and differentiate between TWO formal consensus techniques that could be used to develop recommendations.",
-          "max_score": 4.0,
-          "response_type": "text",
-          "list_count": null,
+          "max_score": 4,
+          "response_type": "list",
+          "list_count": 2,
           "rubric": [
-            "2 marks each, 4 marks total Any TWO (must differentiate): - Delphi technique: iterative rounds (often anonymous) with feedback to converge on consensus - Nominal group technique: structured small\u2011group meeting with silent idea generation and ranking/voting"
+            "2 marks each, 4 marks total Any TWO (must differentiate): - Delphi technique: iterative rounds (often anonymous) with feedback to converge on consensus - Nominal group technique: structured small‑group meeting with silent idea generation and ranking/voting"
           ],
           "must_have": [],
           "rc_classification": 2,
@@ -533,15 +547,15 @@
     },
     {
       "id": "Q09",
-      "title": "Parasites / Enteric Illness \u2013 Daycare Cluster (Applied)",
-      "stem": "A daycare reports multiple children with 7\u201310 days of watery diarrhea, abdominal cramps, and weight loss. Several attended a splash pad and a petting zoo the week prior.\nSources (brief): PHAC enteric/outbreak guidance, 2024\u20132026; provincial enteric manuals",
+      "title": "Parasites / Enteric Illness – Daycare Cluster (Applied)",
+      "stem": "A daycare reports multiple children with 7–10 days of watery diarrhea, abdominal cramps, and weight loss. Several attended a splash pad and a petting zoo the week prior.",
       "parts": [
         {
           "id": "Q09_9a",
           "prompt": "List THREE protozoal causes to consider and ONE key exposure for each.",
-          "max_score": 3.0,
+          "max_score": 3,
           "response_type": "list",
-          "list_count": 1,
+          "list_count": 3,
           "rubric": [
             "3 marks total Any THREE: - Cryptosporidium: recreational water/splash pads; animal contact - Giardia: daycare transmission; contaminated water - Cyclospora: fresh produce - Entamoeba histolytica: travel; contaminated food/water"
           ],
@@ -552,11 +566,11 @@
         {
           "id": "Q09_9b",
           "prompt": "List FOUR immediate IPAC measures for the daycare.",
-          "max_score": 1.0,
+          "max_score": 1,
           "response_type": "list",
           "list_count": 4,
           "rubric": [
-            "0.25 mark each, 1 mark total Any FOUR: - Exclude symptomatic children/staff per local guidance - Hand hygiene emphasis (soap and water) - Enhanced environmental cleaning/disinfection (appropriate agents/contact time) - Stop water\u2011play activities until outbreak controlled - Notify/coordinate with public health; line list and case definition"
+            "0.25 mark each, 1 mark total Any FOUR: - Exclude symptomatic children/staff per local guidance - Hand hygiene emphasis (soap and water) - Enhanced environmental cleaning/disinfection (appropriate agents/contact time) - Stop water‑play activities until outbreak controlled - Notify/coordinate with public health; line list and case definition"
           ],
           "must_have": [],
           "rc_classification": 5,
@@ -565,7 +579,7 @@
         {
           "id": "Q09_9c",
           "prompt": "List TWO lab testing approaches.",
-          "max_score": 1.0,
+          "max_score": 1,
           "response_type": "list",
           "list_count": 2,
           "rubric": [
@@ -579,8 +593,8 @@
     },
     {
       "id": "Q10",
-      "title": "Occupational Health \u2013 Fatigue and Shift Work",
-      "stem": "Sources (brief): CCOHS, 2024\u20132026",
+      "title": "Occupational Health – Fatigue and Shift Work",
+      "stem": "Sources (brief): CCOHS, 2024–2026",
       "parts": [
         {
           "id": "Q10_10a",
@@ -589,7 +603,7 @@
           "response_type": "list",
           "list_count": 5,
           "rubric": [
-            "0.5 mark each, 2.5 marks total Any FIVE: - Fatigue\u2011related performance impairment (errors, slowed reaction time) - Increased risk of workplace injury/near\u2011miss - Drowsy driving risk after night shifts - Circadian disruption affecting mental health - Cardiometabolic risks associated with chronic shift work - Reduced adherence to safe work procedures under fatigue"
+            "0.5 mark each, 2.5 marks total Any FIVE: - Fatigue‑related performance impairment (errors, slowed reaction time) - Increased risk of workplace injury/near‑miss - Drowsy driving risk after night shifts - Circadian disruption affecting mental health - Cardiometabolic risks associated with chronic shift work - Reduced adherence to safe work procedures under fatigue"
           ],
           "must_have": [],
           "rc_classification": 5,
@@ -597,12 +611,12 @@
         },
         {
           "id": "Q10_10b",
-          "prompt": "List THREE employer\u2011level controls to reduce fatigue risk.",
+          "prompt": "List THREE employer‑level controls to reduce fatigue risk.",
           "max_score": 1.5,
           "response_type": "list",
           "list_count": 3,
           "rubric": [
-            "0.5 mark each, 1.5 marks total Any THREE: - Fatigue risk management approach (hazard identification, reporting, response) - Hours\u2011of\u2011work and scheduling controls (limit consecutive nights; adequate recovery time) - Rest breaks/task rotation; lighting/work design - Training/education on recognizing/responding to fatigue"
+            "0.5 mark each, 1.5 marks total Any THREE: - Fatigue risk management approach (hazard identification, reporting, response) - Hours‑of‑work and scheduling controls (limit consecutive nights; adequate recovery time) - Rest breaks/task rotation; lighting/work design - Training/education on recognizing/responding to fatigue"
           ],
           "must_have": [],
           "rc_classification": 5,
@@ -612,18 +626,17 @@
     },
     {
       "id": "Q11",
-      "title": "Standardization and Comparative Rates (High\u2011Marks Calculations)",
+      "title": "Standardization and Comparative Rates (High‑Marks Calculations)",
       "stem": "Consider this table of annual suicides in an Indigenous population compared and the overall suicides reported for that province. Table 11 is shown below.",
-      "stem_image": "Q11table.png",
       "parts": [
         {
           "id": "Q11_11a",
-          "prompt": "Calculate the crude RR compared with the provincial rate.",
+          "prompt": "Calculate the unadjusted (crude) relative risk of suicide in the Indigenous population compared to the overall Ontario population.",
           "max_score": 1.5,
           "response_type": "text",
           "list_count": null,
           "rubric": [
-            "1.5 marks total - Formula (0.5): RR = rate_community / rate_provincial - Working (0.5): community crude rate = 14/7,751 \u2248 0.001806; provincial rate = 16.4/100,000 = 0.000164 - Answer + interpretation (0.5): RR \u2248 11.0"
+            "1.5 marks total - Formula (0.5): RR = rate_community / rate_provincial - Working (0.5): community crude rate = 14/7,751 ≈ 0.001806; provincial rate = 16.4/100,000 = 0.000164 - Answer + interpretation (0.5): RR ≈ 11.0"
           ],
           "must_have": [],
           "rc_classification": 3,
@@ -631,12 +644,12 @@
         },
         {
           "id": "Q11_11b",
-          "prompt": "Calculate the SMR using indirect standardization.",
+          "prompt": "Calculate the standardized mortality ratio (SMR) for the Indigenous population.",
           "max_score": 2.5,
           "response_type": "text",
           "list_count": null,
           "rubric": [
-            "2.5 marks total - Formula (0.5): SMR = observed / expected - Expected deaths (1): - 10\u201319: 2,301 \u00d7 (7.0/100,000) = 0.16 - 20\u201344: 3,890 \u00d7 (21.0/100,000) = 0.82 - 45\u201364: 1,261 \u00d7 (22.7/100,000) = 0.29 - 65+: 299 \u00d7 (12.6/100,000) = 0.04 - Total expected (0.5): 0.16 + 0.82 + 0.29 + 0.04 = 1.31 - SMR (0.5): 14 / 1.31 \u2248 10.7"
+            "2.5 marks total - Formula (0.5): SMR = observed / expected - Expected deaths (1): - 10–19: 2,301 × (7.0/100,000) = 0.16 - 20–44: 3,890 × (21.0/100,000) = 0.82 - 45–64: 1,261 × (22.7/100,000) = 0.29 - 65+: 299 × (12.6/100,000) = 0.04 - Total expected (0.5): 0.16 + 0.82 + 0.29 + 0.04 = 1.31 - SMR (0.5): 14 / 1.31 ≈ 10.7"
           ],
           "must_have": [],
           "rc_classification": 3,
@@ -644,12 +657,12 @@
         },
         {
           "id": "Q11_11c",
-          "prompt": "Using direct standardization, calculate the age\u2011adjusted community rate (per 100,000) using a standard population of 10,000 per age group.",
+          "prompt": "Using direct standardization, calculate the age‑adjusted Indigenous rate (per 100,000) using a standard population of 10,000 per age group.",
           "max_score": 2.5,
           "response_type": "text",
           "list_count": null,
           "rubric": [
-            "2.5 marks total - Formula (0.5) - Age\u2011specific community rates (0.5): - 10\u201319: (7/2,301)\u00d7100,000 \u2248 304.2 - 20\u201344: (7/3,890)\u00d7100,000 \u2248 179.9 - 45\u201364: 0 - 65+: 0 - Apply to standard (1): - Expected deaths = 30.42 + 17.99 + 0 + 0 = 48.41 (per 40,000) - Answer (0.5): (48.41/40,000)\u00d7100,000 \u2248 121.0 per 100,000"
+            "2.5 marks total - Formula (0.5) - Age‑specific community rates (0.5): - 10–19: (7/2,301)×100,000 ≈ 304.2 - 20–44: (7/3,890)×100,000 ≈ 179.9 - 45–64: 0 - 65+: 0 - Apply to standard (1): - Expected deaths = 30.42 + 17.99 + 0 + 0 = 48.41 (per 40,000) - Answer (0.5): (48.41/40,000)×100,000 ≈ 121.0 per 100,000"
           ],
           "must_have": [],
           "rc_classification": 3,
@@ -657,12 +670,12 @@
         },
         {
           "id": "Q11_11d",
-          "prompt": "Using direct standardization and the same standard population, calculate the age\u2011adjusted provincial rate (per 100,000).",
-          "max_score": 2.0,
+          "prompt": "Using direct standardization and the same standard population, calculate the age‑adjusted provincial rate (per 100,000).",
+          "max_score": 2,
           "response_type": "text",
           "list_count": null,
           "rubric": [
-            "2 marks total - Apply rates to standard (1): 0.70 + 2.10 + 2.27 + 1.26 = 6.33 (per 40,000) - Answer (0.5): (6.33/40,000)\u00d7100,000 \u2248 15.8 per 100,000 - Interpretation (0.5): provincial age\u2011adjusted rate in this standard is ~15.8/100,000"
+            "2 marks total - Apply rates to standard (1): 0.70 + 2.10 + 2.27 + 1.26 = 6.33 (per 40,000) - Answer (0.5): (6.33/40,000)×100,000 ≈ 15.8 per 100,000 - Interpretation (0.5): provincial age‑adjusted rate in this standard is ~15.8/100,000"
           ],
           "must_have": [],
           "rc_classification": 3,
@@ -670,28 +683,29 @@
         },
         {
           "id": "Q11_11e",
-          "prompt": "Calculate the CMR using the age\u2011adjusted rates.",
+          "prompt": "Calculate the comparative mortality ratio (CMR) for the Indigenous population compared to the provincial rate.",
           "max_score": 1.5,
           "response_type": "text",
           "list_count": null,
           "rubric": [
-            "1.5 marks total - Formula (0.5): CMR = adj rate_community / adj rate_province - Working (0.5): 121.0 / 15.8 \u2248 7.6 - Interpretation (0.5): age\u2011adjusted rate ~7.6\u00d7 higher"
+            "1.5 marks total - Formula (0.5): CMR = adj rate_community / adj rate_province - Working (0.5): 121.0 / 15.8 ≈ 7.6 - Interpretation (0.5): age‑adjusted rate ~7.6× higher"
           ],
           "must_have": [],
           "rc_classification": 3,
           "theme": "F"
         }
-      ]
+      ],
+      "stem_image": "./Q11table.png"
     },
     {
       "id": "Q12",
-      "title": "Hypothetical Novel Mpox Variant \u2013 Transmission, Metrics, and Control",
-      "stem": "For exam practice, assume a hypothetical Mpox variant with higher transmissibility and evidence suggesting more efficient droplet and casual\u2011contact transmission than prior Canadian outbreaks.\nSources (brief): PHAC Mpox technical guidance for health professionals, 2024\u20132026",
+      "title": "Hypothetical Novel Mpox Variant – Transmission, Metrics, and Control",
+      "stem": "A new Mpox variant (clade III) has been identified by the WHO to be spreading among recent travellers from the Democratic Republic of the Congo (DRC). DRC clinicians note higher transmissibility and evidence of more efficient droplet transmission and casual-contact transmission than prior Mpox outbreaks.",
       "parts": [
         {
           "id": "Q12_12a",
           "prompt": "Define R0 and Rt.",
-          "max_score": 2.0,
+          "max_score": 2,
           "response_type": "text",
           "list_count": null,
           "rubric": [
@@ -703,12 +717,12 @@
         },
         {
           "id": "Q12_12b",
-          "prompt": "List THREE implications for infection prevention and control.",
+          "prompt": "List THREE implications of the more transmissible clade II variant for infection prevention and control",
           "max_score": 1.5,
           "response_type": "list",
           "list_count": 3,
           "rubric": [
-            "0.5 mark each, 1.5 marks total Any THREE: - Broader contact definitions and contact management - Strengthen respiratory protection in higher\u2011risk settings (droplet/contact precautions as indicated) - Improve ventilation/crowding mitigation in congregate settings - Reinforce hand hygiene and environmental cleaning of shared items"
+            "0.5 mark each, 1.5 marks total Any THREE: - Broader contact definitions and contact management - Strengthen respiratory protection in higher‑risk settings (droplet/contact precautions as indicated) - Improve ventilation/crowding mitigation in congregate settings - Reinforce hand hygiene and environmental cleaning of shared items"
           ],
           "must_have": [],
           "rc_classification": 5,
@@ -716,7 +730,7 @@
         },
         {
           "id": "Q12_12c",
-          "prompt": "Draft a brief stigma\u2011minimizing public message (2\u20133 sentences).",
+          "prompt": "Draft a brief public message to Canadians and Canadian travellers that minimizes stigma.",
           "max_score": 1.5,
           "response_type": "text",
           "list_count": null,
@@ -731,17 +745,17 @@
     },
     {
       "id": "Q13",
-      "title": "Conflict Handling and Diffusion of Innovation \u2013 Applied Leadership",
-      "stem": "You are negotiating priorities with a CEO opposed to investing in a new surveillance system.\nSources (brief): Rogers, 2003",
+      "title": "Conflict Handling and Diffusion of Innovation – Applied Leadership",
+      "stem": "You are negotiating priorities with the local health unit CEO who is opposed to investing in a new surveillance system.",
       "parts": [
         {
           "id": "Q13_13a",
           "prompt": "List THREE approaches to conflict handling/resolution and briefly describe when each is appropriate.",
-          "max_score": 3.0,
+          "max_score": 3,
           "response_type": "list",
           "list_count": 3,
           "rubric": [
-            "3 marks total - Thomas\u2013Kilmann styles (choose stance based on urgency vs relationship) - Principled negotiation (interests, options, objective criteria) - Mediation (neutral third party) - Interest\u2011based problem solving"
+            "3 marks total - Thomas–Kilmann styles (choose stance based on urgency vs relationship) - Principled negotiation (interests, options, objective criteria) - Mediation (neutral third party) - Interest‑based problem solving"
           ],
           "must_have": [],
           "rc_classification": 6,
@@ -749,12 +763,12 @@
         },
         {
           "id": "Q13_13b",
-          "prompt": "Using Diffusion of Innovations, propose a brief implementation strategy for rolling out the surveillance system across the health unit.",
-          "max_score": 3.0,
-          "response_type": "text",
-          "list_count": null,
+          "prompt": "Use a change management model to propose THREE practical strategies for rolling out the surveillance system across the health unit.",
+          "max_score": 3,
+          "response_type": "list",
+          "list_count": 3,
           "rubric": [
-            "3 marks total - List THREE innovation attributes that influence adoption (1 each, 3 total): relative advantage; compatibility; complexity; trialability; observability (any three) - Identify adopter categories and one tactic for THREE categories (1 each tactic, 3 total) - One evaluation metric (1) - One risk\u2011mitigation tactic (1)"
+            "3 marks total - List THREE innovation attributes that influence adoption (1 each, 3 total): relative advantage; compatibility; complexity; trialability; observability (any three) - Identify adopter categories and one tactic for THREE categories (1 each tactic, 3 total) - One evaluation metric (1) - One risk‑mitigation tactic (1)"
           ],
           "must_have": [],
           "rc_classification": 6,
@@ -764,17 +778,17 @@
     },
     {
       "id": "Q14",
-      "title": "HR, Equity, and Power Differentials \u2013 Performance Concern with Possible Manager Bias",
-      "stem": "An employee is labelled \u201cunderperforming\u201d by their manager. The employee reports being late due to religious observances and feels targeted. You note a power differential and potential conflict of interest.\nPropose TWO actions to address governance/line\u2011of\u2011sight and reduce conflict of interest during the investigation.\nSources (brief): Ontario Human Rights Code (general); HR best practice",
+      "title": "HR, Equity, and Power Differentials – Performance Concern with Possible Manager Bias",
+      "stem": "An employee is labelled ‘underperforming’ by their manager at the local health unit. The employee reports being late due to religious observances and feels targeted. You note a power differential and potential conflict of interest.",
       "parts": [
         {
           "id": "Q14_14a",
           "prompt": "List SIX steps you would take to assess the situation fairly and safely.",
-          "max_score": 3.0,
+          "max_score": 3,
           "response_type": "list",
           "list_count": 6,
           "rubric": [
-            "0.5 mark each, 3 marks total Any SIX: - Clarify concerns with objective expectations and specific examples - Gather evidence from multiple sources (documentation, metrics) - Meet separately with employee and manager; use equity\u2011informed approach - Consult HR early; screen for discrimination/harassment - Consider accommodation obligations and explore reasonable accommodations - Document and maintain confidentiality - Consider interim measures to reduce harm (e.g., temporary reporting change)"
+            "0.5 mark each, 3 marks total Any SIX: - Clarify concerns with objective expectations and specific examples - Gather evidence from multiple sources (documentation, metrics) - Meet separately with employee and manager; use equity‑informed approach - Consult HR early; screen for discrimination/harassment - Consider accommodation obligations and explore reasonable accommodations - Document and maintain confidentiality - Consider interim measures to reduce harm (e.g., temporary reporting change)"
           ],
           "must_have": [],
           "rc_classification": 6,
@@ -787,27 +801,39 @@
           "response_type": "list",
           "list_count": 3,
           "rubric": [
-            "0.5 mark each, 1.5 marks total Any THREE: - Inconsistent standards applied across staff - Lack of documented coaching/support prior to escalation - Reports/patterns of biased language, harassment, or retaliation - High turnover/complaints in the manager\u2019s team"
+            "0.5 mark each, 1.5 marks total Any THREE: - Inconsistent standards applied across staff - Lack of documented coaching/support prior to escalation - Reports/patterns of biased language, harassment, or retaliation - High turnover/complaints in the manager’s team"
           ],
           "must_have": [],
           "rc_classification": 6,
           "theme": "C"
+        },
+        {
+          "id": "Q14_14c",
+          "prompt": "Propose TWO actions to address governance/line-of-sight and reduce conflict of interest during the investigation.",
+          "max_score": 2,
+          "domain": "7",
+          "response_type": "list",
+          "list_count": 2,
+          "rubric": [
+            "Assign an independent investigator/decision-maker outside the direct line relationship.",
+            "Establish clear reporting and oversight (e.g., HR/legal governance) to avoid conflict and ensure fairness."
+          ]
         }
       ]
     },
     {
       "id": "Q15",
-      "title": "Extreme Heat and Air Quality \u2013 Vulnerability, Indices, Syndemics",
-      "stem": "Differentiate between the Air Quality Health Index (AQHI) and an Air Quality Index (AQI).\nSources (brief): ECCC/Health Canada AQHI resources, 2024\u20132026; syndemics literature (general)",
+      "title": "Extreme Heat and Air Quality – Vulnerability, Indices, Syndemics",
+      "stem": "Differentiate between the Air Quality Health Index (AQHI) and an Air Quality Index (AQI).\nSources (brief): ECCC/Health Canada AQHI resources, 2024–2026; syndemics literature (general)",
       "parts": [
         {
           "id": "Q15_15a",
-          "prompt": "List FIVE vulnerable populations at higher risk of heat\u2011related illness.",
+          "prompt": "List FIVE vulnerable populations at higher risk of heat‑related illness.",
           "max_score": 2.5,
           "response_type": "list",
           "list_count": 5,
           "rubric": [
-            "0.5 mark each, 2.5 marks total Any FIVE: - Older adults - Infants and young children - People with chronic medical conditions - People taking medications affecting thermoregulation/hydration - Socially isolated or mobility\u2011limited individuals - People experiencing homelessness or inadequate cooling - Outdoor workers/athletes"
+            "0.5 mark each, 2.5 marks total Any FIVE: - Older adults - Infants and young children - People with chronic medical conditions - People taking medications affecting thermoregulation/hydration - Socially isolated or mobility‑limited individuals - People experiencing homelessness or inadequate cooling - Outdoor workers/athletes"
           ],
           "must_have": [],
           "rc_classification": 1,
@@ -815,12 +841,23 @@
         },
         {
           "id": "Q15_15b",
-          "prompt": "Define a syndemic and give one example relevant to co\u2011occurring extreme heat and poor air quality.",
-          "max_score": 2.0,
+          "prompt": "Differentiate between the Air Quality Health Index (AQHI) and an Air Quality Index (AQI).",
+          "max_score": 1,
+          "domain": "4",
+          "response_type": "text",
+          "single_line": true,
+          "rubric": [
+            "AQHI communicates short-term health risk and behaviour guidance; AQI is primarily pollutant concentration/status index and may not map directly to individual health action."
+          ]
+        },
+        {
+          "id": "Q15_15c",
+          "prompt": "Define a syndemic and give one example relevant to co‑occurring extreme heat and poor air quality.",
+          "max_score": 2,
           "response_type": "text",
           "list_count": null,
           "rubric": [
-            "3 marks total - Definition (1): synergistic interaction of two or more health problems under conditions of inequity that worsens outcomes. - Example (1): extreme heat + wildfire smoke worsening COPD/asthma admissions, amplified by precarious housing. - Public health implication (1): integrated messaging and targeted supports (cooling/clean\u2011air shelters, outreach)."
+            "3 marks total - Definition (1): synergistic interaction of two or more health problems under conditions of inequity that worsens outcomes. - Example (1): extreme heat + wildfire smoke worsening COPD/asthma admissions, amplified by precarious housing. - Public health implication (1): integrated messaging and targeted supports (cooling/clean‑air shelters, outreach)."
           ],
           "must_have": [],
           "rc_classification": 5,
@@ -830,33 +867,47 @@
     },
     {
       "id": "Q16",
-      "title": "Lead Exposure \u2013 Sources and Community Hazard Assessment",
-      "stem": "A child is found to have elevated blood lead levels.\nThe suspected source is a water fountain at a local daycare. List FOUR steps in a hazard/risk assessment for other potentially exposed children.\nSources (brief): Health Canada lead guidance, 2019\u20132024",
+      "title": "Lead Exposure – Sources and Community Hazard Assessment",
+      "stem": "A child is found to have elevated blood lead levels.",
       "parts": [
         {
           "id": "Q16_16a",
           "prompt": "List SIX possible sources of lead exposure.",
-          "max_score": 3.0,
+          "max_score": 3,
           "response_type": "list",
           "list_count": 6,
           "rubric": [
-            "0.5 mark each, 3 marks total Any SIX: - Lead\u2011based paint and household dust in older housing - Soil contamination - Drinking water from lead service lines/plumbing/solder - Imported toys/jewelry/cosmetics/spices/traditional remedies containing lead - Take\u2011home exposure from parental occupations/hobbies - Lead\u2011glazed pottery used for food"
+            "0.5 mark each, 3 marks total Any SIX: - Lead‑based paint and household dust in older housing - Soil contamination - Drinking water from lead service lines/plumbing/solder - Imported toys/jewelry/cosmetics/spices/traditional remedies containing lead - Take‑home exposure from parental occupations/hobbies - Lead‑glazed pottery used for food"
           ],
           "must_have": [],
           "rc_classification": 5,
           "theme": "D"
+        },
+        {
+          "id": "Q16_16b",
+          "prompt": "The suspected source is a water fountain at a local daycare. List FOUR steps in a hazard/risk assessment for other potentially exposed children.",
+          "max_score": 2,
+          "domain": "4",
+          "response_type": "list",
+          "list_count": 4,
+          "rubric": [
+            "Define exposed population and exposure period.",
+            "Obtain environmental sampling/testing data to characterize hazard.",
+            "Assess dose/exposure pathways and susceptibility (age, pregnancy, etc.).",
+            "Plan clinical/public health follow-up and communication based on risk stratification."
+          ]
         }
       ]
     },
     {
       "id": "Q17",
-      "title": "Emergency Management \u2013 Respiratory Virus Season Cycle",
-      "stem": "Your public health unit plans for an annual respiratory virus season (COVID\u201119, RSV, influenza) peaking in late winter.\nApply each phase to a respiratory virus season cycle by listing ONE concrete activity under each phase.\nIn the recovery phase (\u201chot wash\u201d) after the peak, list FOUR items that should be reviewed.\nSources (brief): Public Safety Canada EM framework; PHAC respiratory virus resources, 2024\u20132026",
+      "title": "Emergency Management – Respiratory Virus Season Cycle",
+      "stem": "Your public health unit plans for an annual respiratory virus season (COVID-19, RSV, influenza) peaking in late winter with an annual emergency management cycle.",
       "parts": [
         {
           "id": "Q17_17a",
           "prompt": "List the FOUR phases of emergency management.",
-          "max_score": 2.0,
+          "max_score": 2,
           "response_type": "list",
           "list_count": 4,
           "rubric": [
@@ -865,18 +916,45 @@
           "must_have": [],
           "rc_classification": 6,
           "theme": "A"
+        },
+        {
+          "id": "Q17_17b",
+          "prompt": "Apply each phase to a respiratory virus season cycle by listing ONE concrete activity under each phase.",
+          "max_score": 2,
+          "domain": "8",
+          "response_type": "text",
+          "rubric": [
+            "Mitigation activity.",
+            "Preparedness activity.",
+            "Response activity.",
+            "Recovery activity."
+          ]
+        },
+        {
+          "id": "Q17_17c",
+          "prompt": "In the recovery phase (‘hot wash’) after the peak, list FOUR items that should be reviewed.",
+          "max_score": 2,
+          "domain": "8",
+          "response_type": "list",
+          "list_count": 4,
+          "rubric": [
+            "What worked well and key enablers.",
+            "Gaps/failures and root causes.",
+            "Data/timeliness/communications performance.",
+            "Resource/staffing/surge implications and improvement actions before next season."
+          ]
         }
       ]
     },
     {
       "id": "Q18",
-      "title": "Mumps Investigation \u2013 Schoolchildren on a Camping Trip",
-      "stem": "A cluster of parotitis is reported among schoolchildren who attended a multi\u2011day camping trip.\nSources (brief): PHAC/NACI mumps outbreak guidance, 2021",
+      "title": "Mumps Investigation – Schoolchildren on a Camping Trip",
+      "stem": "A cluster of parotitis is reported among schoolchildren who attended a multi-day camping trip",
       "parts": [
         {
           "id": "Q18_18a",
           "prompt": "Define the period of communicability for mumps.",
-          "max_score": 1.0,
+          "max_score": 1,
           "response_type": "text",
           "list_count": null,
           "rubric": [
@@ -884,12 +962,13 @@
           ],
           "must_have": [],
           "rc_classification": 3,
-          "theme": "A"
+          "theme": "A",
+          "single_line": true
         },
         {
           "id": "Q18_18b",
           "prompt": "List SIX key history questions for case investigation.",
-          "max_score": 3.0,
+          "max_score": 3,
           "response_type": "list",
           "list_count": 6,
           "rubric": [
@@ -902,11 +981,11 @@
         {
           "id": "Q18_18c",
           "prompt": "List THREE immediate public health actions at the school.",
-          "max_score": 3.0,
+          "max_score": 3,
           "response_type": "list",
           "list_count": 3,
           "rubric": [
-            "1 mark each, 3 marks total Any THREE: - Case definition and line list; identify close contacts - Exclude cases from school for recommended period - Risk communication to parents/staff - Review immunization status; offer catch\u2011up MMR for under\u2011immunized"
+            "1 mark each, 3 marks total Any THREE: - Case definition and line list; identify close contacts - Exclude cases from school for recommended period - Risk communication to parents/staff - Review immunization status; offer catch‑up MMR for under‑immunized"
           ],
           "must_have": [],
           "rc_classification": 5,
@@ -916,13 +995,13 @@
     },
     {
       "id": "Q19",
-      "title": "Measles \u2013 Case Management and Post\u2011Exposure Prophylaxis",
-      "stem": "A child presents with fever, cough, conjunctivitis and a generalized maculopapular rash; measles is suspected.\nPost\u2011exposure prophylaxis: list TWO options and the time window for each.\nSources (brief): PHAC Canadian Immunization Guide (measles PEP), 2025\u20132026; NACI measles PEP statement, 2025",
+      "title": "Measles – Case Management and Post‑Exposure Prophylaxis",
+      "stem": "A child presents to Emergency with fever, cough, conjunctivitis and a generalized maculopapular rash; measles is suspected.",
       "parts": [
         {
           "id": "Q19_19a",
           "prompt": "List THREE immediate infection control/public health steps.",
-          "max_score": 3.0,
+          "max_score": 3,
           "response_type": "list",
           "list_count": 3,
           "rubric": [
@@ -934,25 +1013,37 @@
         },
         {
           "id": "Q19_19b",
+          "prompt": "As you consider exposed cases for post-exposure prophylaxis eligibility, list TWO options and the time window for each.",
+          "max_score": 2,
+          "domain": "3",
+          "response_type": "list",
+          "list_count": 2,
+          "rubric": [
+            "MMR vaccine within 72 hours of exposure for eligible susceptible contacts.",
+            "Immune globulin within 6 days of exposure for high-risk susceptible contacts."
+          ]
+        },
+        {
+          "id": "Q19_19c",
           "prompt": "List THREE groups prioritized for Ig.",
-          "max_score": 2.0,
+          "max_score": 2,
           "response_type": "list",
           "list_count": 3,
           "rubric": [
-            "0.5 mark each, 1.5 marks total Any THREE: - Pregnant people without evidence of immunity - Immunocompromised individuals - Infants <6 months - Immunocompetent infants 6\u201311 months who present after 72 hours and within 6 days"
+            "0.5 mark each, 1.5 marks total Any THREE: - Pregnant people without evidence of immunity - Immunocompromised individuals - Infants <6 months - Immunocompetent infants 6–11 months who present after 72 hours and within 6 days"
           ],
           "must_have": [],
           "rc_classification": 5,
           "theme": "A"
         },
         {
-          "id": "Q19_19c",
+          "id": "Q19_19d",
           "prompt": "List TWO criteria for evidence of measles immunity.",
           "max_score": 1.5,
           "response_type": "list",
           "list_count": 2,
           "rubric": [
-            "1 mark each, 2 marks total Any TWO: - Documentation of 2 doses of measles\u2011containing vaccine (age\u2011appropriate) - Laboratory evidence of immunity - History of laboratory\u2011confirmed measles"
+            "1 mark each, 2 marks total Any TWO: - Documentation of 2 doses of measles‑containing vaccine (age‑appropriate) - Laboratory evidence of immunity - History of laboratory‑confirmed measles"
           ],
           "must_have": [],
           "rc_classification": 5,
@@ -962,17 +1053,17 @@
     },
     {
       "id": "Q20",
-      "title": "Tuberculosis \u2013 Newcomer in Congregate Housing",
-      "stem": "A newcomer to Canada living in a dorm\u2011like setting is diagnosed with pulmonary TB. They are worried about stigma and unsure about taking oral therapy.\nCommunication with other tenants: list TWO principles to balance confidentiality with exposure management.\nSources (brief): Canadian Tuberculosis Standards (Treatment chapter; DOT/VDOT), 2025\u20132026",
+      "title": "Tuberculosis – Newcomer in Congregate Housing",
+      "stem": "A newcomer to Canada living in a dorm-like setting is diagnosed with pulmonary TB. They are worried about stigma and unsure about taking oral therapy.",
       "parts": [
         {
           "id": "Q20_20a",
           "prompt": "List FOUR factors that make a TB case higher risk for transmission or poor outcomes.",
-          "max_score": 2.0,
+          "max_score": 2,
           "response_type": "list",
           "list_count": 4,
           "rubric": [
-            "0.5 mark each, 2 marks total Any FOUR: - Smear\u2011positive pulmonary TB - Cavitary disease on imaging - Significant cough/high symptom burden - Delayed diagnosis/prolonged infectious period - Congregate living setting - HIV/immunocompromise"
+            "0.5 mark each, 2 marks total Any FOUR: - Smear‑positive pulmonary TB - Cavitary disease on imaging - Significant cough/high symptom burden - Delayed diagnosis/prolonged infectious period - Congregate living setting - HIV/immunocompromise"
           ],
           "must_have": [],
           "rc_classification": 5,
@@ -981,11 +1072,11 @@
         {
           "id": "Q20_20b",
           "prompt": "List FOUR strategies to support rapport and culturally safe care.",
-          "max_score": 2.0,
+          "max_score": 2,
           "response_type": "list",
           "list_count": 4,
           "rubric": [
-            "0.5 mark each, 2 marks total Any FOUR: - Use professional interpreters; avoid family as interpreter - Trauma\u2011informed and non\u2011stigmatizing communication - Explain confidentiality and what must be shared for public health - Address practical barriers (transportation, housing, food, clinic access)"
+            "0.5 mark each, 2 marks total Any FOUR: - Use professional interpreters; avoid family as interpreter - Trauma‑informed and non‑stigmatizing communication - Explain confidentiality and what must be shared for public health - Address practical barriers (transportation, housing, food, clinic access)"
           ],
           "must_have": [],
           "rc_classification": 5,
@@ -998,18 +1089,30 @@
           "response_type": "list",
           "list_count": 3,
           "rubric": [
-            "0.5 mark each, 1.5 marks total Any THREE: - DOT or video\u2011enabled DOT (VDOT) - Case management, reminders, incentives/enablers - Education on duration, side effects, and missed dose plan"
+            "0.5 mark each, 1.5 marks total Any THREE: - DOT or video‑enabled DOT (VDOT) - Case management, reminders, incentives/enablers - Education on duration, side effects, and missed dose plan"
           ],
           "must_have": [],
           "rc_classification": 5,
           "theme": "A"
+        },
+        {
+          "id": "Q20_20d",
+          "prompt": "As you communicate potential TB exposure with other tenants in the dorm, list TWO principles to balance confidentiality with exposure management.",
+          "max_score": 1,
+          "domain": "5",
+          "response_type": "list",
+          "list_count": 2,
+          "rubric": [
+            "Share only minimum necessary information and protect personal identifiers.",
+            "Provide clear exposure/risk guidance and access to testing/follow-up while avoiding stigmatizing language."
+          ]
         }
       ]
     },
     {
       "id": "Q21",
-      "title": "iGAS Cluster \u2013 Homeless Shelter",
-      "stem": "A homeless shelter reports multiple severe invasive Group A Streptococcus (iGAS) cases.\nChemoprophylaxis: list TWO considerations for whether to offer prophylaxis and one possible regimen class.\nSources (brief): PHAC iGAS guidance; Canadian Paediatric Society iGAS position (references PHAC)",
+      "title": "iGAS Cluster – Homeless Shelter",
+      "stem": "A homeless shelter reports multiple severe invasive Group A Streptococcus (iGAS) cases.",
       "parts": [
         {
           "id": "Q21_21a",
@@ -1018,7 +1121,7 @@
           "response_type": "list",
           "list_count": 3,
           "rubric": [
-            "0.5 mark each, 1.5 marks total Any THREE: - Hypotension/shock - Multi\u2011organ dysfunction (renal impairment, coagulopathy, liver involvement) - Soft tissue necrosis / severe pain out of proportion / rapidly progressive infection"
+            "0.5 mark each, 1.5 marks total Any THREE: - Hypotension/shock - Multi‑organ dysfunction (renal impairment, coagulopathy, liver involvement) - Soft tissue necrosis / severe pain out of proportion / rapidly progressive infection"
           ],
           "must_have": [],
           "rc_classification": 5,
@@ -1026,23 +1129,36 @@
         },
         {
           "id": "Q21_21b",
-          "prompt": "List FOUR factors that define a higher\u2011risk contact situation in a shelter context.",
-          "max_score": 2.0,
+          "prompt": "List FOUR factors that define a higher‑risk contact situation in a shelter context.",
+          "max_score": 2,
           "response_type": "list",
           "list_count": 4,
           "rubric": [
-            "0.5 mark each, 2 marks total Any FOUR: - Close contact/shared sleeping arrangements - Open wounds/skin breakdown - Injection drug use - Recent influenza/varicella\u2011like illness - Immunocompromise"
+            "0.5 mark each, 2 marks total Any FOUR: - Close contact/shared sleeping arrangements - Open wounds/skin breakdown - Injection drug use - Recent influenza/varicella‑like illness - Immunocompromise"
           ],
           "must_have": [],
           "rc_classification": 5,
           "theme": "A"
+        },
+        {
+          "id": "Q21_21c",
+          "prompt": "List TWO considerations for whether to offer chemoprophylaxis and one possible regimen class.",
+          "max_score": 1.5,
+          "domain": "3",
+          "response_type": "list",
+          "list_count": 3,
+          "rubric": [
+            "Intensity/proximity of exposure and contact risk profile.",
+            "Feasibility, adherence, resistance, and harms/benefits in setting.",
+            "Possible regimen class: beta-lactam or macrolide (per guidance/susceptibility)."
+          ]
         }
       ]
     },
     {
       "id": "Q22",
-      "title": "Suspected Bat Exposure \u2013 Rabies Risk Assessment and PEP",
-      "stem": "A child wakes up and a bat is found in the bedroom. No obvious bite marks are seen.\nIf PEP is indicated and the child is not previously vaccinated, list FOUR components.\nIf the bat is captured and tests negative, what is the implication for PEP?\nSources (brief): PHAC Canadian Immunization Guide (Rabies), 2026",
+      "title": "Suspected Bat Exposure – Rabies Risk Assessment and PEP",
+      "stem": "A child wakes up and a bat is found in the bedroom. No obvious bite marks are seen on the child.",
       "parts": [
         {
           "id": "Q22_22a",
@@ -1056,22 +1172,47 @@
           "must_have": [],
           "rc_classification": 5,
           "theme": "A"
+        },
+        {
+          "id": "Q22_22b",
+          "prompt": "If PEP is indicated and the child is not previously vaccinated, list FOUR components.",
+          "max_score": 2,
+          "domain": "3",
+          "response_type": "list",
+          "list_count": 4,
+          "rubric": [
+            "Immediate wound cleansing/irrigation.",
+            "Human rabies immune globulin dosing and infiltration.",
+            "Rabies vaccine day 0.",
+            "Complete follow-up vaccine doses per schedule."
+          ]
+        },
+        {
+          "id": "Q22_22c",
+          "prompt": "If the bat is captured and tests negative, what is the implication for PEP?",
+          "max_score": 1,
+          "domain": "3",
+          "response_type": "text",
+          "single_line": true,
+          "rubric": [
+            "PEP can be withheld or discontinued if reliable testing confirms bat is rabies negative."
+          ]
         }
       ]
     },
     {
       "id": "Q23",
-      "title": "Late Prenatal Presentation (Third Trimester Newcomer) \u2013 Screening, Vaccines, Nutrition",
-      "stem": "A 32\u2011year\u2011old newcomer to Canada presents for her first prenatal visit at 31 weeks\u2019 gestation. She has had no prenatal screening to date and is unsure of her immunization history.\nSources (brief): PHAC Pregnancy portal, 2024; PHO Prenatal serology, 2025; PHAC Canadian Immunization Guide (pregnancy), 2025; NACI influenza in pregnancy, 2023",
+      "title": "Late Prenatal Presentation (Third Trimester Newcomer) – Screening, Vaccines, Nutrition",
+      "stem": "A 32-year-old newcomer to Canada presents for her first prenatal visit at 31 weeks’ gestation. She has had no prenatal screening to date and is unsure of her immunization history.",
       "parts": [
         {
           "id": "Q23_23a",
           "prompt": "List EIGHT infectious conditions that should be considered for prenatal screening (bloodwork and/or swabs), recognizing that specific testing may vary by jurisdiction and individual risk.",
-          "max_score": 4.0,
+          "max_score": 4,
           "response_type": "list",
           "list_count": 8,
           "rubric": [
-            "0.5 mark each, 4 marks total Any EIGHT: - HIV - Syphilis - Hepatitis B surface antigen - Rubella immunity - Chlamydia - Gonorrhea - Group B streptococcus screening (35\u201337 weeks) - Varicella immunity (history/serology) - Hepatitis C (risk\u2011based; may be offered more broadly depending on jurisdiction)"
+            "0.5 mark each, 4 marks total Any EIGHT: - HIV - Syphilis - Hepatitis B surface antigen - Rubella immunity - Chlamydia - Gonorrhea - Group B streptococcus screening (35–37 weeks) - Varicella immunity (history/serology) - Hepatitis C (risk‑based; may be offered more broadly depending on jurisdiction)"
           ],
           "must_have": [],
           "rc_classification": 5,
@@ -1079,12 +1220,12 @@
         },
         {
           "id": "Q23_23b",
-          "prompt": "List SIX vaccine\u2011related actions (include vaccines recommended during pregnancy plus postpartum catch\u2011up if indicated).",
-          "max_score": 3.0,
+          "prompt": "List SIX vaccine‑related actions (include vaccines recommended during pregnancy plus postpartum catch‑up if indicated).",
+          "max_score": 3,
           "response_type": "list",
           "list_count": 6,
           "rubric": [
-            "0.5 mark each, 3 marks total Any SIX: - Offer seasonal influenza vaccine in pregnancy (in season) - Offer Tdap during each pregnancy (ideally 27\u201332 weeks) - Offer COVID\u201119 vaccine per current recommendations - Consider RSV prevention strategy for infant (maternal RSVpreF vaccine at 32\u201336 weeks where available/eligible, OR infant monoclonal where program exists) - Postpartum catch\u2011up with live vaccines if non\u2011immune (MMR for rubella; varicella) - Review household contacts\u2019 vaccination (\u201ccocooning\u201d)"
+            "0.5 mark each, 3 marks total Any SIX: - Offer seasonal influenza vaccine in pregnancy (in season) - Offer Tdap during each pregnancy (ideally 27–32 weeks) - Offer COVID‑19 vaccine per current recommendations - Consider RSV prevention strategy for infant (maternal RSVpreF vaccine at 32–36 weeks where available/eligible, OR infant monoclonal where program exists) - Postpartum catch‑up with live vaccines if non‑immune (MMR for rubella; varicella) - Review household contacts’ vaccination (“cocooning”)"
           ],
           "must_have": [],
           "rc_classification": 5,
@@ -1093,11 +1234,11 @@
         {
           "id": "Q23_23c",
           "prompt": "List EIGHT prenatal nutrition/supplement recommendations.",
-          "max_score": 4.0,
+          "max_score": 4,
           "response_type": "list",
           "list_count": 8,
           "rubric": [
-            "0.5 mark each, 4 marks total Any EIGHT: - Daily folic acid (typically 0.4 mg for low\u2011risk; higher dose for specific high\u2011risk situations) - Prenatal multivitamin containing iron; address iron deficiency as indicated - Ensure iodine intake (prenatal vitamins commonly include iodine) - Limit caffeine (follow Canadian guidance; include all sources) - Avoid alcohol in pregnancy - Follow food safety advice to reduce foodborne illness risk - Choose fish low in mercury and follow Canadian mercury guidance - Eat a variety of foods aligned with Canada\u2019s Food Guide; limit highly processed foods"
+            "0.5 mark each, 4 marks total Any EIGHT: - Daily folic acid (typically 0.4 mg for low‑risk; higher dose for specific high‑risk situations) - Prenatal multivitamin containing iron; address iron deficiency as indicated - Ensure iodine intake (prenatal vitamins commonly include iodine) - Limit caffeine (follow Canadian guidance; include all sources) - Avoid alcohol in pregnancy - Follow food safety advice to reduce foodborne illness risk - Choose fish low in mercury and follow Canadian mercury guidance - Eat a variety of foods aligned with Canada’s Food Guide; limit highly processed foods"
           ],
           "must_have": [],
           "rc_classification": 4,
@@ -1107,13 +1248,13 @@
     },
     {
       "id": "Q24",
-      "title": "Syphilis in Pregnancy (2023\u20132025 context)",
-      "stem": "A pregnant person is diagnosed with infectious syphilis late in pregnancy. Syphilis has increased substantially in recent years in Canada, including among females of reproductive age, with a rise in congenital syphilis.\nSources (brief): PHAC CCDR, 2025; Canada.ca syphilis campaign page, 2026; PHAC STBBI guides, current",
+      "title": "Syphilis in Pregnancy (2023–2025 context)",
+      "stem": "A pregnant person is diagnosed with infectious syphilis late in pregnancy. Syphilis has increased substantially in recent years in Canada, including among females of reproductive age, with a rise in congenital syphilis.",
       "parts": [
         {
           "id": "Q24_24a",
           "prompt": "List FOUR epidemiologic observations about syphilis relevant to preventing congenital syphilis.",
-          "max_score": 2.0,
+          "max_score": 2,
           "response_type": "list",
           "list_count": 4,
           "rubric": [
@@ -1126,7 +1267,7 @@
         {
           "id": "Q24_24b",
           "prompt": "List FOUR factors that increase risk of vertical transmission and/or adverse pregnancy outcomes.",
-          "max_score": 2.0,
+          "max_score": 2,
           "response_type": "list",
           "list_count": 4,
           "rubric": [
@@ -1138,7 +1279,7 @@
         },
         {
           "id": "Q24_24c",
-          "prompt": "List THREE routes/timings of parent\u2011to\u2011infant syphilis transmission.",
+          "prompt": "List THREE routes/timings of parent‑to‑infant syphilis transmission.",
           "max_score": 1.5,
           "response_type": "list",
           "list_count": 3,
@@ -1152,11 +1293,11 @@
         {
           "id": "Q24_24d",
           "prompt": "List EIGHT public health interventions that reduce risk of congenital syphilis, addressing the pregnant person AND partner(s), across pregnancy, delivery, and postpartum.",
-          "max_score": 4.0,
+          "max_score": 4,
           "response_type": "list",
           "list_count": 8,
           "rubric": [
-            "0.5 mark each, 4 marks total Any EIGHT: - Universal screening at first prenatal visit - Repeat screening later in pregnancy and/or at delivery when indicated by risk/outbreak guidance - Immediate treatment with penicillin per guidelines and ensure completion - Partner notification, testing and treatment to prevent reinfection - Case management to support follow\u2011up serology and prenatal care linkage - Risk reduction counselling; address structural risks and access barriers - Neonatal assessment plan when maternal infection is late or inadequately treated - Surveillance/reporting and outbreak response supports"
+            "0.5 mark each, 4 marks total Any EIGHT: - Universal screening at first prenatal visit - Repeat screening later in pregnancy and/or at delivery when indicated by risk/outbreak guidance - Immediate treatment with penicillin per guidelines and ensure completion - Partner notification, testing and treatment to prevent reinfection - Case management to support follow‑up serology and prenatal care linkage - Risk reduction counselling; address structural risks and access barriers - Neonatal assessment plan when maternal infection is late or inadequately treated - Surveillance/reporting and outbreak response supports"
           ],
           "must_have": [],
           "rc_classification": 5,
@@ -1167,12 +1308,12 @@
     {
       "id": "Q25",
       "title": "Newborn/Infant Infections + Immunization Timing",
-      "stem": "Immunization timing: list TWO vaccines that can begin at 6 months of age (seasonal/routine recommendations) AND list FOUR vaccines commonly given around 12 months of age in many Canadian schedules.\nAround 12 months (any FOUR; allow provincial variation): - MMR - Pneumococcal conjugate booster (commonly at 12 months in several schedules) - Meningococcal C conjugate (Men\u2011C\u2011C) (commonly at ~12 months) - Varicella (or MMRV where used; some schedules at 12\u201315 months) - Influenza (annual) - COVID\u201119 (as recommended)\nMarker note: Accept provincial schedule\u2011specific answers if internally consistent.\nSources (brief): PHAC Canadian Immunization Guide (recommended schedules), 2025\u20132026; Ontario routine schedule, 2025",
+      "stem": "",
       "parts": [
         {
           "id": "Q25_25a",
           "prompt": "List SIX infections in the prenatal/newborn period that are high public health priority because they can cause severe outcomes and/or have clear prevention opportunities.",
-          "max_score": 3.0,
+          "max_score": 3,
           "response_type": "list",
           "list_count": 6,
           "rubric": [
@@ -1181,22 +1322,34 @@
           "must_have": [],
           "rc_classification": 5,
           "theme": "E"
+        },
+        {
+          "id": "Q25_25b",
+          "prompt": "List TWO vaccines that can begin at 6 months of age (seasonal/routine recommendations) AND list FOUR vaccines commonly given around 12 months of age in many Canadian schedules.",
+          "max_score": 3,
+          "domain": "9",
+          "response_type": "list",
+          "list_count": 6,
+          "rubric": [
+            "6 months: influenza, COVID-19 (per recommendations).",
+            "Around 12 months: MMR, Men-C-C, PCV booster, varicella/MMRV (schedule dependent)."
+          ]
         }
       ]
     },
     {
       "id": "Q26",
-      "title": "Child Health and Intersectionality \u2013 Food Insecurity and Malnutrition (Northern Remote Context)",
-      "stem": "A 3\u2011year\u2011old child in a Northern remote Inuit community is seen for recurrent infections, poor growth, and fatigue. The family reports high food insecurity and limited access to affordable nutritious foods.\nSources (brief): Health Canada, 2019 (Canada\u2019s Food Guide); Canada.ca pregnancy/healthy eating and supplements (general principles); Indigenous\u2011led food security frameworks (general)\nQuestion 27 (10 marks) \u2014 Health Systems (RC=2), Non-communicable disease theme (B)\nMetadata (from Master tags): Total marks = 14.0.\nScenario: Province is implementing an organized colorectal cancer screening program and wants system design advice.\n27a (4 marks): List EIGHT components of an organized screening program (0.5 each)\nExamples: eligibility criteria, invitation/recall, follow-up colonoscopy pathway, QA standards, data registry, performance indicators, equity strategy, governance/accountability.\n27b (2 marks): List FOUR ethical/legal/health-systems considerations (0.5 each)\nExamples: informed consent, overdiagnosis/false positives, privacy/data sharing, equitable access (rural/Indigenous), capacity constraints.\n27c (4 marks): List EIGHT program indicators (0.5 each)\nExamples: participation rate, positivity rate, colonoscopy completion, time-to-follow-up, detection rate, interval cancers, stage shift, complications, equity-stratified coverage.\nMetadata: RC=2; Topic=B\nNew Question 28 (12 marks) \u2014 Basic Sciences (RC=3), Communicable disease theme (A) or NCD theme (B)\nScenario: Provide a 2\u00d72 table for a diagnostic test (pick one: measles serology, TB IGRA, rapid strep, FIT) with realistic counts.\n28a (6 marks): Calculate sensitivity, specificity, PPV, NPV\nFormula (0.5 each = 2 marks)\nWorking (0.5 each = 2 marks)\nFinal value + 1-sentence interpretation (0.5 each = 2 marks)\n28b (4 marks): Calculate LR+ and LR\u2212 (2 marks each)\nFormula (0.5) + working (0.5) + answer/interpretation (1) per LR\n28c (2 marks): In low prevalence settings, which metric changes most and why?\n(Expect: PPV drops, NPV rises; base-rate effect.)\nMetadata: RC=3; Topic=A (if infectious test) or Topic=B (if FIT/screening)\nNew Question 29 (6 marks) \u2014 Population Health + HP/DP methods (RC=1/4), Mental Health & Substance Use theme (C)\nScenario: Northern city sees rising opioid toxicity deaths; you\u2019re asked for a population-health response that can be evaluated.\n29a (3 marks): List SIX population indicators for a dashboard (0.5 each)\nExamples: deaths/toxicity ED visits/EMS calls, naloxone distribution/use, OAT coverage, fentanyl presence in drug checking, housing instability, equity stratification.\n29b (3 marks): List SIX interventions across the prevention spectrum (0.5 each)\nExamples: naloxone distribution, safer supply/regulated alternatives, supervised consumption, OAT expansion, peer outreach, shelter-based harm reduction, post-overdose outreach.\nMetadata: 29a RC=1; 29b RC=4; Topic=C",
+      "title": "Child Health and Intersectionality – Food Insecurity and Malnutrition (Northern Remote Context)",
+      "stem": "A 3-year-old child in a Northern remote Inuit community is seen for recurrent infections, poor growth, and fatigue. The family reports high food insecurity and limited access to affordable nutritious foods.",
       "parts": [
         {
           "id": "Q26_26a",
           "prompt": "List EIGHT assessment elements you would prioritize (clinical, nutrition, environmental, and social).",
-          "max_score": 4.0,
+          "max_score": 4,
           "response_type": "list",
           "list_count": 8,
           "rubric": [
-            "0.5 mark each, 4 marks total Any EIGHT: - Growth parameters and growth trajectory - Dietary history (24\u2011hour recall; food access constraints) - Screen for micronutrient deficiencies (iron deficiency anemia; vitamin D; others as clinically indicated) - Infection history and immunization status - Housing conditions (crowding, mould) and water security - Developmental screening and psychosocial assessment - Consider enteric/parasitic infection based on exposure history - Access to care and barriers (transport, language) - Household income supports and community food programs"
+            "0.5 mark each, 4 marks total Any EIGHT: - Growth parameters and growth trajectory - Dietary history (24‑hour recall; food access constraints) - Screen for micronutrient deficiencies (iron deficiency anemia; vitamin D; others as clinically indicated) - Infection history and immunization status - Housing conditions (crowding, mould) and water security - Developmental screening and psychosocial assessment - Consider enteric/parasitic infection based on exposure history - Access to care and barriers (transport, language) - Household income supports and community food programs"
           ],
           "must_have": [],
           "rc_classification": 1,
@@ -1205,11 +1358,11 @@
         {
           "id": "Q26_26b",
           "prompt": "List EIGHT public health actions across individual, program, and structural levels.",
-          "max_score": 4.0,
+          "max_score": 4,
           "response_type": "list",
           "list_count": 8,
           "rubric": [
-            "0.5 mark each, 4 marks total Any EIGHT: - Link to community\u2011led food programs (e.g., community freezer, school/daycare nutrition supports) - Culturally safe nutrition counselling supporting traditional foods where available - Coordinate micronutrient supplementation where indicated - Improve access to vaccines and infection prevention resources - Strengthen surveillance/monitoring of child growth and anemia indicators - Partner with Indigenous leadership; apply Indigenous data governance principles (e.g., OCAP\u00ae) - Advocate intersectorally on food affordability/logistics and housing/water infrastructure - Support policies/programs addressing poverty and cost of living"
+            "0.5 mark each, 4 marks total Any EIGHT: - Link to community‑led food programs (e.g., community freezer, school/daycare nutrition supports) - Culturally safe nutrition counselling supporting traditional foods where available - Coordinate micronutrient supplementation where indicated - Improve access to vaccines and infection prevention resources - Strengthen surveillance/monitoring of child growth and anemia indicators - Partner with Indigenous leadership; apply Indigenous data governance principles (e.g., OCAP®) - Advocate intersectorally on food affordability/logistics and housing/water infrastructure - Support policies/programs addressing poverty and cost of living"
           ],
           "must_have": [],
           "rc_classification": 4,
@@ -1219,17 +1372,17 @@
     },
     {
       "id": "Q27",
-      "title": "Breast Cancer Screening \u2013 Program Evaluation, Equity, and Surveillance",
-      "stem": "A federal/provincial working group is reviewing breast cancer screening guidance and program performance in Canada.",
+      "title": "Breast Cancer Screening – Program Evaluation, Equity, and Surveillance",
+      "stem": "Your province is implementing an organized breast cancer screening program and wants system design advice.",
       "parts": [
         {
           "id": "Q27_27a",
-          "prompt": "List FIVE criteria that an organized breast cancer screening program should meet to be considered effective and appropriate (benefits, harms, feasibility, and quality).",
+          "prompt": "List FIVE criteria that an organized breast cancer screening program should meet to be considered effective and appropriate.",
           "max_score": 2.5,
           "response_type": "list",
           "list_count": 5,
           "rubric": [
-            "Any FIVE: target population/eligibility; benefit\u2013harm balance incl overdiagnosis; acceptable test/protocol; diagnostic follow-up capacity; QA/audit; equitable access/cultural safety; performance monitoring; informed participation; cost/sustainability; continuous improvement."
+            "Any FIVE: target population/eligibility; benefit–harm balance incl overdiagnosis; acceptable test/protocol; diagnostic follow-up capacity; QA/audit; equitable access/cultural safety; performance monitoring; informed participation; cost/sustainability; continuous improvement."
           ],
           "must_have": [],
           "rc_classification": 4,
@@ -1237,10 +1390,10 @@
         },
         {
           "id": "Q27_27b",
-          "prompt": "Provide TWO arguments supporting earlier/expanded screening AND TWO arguments supporting later/narrower screening (consider harms and equity).",
-          "max_score": 4.0,
-          "response_type": "text",
-          "list_count": null,
+          "prompt": "Provide TWO arguments supporting earlier/expanded screening AND TWO arguments supporting later/narrower screening.",
+          "max_score": 4,
+          "response_type": "list",
+          "list_count": 4,
           "rubric": [
             "Any TWO per side. Earlier/expanded: higher incidence at younger ages in some groups; higher baseline risk; equity concerns; years-of-life saved. Later/narrower: overdiagnosis/overtreatment; higher false positives/biopsies; anxiety/harms; uncertain mortality benefit in lower-risk; capacity/opportunity costs."
           ],
@@ -1251,7 +1404,7 @@
         {
           "id": "Q27_27c",
           "prompt": "List SIX attributes of a well-conducted public health surveillance system.",
-          "max_score": 3.0,
+          "max_score": 3,
           "response_type": "list",
           "list_count": 6,
           "rubric": [
@@ -1265,17 +1418,17 @@
     },
     {
       "id": "Q28",
-      "title": "Rapid Streptococcal Test \u2013 2\u00d72 Table and Diagnostic Accuracy",
-      "stem": "Rapid strep antigen test vs culture in 100 children. Culture+ 40, culture\u2212 60. Results: TP 34, FN 6, FP 9, TN 51.",
+      "title": "Rapid Streptococcal Test – 2×2 Table and Diagnostic Accuracy",
+      "stem": "To determine the value of rapid strep throat swabs in point-of-care testing, a study was conducted to compare rapid strep antigen test vs standard bacterial culture. The study recruited 100 children. In total, there were 40 positive cultures and 60 negative cultures for group A streptococcus. Findings included 34 true positives (TP), 6 false negatives (FN), 9 false positives (FP) and 51 true negatives (TN).",
       "parts": [
         {
           "id": "Q28_28a",
-          "prompt": "Construct the 2\u00d72 table and calculate sensitivity and specificity.",
-          "max_score": 3.0,
-          "response_type": "text",
+          "prompt": "Construct the 2×2 table and calculate sensitivity and specificity.",
+          "max_score": 3,
+          "response_type": "two_by_two_workspace",
           "list_count": null,
           "rubric": [
-            "Sensitivity=34/(34+6)=0.85; Specificity=51/(51+9)=0.85. Partial marks: formula \u2192 working \u2192 answer."
+            "Sensitivity=34/(34+6)=0.85; Specificity=51/(51+9)=0.85. Partial marks: formula → working → answer."
           ],
           "must_have": [],
           "rc_classification": 3,
@@ -1284,11 +1437,11 @@
         {
           "id": "Q28_28b",
           "prompt": "Calculate PPV and NPV.",
-          "max_score": 3.0,
+          "max_score": 3,
           "response_type": "text",
           "list_count": null,
           "rubric": [
-            "PPV=34/(34+9)=0.79; NPV=51/(51+6)=0.90. Partial marks: formula \u2192 working \u2192 answer."
+            "PPV=34/(34+9)=0.79; NPV=51/(51+6)=0.90. Partial marks: formula → working → answer."
           ],
           "must_have": [],
           "rc_classification": 3,
@@ -1296,12 +1449,12 @@
         },
         {
           "id": "Q28_28c",
-          "prompt": "Calculate LR+ and LR\u2212 and provide a one-sentence interpretation for each.",
-          "max_score": 4.0,
+          "prompt": "Calculate LR+ and LR− and provide a one-sentence interpretation for each.",
+          "max_score": 4,
           "response_type": "text",
           "list_count": null,
           "rubric": [
-            "LR+=0.85/0.15\u22485.7 (moderate rule-in). LR\u2212=0.15/0.85\u22480.18 (moderate rule-out). Partial marks: formula \u2192 working \u2192 answer/interpretation."
+            "LR+=0.85/0.15≈5.7 (moderate rule-in). LR−=0.15/0.85≈0.18 (moderate rule-out). Partial marks: formula → working → answer/interpretation."
           ],
           "must_have": [],
           "rc_classification": 3,
@@ -1309,7 +1462,7 @@
         },
         {
           "id": "Q28_28d",
-          "prompt": "If prevalence decreases, which metrics change most and why?",
+          "prompt": "If group A strep pharyngitis prevalence decreases, which metrics change most and why?",
           "max_score": 2.5,
           "response_type": "text",
           "list_count": null,
@@ -1324,13 +1477,13 @@
     },
     {
       "id": "Q29",
-      "title": "Opioid Toxicity \u2013 Dashboard Indicators and Intervention Package",
-      "stem": "A city has increasing opioid toxicity deaths and ED visits. Public health is asked to propose dashboard indicators and an intervention package.",
+      "title": "Opioid Toxicity – Dashboard Indicators and Intervention Package",
+      "stem": "An East coast city in your regional health authority is seeing a rise in opioid-related toxicity deaths. As the Regional MOH, you are asked for a population-health response that can be evaluated.",
       "parts": [
         {
           "id": "Q29_29a",
           "prompt": "List SIX population-level indicators for an opioid dashboard.",
-          "max_score": 3.0,
+          "max_score": 3,
           "response_type": "list",
           "list_count": 6,
           "rubric": [
@@ -1342,8 +1495,8 @@
         },
         {
           "id": "Q29_29b",
-          "prompt": "List SIX interventions across the prevention spectrum (harm reduction \u2192 treatment \u2192 recovery).",
-          "max_score": 3.0,
+          "prompt": "List SIX interventions across the prevention spectrum to prevent opioid-related overdose deaths.",
+          "max_score": 3,
           "response_type": "list",
           "list_count": 6,
           "rubric": [
@@ -1366,13 +1519,13 @@
       "duration_sec": 1800,
       "total_points": 24.0,
       "question_ids": [
-        "Q1",
-        "Q2",
-        "Q3",
         "Q4",
-        "Q5",
+        "Q1",
+        "Q7",
+        "Q3",
         "Q6",
-        "Q7"
+        "Q2",
+        "Q5"
       ],
       "notice": "Legacy 30-minute practice block."
     },
@@ -1381,35 +1534,35 @@
       "duration_sec": 10800,
       "total_points": 180.0,
       "question_ids": [
-        "Q01",
-        "Q02",
-        "Q03",
-        "Q04",
-        "Q05",
-        "Q06",
-        "Q07",
-        "Q08",
-        "Q09",
-        "Q10",
-        "Q11",
-        "Q12",
-        "Q13",
-        "Q14",
-        "Q15",
-        "Q16",
         "Q17",
-        "Q18",
-        "Q19",
-        "Q20",
-        "Q21",
-        "Q22",
-        "Q23",
-        "Q24",
+        "Q03",
         "Q25",
-        "Q26",
-        "Q27",
+        "Q11",
+        "Q01",
+        "Q19",
+        "Q07",
         "Q28",
-        "Q29"
+        "Q14",
+        "Q05",
+        "Q22",
+        "Q09",
+        "Q15",
+        "Q29",
+        "Q04",
+        "Q23",
+        "Q12",
+        "Q02",
+        "Q27",
+        "Q16",
+        "Q08",
+        "Q20",
+        "Q06",
+        "Q24",
+        "Q13",
+        "Q18",
+        "Q10",
+        "Q26",
+        "Q21"
       ],
       "notice": ""
     }
@@ -1933,8 +2086,11 @@
     container.appendChild(heading);
     const stem = document.createElement('p');
     stem.classList.add('question-stem');
-    if ((q.stem || '').trim().length > 0) {
-      const lines = q.stem.split('\n');
+    const visibleStemLines = (q.stem || '')
+      .split('\n')
+      .filter((line) => !/^\s*Sources?\s*\(brief\)/i.test(line));
+    if (visibleStemLines.join('\n').trim().length > 0) {
+      const lines = visibleStemLines;
       lines.forEach((line, idx) => {
         stem.appendChild(document.createTextNode(line));
         if (idx < lines.length - 1) {
@@ -2006,8 +2162,8 @@
         const items = saved ? saved.split('\n') : [];
         const matrix = document.createElement('table');
         matrix.classList.add('haddon-matrix');
-        const rowLabels = ['Host', 'Agent/Vehicle', 'Physical/Social Environment'];
-        const colLabels = ['Pre-event', 'Event', 'Post-event'];
+        const rowLabels = q.id === 'Q04' ? ['Pre-event', 'Event', 'Post-event'] : ['Host', 'Agent/Vehicle', 'Physical/Social Environment'];
+        const colLabels = q.id === 'Q04' ? ['Host', 'Agent/Vehicle', 'Physical/Social Environment'] : ['Pre-event', 'Event', 'Post-event'];
 
         const headerRow = document.createElement('tr');
         const corner = document.createElement('th');
@@ -2044,6 +2200,48 @@
           matrix.appendChild(tr);
         }
         answerDiv.appendChild(matrix);
+      } else if (part.response_type === 'two_by_two_workspace') {
+        const saved = getSavedAnswer(q.id, part.id);
+        let gridValues = Array(9).fill('');
+        let calculations = '';
+        if (saved) {
+          const [gridRaw, calcRaw] = saved.split('\n---\n');
+          if (gridRaw) {
+            const parsedGrid = gridRaw.split('\n').slice(0, 9);
+            gridValues = gridValues.map((v, idx) => parsedGrid[idx] || v);
+          }
+          calculations = calcRaw || '';
+        }
+
+        const workspace = document.createElement('div');
+        workspace.classList.add('workspace-2x2');
+
+        const grid = document.createElement('table');
+        grid.classList.add('haddon-matrix');
+        for (let row = 0; row < 3; row++) {
+          const tr = document.createElement('tr');
+          for (let col = 0; col < 3; col++) {
+            const index = row * 3 + col;
+            const td = document.createElement(row === 0 || col === 0 ? 'th' : 'td');
+            const input = document.createElement('textarea');
+            input.classList.add('workspace-cell');
+            input.dataset.itemIndex = index;
+            input.rows = 2;
+            input.value = gridValues[index] || '';
+            td.appendChild(input);
+            tr.appendChild(td);
+          }
+          grid.appendChild(tr);
+        }
+
+        const calcBox = document.createElement('textarea');
+        calcBox.classList.add('workspace-calculations');
+        calcBox.placeholder = 'Use this space for formulas and calculations.';
+        calcBox.value = calculations;
+
+        workspace.appendChild(grid);
+        workspace.appendChild(calcBox);
+        answerDiv.appendChild(workspace);
       } else {
         // Render a textarea for free-form answer or a single-line input
         const useSingleLine = !!part.single_line;
@@ -2128,6 +2326,12 @@
         const inputs = area.querySelectorAll('.haddon-input');
         const lines = Array.from(inputs).map((inp) => inp.value.trim());
         answers[qId][partId] = lines.join('\n');
+      } else if (responseType === 'two_by_two_workspace') {
+        const gridInputs = area.querySelectorAll('.workspace-cell');
+        const gridLines = Array.from(gridInputs).map((inp) => inp.value.trim());
+        const calcArea = area.querySelector('.workspace-calculations');
+        const calcValue = calcArea ? calcArea.value : '';
+        answers[qId][partId] = `${gridLines.join('\n')}\n---\n${calcValue}`;
       } else {
         const input = area.querySelector('input.single-line-input');
         if (input) {
@@ -2172,6 +2376,16 @@
             .slice(0, 9)
             .filter((item) => item.trim().length > 0).length;
           if (provided < 9) {
+            unanswered = true;
+          }
+        } else if (p.response_type === 'two_by_two_workspace') {
+          const [gridRaw, calcRaw] = (ans || '').split('\n---\n');
+          const providedGrid = (gridRaw || '')
+            .split('\n')
+            .slice(0, 9)
+            .filter((item) => item.trim().length > 0).length;
+          const hasCalc = !!(calcRaw && calcRaw.trim().length > 0);
+          if (providedGrid === 0 && !hasCalc) {
             unanswered = true;
           }
         } else if (!ans || ans.trim().length === 0) {
