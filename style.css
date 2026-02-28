@@ -273,22 +273,42 @@ main {
 }
 
 .haddon-matrix {
-  display: grid;
-  grid-template-columns: 220px repeat(3, minmax(140px, 1fr));
-  gap: 0.4rem;
-  align-items: center;
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin-bottom: 0.5rem;
+}
+
+.haddon-matrix th,
+.haddon-matrix td {
+  border: 1px solid #d0d7de;
+  padding: 0.4rem;
+  vertical-align: top;
+}
+
+.haddon-matrix th:first-child {
+  width: 220px;
 }
 
 .haddon-label {
   font-weight: 600;
+  background: #f6f8fa;
+  text-align: left;
 }
 
 .haddon-input {
   width: 100%;
+  min-height: 3.5rem;
   padding: 0.35rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  resize: vertical;
+}
+
+.stem-missing-warning {
+  color: #b42318;
+  font-weight: 600;
 }
 
 /* Domain info appended to part headings */
