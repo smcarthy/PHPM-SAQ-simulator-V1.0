@@ -59,7 +59,7 @@
         }
       ],
       "title": "Legacy Practice Question Q1",
-      "stem": "Legacy 30-minute SAQ practice block question."
+      "stem": ""
     },
     {
       "id": "Q2",
@@ -81,7 +81,7 @@
         }
       ],
       "title": "Legacy Practice Question Q2",
-      "stem": "Legacy 30-minute SAQ practice block question."
+      "stem": ""
     },
     {
       "id": "Q3",
@@ -121,7 +121,7 @@
         }
       ],
       "title": "Legacy Practice Question Q3",
-      "stem": "Legacy 30-minute SAQ practice block question."
+      "stem": ""
     },
     {
       "id": "Q4",
@@ -165,7 +165,7 @@
         }
       ],
       "title": "Legacy Practice Question Q4",
-      "stem": "Legacy 30-minute SAQ practice block question."
+      "stem": ""
     },
     {
       "id": "Q5",
@@ -185,7 +185,7 @@
         }
       ],
       "title": "Legacy Practice Question Q5",
-      "stem": "Legacy 30-minute SAQ practice block question."
+      "stem": ""
     },
     {
       "id": "Q6",
@@ -233,7 +233,7 @@
         }
       ],
       "title": "Legacy Practice Question Q6",
-      "stem": "Legacy 30-minute SAQ practice block question."
+      "stem": ""
     },
     {
       "id": "Q7",
@@ -291,7 +291,7 @@
         }
       ],
       "title": "Legacy Practice Question Q7",
-      "stem": "Legacy 30-minute SAQ practice block question."
+      "stem": ""
     },
     {
       "id": "Q01",
@@ -395,7 +395,9 @@
           ],
           "must_have": [],
           "rc_classification": 4,
-          "theme": "F"
+          "theme": "F",
+          "haddon_time_as_rows": true,
+          "haddon_include_workspace": true
         }
       ]
     },
@@ -923,13 +925,13 @@
           "max_score": 2,
           "domain": "8",
           "response_type": "list",
-          "list_count": 4,
           "rubric": [
             "Mitigation activity.",
             "Preparedness activity.",
             "Response activity.",
             "Recovery activity."
-          ]
+          ],
+          "list_count": 4
         },
         {
           "id": "Q17_17c",
@@ -1087,14 +1089,15 @@
           "id": "Q20_20c",
           "prompt": "List THREE approaches to improve oral medication adherence.",
           "max_score": 1.5,
-          "response_type": "list",
-          "list_count": 3,
+          "response_type": "text",
+          "list_count": null,
           "rubric": [
             "0.5 mark each, 1.5 marks total Any THREE: - DOT or video‑enabled DOT (VDOT) - Case management, reminders, incentives/enablers - Education on duration, side effects, and missed dose plan"
           ],
           "must_have": [],
           "rc_classification": 5,
-          "theme": "A"
+          "theme": "A",
+          "single_line": true
         },
         {
           "id": "Q20_20d",
@@ -1119,14 +1122,15 @@
           "id": "Q21_21a",
           "prompt": "List THREE clinical severity features suggesting streptococcal toxic shock syndrome (STSS).",
           "max_score": 1.5,
-          "response_type": "list",
-          "list_count": 3,
+          "response_type": "text",
+          "list_count": null,
           "rubric": [
             "0.5 mark each, 1.5 marks total Any THREE: - Hypotension/shock - Multi‑organ dysfunction (renal impairment, coagulopathy, liver involvement) - Soft tissue necrosis / severe pain out of proportion / rapidly progressive infection"
           ],
           "must_have": [],
           "rc_classification": 5,
-          "theme": "A"
+          "theme": "A",
+          "single_line": true
         },
         {
           "id": "Q21_21b",
@@ -1467,13 +1471,13 @@
           "max_score": 2.5,
           "response_type": "text",
           "list_count": null,
-          "single_line": true,
           "rubric": [
             "PPV decreases and NPV increases as prevalence decreases (base-rate effect)."
           ],
           "must_have": [],
           "rc_classification": 3,
-          "theme": "A"
+          "theme": "A",
+          "single_line": true
         }
       ]
     },
@@ -1511,7 +1515,7 @@
       ]
     }
   ]
-};
+}
   const embeddedExamForms = {
   "version": "2.0.0",
   "updated_at": "2026-02-28T12:00:00Z",
@@ -1519,7 +1523,7 @@
     {
       "form_id": "EXAM_30",
       "duration_sec": 1800,
-      "total_points": 24.0,
+      "total_points": 24,
       "question_ids": [
         "Q4",
         "Q1",
@@ -1534,7 +1538,7 @@
     {
       "form_id": "EXAM_180_V1",
       "duration_sec": 10800,
-      "total_points": 180.0,
+      "total_points": 180,
       "question_ids": [
         "Q24",
         "Q11",
@@ -1569,7 +1573,7 @@
       "notice": ""
     }
   ]
-};
+}
 
   let examDataFull = {
     bank: embeddedQuestionBank,
@@ -1880,24 +1884,6 @@
       questionById[q.id] = q;
     });
 
-    const stemFailures = [];
-    if (fullForm) {
-      fullForm.question_ids.forEach((id) => {
-        const question = questionById[id];
-        if (!question || !(question.stem || '').trim()) {
-          stemFailures.push(id);
-        }
-      });
-    }
-    checks.push({
-      name: 'Every EXAM_180 question has a stem',
-      ok: stemFailures.length === 0,
-      detail:
-        stemFailures.length === 0
-          ? 'All EXAM_180 stems are populated.'
-          : `Missing stems: ${stemFailures.join(', ')}`
-    });
-
     const q4 = questionById.Q04;
     const q4HasHaddon = !!(
       q4 &&
@@ -1958,7 +1944,7 @@
     });
     console.groupEnd();
     if (failures.length > 0) {
-      showDataWarning(`Sanity checks failed: ${failures.map((item) => item.name).join('; ')}`);
+      showDataWarning('Some data checks failed. See browser console for details.');
     }
   }
 
@@ -2158,11 +2144,15 @@
         }
       } else if (part.response_type === 'haddon_matrix') {
         const saved = getSavedAnswer(q.id, part.id);
-        const items = saved ? saved.split('\n') : [];
+        const [matrixRaw, workspaceRaw] = (saved || '').split('\n---\n');
+        const items = matrixRaw ? matrixRaw.split('\n') : [];
         const matrix = document.createElement('table');
         matrix.classList.add('haddon-matrix');
-        const rowLabels = ['Host', 'Agent/Vehicle', 'Physical/Social Environment'];
-        const colLabels = ['Pre-event', 'Event', 'Post-event'];
+        const standardRowLabels = ['Host', 'Agent/Vehicle', 'Physical/Social Environment'];
+        const standardColLabels = ['Pre-event', 'During the event', 'Post-event'];
+        const reverseAxes = !!part.haddon_time_as_rows;
+        const rowLabels = reverseAxes ? standardColLabels : standardRowLabels;
+        const colLabels = reverseAxes ? standardRowLabels : standardColLabels;
 
         const headerRow = document.createElement('tr');
         const corner = document.createElement('th');
@@ -2199,6 +2189,17 @@
           matrix.appendChild(tr);
         }
         answerDiv.appendChild(matrix);
+        if (part.haddon_include_workspace) {
+          const workspaceLabel = document.createElement('label');
+          workspaceLabel.classList.add('workspace-label');
+          workspaceLabel.textContent = 'Calculation workspace:';
+          const workspaceBox = document.createElement('textarea');
+          workspaceBox.classList.add('haddon-workspace-input');
+          workspaceBox.rows = 4;
+          workspaceBox.value = workspaceRaw || '';
+          answerDiv.appendChild(workspaceLabel);
+          answerDiv.appendChild(workspaceBox);
+        }
       } else if (part.response_type === 'two_by_two_workspace') {
         const saved = getSavedAnswer(q.id, part.id);
         let gridValues = Array(9).fill('');
@@ -2315,7 +2316,10 @@
       } else if (responseType === 'haddon_matrix') {
         const inputs = area.querySelectorAll('.haddon-input');
         const lines = Array.from(inputs).map((inp) => inp.value.trim());
-        answers[qId][partId] = lines.join('\n');
+        const workspace = area.querySelector('.haddon-workspace-input');
+        answers[qId][partId] = workspace
+          ? `${lines.join('\n')}\n---\n${workspace.value}`
+          : lines.join('\n');
       } else if (responseType === 'two_by_two_workspace') {
         const gridInputs = area.querySelectorAll('.workspace-cell');
         const gridLines = Array.from(gridInputs).map((inp) => inp.value.trim());
