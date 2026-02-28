@@ -320,6 +320,24 @@ main {
   min-height: 2rem;
 }
 
+
+.workspace-label {
+  display: block;
+  margin-top: 0.6rem;
+  margin-bottom: 0.3rem;
+  color: #333;
+}
+
+.two-by-two-workspace-input {
+  width: 100%;
+  min-height: 4.5rem;
+  padding: 0.35rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
 .stem-missing-warning {
   color: #b42318;
   font-weight: 600;

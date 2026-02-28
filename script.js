@@ -2203,12 +2203,14 @@
       } else if (part.response_type === 'two_by_two_workspace') {
         const saved = getSavedAnswer(q.id, part.id);
         let gridValues = Array(9).fill('');
+        let workspaceValue = '';
         if (saved) {
-          const [gridRaw] = saved.split('\n---\n');
+          const [gridRaw, workspaceRaw] = saved.split('\n---\n');
           if (gridRaw) {
             const parsedGrid = gridRaw.split('\n').slice(0, 9);
             gridValues = gridValues.map((v, idx) => parsedGrid[idx] || v);
           }
+          workspaceValue = workspaceRaw || '';
         }
 
         const workspace = document.createElement('div');
@@ -2232,6 +2234,17 @@
           grid.appendChild(tr);
         }
         workspace.appendChild(grid);
+
+        const workspaceLabel = document.createElement('label');
+        workspaceLabel.classList.add('workspace-label');
+        workspaceLabel.textContent = 'Calculation workspace:';
+        const workspaceBox = document.createElement('textarea');
+        workspaceBox.classList.add('two-by-two-workspace-input');
+        workspaceBox.rows = 4;
+        workspaceBox.value = workspaceValue;
+        workspace.appendChild(workspaceLabel);
+        workspace.appendChild(workspaceBox);
+
         answerDiv.appendChild(workspace);
       } else {
         // Render a textarea for free-form answer or a single-line input
@@ -2323,7 +2336,10 @@
       } else if (responseType === 'two_by_two_workspace') {
         const gridInputs = area.querySelectorAll('.workspace-cell');
         const gridLines = Array.from(gridInputs).map((inp) => inp.value.trim());
-        answers[qId][partId] = gridLines.join('\n');
+        const workspace = area.querySelector('.two-by-two-workspace-input');
+        answers[qId][partId] = workspace
+          ? `${gridLines.join('\n')}\n---\n${workspace.value}`
+          : gridLines.join('\n');
       } else {
         const input = area.querySelector('input.single-line-input');
         if (input) {
