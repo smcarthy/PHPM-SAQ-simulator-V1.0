@@ -491,7 +491,7 @@
         },
         {
           "id": "Q07_7b",
-          "prompt": "Provide TWO ethical arguments in support AND TWO ethical arguments against. (0.5 mark each, 2 marks total)",
+          "prompt": "Provide TWO ethical arguments in support AND TWO ethical arguments against.",
           "max_score": 2,
           "domain": "5",
           "response_type": "list",
@@ -574,7 +574,7 @@
     {
       "id": "Q10",
       "title": "Occupational Health – Fatigue and Shift Work",
-      "stem": "Consider this table of annual suicides in an Indigenous population and the overall suicides reported for that province.",
+      "stem": "",
       "parts": [
         {
           "id": "Q10_10a",
@@ -607,7 +607,7 @@
     {
       "id": "Q11",
       "title": "Standardization and Comparative Rates (High‑Marks Calculations)",
-      "stem": "Consider this table of annual suicides in an Indigenous population compared and the overall suicides reported for that province. Table 11 is shown below.",
+      "stem": "Consider this table of annual suicides in an Indigenous population and in the overall province (Table 11).",
       "parts": [
         {
           "id": "Q11_11a",
@@ -804,7 +804,7 @@
     {
       "id": "Q15",
       "title": "Extreme Heat and Air Quality – Vulnerability, Indices, Syndemics",
-      "stem": "Differentiate between the Air Quality Health Index (AQHI) and an Air Quality Index (AQI).",
+      "stem": "",
       "parts": [
         {
           "id": "Q15_15a",

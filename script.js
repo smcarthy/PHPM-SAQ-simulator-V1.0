@@ -511,7 +511,7 @@
         },
         {
           "id": "Q07_7b",
-          "prompt": "Provide TWO ethical arguments in support AND TWO ethical arguments against. (0.5 mark each, 2 marks total)",
+          "prompt": "Provide TWO ethical arguments in support AND TWO ethical arguments against.",
           "max_score": 2,
           "domain": "5",
           "response_type": "list",
@@ -594,7 +594,7 @@
     {
       "id": "Q10",
       "title": "Occupational Health – Fatigue and Shift Work",
-      "stem": "Consider this table of annual suicides in an Indigenous population and the overall suicides reported for that province.",
+      "stem": "",
       "parts": [
         {
           "id": "Q10_10a",
@@ -627,7 +627,7 @@
     {
       "id": "Q11",
       "title": "Standardization and Comparative Rates (High‑Marks Calculations)",
-      "stem": "Consider this table of annual suicides in an Indigenous population compared and the overall suicides reported for that province. Table 11 is shown below.",
+      "stem": "Consider this table of annual suicides in an Indigenous population and in the overall province (Table 11).",
       "parts": [
         {
           "id": "Q11_11a",
@@ -824,7 +824,7 @@
     {
       "id": "Q15",
       "title": "Extreme Heat and Air Quality – Vulnerability, Indices, Syndemics",
-      "stem": "Differentiate between the Air Quality Health Index (AQHI) and an Air Quality Index (AQI).",
+      "stem": "",
       "parts": [
         {
           "id": "Q15_15a",
@@ -2202,14 +2202,12 @@
       } else if (part.response_type === 'two_by_two_workspace') {
         const saved = getSavedAnswer(q.id, part.id);
         let gridValues = Array(9).fill('');
-        let calculations = '';
         if (saved) {
-          const [gridRaw, calcRaw] = saved.split('\n---\n');
+          const [gridRaw] = saved.split('\n---\n');
           if (gridRaw) {
             const parsedGrid = gridRaw.split('\n').slice(0, 9);
             gridValues = gridValues.map((v, idx) => parsedGrid[idx] || v);
           }
-          calculations = calcRaw || '';
         }
 
         const workspace = document.createElement('div');
@@ -2222,24 +2220,17 @@
           for (let col = 0; col < 3; col++) {
             const index = row * 3 + col;
             const td = document.createElement(row === 0 || col === 0 ? 'th' : 'td');
-            const input = document.createElement('textarea');
+            const input = document.createElement('input');
+            input.type = 'text';
             input.classList.add('workspace-cell');
             input.dataset.itemIndex = index;
-            input.rows = 2;
             input.value = gridValues[index] || '';
             td.appendChild(input);
             tr.appendChild(td);
           }
           grid.appendChild(tr);
         }
-
-        const calcBox = document.createElement('textarea');
-        calcBox.classList.add('workspace-calculations');
-        calcBox.placeholder = 'Use this space for formulas and calculations.';
-        calcBox.value = calculations;
-
         workspace.appendChild(grid);
-        workspace.appendChild(calcBox);
         answerDiv.appendChild(workspace);
       } else {
         // Render a textarea for free-form answer or a single-line input
@@ -2328,9 +2319,7 @@
       } else if (responseType === 'two_by_two_workspace') {
         const gridInputs = area.querySelectorAll('.workspace-cell');
         const gridLines = Array.from(gridInputs).map((inp) => inp.value.trim());
-        const calcArea = area.querySelector('.workspace-calculations');
-        const calcValue = calcArea ? calcArea.value : '';
-        answers[qId][partId] = `${gridLines.join('\n')}\n---\n${calcValue}`;
+        answers[qId][partId] = gridLines.join('\n');
       } else {
         const input = area.querySelector('input.single-line-input');
         if (input) {
@@ -2378,13 +2367,12 @@
             unanswered = true;
           }
         } else if (p.response_type === 'two_by_two_workspace') {
-          const [gridRaw, calcRaw] = (ans || '').split('\n---\n');
+          const [gridRaw] = (ans || '').split('\n---\n');
           const providedGrid = (gridRaw || '')
             .split('\n')
             .slice(0, 9)
             .filter((item) => item.trim().length > 0).length;
-          const hasCalc = !!(calcRaw && calcRaw.trim().length > 0);
-          if (providedGrid === 0 && !hasCalc) {
+          if (providedGrid === 0) {
             unanswered = true;
           }
         } else if (!ans || ans.trim().length === 0) {
