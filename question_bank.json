@@ -675,7 +675,7 @@
           "theme": "F"
         }
       ],
-      "stem_image": "Q11table.png"
+      "stem_image": "./Q11table.png"
     },
     {
       "id": "Q12",
@@ -1288,7 +1288,7 @@
     {
       "id": "Q25",
       "title": "Newborn/Infant Infections + Immunization Timing",
-      "stem": "Immunization timing: list TWO vaccines that can begin at 6 months of age (seasonal/routine recommendations) AND list FOUR vaccines commonly given around 12 months of age in many Canadian schedules.\nAround 12 months (any FOUR; allow provincial variation): - MMR - Pneumococcal conjugate booster (commonly at 12 months in several schedules) - Meningococcal C conjugate (Men‑C‑C) (commonly at ~12 months) - Varicella (or MMRV where used; some schedules at 12–15 months) - Influenza (annual) - COVID‑19 (as recommended)\nMarker note: Accept provincial schedule‑specific answers if internally consistent.\nSources (brief): PHAC Canadian Immunization Guide (recommended schedules), 2025–2026; Ontario routine schedule, 2025",
+      "stem": "",
       "parts": [
         {
           "id": "Q25_25a",
@@ -1399,13 +1399,13 @@
     {
       "id": "Q28",
       "title": "Rapid Streptococcal Test – 2×2 Table and Diagnostic Accuracy",
-      "stem": "Rapid strep antigen test vs culture in 100 children. Culture+ 40, culture− 60. Results: TP 34, FN 6, FP 9, TN 51.",
+      "stem": "To determine the value of rapid strep throat swabs in point-of-care testing, a study was conducted to compare rapid strep antigen test vs standard bacterial culture. The study recruited 100 children. In total, there were 40 positive cultures and 60 negative cultures for group A streptococcus. Findings included 34 true positives (TP), 6 false negatives (FN), 9 false positives (FP) and 51 true negatives (TN).",
       "parts": [
         {
           "id": "Q28_28a",
           "prompt": "Construct the 2×2 table and calculate sensitivity and specificity.",
           "max_score": 3,
-          "response_type": "text",
+          "response_type": "two_by_two_workspace",
           "list_count": null,
           "rubric": [
             "Sensitivity=34/(34+6)=0.85; Specificity=51/(51+9)=0.85. Partial marks: formula → working → answer."
@@ -1442,7 +1442,7 @@
         },
         {
           "id": "Q28_28d",
-          "prompt": "If prevalence decreases, which metrics change most and why?",
+          "prompt": "If group A strep pharyngitis prevalence decreases, which metrics change most and why?",
           "max_score": 2.5,
           "response_type": "text",
           "list_count": null,
