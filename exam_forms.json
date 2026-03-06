@@ -18,6 +18,18 @@
       "notice": "Legacy 30-minute practice block."
     },
     {
+      "form_id": "EXAM_AHD_15",
+      "duration_sec": 900,
+      "total_points": 24,
+      "question_ids": [
+        "Q3",
+        "Q2",
+        "Q6",
+        "Q4"
+      ],
+      "notice": "15-minute AHD practice block (fixed order: well water management, Hepatitis A food handler, sodium policy, breastfeeding benefits)."
+    },
+    {
       "form_id": "EXAM_180_V1",
       "duration_sec": 10800,
       "total_points": 180,

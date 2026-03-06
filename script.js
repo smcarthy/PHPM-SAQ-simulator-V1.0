@@ -1536,6 +1536,18 @@
       "notice": "Legacy 30-minute practice block."
     },
     {
+      "form_id": "EXAM_AHD_15",
+      "duration_sec": 900,
+      "total_points": 24,
+      "question_ids": [
+        "Q3",
+        "Q2",
+        "Q6",
+        "Q4"
+      ],
+      "notice": "15-minute AHD practice block (fixed order: well water management, Hepatitis A food handler, sodium policy, breastfeeding benefits)."
+    },
+    {
       "form_id": "EXAM_180_V1",
       "duration_sec": 10800,
       "total_points": 180,
@@ -1590,6 +1602,7 @@
   const startFullBtn = document.getElementById('start-full');
   const startHalfBtn = document.getElementById('start-half');
   const startPracticeBtn = document.getElementById('start-practice');
+  const startAhdBtn = document.getElementById('start-ahd');
   const dataWarning = document.getElementById('data-warning');
   const timerDisplay = document.getElementById('timer');
   // Display of total available points. This element is shown near the timer.
@@ -1620,6 +1633,7 @@
   const MODE_TO_FORM_ID = {
     full: 'EXAM_180_V1',
     practice: 'EXAM_30',
+    ahd: 'EXAM_AHD_15',
     half: 'EXAM_90'
   };
 
@@ -1853,6 +1867,7 @@
     if (startFullBtn) startFullBtn.disabled = !fullResolved;
     if (startHalfBtn) startHalfBtn.disabled = !formIds.has(MODE_TO_FORM_ID.half);
     if (startPracticeBtn) startPracticeBtn.disabled = !formIds.has(MODE_TO_FORM_ID.practice);
+    if (startAhdBtn) startAhdBtn.disabled = !formIds.has(MODE_TO_FORM_ID.ahd);
 
     if (!fullForm) {
       showDataWarning(`Warning: ${MODE_TO_FORM_ID.full} is missing from exam_forms.json.`);
@@ -2857,7 +2872,7 @@
   /**
    * Initialise and start an exam.
    *
-   * @param {string} mode - 'full', 'half', or 'practice'
+   * @param {string} mode - 'full', 'half', 'practice', or 'ahd'
    */
   async function startExam(mode = 'full') {
     try {
@@ -2940,6 +2955,11 @@
   if (startPracticeBtn) {
     startPracticeBtn.addEventListener('click', () => {
       startExam('practice');
+    });
+  }
+  if (startAhdBtn) {
+    startAhdBtn.addEventListener('click', () => {
+      startExam('ahd');
     });
   }
   prevQuestionBtn.addEventListener('click', () => {
