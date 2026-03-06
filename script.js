@@ -1540,12 +1540,12 @@
       "duration_sec": 900,
       "total_points": 24,
       "question_ids": [
-        "Q2",
-        "Q3",
-        "Q6",
-        "Q4"
+        "Q1",
+        "Q4",
+        "Q5",
+        "Q6"
       ],
-      "notice": "15-minute AHD practice block (fixed order: Hepatitis A food handler, fecal coliform well water, sodium policy, breastfeeding benefits)."
+      "notice": "15-minute AHD practice block (Q1, Q4, Q5, Q6 sourced from the 30-minute bank)."
     },
     {
       "form_id": "EXAM_180_V1",
