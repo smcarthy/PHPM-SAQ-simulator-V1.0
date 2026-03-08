@@ -1,0 +1,553 @@
+{
+  "corpus_id": "royal_college_sample_saq_2025",
+  "corpus_version": "1.0.0",
+  "created_at": "2026-03-08",
+  "source_document": {
+    "title": "Royal College PHPM Sample SAQ Exam (Questions 1-6 with model answers)",
+    "year": 2025,
+    "source_profile": "royal_college_official_sample",
+    "notes": "Non-runtime gold-standard corpus for style/rubric anchoring; canonicalized from existing repository transition source that traces to the official sample set."
+  },
+  "id_convention": {
+    "question_id_pattern": "PHPM_SAQ_GS_0001..PHPM_SAQ_GS_0006",
+    "part_id_pattern": "<question_id>_P<part_letter_upper>"
+  },
+  "questions": [
+    {
+      "question_id": "PHPM_SAQ_GS_0001",
+      "official_sample_question_number": 1,
+      "legacy_traceability": {
+        "legacy_question_bank_id": "Q1",
+        "legacy_question_bank_number": 1
+      },
+      "status": "reference_locked",
+      "title": "Royal College Official Sample SAQ Question 1",
+      "stem": "Official sample SAQ Question 1 (multipart short-answer).",
+      "source_profile": "royal_college_official_sample",
+      "gold_standard_alignment_status": "gold_standard_reference",
+      "official_written_classification_code": "MPP",
+      "official_written_classification_label": "Management and Program Planning",
+      "official_topic_theme_code": "requires_manual_theme_assignment",
+      "official_topic_theme_label": null,
+      "simulator_topic_tags": [],
+      "classification_confidence": "high",
+      "theme_assignment_confidence": "requires_manual_theme_assignment",
+      "parts": [
+        {
+          "part_id": "PHPM_SAQ_GS_0001_PA",
+          "part_letter": "a",
+          "display_label": "a)",
+          "prompt": "List FIVE steps in the progressive management approach to an underperforming employee.",
+          "instruction_verb": "list",
+          "max_score": 5,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 5,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "Meet with the employee and/or supervisor to discuss the situation and gather facts.",
+            "Clearly communicate performance expectations to the employee.",
+            "Counsel the employee about performance gaps and ensure understanding of requirements.",
+            "Identify any learning or coaching needs or personal issues contributing to poor performance.",
+            "Address identified issues (e.g., training, employee assistance program).",
+            "Set specific performance improvement objectives with specific time frames.",
+            "Meet regularly with the employee/supervisor to monitor performance."
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": "Award credit for distinct correct elements up to max_score; preserve official part-score cap.",
+          "source_profile": "royal_college_official_sample",
+          "official_written_classification_code": "MPP",
+          "official_written_classification_label": "Management and Program Planning",
+          "official_topic_theme_code": "requires_manual_theme_assignment",
+          "official_topic_theme_label": null,
+          "simulator_topic_tags": [],
+          "taxonomy_assignment_status": "partial_manual_review_required",
+          "classification_confidence": "high",
+          "theme_assignment_confidence": "unresolved"
+        },
+        {
+          "part_id": "PHPM_SAQ_GS_0001_PB",
+          "part_letter": "b",
+          "display_label": "b)",
+          "prompt": "List FOUR steps in the progressive discipline of an underperforming employee.",
+          "instruction_verb": "list",
+          "max_score": 2,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 4,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "Provide a verbal warning regarding unresolved poor performance.",
+            "Provide a written warning regarding continued poor performance.",
+            "Suspend the employee without pay for an escalating number of days.",
+            "End employment if performance does not improve."
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": "Award credit for distinct correct elements up to max_score; preserve official part-score cap.",
+          "source_profile": "royal_college_official_sample",
+          "official_written_classification_code": "MPP",
+          "official_written_classification_label": "Management and Program Planning",
+          "official_topic_theme_code": "requires_manual_theme_assignment",
+          "official_topic_theme_label": null,
+          "simulator_topic_tags": [],
+          "taxonomy_assignment_status": "partial_manual_review_required",
+          "classification_confidence": "high",
+          "theme_assignment_confidence": "unresolved"
+        }
+      ],
+      "question_level_written_rollup_status": "inherited_from_parts",
+      "question_level_theme_rollup_status": "unresolved_from_parts"
+    },
+    {
+      "question_id": "PHPM_SAQ_GS_0002",
+      "official_sample_question_number": 2,
+      "legacy_traceability": {
+        "legacy_question_bank_id": "Q2",
+        "legacy_question_bank_number": 2
+      },
+      "status": "reference_locked",
+      "title": "Royal College Official Sample SAQ Question 2",
+      "stem": "Official sample SAQ Question 2 (multipart short-answer).",
+      "source_profile": "royal_college_official_sample",
+      "gold_standard_alignment_status": "gold_standard_reference",
+      "official_written_classification_code": "HP",
+      "official_written_classification_label": "Intervention and Methods in Health Protection",
+      "official_topic_theme_code": "A",
+      "official_topic_theme_label": "Communicable Diseases",
+      "simulator_topic_tags": [
+        "communicable_diseases"
+      ],
+      "classification_confidence": "high",
+      "theme_assignment_confidence": "exact",
+      "parts": [
+        {
+          "part_id": "PHPM_SAQ_GS_0002_PA",
+          "part_letter": "a",
+          "display_label": "a)",
+          "prompt": "List THREE questions for a hepatitis A infected food handler that impact immunoprophylaxis decisions.",
+          "instruction_verb": "list",
+          "max_score": 1.5,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 3,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "Was the food handler infectious while working?",
+            "Does the food handler handle foods that are not cooked or handle food after it is cooked?",
+            "Does the food handler have poor hygiene?",
+            "Did the food handler have diarrhoea while working?"
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": "Award credit for distinct correct elements up to max_score; preserve official part-score cap.",
+          "source_profile": "royal_college_official_sample",
+          "official_written_classification_code": "HP",
+          "official_written_classification_label": "Intervention and Methods in Health Protection",
+          "official_topic_theme_code": "A",
+          "official_topic_theme_label": "Communicable Diseases",
+          "simulator_topic_tags": [
+            "communicable_diseases"
+          ],
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "classification_confidence": "high",
+          "theme_assignment_confidence": "exact"
+        }
+      ],
+      "question_level_written_rollup_status": "inherited_from_parts",
+      "question_level_theme_rollup_status": "inherited_from_parts"
+    },
+    {
+      "question_id": "PHPM_SAQ_GS_0003",
+      "official_sample_question_number": 3,
+      "legacy_traceability": {
+        "legacy_question_bank_id": "Q3",
+        "legacy_question_bank_number": 3
+      },
+      "status": "reference_locked",
+      "title": "Royal College Official Sample SAQ Question 3",
+      "stem": "Official sample SAQ Question 3 (multipart short-answer).",
+      "source_profile": "royal_college_official_sample",
+      "gold_standard_alignment_status": "gold_standard_reference",
+      "official_written_classification_code": "HP",
+      "official_written_classification_label": "Intervention and Methods in Health Protection",
+      "official_topic_theme_code": "D",
+      "official_topic_theme_label": "Environmental Health",
+      "simulator_topic_tags": [
+        "environmental_health"
+      ],
+      "classification_confidence": "high",
+      "theme_assignment_confidence": "high",
+      "parts": [
+        {
+          "part_id": "PHPM_SAQ_GS_0003_PA",
+          "part_letter": "a",
+          "display_label": "a)",
+          "prompt": "List FOUR factors that may affect the quality of well water.",
+          "instruction_verb": "list",
+          "max_score": 2,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 4,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "Depth of well (dug vs drilled).",
+            "Amount of new water flowing into the area.",
+            "Local land use activities (e.g., livestock, pesticides, gasoline storage).",
+            "Meteorological factors (e.g., heavy rains).",
+            "Natural quality of surrounding soil (e.g., elevated heavy metals).",
+            "Surface water infiltration.",
+            "Well and local hydrogeology (integrity of bedrock).",
+            "Quality of well-head construction (grouting/casing).",
+            "Location/distance from sources of contamination (e.g., septic tank)."
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": "Award credit for distinct correct elements up to max_score; preserve official part-score cap.",
+          "source_profile": "royal_college_official_sample",
+          "official_written_classification_code": "HP",
+          "official_written_classification_label": "Intervention and Methods in Health Protection",
+          "official_topic_theme_code": "D",
+          "official_topic_theme_label": "Environmental Health",
+          "simulator_topic_tags": [
+            "environmental_health"
+          ],
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "classification_confidence": "high",
+          "theme_assignment_confidence": "high"
+        },
+        {
+          "part_id": "PHPM_SAQ_GS_0003_PB",
+          "part_letter": "b",
+          "display_label": "b)",
+          "prompt": "If fecal coliforms are detected in well water, list TWO immediate recommendations you would give to the homeowner.",
+          "instruction_verb": "if",
+          "max_score": 2,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 2,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [
+            "Stop using untreated well water for consumption"
+          ],
+          "answer_key": [
+            "Stop using untreated well water for consumption.",
+            "Boil or disinfect the water before consuming.",
+            "Investigate and correct well condition (e.g., disinfect with bleach and resample)."
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": "Award credit for distinct correct elements up to max_score; preserve official part-score cap.",
+          "source_profile": "royal_college_official_sample",
+          "official_written_classification_code": "HP",
+          "official_written_classification_label": "Intervention and Methods in Health Protection",
+          "official_topic_theme_code": "D",
+          "official_topic_theme_label": "Environmental Health",
+          "simulator_topic_tags": [
+            "environmental_health"
+          ],
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "classification_confidence": "high",
+          "theme_assignment_confidence": "high"
+        }
+      ],
+      "question_level_written_rollup_status": "inherited_from_parts",
+      "question_level_theme_rollup_status": "inherited_from_parts"
+    },
+    {
+      "question_id": "PHPM_SAQ_GS_0004",
+      "official_sample_question_number": 4,
+      "legacy_traceability": {
+        "legacy_question_bank_id": "Q4",
+        "legacy_question_bank_number": 4
+      },
+      "status": "reference_locked",
+      "title": "Royal College Official Sample SAQ Question 4",
+      "stem": "Official sample SAQ Question 4 (multipart short-answer).",
+      "source_profile": "royal_college_official_sample",
+      "gold_standard_alignment_status": "gold_standard_reference",
+      "official_written_classification_code": "mixed_part_level_assignment",
+      "official_written_classification_label": null,
+      "official_topic_theme_code": "E",
+      "official_topic_theme_label": "Maternal and Child Health",
+      "simulator_topic_tags": [
+        "maternal_child_health"
+      ],
+      "classification_confidence": "mixed_part_level_assignment",
+      "theme_assignment_confidence": "high",
+      "parts": [
+        {
+          "part_id": "PHPM_SAQ_GS_0004_PA",
+          "part_letter": "a",
+          "display_label": "a)",
+          "prompt": "List FOUR benefits of breastfeeding for the child's health.",
+          "instruction_verb": "list",
+          "max_score": 2,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 4,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "Reduced rate of infections (otitis media, respiratory, gastrointestinal).",
+            "Reduced incidence of atopic diseases.",
+            "Prevention of certain chronic diseases (e.g., diabetes, obesity, Crohn\u2019s disease).",
+            "Prevention of cognitive development abnormalities.",
+            "Enhanced mother-child bonding.",
+            "Transfer of immunoglobulins from mother to child.",
+            "Decreased risk of childhood leukemia, SIDS and necrotising enterocolitis.",
+            "Provides optimal nutrition."
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": "Award credit for distinct correct elements up to max_score; preserve official part-score cap.",
+          "source_profile": "royal_college_official_sample",
+          "official_written_classification_code": "HPDP",
+          "official_written_classification_label": "Intervention and Methods in Health Promotion and Disease Prevention",
+          "official_topic_theme_code": "E",
+          "official_topic_theme_label": "Maternal and Child Health",
+          "simulator_topic_tags": [
+            "maternal_child_health"
+          ],
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "classification_confidence": "high",
+          "theme_assignment_confidence": "high"
+        },
+        {
+          "part_id": "PHPM_SAQ_GS_0004_PB",
+          "part_letter": "b",
+          "display_label": "b)",
+          "prompt": "List TWO process indicators and TWO outcome indicators to evaluate a breastfeeding promotion and support program.",
+          "instruction_verb": "list",
+          "max_score": 2,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 4,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "Process: number or proportion of staff trained to promote/support breastfeeding.",
+            "Process: number or proportion of program participants.",
+            "Process: duration of participation in the program.",
+            "Process: number of service organisations favourable to breastfeeding (e.g., baby-friendly hospitals).",
+            "Outcome: participants' knowledge/attitudes regarding benefits of breastfeeding.",
+            "Outcome: staff knowledge/attitudes regarding importance of breastfeeding.",
+            "Outcome: uptake of breastfeeding among participants (number/proportion).",
+            "Outcome: duration of breastfeeding among participants (average, median)."
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": "Award credit for distinct correct elements up to max_score; preserve official part-score cap.",
+          "source_profile": "royal_college_official_sample",
+          "official_written_classification_code": "MPP",
+          "official_written_classification_label": "Management and Program Planning",
+          "official_topic_theme_code": "E",
+          "official_topic_theme_label": "Maternal and Child Health",
+          "simulator_topic_tags": [
+            "maternal_child_health"
+          ],
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "classification_confidence": "medium",
+          "theme_assignment_confidence": "high"
+        }
+      ],
+      "question_level_written_rollup_status": "mixed_part_level_assignment",
+      "question_level_theme_rollup_status": "inherited_from_parts"
+    },
+    {
+      "question_id": "PHPM_SAQ_GS_0005",
+      "official_sample_question_number": 5,
+      "legacy_traceability": {
+        "legacy_question_bank_id": "Q5",
+        "legacy_question_bank_number": 5
+      },
+      "status": "reference_locked",
+      "title": "Royal College Official Sample SAQ Question 5",
+      "stem": "Official sample SAQ Question 5 (multipart short-answer).",
+      "source_profile": "royal_college_official_sample",
+      "gold_standard_alignment_status": "gold_standard_reference",
+      "official_written_classification_code": "BS",
+      "official_written_classification_label": "Basic Sciences of Public Health and Preventive Medicine",
+      "official_topic_theme_code": "requires_manual_theme_assignment",
+      "official_topic_theme_label": null,
+      "simulator_topic_tags": [],
+      "classification_confidence": "high",
+      "theme_assignment_confidence": "requires_manual_theme_assignment",
+      "parts": [
+        {
+          "part_id": "PHPM_SAQ_GS_0005_PA",
+          "part_letter": "a",
+          "display_label": "a)",
+          "prompt": "List TWO types of biases that can cause the healthy worker effect in a cohort study design.",
+          "instruction_verb": "list",
+          "max_score": 2,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 2,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "Healthy hire effect: selection bias at hiring resulting in entry of healthier workers into the workforce.",
+            "Healthy worker survivor effect: healthier workers are more likely to remain employed."
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": "Award credit for distinct correct elements up to max_score; preserve official part-score cap.",
+          "source_profile": "royal_college_official_sample",
+          "official_written_classification_code": "BS",
+          "official_written_classification_label": "Basic Sciences of Public Health and Preventive Medicine",
+          "official_topic_theme_code": "requires_manual_theme_assignment",
+          "official_topic_theme_label": null,
+          "simulator_topic_tags": [],
+          "taxonomy_assignment_status": "partial_manual_review_required",
+          "classification_confidence": "high",
+          "theme_assignment_confidence": "unresolved"
+        }
+      ],
+      "question_level_written_rollup_status": "inherited_from_parts",
+      "question_level_theme_rollup_status": "unresolved_from_parts"
+    },
+    {
+      "question_id": "PHPM_SAQ_GS_0006",
+      "official_sample_question_number": 6,
+      "legacy_traceability": {
+        "legacy_question_bank_id": "Q6",
+        "legacy_question_bank_number": 6
+      },
+      "status": "reference_locked",
+      "title": "Royal College Official Sample SAQ Question 6",
+      "stem": "Official sample SAQ Question 6 (multipart short-answer).",
+      "source_profile": "royal_college_official_sample",
+      "gold_standard_alignment_status": "gold_standard_reference",
+      "official_written_classification_code": "mixed_part_level_assignment",
+      "official_written_classification_label": null,
+      "official_topic_theme_code": "B",
+      "official_topic_theme_label": "Non-Communicable Diseases",
+      "simulator_topic_tags": [
+        "non_communicable_diseases"
+      ],
+      "classification_confidence": "mixed_part_level_assignment",
+      "theme_assignment_confidence": "high",
+      "parts": [
+        {
+          "part_id": "PHPM_SAQ_GS_0006_PA",
+          "part_letter": "a",
+          "display_label": "a)",
+          "prompt": "List the PRIMARY health concern directly associated with excessive dietary sodium intake.",
+          "instruction_verb": "list",
+          "max_score": 0.5,
+          "response_type": "short_text",
+          "response_constraints": {
+            "list_count_required": null,
+            "allow_partial_credit": true,
+            "single_line": true
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "Hypertension."
+          ],
+          "not_acceptable_notes": [
+            "Other cardiovascular conditions are not acceptable."
+          ],
+          "scoring_notes": "Award credit for distinct correct elements up to max_score; preserve official part-score cap.",
+          "source_profile": "royal_college_official_sample",
+          "official_written_classification_code": "HPDP",
+          "official_written_classification_label": "Intervention and Methods in Health Promotion and Disease Prevention",
+          "official_topic_theme_code": "B",
+          "official_topic_theme_label": "Non-Communicable Diseases",
+          "simulator_topic_tags": [
+            "non_communicable_diseases"
+          ],
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "classification_confidence": "medium",
+          "theme_assignment_confidence": "high"
+        },
+        {
+          "part_id": "PHPM_SAQ_GS_0006_PB",
+          "part_letter": "b",
+          "display_label": "b)",
+          "prompt": "List THREE steps of a structured voluntary approach by industry to reach sodium reduction targets in processed foods.",
+          "instruction_verb": "list",
+          "max_score": 3,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 3,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "Publication/establishment of sodium reduction targets for foods.",
+            "Defined timelines for implementation.",
+            "Mechanism for public commitment by industry to the targets.",
+            "Plan for monitoring progress by an external body.",
+            "Plan for independent evaluation of success with option for stronger regulatory action."
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": "Award credit for distinct correct elements up to max_score; preserve official part-score cap.",
+          "source_profile": "royal_college_official_sample",
+          "official_written_classification_code": "requires_manual_classification",
+          "official_written_classification_label": null,
+          "official_topic_theme_code": "B",
+          "official_topic_theme_label": "Non-Communicable Diseases",
+          "simulator_topic_tags": [
+            "non_communicable_diseases"
+          ],
+          "taxonomy_assignment_status": "partial_manual_review_required",
+          "classification_confidence": "unresolved",
+          "theme_assignment_confidence": "high"
+        },
+        {
+          "part_id": "PHPM_SAQ_GS_0006_PC",
+          "part_letter": "c",
+          "display_label": "c)",
+          "prompt": "List THREE reasons why the food industry is slow to reduce the salt content in processed foods.",
+          "instruction_verb": "list",
+          "max_score": 1.5,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 3,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "Sodium is a preservative important for food safety and hard to replicate.",
+            "Sodium is inexpensive and reformulation is costly.",
+            "Consumers prefer salty foods.",
+            "Sodium reduction is voluntary; early adopters may lose competitive advantage.",
+            "Sodium increases thirst, boosting beverage sales."
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": "Award credit for distinct correct elements up to max_score; preserve official part-score cap.",
+          "source_profile": "royal_college_official_sample",
+          "official_written_classification_code": "requires_manual_classification",
+          "official_written_classification_label": null,
+          "official_topic_theme_code": "B",
+          "official_topic_theme_label": "Non-Communicable Diseases",
+          "simulator_topic_tags": [
+            "non_communicable_diseases"
+          ],
+          "taxonomy_assignment_status": "partial_manual_review_required",
+          "classification_confidence": "unresolved",
+          "theme_assignment_confidence": "high"
+        }
+      ],
+      "question_level_written_rollup_status": "mixed_part_level_assignment",
+      "question_level_theme_rollup_status": "inherited_from_parts"
+    }
+  ]
+}
