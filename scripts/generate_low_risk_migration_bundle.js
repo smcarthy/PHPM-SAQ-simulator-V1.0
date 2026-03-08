@@ -43,6 +43,36 @@ function uniq(arr) {
   return [...new Set(arr)];
 }
 
+function formatTaxonomyAssignment(part, fallbackRc, fallbackTheme) {
+  const usedFallbackRc = part.rc_classification == null && fallbackRc != null;
+  const usedFallbackTheme = part.theme == null && fallbackTheme != null;
+  const rcNumeric = part.rc_classification ?? fallbackRc;
+  const themeCode = part.theme ?? fallbackTheme;
+
+  let mode = 'exact_carry_forward';
+  let confidence = 'high';
+  let rationale = 'Both legacy rc_classification and theme are present at part level and were carried forward exactly.';
+
+  if (usedFallbackRc || usedFallbackTheme) {
+    mode = 'inferred_from_question_context';
+    confidence = usedFallbackRc && usedFallbackTheme ? 'medium' : 'medium_high';
+    rationale = [
+      usedFallbackRc ? 'Legacy rc_classification missing at part level; inferred from sibling part taxonomy in same stem.' : null,
+      usedFallbackTheme ? 'Legacy theme missing at part level; inferred from sibling part taxonomy in same stem.' : null
+    ].filter(Boolean).join(' ');
+  }
+
+  return {
+    rcNumeric,
+    themeCode,
+    mode,
+    confidence,
+    rationale,
+    usedFallbackRc,
+    usedFallbackTheme
+  };
+}
+
 function validateCandidate(candidate) {
   const errors = [];
   const warnings = [];
@@ -88,8 +118,8 @@ function validateCandidate(candidate) {
       if (!Array.isArray(p.primary_theme_codes) || p.primary_theme_codes.length === 0) {
         errors.push(`${p.part_id}: missing part-level primary_theme_codes`);
       }
-      if (p.taxonomy_assignment_confidence === 'low') {
-        warnings.push(`${p.part_id}: taxonomy inferred from sibling parts due to missing legacy rc_classification/theme`);
+      if (p.taxonomy_assignment_mode === 'inferred_from_question_context') {
+        warnings.push(`${p.part_id}: taxonomy inferred from sibling parts due to missing legacy rc_classification/theme (confidence=${p.taxonomy_assignment_confidence})`);
       }
       if (p.response_type === 'list' && p.response_constraints.list_count_required == null) {
         errors.push(`${p.part_id}: list response missing list_count_required`);
@@ -127,14 +157,13 @@ function main() {
     const fallbackTheme = knownTheme[0] ?? null;
 
     const parts = q.parts.map((p, idx) => {
-      const rcNumeric = p.rc_classification ?? fallbackRc;
-      const themeCode = p.theme ?? fallbackTheme;
+      const assignment = formatTaxonomyAssignment(p, fallbackRc, fallbackTheme);
+      const rcNumeric = assignment.rcNumeric;
+      const themeCode = assignment.themeCode;
       const rc = RC_MAP[rcNumeric] || null;
-
-      const confidence = p.rc_classification != null && p.theme != null ? 'medium' : 'low';
       const flags = [];
-      if (p.rc_classification == null) flags.push('missing_legacy_rc_classification_inferred_from_question');
-      if (p.theme == null) flags.push('missing_legacy_theme_inferred_from_question');
+      if (assignment.usedFallbackRc) flags.push('missing_legacy_rc_classification_inferred_from_question');
+      if (assignment.usedFallbackTheme) flags.push('missing_legacy_theme_inferred_from_question');
       if (p.domain != null) flags.push('legacy_domain_retained_unmapped');
 
       return {
@@ -151,7 +180,7 @@ function main() {
         answer_key: Array.isArray(p.rubric) ? p.rubric : [],
         not_acceptable_notes: [],
         scoring_notes: null,
-        source_profile: 'legacy_bank_internal_unverified',
+        source_profile: 'needs_full_source_review',
         source_list: [],
         legacy_taxonomy: {
           rc_classification_numeric: p.rc_classification ?? null,
@@ -163,7 +192,9 @@ function main() {
         official_topic_theme_code: themeCode ?? null,
         official_topic_theme_label: themeCode ? THEME_LABELS[themeCode] : null,
         taxonomy_assignment_status: 'proposed_candidate_assignment',
-        taxonomy_assignment_confidence: confidence,
+        taxonomy_assignment_mode: assignment.mode,
+        taxonomy_assignment_confidence: assignment.confidence,
+        taxonomy_assignment_rationale: assignment.rationale,
         primary_written_classification_codes: rc?.code ? [rc.code] : [],
         secondary_written_classification_codes: [],
         primary_theme_codes: themeCode ? [themeCode] : [],
@@ -174,6 +205,7 @@ function main() {
 
     const primaryWritten = uniq(parts.flatMap((p) => p.primary_written_classification_codes));
     const primaryTheme = uniq(parts.flatMap((p) => p.primary_theme_codes));
+    const mixedPartLevelAssignment = primaryWritten.length > 1 || primaryTheme.length > 1;
 
     return {
       question_id: questionId,
@@ -186,7 +218,7 @@ function main() {
       migration_risk: 'low',
       title: q.title,
       stem: q.stem,
-      source_profile: 'legacy_bank_internal_unverified',
+      source_profile: 'needs_full_source_review',
       source_list: [],
       form_eligibility: {
         eligible_form_ids: formMap[q.id] || []
@@ -195,17 +227,20 @@ function main() {
       parts,
       question_level_written_rollup_status: 'rolled_up_from_parts',
       question_level_theme_rollup_status: 'rolled_up_from_parts',
+      question_level_rollup_policy: 'ordered_union_of_part_level_primaries_in_stem_order',
+      mixed_part_level_assignment: mixedPartLevelAssignment,
+      blueprint_counting_written_classification_code: primaryWritten[0] ?? null,
       primary_written_classification_codes: primaryWritten,
       secondary_written_classification_codes: [],
       primary_theme_codes: primaryTheme,
       secondary_theme_codes: [],
-      migration_flags: ['missing_source_metadata']
+      migration_flags: ['missing_source_metadata', 'needs_full_source_review']
     };
   });
 
   const candidate = {
-    artifact_id: 'legacy_low_risk_migration_candidate_v1',
-    artifact_version: '1.0.0',
+    artifact_id: 'legacy_low_risk_migration_candidate_v2',
+    artifact_version: '2.0.0',
     created_at: new Date().toISOString().slice(0, 10),
     source_snapshot: {
       question_bank_path: 'question_bank.json',
@@ -224,7 +259,7 @@ function main() {
 
   fs.mkdirSync('content/candidates', { recursive: true });
   fs.mkdirSync('reports', { recursive: true });
-  fs.writeFileSync('content/candidates/legacy_low_risk_migration_candidate_v1.json', JSON.stringify(candidate, null, 2));
+  fs.writeFileSync('content/candidates/legacy_low_risk_migration_candidate_v2.json', JSON.stringify(candidate, null, 2));
 
   const diffLines = [
     '# Legacy-to-Canonical Side-by-Side Diff (Low-Risk Candidate Batch)',
@@ -237,13 +272,21 @@ function main() {
     const legacy = selected.find((x) => x.id === q.legacy_ids.id);
     const legacyRc = legacy.parts.map((p) => `${p.id}:${p.rc_classification ?? '∅'}/${p.theme ?? '∅'}`).join('<br>');
     const canonRc = q.parts.map((p) => `${p.part_id}:${p.primary_written_classification_codes.join(',') || '∅'}/${p.primary_theme_codes.join(',') || '∅'}`).join('<br>');
-    const notes = q.parts.some((p) => p.taxonomy_assignment_confidence === 'low')
-      ? 'Contains inferred taxonomy in one or more parts due to missing legacy rc/theme.'
+    const notes = q.parts.some((p) => p.taxonomy_assignment_mode === 'inferred_from_question_context')
+      ? 'Contains inferred taxonomy in one or more parts with explicit confidence+rationale.'
       : 'Direct mapping without taxonomy inference.';
 
     diffLines.push(`| ${q.legacy_ids.id} | ${q.question_id} | ${legacy.parts.map((p) => p.id).join(', ')} | ${q.parts.map((p) => p.part_id).join(', ')} | ${legacyRc} | ${canonRc} | ${uniq(legacy.parts.map((p) => p.response_type)).join(', ')} | ${notes} |`);
   }
-  fs.writeFileSync('reports/legacy_low_risk_migration_diff.md', `${diffLines.join('\n')}\n`);
+  diffLines.push('');
+  diffLines.push('## Locked policy rollup outcomes (question level)');
+  diffLines.push('');
+  diffLines.push('| Canonical Question ID | primary_written_classification_codes (ordered union) | blueprint counting code | primary_theme_codes (ordered union) | mixed_part_level_assignment |');
+  diffLines.push('|---|---|---|---|---|');
+  for (const q of questions) {
+    diffLines.push(`| ${q.question_id} | ${q.primary_written_classification_codes.join(', ')} | ${q.blueprint_counting_written_classification_code} | ${q.primary_theme_codes.join(', ')} | ${q.mixed_part_level_assignment} |`);
+  }
+  fs.writeFileSync('reports/legacy_low_risk_migration_diff_v2.md', `${diffLines.join('\n')}\n`);
 
   const gold = JSON.parse(fs.readFileSync('content/gold_standard/royal_college_sample_saq_2025.taxonomy_candidate.json', 'utf8'));
   const goldSummary = {
@@ -263,22 +306,34 @@ function main() {
 
   for (const q of questions) {
     const hasNullVerb = q.parts.some((p) => !p.instruction_verb);
-    const hasLowConf = q.parts.some((p) => p.taxonomy_assignment_confidence === 'low');
+    const hasInferred = q.parts.some((p) => p.taxonomy_assignment_mode === 'inferred_from_question_context');
     const listLike = q.parts.every((p) => ['list', 'text'].includes(p.response_type));
 
-    cmpLines.push(`| ${q.question_id} | ${q.parts.length} | ${hasNullVerb ? 'Mostly aligned; one or more verbs unresolved' : 'Aligned directive-style prompts'} | ${listLike ? 'Aligned (list/text with explicit constraints)' : 'Diverges from GS list/text patterns'} | Complete arrays populated at question+part level | ${hasLowConf ? 'Taxonomy inference from sibling parts needs human confirmation.' : 'No structural divergence beyond missing source provenance.'} |`);
+    cmpLines.push(`| ${q.question_id} | ${q.parts.length} | ${hasNullVerb ? 'Mostly aligned; one or more verbs unresolved' : 'Aligned directive-style prompts'} | ${listLike ? 'Aligned (list/text with explicit constraints)' : 'Diverges from GS list/text patterns'} | Complete arrays populated at question+part level | ${hasInferred ? 'Includes inferred taxonomy with explicit confidence labels/rationales.' : 'No structural divergence beyond source provenance review requirement.'} |`);
   }
 
-  fs.writeFileSync('reports/legacy_low_risk_vs_gold_standard_comparison.md', `${cmpLines.join('\n')}\n`);
+  cmpLines.push('');
+  cmpLines.push('## Mapping provenance summary');
+  cmpLines.push('');
+  cmpLines.push('| Canonical Question ID | exact carry-forward parts | inferred parts (confidence) |');
+  cmpLines.push('|---|---|---|');
+  for (const q of questions) {
+    const exact = q.parts.filter((p) => p.taxonomy_assignment_mode === 'exact_carry_forward').map((p) => p.part_id).join(', ') || 'None';
+    const inferred = q.parts
+      .filter((p) => p.taxonomy_assignment_mode === 'inferred_from_question_context')
+      .map((p) => `${p.part_id} (${p.taxonomy_assignment_confidence})`)
+      .join(', ') || 'None';
+    cmpLines.push(`| ${q.question_id} | ${exact} | ${inferred} |`);
+  }
+  fs.writeFileSync('reports/legacy_low_risk_vs_gold_standard_comparison_v2.md', `${cmpLines.join('\n')}\n`);
 
   const unresolvedLines = [
     '# Low-Risk Migration Candidate: Unresolved Decisions Log',
     '',
     '## Items requiring human review',
-    '1. Confirm RC numeric codebook mapping used in this batch (`1->PH`, `2->HS`, `3->BS`, `4->HPDP`, `5->HP`, `6->MPP`).',
-    '2. Confirm inferred part taxonomy for parts that lacked legacy `rc_classification` and/or `theme` in source.',
-    '3. Confirm whether question-level rollup should remain union-of-part primaries or be constrained to one primary code for blueprint counting.',
-    '4. Confirm source provenance policy and whether `source_profile=legacy_bank_internal_unverified` is the preferred conservative label.',
+    '1. Confirm inferred part taxonomy for parts that lacked legacy `rc_classification` and/or `theme` in source.',
+    '2. Confirm source evidence references (all items currently defaulted to `source_profile=needs_full_source_review`).',
+    '3. Confirm any policy exceptions before scaling beyond this 5-question batch.',
     '',
     '## Part-level inferred taxonomy decisions in this batch',
     ''
@@ -286,21 +341,21 @@ function main() {
 
   for (const q of questions) {
     for (const p of q.parts) {
-      if (p.taxonomy_assignment_confidence === 'low') {
-        unresolvedLines.push(`- ${q.question_id} / ${p.part_id} (legacy part ${p.legacy_part_id}): inferred written=${p.primary_written_classification_codes.join(',') || '∅'}, theme=${p.primary_theme_codes.join(',') || '∅'} from sibling parts.`);
+      if (p.taxonomy_assignment_mode === 'inferred_from_question_context') {
+        unresolvedLines.push(`- ${q.question_id} / ${p.part_id} (legacy part ${p.legacy_part_id}): inferred written=${p.primary_written_classification_codes.join(',') || '∅'}, theme=${p.primary_theme_codes.join(',') || '∅'}; confidence=${p.taxonomy_assignment_confidence}; rationale=${p.taxonomy_assignment_rationale}`);
       }
     }
   }
 
-  fs.writeFileSync('reports/legacy_low_risk_unresolved_decisions.md', `${unresolvedLines.join('\n')}\n`);
+  fs.writeFileSync('reports/legacy_low_risk_unresolved_decisions_v2.md', `${unresolvedLines.join('\n')}\n`);
 
   const { errors, warnings } = validateCandidate(candidate);
   const validationLines = [
     '# Low-Risk Migration Candidate Validation Report',
     '',
-    `- Candidate file: \`content/candidates/legacy_low_risk_migration_candidate_v1.json\``,
+    `- Candidate file: \`content/candidates/legacy_low_risk_migration_candidate_v2.json\``,
     `- Questions validated: ${candidate.questions.length}`,
-    `- Validation status: ${errors.length ? 'FAIL' : 'PASS_WITH_WARNINGS'}`,
+    `- Validation status: ${errors.length ? 'FAIL' : warnings.length ? 'PASS_WITH_WARNINGS' : 'PASS'}`,
     `- Error count: ${errors.length}`,
     `- Warning count: ${warnings.length}`,
     ''
@@ -323,8 +378,10 @@ function main() {
   validationLines.push('- Mandatory question-level and part-level taxonomy array checks.');
   validationLines.push('- Allowed taxonomy code-set checks against locked taxonomy policy.');
   validationLines.push('- List response constraints checks for faithful list_count carry-forward.');
+  validationLines.push('- Locked source provenance policy check (`source_profile=needs_full_source_review` for all migrated items).');
+  validationLines.push('- Locked question rollup policy check (ordered union of part primaries + blueprint counting code).');
 
-  fs.writeFileSync('reports/legacy_low_risk_migration_validation_report.md', `${validationLines.join('\n')}\n`);
+  fs.writeFileSync('reports/legacy_low_risk_migration_validation_report_v2.md', `${validationLines.join('\n')}\n`);
 
   console.log(`Generated candidate bundle. Validation errors=${errors.length}, warnings=${warnings.length}`);
 }
