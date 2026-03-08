@@ -1,0 +1,938 @@
+{
+  "artifact_id": "legacy_low_risk_migration_candidate_v1",
+  "artifact_version": "1.0.0",
+  "created_at": "2026-03-08",
+  "source_snapshot": {
+    "question_bank_path": "question_bank.json",
+    "exam_forms_path": "exam_forms.json",
+    "selected_legacy_ids": [
+      "Q14",
+      "Q15",
+      "Q19",
+      "Q20",
+      "Q25"
+    ]
+  },
+  "id_convention": {
+    "question_id_pattern": "PHPM_SAQ_LGC_0001..",
+    "part_id_pattern": "<question_id>_P<part_letter_upper>"
+  },
+  "taxonomy_codebook": {
+    "rc_classification_numeric_to_written_code": {
+      "1": {
+        "code": "PH",
+        "label": "Population Health"
+      },
+      "2": {
+        "code": "HS",
+        "label": "Health Systems"
+      },
+      "3": {
+        "code": "BS",
+        "label": "Basic Sciences of Public Health and Preventive Medicine"
+      },
+      "4": {
+        "code": "HPDP",
+        "label": "Intervention and Methods in Health Promotion and Disease Prevention"
+      },
+      "5": {
+        "code": "HP",
+        "label": "Intervention and Methods in Health Protection"
+      },
+      "6": {
+        "code": "MPP",
+        "label": "Management and Program Planning"
+      }
+    }
+  },
+  "questions": [
+    {
+      "question_id": "PHPM_SAQ_LGC_0014",
+      "legacy_ids": {
+        "id": "Q14",
+        "number": null,
+        "id_numeric": 14
+      },
+      "migration_status": "candidate_for_manual_review",
+      "migration_risk": "low",
+      "title": "HR, Equity, and Power Differentials – Performance Concern with Possible Manager Bias",
+      "stem": "An employee is labelled ‘underperforming’ by their manager at the local health unit. The employee reports being late due to religious observances and feels targeted. You note a power differential and potential conflict of interest.",
+      "source_profile": "legacy_bank_internal_unverified",
+      "source_list": [],
+      "form_eligibility": {
+        "eligible_form_ids": [
+          "EXAM_180_V1"
+        ]
+      },
+      "stem_assets": [],
+      "parts": [
+        {
+          "part_id": "PHPM_SAQ_LGC_0014_PA",
+          "part_letter": "a",
+          "display_label": "a)",
+          "legacy_part_id": "Q14_14a",
+          "prompt": "List SIX steps you would take to assess the situation fairly and safely.",
+          "instruction_verb": "list",
+          "max_score": 3,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 6,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "0.5 mark each, 3 marks total Any SIX: - Clarify concerns with objective expectations and specific examples - Gather evidence from multiple sources (documentation, metrics) - Meet separately with employee and manager; use equity‑informed approach - Consult HR early; screen for discrimination/harassment - Consider accommodation obligations and explore reasonable accommodations - Document and maintain confidentiality - Consider interim measures to reduce harm (e.g., temporary reporting change)"
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "legacy_bank_internal_unverified",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": 6,
+            "theme_code": "C",
+            "domain": null
+          },
+          "official_written_classification_code": "MPP",
+          "official_written_classification_label": "Management and Program Planning",
+          "official_topic_theme_code": "C",
+          "official_topic_theme_label": "Mental Health and Substance Use",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_confidence": "medium",
+          "primary_written_classification_codes": [
+            "MPP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "C"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": []
+        },
+        {
+          "part_id": "PHPM_SAQ_LGC_0014_PB",
+          "part_letter": "b",
+          "display_label": "b)",
+          "legacy_part_id": "Q14_14b",
+          "prompt": "List THREE indicators that the manager may be the primary problem rather than the employee.",
+          "instruction_verb": "list",
+          "max_score": 1.5,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 3,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "0.5 mark each, 1.5 marks total Any THREE: - Inconsistent standards applied across staff - Lack of documented coaching/support prior to escalation - Reports/patterns of biased language, harassment, or retaliation - High turnover/complaints in the manager’s team"
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "legacy_bank_internal_unverified",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": 6,
+            "theme_code": "C",
+            "domain": null
+          },
+          "official_written_classification_code": "MPP",
+          "official_written_classification_label": "Management and Program Planning",
+          "official_topic_theme_code": "C",
+          "official_topic_theme_label": "Mental Health and Substance Use",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_confidence": "medium",
+          "primary_written_classification_codes": [
+            "MPP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "C"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": []
+        },
+        {
+          "part_id": "PHPM_SAQ_LGC_0014_PC",
+          "part_letter": "c",
+          "display_label": "c)",
+          "legacy_part_id": "Q14_14c",
+          "prompt": "Propose TWO actions to address governance/line-of-sight and reduce conflict of interest during the investigation.",
+          "instruction_verb": "propose",
+          "max_score": 2,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 2,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "Assign an independent investigator/decision-maker outside the direct line relationship.",
+            "Establish clear reporting and oversight (e.g., HR/legal governance) to avoid conflict and ensure fairness."
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "legacy_bank_internal_unverified",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": null,
+            "theme_code": null,
+            "domain": "7"
+          },
+          "official_written_classification_code": "MPP",
+          "official_written_classification_label": "Management and Program Planning",
+          "official_topic_theme_code": "C",
+          "official_topic_theme_label": "Mental Health and Substance Use",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_confidence": "low",
+          "primary_written_classification_codes": [
+            "MPP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "C"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": [
+            "missing_legacy_rc_classification_inferred_from_question",
+            "missing_legacy_theme_inferred_from_question",
+            "legacy_domain_retained_unmapped"
+          ]
+        }
+      ],
+      "question_level_written_rollup_status": "rolled_up_from_parts",
+      "question_level_theme_rollup_status": "rolled_up_from_parts",
+      "primary_written_classification_codes": [
+        "MPP"
+      ],
+      "secondary_written_classification_codes": [],
+      "primary_theme_codes": [
+        "C"
+      ],
+      "secondary_theme_codes": [],
+      "migration_flags": [
+        "missing_source_metadata"
+      ]
+    },
+    {
+      "question_id": "PHPM_SAQ_LGC_0015",
+      "legacy_ids": {
+        "id": "Q15",
+        "number": null,
+        "id_numeric": 15
+      },
+      "migration_status": "candidate_for_manual_review",
+      "migration_risk": "low",
+      "title": "Extreme Heat and Air Quality – Vulnerability, Indices, Syndemics",
+      "stem": "",
+      "source_profile": "legacy_bank_internal_unverified",
+      "source_list": [],
+      "form_eligibility": {
+        "eligible_form_ids": [
+          "EXAM_180_V1"
+        ]
+      },
+      "stem_assets": [],
+      "parts": [
+        {
+          "part_id": "PHPM_SAQ_LGC_0015_PA",
+          "part_letter": "a",
+          "display_label": "a)",
+          "legacy_part_id": "Q15_15a",
+          "prompt": "List FIVE vulnerable populations at higher risk of heat‑related illness.",
+          "instruction_verb": "list",
+          "max_score": 2.5,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 5,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "0.5 mark each, 2.5 marks total Any FIVE: - Older adults - Infants and young children - People with chronic medical conditions - People taking medications affecting thermoregulation/hydration - Socially isolated or mobility‑limited individuals - People experiencing homelessness or inadequate cooling - Outdoor workers/athletes"
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "legacy_bank_internal_unverified",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": 1,
+            "theme_code": "D",
+            "domain": null
+          },
+          "official_written_classification_code": "PH",
+          "official_written_classification_label": "Population Health",
+          "official_topic_theme_code": "D",
+          "official_topic_theme_label": "Environmental Health",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_confidence": "medium",
+          "primary_written_classification_codes": [
+            "PH"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "D"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": []
+        },
+        {
+          "part_id": "PHPM_SAQ_LGC_0015_PB",
+          "part_letter": "b",
+          "display_label": "b)",
+          "legacy_part_id": "Q15_15b",
+          "prompt": "Differentiate between the Air Quality Health Index (AQHI) and an Air Quality Index (AQI).",
+          "instruction_verb": null,
+          "max_score": 1,
+          "response_type": "text",
+          "response_constraints": {
+            "list_count_required": null,
+            "allow_partial_credit": true,
+            "single_line": true
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "AQHI communicates short-term health risk and behaviour guidance; AQI is primarily pollutant concentration/status index and may not map directly to individual health action."
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "legacy_bank_internal_unverified",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": null,
+            "theme_code": null,
+            "domain": "4"
+          },
+          "official_written_classification_code": "PH",
+          "official_written_classification_label": "Population Health",
+          "official_topic_theme_code": "D",
+          "official_topic_theme_label": "Environmental Health",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_confidence": "low",
+          "primary_written_classification_codes": [
+            "PH"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "D"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": [
+            "missing_legacy_rc_classification_inferred_from_question",
+            "missing_legacy_theme_inferred_from_question",
+            "legacy_domain_retained_unmapped"
+          ]
+        },
+        {
+          "part_id": "PHPM_SAQ_LGC_0015_PC",
+          "part_letter": "c",
+          "display_label": "c)",
+          "legacy_part_id": "Q15_15c",
+          "prompt": "Define a syndemic and give one example relevant to co‑occurring extreme heat and poor air quality.",
+          "instruction_verb": null,
+          "max_score": 2,
+          "response_type": "text",
+          "response_constraints": {
+            "list_count_required": null,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "3 marks total - Definition (1): synergistic interaction of two or more health problems under conditions of inequity that worsens outcomes. - Example (1): extreme heat + wildfire smoke worsening COPD/asthma admissions, amplified by precarious housing. - Public health implication (1): integrated messaging and targeted supports (cooling/clean‑air shelters, outreach)."
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "legacy_bank_internal_unverified",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": 5,
+            "theme_code": "D",
+            "domain": null
+          },
+          "official_written_classification_code": "HP",
+          "official_written_classification_label": "Intervention and Methods in Health Protection",
+          "official_topic_theme_code": "D",
+          "official_topic_theme_label": "Environmental Health",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_confidence": "medium",
+          "primary_written_classification_codes": [
+            "HP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "D"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": []
+        }
+      ],
+      "question_level_written_rollup_status": "rolled_up_from_parts",
+      "question_level_theme_rollup_status": "rolled_up_from_parts",
+      "primary_written_classification_codes": [
+        "PH",
+        "HP"
+      ],
+      "secondary_written_classification_codes": [],
+      "primary_theme_codes": [
+        "D"
+      ],
+      "secondary_theme_codes": [],
+      "migration_flags": [
+        "missing_source_metadata"
+      ]
+    },
+    {
+      "question_id": "PHPM_SAQ_LGC_0019",
+      "legacy_ids": {
+        "id": "Q19",
+        "number": null,
+        "id_numeric": 19
+      },
+      "migration_status": "candidate_for_manual_review",
+      "migration_risk": "low",
+      "title": "Measles – Case Management and Post‑Exposure Prophylaxis",
+      "stem": "A child presents to Emergency with fever, cough, conjunctivitis and a generalized maculopapular rash; measles is suspected.",
+      "source_profile": "legacy_bank_internal_unverified",
+      "source_list": [],
+      "form_eligibility": {
+        "eligible_form_ids": [
+          "EXAM_180_V1"
+        ]
+      },
+      "stem_assets": [],
+      "parts": [
+        {
+          "part_id": "PHPM_SAQ_LGC_0019_PA",
+          "part_letter": "a",
+          "display_label": "a)",
+          "legacy_part_id": "Q19_19a",
+          "prompt": "List THREE immediate infection control/public health steps.",
+          "instruction_verb": "list",
+          "max_score": 3,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 3,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "1 mark each, 3 marks total Any THREE: - Airborne isolation and notify infection prevention and control - Urgent public health notification and case investigation - Collect appropriate specimens and arrange testing"
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "legacy_bank_internal_unverified",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": 5,
+            "theme_code": "A",
+            "domain": null
+          },
+          "official_written_classification_code": "HP",
+          "official_written_classification_label": "Intervention and Methods in Health Protection",
+          "official_topic_theme_code": "A",
+          "official_topic_theme_label": "Communicable Diseases",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_confidence": "medium",
+          "primary_written_classification_codes": [
+            "HP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "A"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": []
+        },
+        {
+          "part_id": "PHPM_SAQ_LGC_0019_PB",
+          "part_letter": "b",
+          "display_label": "b)",
+          "legacy_part_id": "Q19_19b",
+          "prompt": "As you consider exposed cases for post-exposure prophylaxis eligibility, list TWO options and the time window for each.",
+          "instruction_verb": null,
+          "max_score": 2,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 2,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "MMR vaccine within 72 hours of exposure for eligible susceptible contacts.",
+            "Immune globulin within 6 days of exposure for high-risk susceptible contacts."
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "legacy_bank_internal_unverified",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": null,
+            "theme_code": null,
+            "domain": "3"
+          },
+          "official_written_classification_code": "HP",
+          "official_written_classification_label": "Intervention and Methods in Health Protection",
+          "official_topic_theme_code": "A",
+          "official_topic_theme_label": "Communicable Diseases",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_confidence": "low",
+          "primary_written_classification_codes": [
+            "HP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "A"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": [
+            "missing_legacy_rc_classification_inferred_from_question",
+            "missing_legacy_theme_inferred_from_question",
+            "legacy_domain_retained_unmapped"
+          ]
+        },
+        {
+          "part_id": "PHPM_SAQ_LGC_0019_PC",
+          "part_letter": "c",
+          "display_label": "c)",
+          "legacy_part_id": "Q19_19c",
+          "prompt": "List THREE groups prioritized for Ig.",
+          "instruction_verb": "list",
+          "max_score": 2,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 3,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "0.5 mark each, 1.5 marks total Any THREE: - Pregnant people without evidence of immunity - Immunocompromised individuals - Infants <6 months - Immunocompetent infants 6–11 months who present after 72 hours and within 6 days"
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "legacy_bank_internal_unverified",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": 5,
+            "theme_code": "A",
+            "domain": null
+          },
+          "official_written_classification_code": "HP",
+          "official_written_classification_label": "Intervention and Methods in Health Protection",
+          "official_topic_theme_code": "A",
+          "official_topic_theme_label": "Communicable Diseases",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_confidence": "medium",
+          "primary_written_classification_codes": [
+            "HP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "A"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": []
+        },
+        {
+          "part_id": "PHPM_SAQ_LGC_0019_PD",
+          "part_letter": "d",
+          "display_label": "d)",
+          "legacy_part_id": "Q19_19d",
+          "prompt": "List TWO criteria for evidence of measles immunity.",
+          "instruction_verb": "list",
+          "max_score": 1.5,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 2,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "1 mark each, 2 marks total Any TWO: - Documentation of 2 doses of measles‑containing vaccine (age‑appropriate) - Laboratory evidence of immunity - History of laboratory‑confirmed measles"
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "legacy_bank_internal_unverified",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": 5,
+            "theme_code": "A",
+            "domain": null
+          },
+          "official_written_classification_code": "HP",
+          "official_written_classification_label": "Intervention and Methods in Health Protection",
+          "official_topic_theme_code": "A",
+          "official_topic_theme_label": "Communicable Diseases",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_confidence": "medium",
+          "primary_written_classification_codes": [
+            "HP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "A"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": []
+        }
+      ],
+      "question_level_written_rollup_status": "rolled_up_from_parts",
+      "question_level_theme_rollup_status": "rolled_up_from_parts",
+      "primary_written_classification_codes": [
+        "HP"
+      ],
+      "secondary_written_classification_codes": [],
+      "primary_theme_codes": [
+        "A"
+      ],
+      "secondary_theme_codes": [],
+      "migration_flags": [
+        "missing_source_metadata"
+      ]
+    },
+    {
+      "question_id": "PHPM_SAQ_LGC_0020",
+      "legacy_ids": {
+        "id": "Q20",
+        "number": null,
+        "id_numeric": 20
+      },
+      "migration_status": "candidate_for_manual_review",
+      "migration_risk": "low",
+      "title": "Tuberculosis – Newcomer in Congregate Housing",
+      "stem": "A newcomer to Canada living in a dorm-like setting is diagnosed with pulmonary TB. They are worried about stigma and unsure about taking oral therapy.",
+      "source_profile": "legacy_bank_internal_unverified",
+      "source_list": [],
+      "form_eligibility": {
+        "eligible_form_ids": [
+          "EXAM_180_V1"
+        ]
+      },
+      "stem_assets": [],
+      "parts": [
+        {
+          "part_id": "PHPM_SAQ_LGC_0020_PA",
+          "part_letter": "a",
+          "display_label": "a)",
+          "legacy_part_id": "Q20_20a",
+          "prompt": "List FOUR factors that make a TB case higher risk for transmission or poor outcomes.",
+          "instruction_verb": "list",
+          "max_score": 2,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 4,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "0.5 mark each, 2 marks total Any FOUR: - Smear‑positive pulmonary TB - Cavitary disease on imaging - Significant cough/high symptom burden - Delayed diagnosis/prolonged infectious period - Congregate living setting - HIV/immunocompromise"
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "legacy_bank_internal_unverified",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": 5,
+            "theme_code": "A",
+            "domain": null
+          },
+          "official_written_classification_code": "HP",
+          "official_written_classification_label": "Intervention and Methods in Health Protection",
+          "official_topic_theme_code": "A",
+          "official_topic_theme_label": "Communicable Diseases",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_confidence": "medium",
+          "primary_written_classification_codes": [
+            "HP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "A"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": []
+        },
+        {
+          "part_id": "PHPM_SAQ_LGC_0020_PB",
+          "part_letter": "b",
+          "display_label": "b)",
+          "legacy_part_id": "Q20_20b",
+          "prompt": "List FOUR strategies to support rapport and culturally safe care.",
+          "instruction_verb": "list",
+          "max_score": 2,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 4,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "0.5 mark each, 2 marks total Any FOUR: - Use professional interpreters; avoid family as interpreter - Trauma‑informed and non‑stigmatizing communication - Explain confidentiality and what must be shared for public health - Address practical barriers (transportation, housing, food, clinic access)"
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "legacy_bank_internal_unverified",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": 5,
+            "theme_code": "A",
+            "domain": null
+          },
+          "official_written_classification_code": "HP",
+          "official_written_classification_label": "Intervention and Methods in Health Protection",
+          "official_topic_theme_code": "A",
+          "official_topic_theme_label": "Communicable Diseases",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_confidence": "medium",
+          "primary_written_classification_codes": [
+            "HP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "A"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": []
+        },
+        {
+          "part_id": "PHPM_SAQ_LGC_0020_PC",
+          "part_letter": "c",
+          "display_label": "c)",
+          "legacy_part_id": "Q20_20c",
+          "prompt": "List THREE approaches to improve oral medication adherence.",
+          "instruction_verb": "list",
+          "max_score": 1.5,
+          "response_type": "text",
+          "response_constraints": {
+            "list_count_required": null,
+            "allow_partial_credit": true,
+            "single_line": true
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "0.5 mark each, 1.5 marks total Any THREE: - DOT or video‑enabled DOT (VDOT) - Case management, reminders, incentives/enablers - Education on duration, side effects, and missed dose plan"
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "legacy_bank_internal_unverified",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": 5,
+            "theme_code": "A",
+            "domain": null
+          },
+          "official_written_classification_code": "HP",
+          "official_written_classification_label": "Intervention and Methods in Health Protection",
+          "official_topic_theme_code": "A",
+          "official_topic_theme_label": "Communicable Diseases",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_confidence": "medium",
+          "primary_written_classification_codes": [
+            "HP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "A"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": []
+        },
+        {
+          "part_id": "PHPM_SAQ_LGC_0020_PD",
+          "part_letter": "d",
+          "display_label": "d)",
+          "legacy_part_id": "Q20_20d",
+          "prompt": "As you communicate potential TB exposure with other tenants in the dorm, list TWO principles to balance confidentiality with exposure management.",
+          "instruction_verb": null,
+          "max_score": 1,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 2,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "Share only minimum necessary information and protect personal identifiers.",
+            "Provide clear exposure/risk guidance and access to testing/follow-up while avoiding stigmatizing language."
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "legacy_bank_internal_unverified",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": null,
+            "theme_code": null,
+            "domain": "5"
+          },
+          "official_written_classification_code": "HP",
+          "official_written_classification_label": "Intervention and Methods in Health Protection",
+          "official_topic_theme_code": "A",
+          "official_topic_theme_label": "Communicable Diseases",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_confidence": "low",
+          "primary_written_classification_codes": [
+            "HP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "A"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": [
+            "missing_legacy_rc_classification_inferred_from_question",
+            "missing_legacy_theme_inferred_from_question",
+            "legacy_domain_retained_unmapped"
+          ]
+        }
+      ],
+      "question_level_written_rollup_status": "rolled_up_from_parts",
+      "question_level_theme_rollup_status": "rolled_up_from_parts",
+      "primary_written_classification_codes": [
+        "HP"
+      ],
+      "secondary_written_classification_codes": [],
+      "primary_theme_codes": [
+        "A"
+      ],
+      "secondary_theme_codes": [],
+      "migration_flags": [
+        "missing_source_metadata"
+      ]
+    },
+    {
+      "question_id": "PHPM_SAQ_LGC_0025",
+      "legacy_ids": {
+        "id": "Q25",
+        "number": null,
+        "id_numeric": 25
+      },
+      "migration_status": "candidate_for_manual_review",
+      "migration_risk": "low",
+      "title": "Newborn/Infant Infections + Immunization Timing",
+      "stem": "",
+      "source_profile": "legacy_bank_internal_unverified",
+      "source_list": [],
+      "form_eligibility": {
+        "eligible_form_ids": [
+          "EXAM_180_V1"
+        ]
+      },
+      "stem_assets": [],
+      "parts": [
+        {
+          "part_id": "PHPM_SAQ_LGC_0025_PA",
+          "part_letter": "a",
+          "display_label": "a)",
+          "legacy_part_id": "Q25_25a",
+          "prompt": "List SIX infections in the prenatal/newborn period that are high public health priority because they can cause severe outcomes and/or have clear prevention opportunities.",
+          "instruction_verb": "list",
+          "max_score": 3,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 6,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "0.5 mark each, 3 marks total Any SIX: - Hepatitis B - HIV - Syphilis - Rubella (congenital rubella syndrome prevention) - Varicella (congenital/neonatal varicella prevention) - Measles (high consequence; PEP and outbreak management) - Pertussis (severe infant disease; prevention via maternal Tdap) - Influenza (severe disease in infants; maternal vaccination + infant vaccination starting at 6 months)"
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "legacy_bank_internal_unverified",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": 5,
+            "theme_code": "E",
+            "domain": null
+          },
+          "official_written_classification_code": "HP",
+          "official_written_classification_label": "Intervention and Methods in Health Protection",
+          "official_topic_theme_code": "E",
+          "official_topic_theme_label": "Maternal and Child Health",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_confidence": "medium",
+          "primary_written_classification_codes": [
+            "HP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "E"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": []
+        },
+        {
+          "part_id": "PHPM_SAQ_LGC_0025_PB",
+          "part_letter": "b",
+          "display_label": "b)",
+          "legacy_part_id": "Q25_25b",
+          "prompt": "List TWO vaccines that can begin at 6 months of age (seasonal/routine recommendations) AND list FOUR vaccines commonly given around 12 months of age in many Canadian schedules.",
+          "instruction_verb": "list",
+          "max_score": 3,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 6,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "6 months: influenza, COVID-19 (per recommendations).",
+            "Around 12 months: MMR, Men-C-C, PCV booster, varicella/MMRV (schedule dependent)."
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "legacy_bank_internal_unverified",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": null,
+            "theme_code": null,
+            "domain": "9"
+          },
+          "official_written_classification_code": "HP",
+          "official_written_classification_label": "Intervention and Methods in Health Protection",
+          "official_topic_theme_code": "E",
+          "official_topic_theme_label": "Maternal and Child Health",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_confidence": "low",
+          "primary_written_classification_codes": [
+            "HP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "E"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": [
+            "missing_legacy_rc_classification_inferred_from_question",
+            "missing_legacy_theme_inferred_from_question",
+            "legacy_domain_retained_unmapped"
+          ]
+        }
+      ],
+      "question_level_written_rollup_status": "rolled_up_from_parts",
+      "question_level_theme_rollup_status": "rolled_up_from_parts",
+      "primary_written_classification_codes": [
+        "HP"
+      ],
+      "secondary_written_classification_codes": [],
+      "primary_theme_codes": [
+        "E"
+      ],
+      "secondary_theme_codes": [],
+      "migration_flags": [
+        "missing_source_metadata"
+      ]
+    }
+  ]
+}
