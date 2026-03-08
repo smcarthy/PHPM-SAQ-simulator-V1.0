@@ -1,105 +1,55 @@
-# PHPM SAQ Canonical Question Schema (Transition Baseline)
+# PHPM SAQ Canonical Question Schema (Constitution-Aligned)
 
 ## Purpose
-This document defines a canonical schema to support migration from legacy question objects toward a machine-friendly structure that preserves exam fidelity and supports future validator upgrades.
+This document defines the canonical non-runtime schema used for taxonomy migration and gold-standard adjudication while preserving runtime backward compatibility.
 
-The style anchor for future question creation and validation is the **Royal College sample written exam material** to reduce drift in question format, multipart structure, directive verbs, and scoring style.
-
-## Design Principles
-- Support **question-level** and **part-level** metadata explicitly.
-- Preserve backward compatibility with legacy identifiers and taxonomy fields.
-- Enable a future compatibility normalizer (legacy → canonical).
-- Keep schema deterministic for static-site/offline workflows.
+## Design principles
+- Part-level taxonomy is authoritative.
+- Every part has at least one written classification and at least one theme.
+- Multiple labels are supported with explicit primary vs secondary distinction.
+- Question-level taxonomy reflects part-level rollup (inherited when aligned, mixed when not).
 
 ---
 
-## Canonical Question Object
+## Canonical taxonomy fields
+
+### Question-level taxonomy fields
+- `primary_written_classification_codes` (array, required, min length 1)
+- `secondary_written_classification_codes` (array, optional)
+- `primary_theme_codes` (array, required, min length 1)
+- `secondary_theme_codes` (array, optional)
+
+### Part-level taxonomy fields
+- `primary_written_classification_codes` (array, required, min length 1)
+- `secondary_written_classification_codes` (array, optional)
+- `primary_theme_codes` (array, required, min length 1)
+- `secondary_theme_codes` (array, optional)
+
+Allowed code sets:
+- Written classifications: `PH`, `HS`, `BS`, `HPDP`, `HP`, `MPP`
+- Themes: `A`, `B`, `C`, `D`, `E`, `F`, `G` (`G` allowed only at theme layer)
+
+Blueprint counting default:
+- First value in `primary_written_classification_codes`.
+
+---
+
+## Canonical question object (taxonomy excerpt)
 
 ```json
 {
-  "question_id": "Q-2026-001",
-  "legacy_ids": {
-    "id": "Q1",
-    "number": 1
-  },
-  "status": "active",
-  "title": "Question title",
-  "stem": "Question stem text...",
-  "stem_assets": [
-    {
-      "asset_id": "asset-1",
-      "asset_type": "image",
-      "path": "Q11table.png",
-      "alt_text": "Reference table for calculations"
-    }
-  ],
-  "version": "1.0.0",
-  "change_log": [
-    {
-      "date": "2026-03-08",
-      "author": "content-team",
-      "change": "Initial canonical migration object."
-    }
-  ],
-  "source_profile": {
-    "source_type": "simulated_rc_style",
-    "reference": "Royal College sample written exam material",
-    "notes": "Use RC style for multipart structure and directive verbs."
-  },
-  "gold_standard_alignment_status": "aligned",
-  "official_topic_theme_code": "A",
-  "official_topic_theme_label": "Communicable Diseases",
-  "simulator_topic_tags": [
-    "communicable_diseases"
-  ],
-  "form_eligibility": {
-    "include_in_full_exam": true,
-    "eligible_form_ids": ["FORM-1"],
-    "exclude_reasons": []
-  },
-  "time_estimate_minutes": 15,
-  "difficulty_level": "moderate",
+  "question_id": "PHPM_SAQ_GS_0001",
+  "primary_written_classification_codes": ["MPP"],
+  "secondary_written_classification_codes": [],
+  "primary_theme_codes": ["G"],
+  "secondary_theme_codes": [],
   "parts": [
     {
-      "part_id": "Q-2026-001-P1",
-      "part_letter": "a",
-      "display_label": "a)",
-      "prompt": "List three key interventions...",
-      "instruction_verb": "list",
-      "max_score": 3,
-      "response_type": "list",
-      "response_constraints": {
-        "list_count_required": 3,
-        "matrix_rows": null,
-        "matrix_columns": null,
-        "calculation_required": false,
-        "single_line": false,
-        "allow_partial_credit": true
-      },
-      "must_have_elements": [
-        "Intervention 1",
-        "Intervention 2"
-      ],
-      "answer_key": [
-        "Model answer bullet 1",
-        "Model answer bullet 2"
-      ],
-      "acceptable_alternatives": [
-        "Equivalent phrasing accepted where conceptually correct"
-      ],
-      "scoring_notes": "Award 1 mark per distinct correct intervention.",
-      "official_written_classification_code": "HPDP",
-      "official_written_classification_label": "Intervention and Methods in Health Promotion and Disease Prevention",
-      "official_topic_theme_code": "A",
-      "official_topic_theme_label": "Communicable Diseases",
-      "simulator_topic_tags": [
-        "communicable_diseases"
-      ],
-      "source_list": [
-        "Royal College sample written exam material"
-      ],
-      "last_validated_date": "2026-03-08",
-      "validator": "initial-taxonomy-pass"
+      "part_id": "PHPM_SAQ_GS_0001_PA",
+      "primary_written_classification_codes": ["MPP"],
+      "secondary_written_classification_codes": [],
+      "primary_theme_codes": ["G"],
+      "secondary_theme_codes": []
     }
   ]
 }
@@ -107,73 +57,15 @@ The style anchor for future question creation and validation is the **Royal Coll
 
 ---
 
-## Required Question-Level Fields
-- `question_id`
-- `legacy_ids`
-- `status`
-- `title`
-- `stem`
-- `stem_assets`
-- `version`
-- `change_log`
-- `source_profile`
-- `gold_standard_alignment_status`
-- `official_topic_theme_code`
-- `official_topic_theme_label`
-- `simulator_topic_tags`
-- `form_eligibility`
-- `time_estimate_minutes`
-- `difficulty_level`
-- `parts`
-
-## Required Part-Level Fields
-- `part_id`
-- `part_letter`
-- `display_label`
-- `prompt`
-- `instruction_verb`
-- `max_score`
-- `response_type`
-- `response_constraints`
-- `must_have_elements`
-- `answer_key`
-- `acceptable_alternatives`
-- `scoring_notes`
+## Backward compatibility fields
+For transition tooling, singleton mirror fields may still be present:
 - `official_written_classification_code`
 - `official_written_classification_label`
 - `official_topic_theme_code`
 - `official_topic_theme_label`
-- `simulator_topic_tags`
-- `source_list`
-- `last_validated_date`
-- `validator`
 
-## Response-Constraint Structure
-`response_constraints` is designed to support structured prompt logic at subsection level (`a`, `b`, `c`, etc.) and includes:
-- `list_count_required`
-- `matrix_rows`
-- `matrix_columns`
-- `calculation_required`
-- `single_line`
-- `allow_partial_credit`
+These are compatibility mirrors only; canonical adjudication should use primary/secondary arrays.
 
-This allows precise machine validation while preserving rubric flexibility.
-
-## Subsection Support (Multipart SAQ)
-The schema explicitly models `parts` as first-class objects with their own taxonomy, scoring, and validation metadata. This supports realistic SAQ structure where part `a` and part `b` can differ in directive verb, scoring logic, and content-area classification.
-
-## Migration and Backward Compatibility Notes
-Current legacy fields can be mapped as follows (illustrative mapping):
-
-- `id` → `legacy_ids.id`
-- `number` → `legacy_ids.number`
-- `theme` → `official_topic_theme_code` (when valid A–F)
-- `rc_classification` → `official_written_classification_code` (via explicit codebook mapping)
-- `domain` → transitional field only; requires explicit mapping table before canonical ingestion
-
-During migration, legacy fields may remain present in source JSON for runtime compatibility, but canonical fields should be treated as the source of truth in future normalization/validation pipelines.
-
-## Non-Goals for This Step
-- No runtime wiring changes.
-- No mutation of current `question_bank.json` objects.
-- No rendering or exam-flow behavior changes.
+## Non-goals
+- No runtime behavior changes.
+- No updates to live `question_bank.json`, exam-flow rendering, scoring UX, or local-storage logic.

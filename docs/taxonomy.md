@@ -1,54 +1,47 @@
-# PHPM SAQ Canonical Taxonomy (Transition Baseline)
+# PHPM SAQ Canonical Taxonomy (Constitution-Aligned)
 
 ## Purpose
-This document defines the canonical taxonomy artifacts for the PHPM SAQ simulator transition state. During this phase, runtime behavior remains unchanged and legacy fields continue to function for backward compatibility.
+This document defines the canonical taxonomy policy for non-runtime migration artifacts. Runtime behavior remains unchanged; legacy runtime fields are still supported until a compatibility normalizer is introduced.
 
-The style anchor for future question creation and validation is the **Royal College sample written exam material** to reduce drift in question format, multipart structure, directive verbs, and scoring style.
+## Locked taxonomy policy
+Per approved project constitution:
 
-## Canonical Namespaces
-The canonical taxonomy is stored in `content/taxonomy.json` and contains three namespaces:
+1. **Every question part must map to at least one official written classification**:
+   - `PH`, `HS`, `BS`, `HPDP`, `HP`, `MPP`
+2. **Every question part must map to at least one theme code**:
+   - `A`, `B`, `C`, `D`, `E`, `F`, `G`
+3. **Multi-label assignment is allowed** at question and part level.
+4. **Primary vs secondary labels are required** in canonical artifacts.
+5. **Blueprint counting rule**: the first value in `primary_written_classification_codes` is the default counting classification unless explicit policy later changes this.
+6. **`G = Other` is theme-only** and cannot be used as a written-classification code.
+
+## Canonical namespaces (`content/taxonomy.json`)
 
 1. **`official_written_classifications`**
-   - Represents official written content-area classifications (PH, HS, BS, HPDP, HP, MPP).
-   - Includes official mark-weight ranges (`weight_min_percent`, `weight_max_percent`).
-   - Intended primarily for scoring-aligned metadata, especially at **question-part level**.
+   - Official written-classification codebook with blueprint weight ranges.
+   - Valid values: `PH`, `HS`, `BS`, `HPDP`, `HP`, `MPP`.
 
 2. **`official_topic_themes`**
-   - Represents the six official topic themes (A–F).
-   - Intended for topic-level categorization at both **question** and **question-part** levels.
+   - Official themes `A–F` plus simulator extension `G = Other`.
+   - `G` is used when a part does not fit A–F cleanly and should remain explicit instead of forcing unsupported certainty.
 
 3. **`simulator_tags`**
-   - Represents normalized, machine-friendly tags used by simulator logic and UX filtering.
-   - Includes required slugs for future targeted blocks:
-     - `communicable_diseases`
-     - `non_communicable_diseases`
-     - `mental_health_substance_use`
-     - `environmental_health`
-     - `maternal_child_health`
-     - `injury_voluntary_involuntary`
+   - Stable machine-friendly tags for search/filtering and normalization workflows.
 
-## Why Three Taxonomy Layers Exist
-- **Official written classifications** are exam-blueprint content areas and include weight ranges.
-- **Official topic themes** are broad topical categories for curriculum-aligned grouping.
-- **Simulator tags** are implementation-level identifiers that remain stable for filtering, query logic, and data normalization.
+## Primary/secondary labeling model
+For both question and part levels, taxonomy artifacts should use:
 
-These layers are related but not interchangeable:
-- A question part can map to one official written classification while sharing a question-level official topic theme.
-- Multiple simulator tags can coexist when a question crosses topic boundaries.
+- `primary_written_classification_codes` (required, non-empty)
+- `secondary_written_classification_codes` (optional)
+- `primary_theme_codes` (required, non-empty)
+- `secondary_theme_codes` (optional)
 
-## Transition and Backward Compatibility
-Legacy fields (for example `domain`, `theme`, and mixed usage of `rc_classification`) remain backward-compatible in current data and rendering while migration is ongoing.
+Part-level taxonomy remains authoritative. Question-level arrays should be inherited from parts where aligned, or recorded as mixed when parts differ.
 
-However, these legacy fields are **not** the long-term source of truth unless explicitly mapped by a compatibility normalizer. The long-term source of truth is the canonical taxonomy in `content/taxonomy.json`.
+## Transition/backward compatibility
+Legacy singleton fields (for example `official_written_classification_code`, `official_topic_theme_code`, and historical fields such as `domain`/`theme`) may remain in transition artifacts for compatibility/tracing, but the canonical source of truth is the primary/secondary array model above.
 
-## Guidance for Future Targeted Practice Blocks
-Future 15-minute and 30-minute targeted practice blocks should use:
-- `official_topic_themes` codes/labels, and/or
-- `simulator_tags`
-
-They should **not** depend on legacy `domain` codes.
-
-## Implementation Status
-- Added as schema and documentation artifact only.
-- No current runtime wiring in `script.js` or form behavior changes.
-- Existing simulator behavior (timers, local storage, review/submit, exports, calculator, rendering) remains unchanged.
+## Implementation status
+- Documentation/data artifact updates only.
+- No runtime wiring changes.
+- No changes to timers, local storage, review/submit, export, calculator, or rendering behavior.

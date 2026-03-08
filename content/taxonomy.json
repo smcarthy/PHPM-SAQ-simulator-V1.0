@@ -1,6 +1,6 @@
 {
-  "version": "1.0.0",
-  "status": "approved_transition_baseline",
+  "version": "1.1.0",
+  "status": "approved_constitution_aligned",
   "last_updated": "2026-03-08",
   "notes": "Canonical PHPM SAQ taxonomy for migration. Runtime is unchanged; legacy fields remain in active use until a compatibility normalizer is introduced.",
   "namespaces": {
@@ -91,6 +91,13 @@
         "label": "Injury: Voluntary and Involuntary",
         "description": "Official topic theme covering intentional and unintentional injury prevention and control.",
         "active": true
+      },
+      {
+        "code": "G",
+        "label": "Other",
+        "description": "Simulator extension theme for official-sample or legacy content that does not cleanly fit themes A–F. Use only at the theme layer.",
+        "active": true,
+        "notes": "Constitution-locked extension. Not a written-classification code."
       }
     ],
     "simulator_tags": [
@@ -140,17 +147,54 @@
   },
   "reference_model": {
     "question_level": {
-      "official_topic_theme_code": "A",
+      "primary_written_classification_codes": [
+        "PH"
+      ],
+      "secondary_written_classification_codes": [
+        "HS"
+      ],
+      "primary_theme_codes": [
+        "A"
+      ],
+      "secondary_theme_codes": [
+        "G"
+      ],
       "simulator_topic_tags": [
         "communicable_diseases"
       ]
     },
     "part_level": {
-      "official_written_classification_code": "PH",
-      "official_topic_theme_code": "A",
+      "primary_written_classification_codes": [
+        "PH"
+      ],
+      "secondary_written_classification_codes": [],
+      "primary_theme_codes": [
+        "A"
+      ],
+      "secondary_theme_codes": [],
       "simulator_topic_tags": [
         "communicable_diseases"
       ]
+    }
+  },
+  "assignment_policy": {
+    "part_level_authority": true,
+    "minimum_required_per_part": {
+      "written_classification_codes": 1,
+      "theme_codes": 1
+    },
+    "label_tiers": {
+      "primary": "Required. First primary written classification code is the default blueprint counting code.",
+      "secondary": "Optional supporting labels for legitimate overlap."
+    },
+    "counting_rule": {
+      "blueprint_written_classification_count_source": "first_primary_written_classification_code",
+      "override_policy": "Only changed by explicit future policy update."
+    },
+    "constraints": {
+      "theme_other_code_allowed": true,
+      "theme_other_code": "G",
+      "written_classification_other_allowed": false
     }
   }
 }
