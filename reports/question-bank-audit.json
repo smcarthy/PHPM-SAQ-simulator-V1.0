@@ -1,0 +1,1308 @@
+{
+  "generated_at": "2026-03-08T01:17:29.211Z",
+  "source_files": [
+    "question_bank.json",
+    "exam_forms.json"
+  ],
+  "summary": {
+    "question_count": 36,
+    "total_forms": 3,
+    "form_ids": [
+      "EXAM_30",
+      "EXAM_AHD_15",
+      "EXAM_180_V1"
+    ],
+    "risk_counts": {
+      "low": 9,
+      "medium": 14,
+      "high": 13
+    },
+    "issue_counts": {
+      "ambiguous_numeric_id_collision": 14,
+      "missing_rc_classification": 7,
+      "missing_theme": 7,
+      "missing_source_metadata": 36,
+      "multiple_legacy_domain_values_within_question": 1,
+      "missing_question_number": 29,
+      "missing_legacy_domain": 19,
+      "contains_nonstandard_response_type": 2
+    },
+    "global_inconsistency_flags": {
+      "mixed_id_conventions": true,
+      "mixed_number_usage": true,
+      "mixed_domain_usage": true,
+      "mixed_rc_classification_usage": true,
+      "mixed_theme_usage": true,
+      "mixed_response_types": true,
+      "unsupported_or_unclear_response_structures": [
+        "haddon_matrix",
+        "two_by_two_workspace"
+      ]
+    }
+  },
+  "questions": [
+    {
+      "id": "Q01",
+      "number": null,
+      "legacy_domain_values": [],
+      "rc_classification_values": [
+        3,
+        2
+      ],
+      "theme_values": [
+        "A",
+        "B"
+      ],
+      "total_points": 3.5,
+      "part_count": 2,
+      "widget_indicators": {
+        "response_types": [
+          "list"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "ambiguous_numeric_id_collision",
+        "missing_legacy_domain",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "high",
+      "migration_risk_score": 5
+    },
+    {
+      "id": "Q1",
+      "number": 1,
+      "legacy_domain_values": [
+        "7"
+      ],
+      "rc_classification_values": [],
+      "theme_values": [],
+      "total_points": 7,
+      "part_count": 2,
+      "widget_indicators": {
+        "response_types": [
+          "list"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_30",
+        "EXAM_AHD_15"
+      ],
+      "issues": [
+        "ambiguous_numeric_id_collision",
+        "missing_rc_classification",
+        "missing_theme",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "high",
+      "migration_risk_score": 5
+    },
+    {
+      "id": "Q02",
+      "number": null,
+      "legacy_domain_values": [],
+      "rc_classification_values": [
+        1
+      ],
+      "theme_values": [
+        "E"
+      ],
+      "total_points": 1.5,
+      "part_count": 1,
+      "widget_indicators": {
+        "response_types": [
+          "list"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "ambiguous_numeric_id_collision",
+        "missing_legacy_domain",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "high",
+      "migration_risk_score": 5
+    },
+    {
+      "id": "Q2",
+      "number": 2,
+      "legacy_domain_values": [
+        "3"
+      ],
+      "rc_classification_values": [],
+      "theme_values": [],
+      "total_points": 1.5,
+      "part_count": 1,
+      "widget_indicators": {
+        "response_types": [
+          "list"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_30"
+      ],
+      "issues": [
+        "ambiguous_numeric_id_collision",
+        "missing_rc_classification",
+        "missing_theme",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "high",
+      "migration_risk_score": 5
+    },
+    {
+      "id": "Q03",
+      "number": null,
+      "legacy_domain_values": [],
+      "rc_classification_values": [
+        1
+      ],
+      "theme_values": [
+        "C"
+      ],
+      "total_points": 3.5,
+      "part_count": 2,
+      "widget_indicators": {
+        "response_types": [
+          "list",
+          "text"
+        ],
+        "has_single_line": true,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "ambiguous_numeric_id_collision",
+        "missing_legacy_domain",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "high",
+      "migration_risk_score": 5
+    },
+    {
+      "id": "Q3",
+      "number": 3,
+      "legacy_domain_values": [
+        "4"
+      ],
+      "rc_classification_values": [],
+      "theme_values": [],
+      "total_points": 4,
+      "part_count": 2,
+      "widget_indicators": {
+        "response_types": [
+          "list"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_30"
+      ],
+      "issues": [
+        "ambiguous_numeric_id_collision",
+        "missing_rc_classification",
+        "missing_theme",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "high",
+      "migration_risk_score": 5
+    },
+    {
+      "id": "Q04",
+      "number": null,
+      "legacy_domain_values": [],
+      "rc_classification_values": [
+        4
+      ],
+      "theme_values": [
+        "F"
+      ],
+      "total_points": 4.5,
+      "part_count": 1,
+      "widget_indicators": {
+        "response_types": [
+          "haddon_matrix"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": true,
+        "has_nonstandard_response_type": true
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "ambiguous_numeric_id_collision",
+        "missing_legacy_domain",
+        "missing_source_metadata",
+        "contains_nonstandard_response_type"
+      ],
+      "migration_risk": "high",
+      "migration_risk_score": 6
+    },
+    {
+      "id": "Q4",
+      "number": 4,
+      "legacy_domain_values": [
+        "9",
+        "7"
+      ],
+      "rc_classification_values": [],
+      "theme_values": [],
+      "total_points": 4,
+      "part_count": 2,
+      "widget_indicators": {
+        "response_types": [
+          "list"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_30",
+        "EXAM_AHD_15"
+      ],
+      "issues": [
+        "ambiguous_numeric_id_collision",
+        "missing_rc_classification",
+        "missing_theme",
+        "multiple_legacy_domain_values_within_question",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "high",
+      "migration_risk_score": 7
+    },
+    {
+      "id": "Q05",
+      "number": null,
+      "legacy_domain_values": [],
+      "rc_classification_values": [
+        5,
+        6
+      ],
+      "theme_values": [
+        "D"
+      ],
+      "total_points": 5.5,
+      "part_count": 3,
+      "widget_indicators": {
+        "response_types": [
+          "list"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "ambiguous_numeric_id_collision",
+        "missing_legacy_domain",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "high",
+      "migration_risk_score": 5
+    },
+    {
+      "id": "Q5",
+      "number": 5,
+      "legacy_domain_values": [
+        "6"
+      ],
+      "rc_classification_values": [],
+      "theme_values": [],
+      "total_points": 2,
+      "part_count": 1,
+      "widget_indicators": {
+        "response_types": [
+          "list"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_30",
+        "EXAM_AHD_15"
+      ],
+      "issues": [
+        "ambiguous_numeric_id_collision",
+        "missing_rc_classification",
+        "missing_theme",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "high",
+      "migration_risk_score": 5
+    },
+    {
+      "id": "Q06",
+      "number": null,
+      "legacy_domain_values": [],
+      "rc_classification_values": [
+        3
+      ],
+      "theme_values": [
+        "B"
+      ],
+      "total_points": 4.5,
+      "part_count": 3,
+      "widget_indicators": {
+        "response_types": [
+          "text"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "ambiguous_numeric_id_collision",
+        "missing_legacy_domain",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "high",
+      "migration_risk_score": 5
+    },
+    {
+      "id": "Q6",
+      "number": 6,
+      "legacy_domain_values": [
+        "2"
+      ],
+      "rc_classification_values": [],
+      "theme_values": [],
+      "total_points": 5,
+      "part_count": 3,
+      "widget_indicators": {
+        "response_types": [
+          "list",
+          "text"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_30",
+        "EXAM_AHD_15"
+      ],
+      "issues": [
+        "ambiguous_numeric_id_collision",
+        "missing_rc_classification",
+        "missing_theme",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "high",
+      "migration_risk_score": 5
+    },
+    {
+      "id": "Q07",
+      "number": null,
+      "legacy_domain_values": [
+        "5"
+      ],
+      "rc_classification_values": [
+        4
+      ],
+      "theme_values": [
+        "B"
+      ],
+      "total_points": 3,
+      "part_count": 2,
+      "widget_indicators": {
+        "response_types": [
+          "list"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "ambiguous_numeric_id_collision",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "medium",
+      "migration_risk_score": 4
+    },
+    {
+      "id": "Q7",
+      "number": 7,
+      "legacy_domain_values": [
+        "2"
+      ],
+      "rc_classification_values": [],
+      "theme_values": [],
+      "total_points": 6.5,
+      "part_count": 3,
+      "widget_indicators": {
+        "response_types": [
+          "list"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_30"
+      ],
+      "issues": [
+        "ambiguous_numeric_id_collision",
+        "missing_rc_classification",
+        "missing_theme",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "high",
+      "migration_risk_score": 5
+    },
+    {
+      "id": "Q08",
+      "number": null,
+      "legacy_domain_values": [],
+      "rc_classification_values": [
+        2
+      ],
+      "theme_values": [
+        "B"
+      ],
+      "total_points": 4,
+      "part_count": 1,
+      "widget_indicators": {
+        "response_types": [
+          "list"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "missing_legacy_domain",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "medium",
+      "migration_risk_score": 3
+    },
+    {
+      "id": "Q09",
+      "number": null,
+      "legacy_domain_values": [],
+      "rc_classification_values": [
+        5
+      ],
+      "theme_values": [
+        "A"
+      ],
+      "total_points": 5,
+      "part_count": 3,
+      "widget_indicators": {
+        "response_types": [
+          "list"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "missing_legacy_domain",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "medium",
+      "migration_risk_score": 3
+    },
+    {
+      "id": "Q10",
+      "number": null,
+      "legacy_domain_values": [],
+      "rc_classification_values": [
+        5
+      ],
+      "theme_values": [
+        "D"
+      ],
+      "total_points": 4,
+      "part_count": 2,
+      "widget_indicators": {
+        "response_types": [
+          "list"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "missing_legacy_domain",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "medium",
+      "migration_risk_score": 3
+    },
+    {
+      "id": "Q11",
+      "number": null,
+      "legacy_domain_values": [],
+      "rc_classification_values": [
+        3
+      ],
+      "theme_values": [
+        "F"
+      ],
+      "total_points": 10,
+      "part_count": 5,
+      "widget_indicators": {
+        "response_types": [
+          "text"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": true,
+      "stem_image": "./Q11table.png",
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "missing_legacy_domain",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "medium",
+      "migration_risk_score": 3
+    },
+    {
+      "id": "Q12",
+      "number": null,
+      "legacy_domain_values": [],
+      "rc_classification_values": [
+        3,
+        5,
+        6
+      ],
+      "theme_values": [
+        "A"
+      ],
+      "total_points": 5,
+      "part_count": 3,
+      "widget_indicators": {
+        "response_types": [
+          "list",
+          "text"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "missing_legacy_domain",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "medium",
+      "migration_risk_score": 3
+    },
+    {
+      "id": "Q13",
+      "number": null,
+      "legacy_domain_values": [],
+      "rc_classification_values": [
+        6
+      ],
+      "theme_values": [
+        "A"
+      ],
+      "total_points": 6,
+      "part_count": 2,
+      "widget_indicators": {
+        "response_types": [
+          "list"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "missing_legacy_domain",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "medium",
+      "migration_risk_score": 3
+    },
+    {
+      "id": "Q14",
+      "number": null,
+      "legacy_domain_values": [
+        "7"
+      ],
+      "rc_classification_values": [
+        6
+      ],
+      "theme_values": [
+        "C"
+      ],
+      "total_points": 6.5,
+      "part_count": 3,
+      "widget_indicators": {
+        "response_types": [
+          "list"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "low",
+      "migration_risk_score": 2
+    },
+    {
+      "id": "Q15",
+      "number": null,
+      "legacy_domain_values": [
+        "4"
+      ],
+      "rc_classification_values": [
+        1,
+        5
+      ],
+      "theme_values": [
+        "D"
+      ],
+      "total_points": 5.5,
+      "part_count": 3,
+      "widget_indicators": {
+        "response_types": [
+          "list",
+          "text"
+        ],
+        "has_single_line": true,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "low",
+      "migration_risk_score": 2
+    },
+    {
+      "id": "Q16",
+      "number": null,
+      "legacy_domain_values": [
+        "4"
+      ],
+      "rc_classification_values": [
+        5
+      ],
+      "theme_values": [
+        "D"
+      ],
+      "total_points": 5,
+      "part_count": 2,
+      "widget_indicators": {
+        "response_types": [
+          "list"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "low",
+      "migration_risk_score": 2
+    },
+    {
+      "id": "Q17",
+      "number": null,
+      "legacy_domain_values": [
+        "8"
+      ],
+      "rc_classification_values": [
+        6
+      ],
+      "theme_values": [
+        "A"
+      ],
+      "total_points": 6,
+      "part_count": 3,
+      "widget_indicators": {
+        "response_types": [
+          "list"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "low",
+      "migration_risk_score": 2
+    },
+    {
+      "id": "Q18",
+      "number": null,
+      "legacy_domain_values": [],
+      "rc_classification_values": [
+        3,
+        5
+      ],
+      "theme_values": [
+        "A"
+      ],
+      "total_points": 7,
+      "part_count": 3,
+      "widget_indicators": {
+        "response_types": [
+          "list",
+          "text"
+        ],
+        "has_single_line": true,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "missing_legacy_domain",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "medium",
+      "migration_risk_score": 3
+    },
+    {
+      "id": "Q19",
+      "number": null,
+      "legacy_domain_values": [
+        "3"
+      ],
+      "rc_classification_values": [
+        5
+      ],
+      "theme_values": [
+        "A"
+      ],
+      "total_points": 8.5,
+      "part_count": 4,
+      "widget_indicators": {
+        "response_types": [
+          "list"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "low",
+      "migration_risk_score": 2
+    },
+    {
+      "id": "Q20",
+      "number": null,
+      "legacy_domain_values": [
+        "5"
+      ],
+      "rc_classification_values": [
+        5
+      ],
+      "theme_values": [
+        "A"
+      ],
+      "total_points": 6.5,
+      "part_count": 4,
+      "widget_indicators": {
+        "response_types": [
+          "list",
+          "text"
+        ],
+        "has_single_line": true,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "low",
+      "migration_risk_score": 2
+    },
+    {
+      "id": "Q21",
+      "number": null,
+      "legacy_domain_values": [
+        "3"
+      ],
+      "rc_classification_values": [
+        5
+      ],
+      "theme_values": [
+        "A"
+      ],
+      "total_points": 5,
+      "part_count": 3,
+      "widget_indicators": {
+        "response_types": [
+          "list",
+          "text"
+        ],
+        "has_single_line": true,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "low",
+      "migration_risk_score": 2
+    },
+    {
+      "id": "Q22",
+      "number": null,
+      "legacy_domain_values": [
+        "3"
+      ],
+      "rc_classification_values": [
+        5
+      ],
+      "theme_values": [
+        "A"
+      ],
+      "total_points": 4.5,
+      "part_count": 3,
+      "widget_indicators": {
+        "response_types": [
+          "list",
+          "text"
+        ],
+        "has_single_line": true,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "low",
+      "migration_risk_score": 2
+    },
+    {
+      "id": "Q23",
+      "number": null,
+      "legacy_domain_values": [],
+      "rc_classification_values": [
+        5,
+        4
+      ],
+      "theme_values": [
+        "E"
+      ],
+      "total_points": 11,
+      "part_count": 3,
+      "widget_indicators": {
+        "response_types": [
+          "list"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "missing_legacy_domain",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "medium",
+      "migration_risk_score": 3
+    },
+    {
+      "id": "Q24",
+      "number": null,
+      "legacy_domain_values": [],
+      "rc_classification_values": [
+        5
+      ],
+      "theme_values": [
+        "E"
+      ],
+      "total_points": 9.5,
+      "part_count": 4,
+      "widget_indicators": {
+        "response_types": [
+          "list"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "missing_legacy_domain",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "medium",
+      "migration_risk_score": 3
+    },
+    {
+      "id": "Q25",
+      "number": null,
+      "legacy_domain_values": [
+        "9"
+      ],
+      "rc_classification_values": [
+        5
+      ],
+      "theme_values": [
+        "E"
+      ],
+      "total_points": 6,
+      "part_count": 2,
+      "widget_indicators": {
+        "response_types": [
+          "list"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "low",
+      "migration_risk_score": 2
+    },
+    {
+      "id": "Q26",
+      "number": null,
+      "legacy_domain_values": [],
+      "rc_classification_values": [
+        1,
+        4
+      ],
+      "theme_values": [
+        "E"
+      ],
+      "total_points": 8,
+      "part_count": 2,
+      "widget_indicators": {
+        "response_types": [
+          "list"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "missing_legacy_domain",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "medium",
+      "migration_risk_score": 3
+    },
+    {
+      "id": "Q27",
+      "number": null,
+      "legacy_domain_values": [],
+      "rc_classification_values": [
+        4,
+        2,
+        3
+      ],
+      "theme_values": [
+        "B"
+      ],
+      "total_points": 9.5,
+      "part_count": 3,
+      "widget_indicators": {
+        "response_types": [
+          "list"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "missing_legacy_domain",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "medium",
+      "migration_risk_score": 3
+    },
+    {
+      "id": "Q28",
+      "number": null,
+      "legacy_domain_values": [],
+      "rc_classification_values": [
+        3
+      ],
+      "theme_values": [
+        "A"
+      ],
+      "total_points": 12.5,
+      "part_count": 4,
+      "widget_indicators": {
+        "response_types": [
+          "text",
+          "two_by_two_workspace"
+        ],
+        "has_single_line": true,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": true
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "missing_legacy_domain",
+        "missing_source_metadata",
+        "contains_nonstandard_response_type"
+      ],
+      "migration_risk": "medium",
+      "migration_risk_score": 4
+    },
+    {
+      "id": "Q29",
+      "number": null,
+      "legacy_domain_values": [],
+      "rc_classification_values": [
+        1,
+        4
+      ],
+      "theme_values": [
+        "C"
+      ],
+      "total_points": 6,
+      "part_count": 2,
+      "widget_indicators": {
+        "response_types": [
+          "list"
+        ],
+        "has_single_line": false,
+        "uses_haddon_matrix_flags": false,
+        "has_nonstandard_response_type": false
+      },
+      "has_stem_image": false,
+      "stem_image": null,
+      "has_source_metadata": false,
+      "forms": [
+        "EXAM_180_V1"
+      ],
+      "issues": [
+        "missing_question_number",
+        "missing_legacy_domain",
+        "missing_source_metadata"
+      ],
+      "migration_risk": "medium",
+      "migration_risk_score": 3
+    }
+  ]
+}
