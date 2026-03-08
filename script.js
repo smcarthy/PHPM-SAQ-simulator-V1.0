@@ -1591,7 +1591,9 @@
     bank: embeddedQuestionBank,
     forms: embeddedExamForms,
     usingFallback: true,
-    fallbackReason: 'Embedded defaults are in use.'
+    fallbackReason: 'Embedded defaults are in use.',
+    dataMode: "legacy",
+    pilotMeta: null
   };
   const landingSection = document.getElementById('landing');
   const examSection = document.getElementById('exam');
@@ -1636,6 +1638,23 @@
     ahd: 'EXAM_AHD_15',
     half: 'EXAM_90'
   };
+
+  const DATA_MODE = Object.freeze({
+    LEGACY: 'legacy',
+    PILOT: 'pilot'
+  });
+
+  const PILOT_BANK_PATH = './content/candidates/phpm_saq_approved_pilot_bank_v1.json';
+
+  function detectDataModeFromQuery() {
+    const params = new URLSearchParams(window.location.search || '');
+    const bankMode = (params.get('bank') || params.get('mode') || '').toLowerCase();
+    const pilotFlag = (params.get('pilot_bank') || '').toLowerCase();
+    const pilotEnabled = bankMode === DATA_MODE.PILOT || pilotFlag === '1' || pilotFlag === 'true';
+    return pilotEnabled ? DATA_MODE.PILOT : DATA_MODE.LEGACY;
+  }
+
+  const activeDataMode = detectDataModeFromQuery();
 
   /**
    * Initialise the calculator controls after DOMContentLoaded. This assigns
@@ -1795,6 +1814,7 @@
             rubric: normalizeRubric(part.rubric),
             response_type: part.response_type || 'text',
             list_count: Number(part.list_count) || 0,
+            single_line: !!part.single_line,
             rc_classification: part.rc_classification,
             theme: part.theme,
             must_have: Array.isArray(part.must_have) ? part.must_have : []
@@ -1802,6 +1822,107 @@
         : []
     };
     return normalized;
+  }
+
+  function mapPilotResponseType(type) {
+    if (type === 'short_text') return 'text';
+    return type || 'text';
+  }
+
+  function adaptPilotQuestion(pilotQuestion, fallbackNumber) {
+    const legacyId =
+      pilotQuestion &&
+      pilotQuestion.legacy_traceability &&
+      pilotQuestion.legacy_traceability.legacy_question_bank_id;
+    const runtimeId = legacyId || pilotQuestion.question_id || `PILOT_${fallbackNumber}`;
+    const runtimeNumber =
+      Number(pilotQuestion.official_sample_question_number) ||
+      Number(pilotQuestion.legacy_traceability && pilotQuestion.legacy_traceability.legacy_question_bank_number) ||
+      fallbackNumber;
+
+    return {
+      id: runtimeId,
+      number: runtimeNumber,
+      title: pilotQuestion.title || `Pilot Question ${runtimeNumber}`,
+      stem: pilotQuestion.stem || '',
+      stem_image: pilotQuestion.stem_image || '',
+      pilot_traceability: {
+        pilot_question_id: pilotQuestion.question_id || '',
+        legacy_question_bank_id: legacyId || '',
+        source_profile: pilotQuestion.source_profile || ''
+      },
+      parts: Array.isArray(pilotQuestion.parts)
+        ? pilotQuestion.parts.map((part, idx) => {
+            const listCount =
+              Number(part.list_count) ||
+              Number(part.response_constraints && part.response_constraints.list_count_required) ||
+              0;
+            const mappedType = mapPilotResponseType(part.response_type);
+            return {
+              id: part.part_id || `${runtimeId}_part_${idx + 1}`,
+              prompt: part.prompt || '',
+              max_score: Number(part.max_score) || 0,
+              domain: part.domain || part.official_written_classification_code || '',
+              response_type: mappedType,
+              list_count: mappedType === 'list' ? listCount : 0,
+              single_line:
+                mappedType === 'text' &&
+                (part.response_type === 'short_text' ||
+                  !!(part.response_constraints && part.response_constraints.single_line)),
+              rubric: normalizeRubric(part.answer_key || part.rubric),
+              must_have: Array.isArray(part.must_have_elements)
+                ? part.must_have_elements
+                : Array.isArray(part.must_have)
+                  ? part.must_have
+                  : []
+            };
+          })
+        : []
+    };
+  }
+
+  function createPilotExamForms(adaptedBank) {
+    const questionIds = adaptedBank.questions.map((question) => question.id);
+    const totalPoints = adaptedBank.questions.reduce((questionSum, question) => {
+      return questionSum + question.parts.reduce((partSum, part) => partSum + (part.max_score || 0), 0);
+    }, 0);
+    return {
+      version: 'pilot-compat-v1',
+      forms: [
+        {
+          form_id: 'EXAM_180_V1',
+          duration_sec: 10800,
+          total_points: totalPoints,
+          question_ids: questionIds,
+          notice:
+            'Pilot compatibility mode: runs approved 15-item pilot bank in full mode only with 180-minute timer.'
+        }
+      ]
+    };
+  }
+
+  function adaptPilotBankToRuntime(pilotBank) {
+    const pilotQuestions = Array.isArray(pilotBank && pilotBank.questions) ? pilotBank.questions : [];
+    const adaptedQuestions = pilotQuestions.map((question, idx) => adaptPilotQuestion(question, idx + 1));
+    const adaptedBank = {
+      version: (pilotBank && pilotBank.artifact_version) || 'pilot-unknown',
+      questions: adaptedQuestions
+    };
+    const adaptedForms = createPilotExamForms(adaptedBank);
+    const unsupportedFormIds = [MODE_TO_FORM_ID.practice, MODE_TO_FORM_ID.ahd, MODE_TO_FORM_ID.half];
+
+    return {
+      bank: normalizeBank(adaptedBank),
+      forms: normalizeForms(adaptedForms),
+      usingFallback: false,
+      fallbackReason: '',
+      dataMode: DATA_MODE.PILOT,
+      pilotMeta: {
+        artifactId: pilotBank && pilotBank.artifact_id,
+        totalQuestions: adaptedQuestions.length,
+        unsupportedFormIds
+      }
+    };
   }
 
   function normalizeBank(bank) {
@@ -1878,7 +1999,20 @@
       showDataWarning(
         `Warning: ${MODE_TO_FORM_ID.full} cannot start because these question IDs are missing in the bank: ${unresolved.join(', ')}.`
       );
-    } else if (!examDataFull.usingFallback) {
+      return;
+    }
+
+    if (examDataFull.dataMode === DATA_MODE.PILOT && examDataFull.pilotMeta) {
+      const unsupported = examDataFull.pilotMeta.unsupportedFormIds || [];
+      if (unsupported.length > 0) {
+        showDataWarning(
+          `Pilot mode active (${examDataFull.pilotMeta.totalQuestions} questions). Only Full Exam is enabled; Practice/AHD/Half are intentionally disabled in pilot mode.`
+        );
+        return;
+      }
+    }
+
+    if (!examDataFull.usingFallback) {
       hideDataWarning();
     }
   }
@@ -1898,6 +2032,33 @@
     bankQuestions.forEach((q) => {
       questionById[q.id] = q;
     });
+
+    if (examDataFull.dataMode === DATA_MODE.PILOT) {
+      const pilotTypes = [...new Set(bankQuestions.flatMap((q) => q.parts.map((part) => part.response_type)))];
+      const unsupportedTypes = pilotTypes.filter(
+        (type) => !['list', 'text', 'haddon_matrix', 'two_by_two_workspace'].includes(type)
+      );
+      checks.push({
+        name: 'Pilot response type compatibility',
+        ok: unsupportedTypes.length === 0,
+        detail:
+          unsupportedTypes.length === 0
+            ? `Supported pilot response types: ${pilotTypes.join(', ') || 'none'}.`
+            : `Unsupported pilot response types: ${unsupportedTypes.join(', ')}.`
+      });
+
+      const legacyTraceabilityCount = bankQuestions.filter(
+        (question) => question.pilot_traceability && question.pilot_traceability.pilot_question_id
+      ).length;
+      checks.push({
+        name: 'Pilot traceability mapped',
+        ok: legacyTraceabilityCount === bankQuestions.length,
+        detail: `Traceability attached for ${legacyTraceabilityCount}/${bankQuestions.length} questions.`
+      });
+
+      reportSanityChecks(checks);
+      return;
+    }
 
     const q4 = questionById.Q04;
     const q4HasHaddon = !!(
@@ -1950,6 +2111,7 @@
     }
   }
 
+
   function reportSanityChecks(checks) {
     const failures = checks.filter((check) => !check.ok);
     console.group('PHPM bank sanity checks');
@@ -1968,13 +2130,50 @@
       bank: normalizeBank(embeddedQuestionBank),
       forms: normalizeForms(embeddedExamForms),
       usingFallback: true,
-      fallbackReason: 'Embedded defaults are in use.'
+      fallbackReason: 'Embedded defaults are in use.',
+      dataMode: DATA_MODE.LEGACY,
+      pilotMeta: null
     };
+
+    if (activeDataMode === DATA_MODE.PILOT) {
+      if (window.location.protocol === 'file:') {
+        return {
+          ...fallback,
+          fallbackReason:
+            `Pilot mode requires HTTP/HTTPS fetch access to ${PILOT_BANK_PATH}. Running in legacy embedded mode.`,
+          dataMode: DATA_MODE.LEGACY,
+          pilotMeta: null
+        };
+      }
+
+      try {
+        const pilotResp = await fetch(PILOT_BANK_PATH, { cache: 'no-store' });
+        if (!pilotResp.ok) {
+          throw new Error(`HTTP ${pilotResp.status}`);
+        }
+        const pilotBank = await pilotResp.json();
+        const adapted = adaptPilotBankToRuntime(pilotBank);
+        adapted.fallbackReason =
+          `Pilot mode active via query string. Loaded ${pilotBank.artifact_id || 'approved pilot bank'} from ${PILOT_BANK_PATH}.`;
+        return adapted;
+      } catch (error) {
+        console.warn('Unable to load pilot bank; using embedded legacy fallback.', error);
+        return {
+          ...fallback,
+          fallbackReason:
+            `Warning: pilot mode requested but ${PILOT_BANK_PATH} failed to load; using embedded legacy defaults.`,
+          dataMode: DATA_MODE.LEGACY,
+          pilotMeta: null
+        };
+      }
+    }
 
     if (window.location.protocol === 'file:') {
       return {
         ...fallback,
-        fallbackReason: 'Offline file:// mode detected. Using embedded defaults.'
+        fallbackReason: 'Offline file:// mode detected. Using embedded defaults.',
+        dataMode: DATA_MODE.LEGACY,
+        pilotMeta: null
       };
     }
 
@@ -1991,16 +2190,21 @@
         bank: normalizeBank(bankData),
         forms: normalizeForms(formsData),
         usingFallback: false,
-        fallbackReason: ''
+        fallbackReason: '',
+        dataMode: DATA_MODE.LEGACY,
+        pilotMeta: null
       };
     } catch (error) {
       console.warn('Unable to fetch hosted JSON; using embedded fallback.', error);
       return {
         ...fallback,
-        fallbackReason: 'Warning: failed to load hosted JSON; using embedded defaults.'
+        fallbackReason: 'Warning: failed to load hosted JSON; using embedded defaults.',
+        dataMode: DATA_MODE.LEGACY,
+        pilotMeta: null
       };
     }
   }
+
 
   // Format seconds into HH:MM:SS
   function formatTime(seconds) {
