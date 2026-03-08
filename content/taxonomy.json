@@ -1,0 +1,156 @@
+{
+  "version": "1.0.0",
+  "status": "approved_transition_baseline",
+  "last_updated": "2026-03-08",
+  "notes": "Canonical PHPM SAQ taxonomy for migration. Runtime is unchanged; legacy fields remain in active use until a compatibility normalizer is introduced.",
+  "namespaces": {
+    "official_written_classifications": [
+      {
+        "code": "PH",
+        "label": "Population Health",
+        "description": "Written exam content area focused on population health concepts, methods, and applications.",
+        "weight_min_percent": 10,
+        "weight_max_percent": 20,
+        "active": true,
+        "notes": "Official written classification. Use for question-part scoring alignment."
+      },
+      {
+        "code": "HS",
+        "label": "Health Systems",
+        "description": "Written exam content area focused on health system organization, policy, performance, and stewardship.",
+        "weight_min_percent": 10,
+        "weight_max_percent": 15,
+        "active": true
+      },
+      {
+        "code": "BS",
+        "label": "Basic Sciences of Public Health and Preventive Medicine",
+        "description": "Written exam content area focused on foundational scientific principles supporting PHPM practice.",
+        "weight_min_percent": 20,
+        "weight_max_percent": 30,
+        "active": true
+      },
+      {
+        "code": "HPDP",
+        "label": "Intervention and Methods in Health Promotion and Disease Prevention",
+        "description": "Written exam content area focused on promotion/prevention interventions, implementation, and evaluation methods.",
+        "weight_min_percent": 15,
+        "weight_max_percent": 25,
+        "active": true
+      },
+      {
+        "code": "HP",
+        "label": "Intervention and Methods in Health Protection",
+        "description": "Written exam content area focused on health protection interventions, controls, and applied methods.",
+        "weight_min_percent": 15,
+        "weight_max_percent": 25,
+        "active": true
+      },
+      {
+        "code": "MPP",
+        "label": "Management and Program Planning",
+        "description": "Written exam content area focused on management, leadership, and program planning in PHPM contexts.",
+        "weight_min_percent": 5,
+        "weight_max_percent": 15,
+        "active": true
+      }
+    ],
+    "official_topic_themes": [
+      {
+        "code": "A",
+        "label": "Communicable Diseases",
+        "description": "Official topic theme covering communicable disease epidemiology, prevention, control, and response.",
+        "active": true
+      },
+      {
+        "code": "B",
+        "label": "Non-Communicable Diseases",
+        "description": "Official topic theme covering chronic disease burden, determinants, prevention, and management strategies.",
+        "active": true
+      },
+      {
+        "code": "C",
+        "label": "Mental Health and Substance Use",
+        "description": "Official topic theme covering mental health and substance-use epidemiology, programs, and interventions.",
+        "active": true
+      },
+      {
+        "code": "D",
+        "label": "Environmental Health",
+        "description": "Official topic theme covering environmental hazards, exposure pathways, and control measures.",
+        "active": true
+      },
+      {
+        "code": "E",
+        "label": "Maternal and Child Health",
+        "description": "Official topic theme covering maternal, neonatal, child, and family health priorities.",
+        "active": true
+      },
+      {
+        "code": "F",
+        "label": "Injury: Voluntary and Involuntary",
+        "description": "Official topic theme covering intentional and unintentional injury prevention and control.",
+        "active": true
+      }
+    ],
+    "simulator_tags": [
+      {
+        "code": "communicable_diseases",
+        "label": "Communicable Diseases",
+        "description": "Normalized simulator tag for targeted practice filtering and cross-schema indexing.",
+        "active": true,
+        "notes": "Minimum required selectable filter for future 15-minute and 30-minute targeted blocks."
+      },
+      {
+        "code": "non_communicable_diseases",
+        "label": "Non-Communicable Diseases",
+        "description": "Normalized simulator tag for targeted practice filtering and cross-schema indexing.",
+        "active": true,
+        "notes": "Minimum required selectable filter for future 15-minute and 30-minute targeted blocks."
+      },
+      {
+        "code": "mental_health_substance_use",
+        "label": "Mental Health and Substance Use",
+        "description": "Normalized simulator tag for targeted practice filtering and cross-schema indexing.",
+        "active": true,
+        "notes": "Minimum required selectable filter for future 15-minute and 30-minute targeted blocks."
+      },
+      {
+        "code": "environmental_health",
+        "label": "Environmental Health",
+        "description": "Normalized simulator tag for targeted practice filtering and cross-schema indexing.",
+        "active": true,
+        "notes": "Minimum required selectable filter for future 15-minute and 30-minute targeted blocks."
+      },
+      {
+        "code": "maternal_child_health",
+        "label": "Maternal and Child Health",
+        "description": "Normalized simulator tag for targeted practice filtering and cross-schema indexing.",
+        "active": true,
+        "notes": "Minimum required selectable filter for future 15-minute and 30-minute targeted blocks."
+      },
+      {
+        "code": "injury_voluntary_involuntary",
+        "label": "Injury: Voluntary and Involuntary",
+        "description": "Normalized simulator tag for targeted practice filtering and cross-schema indexing.",
+        "active": true,
+        "notes": "Minimum required selectable filter for future 15-minute and 30-minute targeted blocks."
+      }
+    ]
+  },
+  "reference_model": {
+    "question_level": {
+      "official_topic_theme_code": "A",
+      "simulator_topic_tags": [
+        "communicable_diseases"
+      ]
+    },
+    "part_level": {
+      "official_written_classification_code": "PH",
+      "official_topic_theme_code": "A",
+      "simulator_topic_tags": [
+        "communicable_diseases"
+      ]
+    }
+  }
+}
