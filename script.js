@@ -1782,15 +1782,58 @@
   let currentFormId = MODE_TO_FORM_ID.full;
   let currentFormTotalPoints = 0;
 
-  // Persistent keys for localStorage
-  const STORAGE_KEY_ANSWERS = 'saq_answers';
-  const STORAGE_KEY_FLAGS = 'saq_flags';
-  const STORAGE_KEY_TIME = 'saq_time_remaining';
-  const STORAGE_KEY_SELECTED = 'saq_selected_ids';
-  const STORAGE_KEY_MODE = 'saq_mode';
-  const STORAGE_KEY_STARTED_AT = 'saq_started_at';
-  const STORAGE_KEY_SCORES = 'saq_awarded_scores';
-  const STORAGE_KEY_LAST_TICK = 'saq_last_tick_epoch_ms';
+  // Persistent keys for localStorage.
+  // Namespaced by active data mode so legacy/pilot sessions never overwrite each other.
+  const STORAGE_NAMESPACE = `saq_${activeDataMode}`;
+  const LEGACY_STORAGE_NAMESPACE = 'saq_legacy';
+
+  function storageKey(key) {
+    return `${STORAGE_NAMESPACE}_${key}`;
+  }
+
+  const STORAGE_KEY_ANSWERS = storageKey('answers');
+  const STORAGE_KEY_FLAGS = storageKey('flags');
+  const STORAGE_KEY_TIME = storageKey('time_remaining');
+  const STORAGE_KEY_SELECTED = storageKey('selected_ids');
+  const STORAGE_KEY_MODE = storageKey('mode');
+  const STORAGE_KEY_STARTED_AT = storageKey('started_at');
+  const STORAGE_KEY_SCORES = storageKey('awarded_scores');
+  const STORAGE_KEY_LAST_TICK = storageKey('last_tick_epoch_ms');
+
+  // Backward compatibility for old, non-namespaced keys that predate Phase A stabilization.
+  // We only attempt this migration for legacy mode to keep historical default behaviour unchanged.
+  const LEGACY_COMPAT_KEYS = {
+    answers: 'saq_answers',
+    flags: 'saq_flags',
+    time: 'saq_time_remaining',
+    selected: 'saq_selected_ids',
+    mode: 'saq_mode',
+    startedAt: 'saq_started_at',
+    scores: 'saq_awarded_scores',
+    lastTick: 'saq_last_tick_epoch_ms'
+  };
+
+  function migrateLegacyStorageNamespaceIfNeeded() {
+    if (activeDataMode !== DATA_MODE.LEGACY) return;
+    if (STORAGE_NAMESPACE !== LEGACY_STORAGE_NAMESPACE) return;
+    const mappings = [
+      [LEGACY_COMPAT_KEYS.answers, STORAGE_KEY_ANSWERS],
+      [LEGACY_COMPAT_KEYS.flags, STORAGE_KEY_FLAGS],
+      [LEGACY_COMPAT_KEYS.time, STORAGE_KEY_TIME],
+      [LEGACY_COMPAT_KEYS.selected, STORAGE_KEY_SELECTED],
+      [LEGACY_COMPAT_KEYS.mode, STORAGE_KEY_MODE],
+      [LEGACY_COMPAT_KEYS.startedAt, STORAGE_KEY_STARTED_AT],
+      [LEGACY_COMPAT_KEYS.scores, STORAGE_KEY_SCORES],
+      [LEGACY_COMPAT_KEYS.lastTick, STORAGE_KEY_LAST_TICK]
+    ];
+    mappings.forEach(([oldKey, newKey]) => {
+      if (localStorage.getItem(newKey) !== null) return;
+      const existing = localStorage.getItem(oldKey);
+      if (existing !== null) {
+        localStorage.setItem(newKey, existing);
+      }
+    });
+  }
 
   function normalizeRubric(rubric) {
     if (Array.isArray(rubric)) return rubric;
@@ -3242,6 +3285,8 @@
 
   // On load, check if there is a previous session to resume
   window.addEventListener('DOMContentLoaded', async () => {
+    // Migrate pre-namespaced legacy keys once so older sessions still resume normally.
+    migrateLegacyStorageNamespaceIfNeeded();
     // Initialise the calculator once the DOM is ready
     initCalculator();
     // Preload exam data for later
