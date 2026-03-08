@@ -1,0 +1,751 @@
+{
+  "artifact_id": "legacy_low_risk_migration_candidate_v4_corrected_tranche2",
+  "artifact_version": "4.0.0",
+  "created_at": "2026-03-08",
+  "source_snapshot": {
+    "question_bank_path": "question_bank.json",
+    "exam_forms_path": "exam_forms.json",
+    "selected_legacy_ids": [
+      "Q16",
+      "Q17",
+      "Q21",
+      "Q22"
+    ],
+    "selection_note": "Q18 removed from low-risk pilot path and returned to medium-risk queue; tranche includes only remaining low-risk items."
+  },
+  "id_convention": {
+    "question_id_pattern": "PHPM_SAQ_LGC_0001..",
+    "part_id_pattern": "<question_id>_P<part_letter_upper>"
+  },
+  "taxonomy_codebook": {
+    "rc_classification_numeric_to_written_code": {
+      "1": {
+        "code": "PH",
+        "label": "Population Health"
+      },
+      "2": {
+        "code": "HS",
+        "label": "Health Systems"
+      },
+      "3": {
+        "code": "BS",
+        "label": "Basic Sciences of Public Health and Preventive Medicine"
+      },
+      "4": {
+        "code": "HPDP",
+        "label": "Intervention and Methods in Health Promotion and Disease Prevention"
+      },
+      "5": {
+        "code": "HP",
+        "label": "Intervention and Methods in Health Protection"
+      },
+      "6": {
+        "code": "MPP",
+        "label": "Management and Program Planning"
+      }
+    }
+  },
+  "questions": [
+    {
+      "question_id": "PHPM_SAQ_LGC_0016",
+      "legacy_ids": {
+        "id": "Q16",
+        "number": null,
+        "id_numeric": 16
+      },
+      "migration_status": "candidate_for_manual_review",
+      "migration_risk": "low",
+      "title": "Lead Exposure \u2013 Sources and Community Hazard Assessment",
+      "stem": "A child is found to have elevated blood lead levels.",
+      "source_profile": "needs_full_source_review",
+      "source_list": [],
+      "form_eligibility": {
+        "eligible_form_ids": [
+          "EXAM_180_V1"
+        ]
+      },
+      "stem_assets": [],
+      "parts": [
+        {
+          "part_id": "PHPM_SAQ_LGC_0016_PA",
+          "part_letter": "a",
+          "display_label": "a)",
+          "legacy_part_id": "Q16_16a",
+          "prompt": "List SIX possible sources of lead exposure.",
+          "instruction_verb": "list",
+          "max_score": 3,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 6,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "0.5 mark each, 3 marks total Any SIX: - Lead\u2011based paint and household dust in older housing - Soil contamination - Drinking water from lead service lines/plumbing/solder - Imported toys/jewelry/cosmetics/spices/traditional remedies containing lead - Take\u2011home exposure from parental occupations/hobbies - Lead\u2011glazed pottery used for food"
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "needs_full_source_review",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": 5,
+            "theme_code": "D",
+            "domain": null
+          },
+          "official_written_classification_code": "HP",
+          "official_written_classification_label": "Intervention and Methods in Health Protection",
+          "official_topic_theme_code": "D",
+          "official_topic_theme_label": "Environmental Health",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_mode": "exact_carry_forward",
+          "taxonomy_assignment_confidence": "high",
+          "taxonomy_assignment_rationale": "Both legacy rc_classification and theme are present at part level and were carried forward exactly.",
+          "primary_written_classification_codes": [
+            "HP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "D"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": []
+        },
+        {
+          "part_id": "PHPM_SAQ_LGC_0016_PB",
+          "part_letter": "b",
+          "display_label": "b)",
+          "legacy_part_id": "Q16_16b",
+          "prompt": "The suspected source is a water fountain at a local daycare. List FOUR steps in a hazard/risk assessment for other potentially exposed children.",
+          "instruction_verb": null,
+          "max_score": 2,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 4,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "Define exposed population and exposure period.",
+            "Obtain environmental sampling/testing data to characterize hazard.",
+            "Assess dose/exposure pathways and susceptibility (age, pregnancy, etc.).",
+            "Plan clinical/public health follow-up and communication based on risk stratification."
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "needs_full_source_review",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": null,
+            "theme_code": null,
+            "domain": "4"
+          },
+          "official_written_classification_code": "HP",
+          "official_written_classification_label": "Intervention and Methods in Health Protection",
+          "official_topic_theme_code": "D",
+          "official_topic_theme_label": "Environmental Health",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_mode": "manual_adjudicated_override",
+          "taxonomy_assignment_confidence": "adjudicated",
+          "taxonomy_assignment_rationale": "Approved manual adjudication override.",
+          "primary_written_classification_codes": [
+            "HP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "D"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": [
+            "missing_legacy_rc_classification_inferred_from_question",
+            "missing_legacy_theme_inferred_from_question",
+            "legacy_domain_retained_unmapped",
+            "taxonomy_manually_adjudicated"
+          ]
+        }
+      ],
+      "question_level_written_rollup_status": "rolled_up_from_parts",
+      "question_level_theme_rollup_status": "rolled_up_from_parts",
+      "question_level_rollup_policy": "ordered_union_of_part_level_primaries_in_stem_order",
+      "mixed_part_level_assignment": false,
+      "blueprint_counting_written_classification_code": "HP",
+      "primary_written_classification_codes": [
+        "HP"
+      ],
+      "secondary_written_classification_codes": [],
+      "primary_theme_codes": [
+        "D"
+      ],
+      "secondary_theme_codes": [],
+      "migration_flags": [
+        "missing_source_metadata",
+        "needs_full_source_review"
+      ]
+    },
+    {
+      "question_id": "PHPM_SAQ_LGC_0017",
+      "legacy_ids": {
+        "id": "Q17",
+        "number": null,
+        "id_numeric": 17
+      },
+      "migration_status": "candidate_for_manual_review",
+      "migration_risk": "low",
+      "title": "Emergency Management \u2013 Respiratory Virus Season Cycle",
+      "stem": "Your public health unit plans for an annual respiratory virus season (COVID-19, RSV, influenza) peaking in late winter with an annual emergency management cycle.",
+      "source_profile": "needs_full_source_review",
+      "source_list": [],
+      "form_eligibility": {
+        "eligible_form_ids": [
+          "EXAM_180_V1"
+        ]
+      },
+      "stem_assets": [],
+      "parts": [
+        {
+          "part_id": "PHPM_SAQ_LGC_0017_PA",
+          "part_letter": "a",
+          "display_label": "a)",
+          "legacy_part_id": "Q17_17a",
+          "prompt": "List the FOUR phases of emergency management.",
+          "instruction_verb": "list",
+          "max_score": 2,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 4,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "2 marks total - Mitigation/Prevention (0.5) - Preparedness (0.5) - Response (1) - Recovery (1)"
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "needs_full_source_review",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": 6,
+            "theme_code": "A",
+            "domain": null
+          },
+          "official_written_classification_code": "MPP",
+          "official_written_classification_label": "Management and Program Planning",
+          "official_topic_theme_code": "A",
+          "official_topic_theme_label": "Communicable Diseases",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_mode": "exact_carry_forward",
+          "taxonomy_assignment_confidence": "high",
+          "taxonomy_assignment_rationale": "Both legacy rc_classification and theme are present at part level and were carried forward exactly.",
+          "primary_written_classification_codes": [
+            "MPP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "A"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": []
+        },
+        {
+          "part_id": "PHPM_SAQ_LGC_0017_PB",
+          "part_letter": "b",
+          "display_label": "b)",
+          "legacy_part_id": "Q17_17b",
+          "prompt": "Apply each phase to a respiratory virus season cycle by listing ONE concrete activity under each phase.",
+          "instruction_verb": null,
+          "max_score": 2,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 4,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "Mitigation activity.",
+            "Preparedness activity.",
+            "Response activity.",
+            "Recovery activity."
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "needs_full_source_review",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": null,
+            "theme_code": null,
+            "domain": "8"
+          },
+          "official_written_classification_code": "MPP",
+          "official_written_classification_label": "Management and Program Planning",
+          "official_topic_theme_code": "A",
+          "official_topic_theme_label": "Communicable Diseases",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_mode": "manual_adjudicated_override",
+          "taxonomy_assignment_confidence": "adjudicated",
+          "taxonomy_assignment_rationale": "Approved manual adjudication override.",
+          "primary_written_classification_codes": [
+            "HS",
+            "MPP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "A"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": [
+            "missing_legacy_rc_classification_inferred_from_question",
+            "missing_legacy_theme_inferred_from_question",
+            "legacy_domain_retained_unmapped",
+            "taxonomy_manually_adjudicated"
+          ]
+        },
+        {
+          "part_id": "PHPM_SAQ_LGC_0017_PC",
+          "part_letter": "c",
+          "display_label": "c)",
+          "legacy_part_id": "Q17_17c",
+          "prompt": "In the recovery phase (\u2018hot wash\u2019) after the peak, list FOUR items that should be reviewed.",
+          "instruction_verb": null,
+          "max_score": 2,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 4,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "What worked well and key enablers.",
+            "Gaps/failures and root causes.",
+            "Data/timeliness/communications performance.",
+            "Resource/staffing/surge implications and improvement actions before next season."
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "needs_full_source_review",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": null,
+            "theme_code": null,
+            "domain": "8"
+          },
+          "official_written_classification_code": "MPP",
+          "official_written_classification_label": "Management and Program Planning",
+          "official_topic_theme_code": "A",
+          "official_topic_theme_label": "Communicable Diseases",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_mode": "manual_adjudicated_override",
+          "taxonomy_assignment_confidence": "adjudicated",
+          "taxonomy_assignment_rationale": "Approved manual adjudication override.",
+          "primary_written_classification_codes": [
+            "HS",
+            "MPP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "A"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": [
+            "missing_legacy_rc_classification_inferred_from_question",
+            "missing_legacy_theme_inferred_from_question",
+            "legacy_domain_retained_unmapped",
+            "taxonomy_manually_adjudicated"
+          ]
+        }
+      ],
+      "question_level_written_rollup_status": "rolled_up_from_parts",
+      "question_level_theme_rollup_status": "rolled_up_from_parts",
+      "question_level_rollup_policy": "ordered_union_of_part_level_primaries_in_stem_order",
+      "mixed_part_level_assignment": true,
+      "blueprint_counting_written_classification_code": "MPP",
+      "primary_written_classification_codes": [
+        "MPP",
+        "HS"
+      ],
+      "secondary_written_classification_codes": [],
+      "primary_theme_codes": [
+        "A"
+      ],
+      "secondary_theme_codes": [],
+      "migration_flags": [
+        "missing_source_metadata",
+        "needs_full_source_review"
+      ]
+    },
+    {
+      "question_id": "PHPM_SAQ_LGC_0021",
+      "legacy_ids": {
+        "id": "Q21",
+        "number": null,
+        "id_numeric": 21
+      },
+      "migration_status": "candidate_for_manual_review",
+      "migration_risk": "low",
+      "title": "iGAS Cluster \u2013 Homeless Shelter",
+      "stem": "A homeless shelter reports multiple severe invasive Group A Streptococcus (iGAS) cases.",
+      "source_profile": "needs_full_source_review",
+      "source_list": [],
+      "form_eligibility": {
+        "eligible_form_ids": [
+          "EXAM_180_V1"
+        ]
+      },
+      "stem_assets": [],
+      "parts": [
+        {
+          "part_id": "PHPM_SAQ_LGC_0021_PA",
+          "part_letter": "a",
+          "display_label": "a)",
+          "legacy_part_id": "Q21_21a",
+          "prompt": "List THREE clinical severity features suggesting streptococcal toxic shock syndrome (STSS).",
+          "instruction_verb": "list",
+          "max_score": 1.5,
+          "response_type": "text",
+          "response_constraints": {
+            "list_count_required": null,
+            "allow_partial_credit": true,
+            "single_line": true
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "0.5 mark each, 1.5 marks total Any THREE: - Hypotension/shock - Multi\u2011organ dysfunction (renal impairment, coagulopathy, liver involvement) - Soft tissue necrosis / severe pain out of proportion / rapidly progressive infection"
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "needs_full_source_review",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": 5,
+            "theme_code": "A",
+            "domain": null
+          },
+          "official_written_classification_code": "HP",
+          "official_written_classification_label": "Intervention and Methods in Health Protection",
+          "official_topic_theme_code": "A",
+          "official_topic_theme_label": "Communicable Diseases",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_mode": "exact_carry_forward",
+          "taxonomy_assignment_confidence": "high",
+          "taxonomy_assignment_rationale": "Both legacy rc_classification and theme are present at part level and were carried forward exactly.",
+          "primary_written_classification_codes": [
+            "HP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "A"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": []
+        },
+        {
+          "part_id": "PHPM_SAQ_LGC_0021_PB",
+          "part_letter": "b",
+          "display_label": "b)",
+          "legacy_part_id": "Q21_21b",
+          "prompt": "List FOUR factors that define a higher\u2011risk contact situation in a shelter context.",
+          "instruction_verb": "list",
+          "max_score": 2,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 4,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "0.5 mark each, 2 marks total Any FOUR: - Close contact/shared sleeping arrangements - Open wounds/skin breakdown - Injection drug use - Recent influenza/varicella\u2011like illness - Immunocompromise"
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "needs_full_source_review",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": 5,
+            "theme_code": "A",
+            "domain": null
+          },
+          "official_written_classification_code": "HP",
+          "official_written_classification_label": "Intervention and Methods in Health Protection",
+          "official_topic_theme_code": "A",
+          "official_topic_theme_label": "Communicable Diseases",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_mode": "exact_carry_forward",
+          "taxonomy_assignment_confidence": "high",
+          "taxonomy_assignment_rationale": "Both legacy rc_classification and theme are present at part level and were carried forward exactly.",
+          "primary_written_classification_codes": [
+            "HP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "A"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": []
+        },
+        {
+          "part_id": "PHPM_SAQ_LGC_0021_PC",
+          "part_letter": "c",
+          "display_label": "c)",
+          "legacy_part_id": "Q21_21c",
+          "prompt": "List TWO considerations for whether to offer chemoprophylaxis and one possible regimen class.",
+          "instruction_verb": "list",
+          "max_score": 1.5,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 3,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "Intensity/proximity of exposure and contact risk profile.",
+            "Feasibility, adherence, resistance, and harms/benefits in setting.",
+            "Possible regimen class: beta-lactam or macrolide (per guidance/susceptibility)."
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "needs_full_source_review",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": null,
+            "theme_code": null,
+            "domain": "3"
+          },
+          "official_written_classification_code": "HP",
+          "official_written_classification_label": "Intervention and Methods in Health Protection",
+          "official_topic_theme_code": "A",
+          "official_topic_theme_label": "Communicable Diseases",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_mode": "manual_adjudicated_override",
+          "taxonomy_assignment_confidence": "adjudicated",
+          "taxonomy_assignment_rationale": "Approved manual adjudication override.",
+          "primary_written_classification_codes": [
+            "BS",
+            "HP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "A"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": [
+            "missing_legacy_rc_classification_inferred_from_question",
+            "missing_legacy_theme_inferred_from_question",
+            "legacy_domain_retained_unmapped",
+            "taxonomy_manually_adjudicated"
+          ]
+        }
+      ],
+      "question_level_written_rollup_status": "rolled_up_from_parts",
+      "question_level_theme_rollup_status": "rolled_up_from_parts",
+      "question_level_rollup_policy": "ordered_union_of_part_level_primaries_in_stem_order",
+      "mixed_part_level_assignment": true,
+      "blueprint_counting_written_classification_code": "HP",
+      "primary_written_classification_codes": [
+        "HP",
+        "BS"
+      ],
+      "secondary_written_classification_codes": [],
+      "primary_theme_codes": [
+        "A"
+      ],
+      "secondary_theme_codes": [],
+      "migration_flags": [
+        "missing_source_metadata",
+        "needs_full_source_review"
+      ]
+    },
+    {
+      "question_id": "PHPM_SAQ_LGC_0022",
+      "legacy_ids": {
+        "id": "Q22",
+        "number": null,
+        "id_numeric": 22
+      },
+      "migration_status": "candidate_for_manual_review",
+      "migration_risk": "low",
+      "title": "Suspected Bat Exposure \u2013 Rabies Risk Assessment and PEP",
+      "stem": "A child wakes up and a bat is found in the bedroom. No obvious bite marks are seen on the child.",
+      "source_profile": "needs_full_source_review",
+      "source_list": [],
+      "form_eligibility": {
+        "eligible_form_ids": [
+          "EXAM_180_V1"
+        ]
+      },
+      "stem_assets": [],
+      "parts": [
+        {
+          "part_id": "PHPM_SAQ_LGC_0022_PA",
+          "part_letter": "a",
+          "display_label": "a)",
+          "legacy_part_id": "Q22_22a",
+          "prompt": "List THREE exposure history elements that determine whether rabies PEP is indicated.",
+          "instruction_verb": "list",
+          "max_score": 1.5,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 3,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "0.5 mark each, 1.5 marks total Any THREE: - Evidence of direct contact with bat (bat touching skin; child touching bat) or inability to reliably exclude contact - Bat available for testing - Presence of bite/scratch or mucous membrane exposure to saliva"
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "needs_full_source_review",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": 5,
+            "theme_code": "A",
+            "domain": null
+          },
+          "official_written_classification_code": "HP",
+          "official_written_classification_label": "Intervention and Methods in Health Protection",
+          "official_topic_theme_code": "A",
+          "official_topic_theme_label": "Communicable Diseases",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_mode": "exact_carry_forward",
+          "taxonomy_assignment_confidence": "high",
+          "taxonomy_assignment_rationale": "Both legacy rc_classification and theme are present at part level and were carried forward exactly.",
+          "primary_written_classification_codes": [
+            "HP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "A"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": []
+        },
+        {
+          "part_id": "PHPM_SAQ_LGC_0022_PB",
+          "part_letter": "b",
+          "display_label": "b)",
+          "legacy_part_id": "Q22_22b",
+          "prompt": "If PEP is indicated and the child is not previously vaccinated, list FOUR components.",
+          "instruction_verb": null,
+          "max_score": 2,
+          "response_type": "list",
+          "response_constraints": {
+            "list_count_required": 4,
+            "allow_partial_credit": true,
+            "single_line": false
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "Immediate wound cleansing/irrigation.",
+            "Human rabies immune globulin dosing and infiltration.",
+            "Rabies vaccine day 0.",
+            "Complete follow-up vaccine doses per schedule."
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "needs_full_source_review",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": null,
+            "theme_code": null,
+            "domain": "3"
+          },
+          "official_written_classification_code": "HP",
+          "official_written_classification_label": "Intervention and Methods in Health Protection",
+          "official_topic_theme_code": "A",
+          "official_topic_theme_label": "Communicable Diseases",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_mode": "manual_adjudicated_override",
+          "taxonomy_assignment_confidence": "adjudicated",
+          "taxonomy_assignment_rationale": "Approved manual adjudication override.",
+          "primary_written_classification_codes": [
+            "HP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "D"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": [
+            "missing_legacy_rc_classification_inferred_from_question",
+            "missing_legacy_theme_inferred_from_question",
+            "legacy_domain_retained_unmapped",
+            "taxonomy_manually_adjudicated"
+          ]
+        },
+        {
+          "part_id": "PHPM_SAQ_LGC_0022_PC",
+          "part_letter": "c",
+          "display_label": "c)",
+          "legacy_part_id": "Q22_22c",
+          "prompt": "If the bat is captured and tests negative, what is the implication for PEP?",
+          "instruction_verb": null,
+          "max_score": 1,
+          "response_type": "text",
+          "response_constraints": {
+            "list_count_required": null,
+            "allow_partial_credit": true,
+            "single_line": true
+          },
+          "must_have_elements": [],
+          "answer_key": [
+            "PEP can be withheld or discontinued if reliable testing confirms bat is rabies negative."
+          ],
+          "not_acceptable_notes": [],
+          "scoring_notes": null,
+          "source_profile": "needs_full_source_review",
+          "source_list": [],
+          "legacy_taxonomy": {
+            "rc_classification_numeric": null,
+            "theme_code": null,
+            "domain": "3"
+          },
+          "official_written_classification_code": "HP",
+          "official_written_classification_label": "Intervention and Methods in Health Protection",
+          "official_topic_theme_code": "A",
+          "official_topic_theme_label": "Communicable Diseases",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_mode": "manual_adjudicated_override",
+          "taxonomy_assignment_confidence": "adjudicated",
+          "taxonomy_assignment_rationale": "Approved manual adjudication override.",
+          "primary_written_classification_codes": [
+            "HP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "D"
+          ],
+          "secondary_theme_codes": [],
+          "migration_flags": [
+            "missing_legacy_rc_classification_inferred_from_question",
+            "missing_legacy_theme_inferred_from_question",
+            "legacy_domain_retained_unmapped",
+            "taxonomy_manually_adjudicated"
+          ]
+        }
+      ],
+      "question_level_written_rollup_status": "rolled_up_from_parts",
+      "question_level_theme_rollup_status": "rolled_up_from_parts",
+      "question_level_rollup_policy": "ordered_union_of_part_level_primaries_in_stem_order",
+      "mixed_part_level_assignment": true,
+      "blueprint_counting_written_classification_code": "HP",
+      "primary_written_classification_codes": [
+        "HP"
+      ],
+      "secondary_written_classification_codes": [],
+      "primary_theme_codes": [
+        "A",
+        "D"
+      ],
+      "secondary_theme_codes": [],
+      "migration_flags": [
+        "missing_source_metadata",
+        "needs_full_source_review"
+      ]
+    }
+  ]
+}
