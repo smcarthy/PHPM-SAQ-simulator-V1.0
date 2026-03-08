@@ -45,8 +45,9 @@ When adding or migrating custom questions, compare candidate items against this 
    - Partial-credit behavior is stated where list-style responses are used.
 
 5. **Conservative taxonomy check**
-   - Assign official classification/theme only when confidence is high.
-   - Otherwise keep `requires_manual_classification` and/or `requires_manual_theme_assignment` to prevent unsupported certainty.
+   - Every part must include at least one official written classification and at least one theme code.
+   - Use primary/secondary arrays when overlap is legitimate.
+   - Use `G` at the theme layer when A–F do not fit cleanly; do not use `G` as a written classification.
 
 ## Non-goals in this step
 - No runtime wiring to `script.js`.

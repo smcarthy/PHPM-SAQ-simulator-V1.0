@@ -1,6 +1,6 @@
 {
   "corpus_id": "royal_college_sample_saq_2025",
-  "corpus_version": "1.0.0",
+  "corpus_version": "1.1.0",
   "created_at": "2026-03-08",
   "source_document": {
     "title": "Royal College PHPM Sample SAQ Exam (Questions 1-6 with model answers)",
@@ -27,11 +27,11 @@
       "gold_standard_alignment_status": "gold_standard_reference",
       "official_written_classification_code": "MPP",
       "official_written_classification_label": "Management and Program Planning",
-      "official_topic_theme_code": "requires_manual_theme_assignment",
-      "official_topic_theme_label": null,
+      "official_topic_theme_code": "G",
+      "official_topic_theme_label": "Other",
       "simulator_topic_tags": [],
       "classification_confidence": "high",
-      "theme_assignment_confidence": "requires_manual_theme_assignment",
+      "theme_assignment_confidence": "high",
       "parts": [
         {
           "part_id": "PHPM_SAQ_GS_0001_PA",
@@ -61,12 +61,20 @@
           "source_profile": "royal_college_official_sample",
           "official_written_classification_code": "MPP",
           "official_written_classification_label": "Management and Program Planning",
-          "official_topic_theme_code": "requires_manual_theme_assignment",
-          "official_topic_theme_label": null,
+          "official_topic_theme_code": "G",
+          "official_topic_theme_label": "Other",
           "simulator_topic_tags": [],
-          "taxonomy_assignment_status": "partial_manual_review_required",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
           "classification_confidence": "high",
-          "theme_assignment_confidence": "unresolved"
+          "theme_assignment_confidence": "high",
+          "primary_written_classification_codes": [
+            "MPP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "G"
+          ],
+          "secondary_theme_codes": []
         },
         {
           "part_id": "PHPM_SAQ_GS_0001_PB",
@@ -93,16 +101,32 @@
           "source_profile": "royal_college_official_sample",
           "official_written_classification_code": "MPP",
           "official_written_classification_label": "Management and Program Planning",
-          "official_topic_theme_code": "requires_manual_theme_assignment",
-          "official_topic_theme_label": null,
+          "official_topic_theme_code": "G",
+          "official_topic_theme_label": "Other",
           "simulator_topic_tags": [],
-          "taxonomy_assignment_status": "partial_manual_review_required",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
           "classification_confidence": "high",
-          "theme_assignment_confidence": "unresolved"
+          "theme_assignment_confidence": "high",
+          "primary_written_classification_codes": [
+            "MPP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "G"
+          ],
+          "secondary_theme_codes": []
         }
       ],
       "question_level_written_rollup_status": "inherited_from_parts",
-      "question_level_theme_rollup_status": "unresolved_from_parts"
+      "question_level_theme_rollup_status": "inherited_from_parts",
+      "primary_written_classification_codes": [
+        "MPP"
+      ],
+      "secondary_written_classification_codes": [],
+      "primary_theme_codes": [
+        "G"
+      ],
+      "secondary_theme_codes": []
     },
     {
       "question_id": "PHPM_SAQ_GS_0002",
@@ -124,7 +148,7 @@
         "communicable_diseases"
       ],
       "classification_confidence": "high",
-      "theme_assignment_confidence": "exact",
+      "theme_assignment_confidence": "high",
       "parts": [
         {
           "part_id": "PHPM_SAQ_GS_0002_PA",
@@ -158,11 +182,27 @@
           ],
           "taxonomy_assignment_status": "proposed_candidate_assignment",
           "classification_confidence": "high",
-          "theme_assignment_confidence": "exact"
+          "theme_assignment_confidence": "high",
+          "primary_written_classification_codes": [
+            "HP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "A"
+          ],
+          "secondary_theme_codes": []
         }
       ],
       "question_level_written_rollup_status": "inherited_from_parts",
-      "question_level_theme_rollup_status": "inherited_from_parts"
+      "question_level_theme_rollup_status": "inherited_from_parts",
+      "primary_written_classification_codes": [
+        "HP"
+      ],
+      "secondary_written_classification_codes": [],
+      "primary_theme_codes": [
+        "A"
+      ],
+      "secondary_theme_codes": []
     },
     {
       "question_id": "PHPM_SAQ_GS_0003",
@@ -223,7 +263,15 @@
           ],
           "taxonomy_assignment_status": "proposed_candidate_assignment",
           "classification_confidence": "high",
-          "theme_assignment_confidence": "high"
+          "theme_assignment_confidence": "high",
+          "primary_written_classification_codes": [
+            "HP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "D"
+          ],
+          "secondary_theme_codes": []
         },
         {
           "part_id": "PHPM_SAQ_GS_0003_PB",
@@ -258,11 +306,27 @@
           ],
           "taxonomy_assignment_status": "proposed_candidate_assignment",
           "classification_confidence": "high",
-          "theme_assignment_confidence": "high"
+          "theme_assignment_confidence": "high",
+          "primary_written_classification_codes": [
+            "HP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "D"
+          ],
+          "secondary_theme_codes": []
         }
       ],
       "question_level_written_rollup_status": "inherited_from_parts",
-      "question_level_theme_rollup_status": "inherited_from_parts"
+      "question_level_theme_rollup_status": "inherited_from_parts",
+      "primary_written_classification_codes": [
+        "HP"
+      ],
+      "secondary_written_classification_codes": [],
+      "primary_theme_codes": [
+        "D"
+      ],
+      "secondary_theme_codes": []
     },
     {
       "question_id": "PHPM_SAQ_GS_0004",
@@ -303,7 +367,7 @@
           "answer_key": [
             "Reduced rate of infections (otitis media, respiratory, gastrointestinal).",
             "Reduced incidence of atopic diseases.",
-            "Prevention of certain chronic diseases (e.g., diabetes, obesity, Crohn\u2019s disease).",
+            "Prevention of certain chronic diseases (e.g., diabetes, obesity, Crohn’s disease).",
             "Prevention of cognitive development abnormalities.",
             "Enhanced mother-child bonding.",
             "Transfer of immunoglobulins from mother to child.",
@@ -322,7 +386,15 @@
           ],
           "taxonomy_assignment_status": "proposed_candidate_assignment",
           "classification_confidence": "high",
-          "theme_assignment_confidence": "high"
+          "theme_assignment_confidence": "high",
+          "primary_written_classification_codes": [
+            "HPDP"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "E"
+          ],
+          "secondary_theme_codes": []
         },
         {
           "part_id": "PHPM_SAQ_GS_0004_PB",
@@ -358,13 +430,32 @@
           "simulator_topic_tags": [
             "maternal_child_health"
           ],
-          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_status": "proposed_candidate_assignment_multi_label",
           "classification_confidence": "medium",
-          "theme_assignment_confidence": "high"
+          "theme_assignment_confidence": "high",
+          "primary_written_classification_codes": [
+            "MPP"
+          ],
+          "secondary_written_classification_codes": [
+            "HPDP"
+          ],
+          "primary_theme_codes": [
+            "E"
+          ],
+          "secondary_theme_codes": []
         }
       ],
       "question_level_written_rollup_status": "mixed_part_level_assignment",
-      "question_level_theme_rollup_status": "inherited_from_parts"
+      "question_level_theme_rollup_status": "inherited_from_parts",
+      "primary_written_classification_codes": [
+        "HPDP",
+        "MPP"
+      ],
+      "secondary_written_classification_codes": [],
+      "primary_theme_codes": [
+        "E"
+      ],
+      "secondary_theme_codes": []
     },
     {
       "question_id": "PHPM_SAQ_GS_0005",
@@ -380,11 +471,11 @@
       "gold_standard_alignment_status": "gold_standard_reference",
       "official_written_classification_code": "BS",
       "official_written_classification_label": "Basic Sciences of Public Health and Preventive Medicine",
-      "official_topic_theme_code": "requires_manual_theme_assignment",
-      "official_topic_theme_label": null,
+      "official_topic_theme_code": "G",
+      "official_topic_theme_label": "Other",
       "simulator_topic_tags": [],
       "classification_confidence": "high",
-      "theme_assignment_confidence": "requires_manual_theme_assignment",
+      "theme_assignment_confidence": "high",
       "parts": [
         {
           "part_id": "PHPM_SAQ_GS_0005_PA",
@@ -409,16 +500,32 @@
           "source_profile": "royal_college_official_sample",
           "official_written_classification_code": "BS",
           "official_written_classification_label": "Basic Sciences of Public Health and Preventive Medicine",
-          "official_topic_theme_code": "requires_manual_theme_assignment",
-          "official_topic_theme_label": null,
+          "official_topic_theme_code": "G",
+          "official_topic_theme_label": "Other",
           "simulator_topic_tags": [],
-          "taxonomy_assignment_status": "partial_manual_review_required",
+          "taxonomy_assignment_status": "proposed_candidate_assignment",
           "classification_confidence": "high",
-          "theme_assignment_confidence": "unresolved"
+          "theme_assignment_confidence": "high",
+          "primary_written_classification_codes": [
+            "BS"
+          ],
+          "secondary_written_classification_codes": [],
+          "primary_theme_codes": [
+            "G"
+          ],
+          "secondary_theme_codes": []
         }
       ],
       "question_level_written_rollup_status": "inherited_from_parts",
-      "question_level_theme_rollup_status": "unresolved_from_parts"
+      "question_level_theme_rollup_status": "inherited_from_parts",
+      "primary_written_classification_codes": [
+        "BS"
+      ],
+      "secondary_written_classification_codes": [],
+      "primary_theme_codes": [
+        "G"
+      ],
+      "secondary_theme_codes": []
     },
     {
       "question_id": "PHPM_SAQ_GS_0006",
@@ -471,9 +578,19 @@
           "simulator_topic_tags": [
             "non_communicable_diseases"
           ],
-          "taxonomy_assignment_status": "proposed_candidate_assignment",
+          "taxonomy_assignment_status": "proposed_candidate_assignment_multi_label",
           "classification_confidence": "medium",
-          "theme_assignment_confidence": "high"
+          "theme_assignment_confidence": "high",
+          "primary_written_classification_codes": [
+            "HPDP"
+          ],
+          "secondary_written_classification_codes": [
+            "PH"
+          ],
+          "primary_theme_codes": [
+            "B"
+          ],
+          "secondary_theme_codes": []
         },
         {
           "part_id": "PHPM_SAQ_GS_0006_PB",
@@ -499,16 +616,27 @@
           "not_acceptable_notes": [],
           "scoring_notes": "Award credit for distinct correct elements up to max_score; preserve official part-score cap.",
           "source_profile": "royal_college_official_sample",
-          "official_written_classification_code": "requires_manual_classification",
-          "official_written_classification_label": null,
+          "official_written_classification_code": "HS",
+          "official_written_classification_label": "Health Systems",
           "official_topic_theme_code": "B",
           "official_topic_theme_label": "Non-Communicable Diseases",
           "simulator_topic_tags": [
             "non_communicable_diseases"
           ],
-          "taxonomy_assignment_status": "partial_manual_review_required",
-          "classification_confidence": "unresolved",
-          "theme_assignment_confidence": "high"
+          "taxonomy_assignment_status": "proposed_candidate_assignment_multi_label",
+          "classification_confidence": "medium",
+          "theme_assignment_confidence": "high",
+          "primary_written_classification_codes": [
+            "HS"
+          ],
+          "secondary_written_classification_codes": [
+            "MPP",
+            "HPDP"
+          ],
+          "primary_theme_codes": [
+            "B"
+          ],
+          "secondary_theme_codes": []
         },
         {
           "part_id": "PHPM_SAQ_GS_0006_PC",
@@ -534,20 +662,43 @@
           "not_acceptable_notes": [],
           "scoring_notes": "Award credit for distinct correct elements up to max_score; preserve official part-score cap.",
           "source_profile": "royal_college_official_sample",
-          "official_written_classification_code": "requires_manual_classification",
-          "official_written_classification_label": null,
+          "official_written_classification_code": "HS",
+          "official_written_classification_label": "Health Systems",
           "official_topic_theme_code": "B",
           "official_topic_theme_label": "Non-Communicable Diseases",
           "simulator_topic_tags": [
             "non_communicable_diseases"
           ],
-          "taxonomy_assignment_status": "partial_manual_review_required",
-          "classification_confidence": "unresolved",
-          "theme_assignment_confidence": "high"
+          "taxonomy_assignment_status": "proposed_candidate_assignment_multi_label",
+          "classification_confidence": "medium",
+          "theme_assignment_confidence": "high",
+          "primary_written_classification_codes": [
+            "HS"
+          ],
+          "secondary_written_classification_codes": [
+            "MPP",
+            "HPDP"
+          ],
+          "primary_theme_codes": [
+            "B"
+          ],
+          "secondary_theme_codes": []
         }
       ],
       "question_level_written_rollup_status": "mixed_part_level_assignment",
-      "question_level_theme_rollup_status": "inherited_from_parts"
+      "question_level_theme_rollup_status": "inherited_from_parts",
+      "primary_written_classification_codes": [
+        "HPDP",
+        "HS"
+      ],
+      "secondary_written_classification_codes": [
+        "PH",
+        "MPP"
+      ],
+      "primary_theme_codes": [
+        "B"
+      ],
+      "secondary_theme_codes": []
     }
   ]
 }
