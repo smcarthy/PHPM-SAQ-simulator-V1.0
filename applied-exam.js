@@ -12,43 +12,43 @@
       icon: 'assets/applied/icons/health-promotion-chronic-diseases-mental-health-and-substance-use.svg',
       color: '#8d2f87'
     },
-    'communicable': {
+    communicable: {
       id: 'communicable',
       label: 'Communicable Diseases in Health Protection',
       icon: 'assets/applied/icons/communicable-diseases-in-health-protection.svg',
       color: '#b7472a'
     },
-    'environment': {
+    environment: {
       id: 'environment',
       label: 'Environmental, Occupational, Built Environment and Injuries',
       icon: 'assets/applied/icons/environmental-occupational-built-environment-and-injuries.svg',
       color: '#2e7d4f'
     },
-    'systems': {
+    systems: {
       id: 'systems',
       label: 'Health Systems, Policy, Law and Ethics',
       icon: 'assets/applied/icons/health-systems-policy-law-and-ethics.svg',
       color: '#196f84'
     },
-    'methods': {
+    methods: {
       id: 'methods',
       label: 'Population Health, Epidemiology, Methods and Basic Sciences',
       icon: 'assets/applied/icons/population-health-epidemiology-methods-and-basic-sciences.svg',
       color: '#4b4ea1'
     },
-    'management': {
+    management: {
       id: 'management',
       label: 'Management, Leadership and Program Planning',
       icon: 'assets/applied/icons/management-leadership-and-program-planning.svg',
       color: '#bf7a13'
     },
-    'emergency': {
+    emergency: {
       id: 'emergency',
       label: 'Emergency Preparedness and Response',
       icon: 'assets/applied/icons/emergency-preparedness-and-response.svg',
       color: '#a02929'
     },
-    'maternal': {
+    maternal: {
       id: 'maternal',
       label: 'Maternal and Child Health',
       icon: 'assets/applied/icons/maternal-and-child-health.svg',
@@ -61,7 +61,13 @@
     { id: 'gpt-health-promotion', topicId: 'health-promotion', title: 'Health Promotion, Chronic Diseases, Mental Health and Substance Use', descriptor: 'Prevention and chronic disease oral station practice.', url: 'https://chat.openai.com/' },
     { id: 'gpt-communicable', topicId: 'communicable', title: 'Communicable Diseases in Health Protection', descriptor: 'Outbreak control and communicable disease response drills.', url: 'https://chat.openai.com/' },
     { id: 'gpt-environment', topicId: 'environment', title: 'Environmental, Occupational, Built Environment and Injuries', descriptor: 'Environmental hazards and injury prevention framing.', url: 'https://chat.openai.com/' },
-    { id: 'gpt-systems', topicId: 'systems', title: 'Health Systems, Policy, Law and Ethics', descriptor: 'Policy, law and ethics argument practice.', url: 'https://chat.openai.com/' },
+    {
+      id: 'gpt-systems',
+      topicId: 'systems',
+      title: 'Health Systems, Policy, Law and Ethics',
+      descriptor: 'Policy, law and ethics argument practice.',
+      url: 'https://chatgpt.com/g/g-6928d96e50108191b20927bd9b29f3bd-5-health-systems-policy-law-and-ethics'
+    },
     { id: 'gpt-methods', topicId: 'methods', title: 'Population Health, Epidemiology, Methods and Basic Sciences', descriptor: 'Methods-heavy interpretation and epidemiology reasoning.', url: 'https://chat.openai.com/' },
     { id: 'gpt-management', topicId: 'management', title: 'Management, Leadership and Program Planning', descriptor: 'Leadership and implementation planning stations.', url: 'https://chat.openai.com/' },
     { id: 'gpt-emergency', topicId: 'emergency', title: 'Emergency Preparedness and Response', descriptor: 'Incident command and emergency planning simulation.', url: 'https://chat.openai.com/' },
@@ -75,47 +81,132 @@
     { title: 'Heat wave mortality prevention plan', context: 'Five-day extreme heat forecast above historical thresholds.', topicIds: ['environment', 'health-promotion'], recommendedGptId: 'gpt-environment', prompt: 'Develop a rapid heat response plan identifying priority populations, intervention triggers, and monitoring indicators.' },
     { title: 'Needle-sharing HIV cluster in an urban core', context: 'Cluster signal with housing instability concerns.', topicIds: ['health-promotion', 'systems'], recommendedGptId: 'gpt-health-promotion', prompt: 'Propose a 30-day action plan for a suspected HIV cluster, balancing rapid intervention, stigma reduction, and partnerships.' },
     { title: 'School refusal of routine immunization campaign', context: 'Coordinated refusal and misinformation spread.', topicIds: ['communicable', 'health-promotion'], recommendedGptId: 'gpt-communicable', prompt: 'Manage declining school immunization uptake with a strategy on communication, service support, and monitoring metrics.' },
-    { title: 'Opioid overdose spike after toxic supply alert', context: 'ED and EMS overdose demand doubled in one week.', topicIds: ['health-promotion', 'emergency'], recommendedGptId: 'gpt-emergency', prompt: 'Design an urgent overdose response plan with command structure, same-day harm reduction actions, and executive briefing points.' },
-    { title: 'Public backlash to TB contact investigation', context: 'Confidentiality and stigma concerns are escalating.', topicIds: ['communicable', 'systems'], recommendedGptId: 'gpt-systems', prompt: 'Defend a TB contact investigation plan protecting confidentiality, supporting affected people, and preserving epidemiologic effectiveness.' },
-    { title: 'Municipal council debate on supervised consumption expansion', context: 'Urgent recommendation needed amid polarized input.', topicIds: ['systems', 'health-promotion'], recommendedGptId: 'gpt-systems', prompt: 'Advise council on service expansion, addressing evidence, political concerns, trade-offs, and implementation safeguards.' },
-    { title: 'Foodborne outbreak linked to multiple restaurants', context: 'Possible common supplier across municipalities.', topicIds: ['communicable', 'methods'], recommendedGptId: 'gpt-communicable', prompt: 'Manage a multi-site foodborne outbreak with case definition refinement, traceback priorities, and advisory trigger points.' },
-    { title: 'Prenatal smoking cessation program evaluation', context: 'Funding renewal depends on defensible evaluation design.', topicIds: ['maternal', 'methods', 'management'], recommendedGptId: 'gpt-maternal', prompt: 'Design a pragmatic evaluation plan with logic model elements, feasible indicators, data sources, equity considerations, and reporting cadence.' }
+    { title: 'Opioid overdose spike after toxic supply change', context: 'Emergency departments report sudden severe toxicity.', topicIds: ['health-promotion', 'emergency'], recommendedGptId: 'gpt-health-promotion', prompt: 'Deliver an urgent interagency response plan that combines harm reduction, surveillance, and public communication.' },
+    { title: 'Wildfire smoke event affecting urban children', context: 'Two-week poor air quality with school disruption.', topicIds: ['environment', 'maternal'], recommendedGptId: 'gpt-environment', prompt: 'Prioritize immediate and medium-term actions for child respiratory protection, school guidance, and equity-focused outreach.' },
+    { title: 'Hospital hallway medicine and discharge bottlenecks', context: 'System strain leads to delayed flow and safety incidents.', topicIds: ['systems', 'management'], recommendedGptId: 'gpt-systems', prompt: 'Frame a practical public-health-facing recommendation balancing evidence, political constraints, and near-term feasibility.' },
+    { title: 'Avian influenza risk communication briefing', context: 'Public anxiety rises while evidence remains uncertain.', topicIds: ['communicable', 'methods'], recommendedGptId: 'gpt-communicable', prompt: 'Provide a concise risk communication approach for media, clinicians, and community partners while uncertainty evolves.' },
+    { title: 'Indigenous community partnership reset after trust rupture', context: 'Past decisions reduced local confidence in health authorities.', topicIds: ['systems', 'management'], recommendedGptId: 'gpt-systems', prompt: 'Outline a culturally safe and relationship-centered path forward with shared governance, accountability, and realistic next steps.' }
   ];
 
+  const EXAM_TEST_ITEMS = [
+    { title: 'Organization and logic', detail: 'Use a clear structure: issue framing, priorities, recommendation, and follow-through.' },
+    { title: 'Communication clarity', detail: 'Deliver concise key messages that would work in a real oral station under time pressure.' },
+    { title: 'Stakeholder awareness', detail: 'Show who matters, who is affected, and who must be engaged now versus later.' },
+    { title: 'Public health judgment', detail: 'Make defensible decisions under uncertainty using risk, evidence, and practical context.' },
+    { title: 'Feasibility and next steps', detail: 'Recommend actions that are implementable in real systems with immediate and near-term steps.' },
+    { title: 'Equity, ethics, and practical reasoning', detail: 'Integrate fairness, cultural safety, legal/ethical considerations, and unintended consequences.' }
+  ];
+
+  const HOT_TOPICS = [
+    {
+      title: 'COVID-19 recovery, trust, and health equity',
+      why: 'Recovery planning still tests credibility, trust repair, and equitable access decisions.',
+      angles: ['Rebuild confidence after policy fatigue', 'Target outreach to communities with worse outcomes', 'Balance surveillance with practical service delivery'],
+      labels: ['Health Promotion, Chronic Diseases, Mental Health and Substance Use', 'Health Systems, Policy, Law and Ethics']
+    },
+    {
+      title: 'Climate change, heat, and wildfire smoke',
+      why: 'Extreme weather now demands rapid intersectoral planning and risk communication.',
+      angles: ['Heat action triggers and vulnerable populations', 'School and workplace smoke guidance', 'Cross-jurisdiction incident coordination'],
+      labels: ['Environmental, Occupational, Built Environment and Injuries', 'Emergency Preparedness and Response']
+    },
+    {
+      title: 'Emergency preparedness and resilient communities',
+      why: 'Residents are expected to operationalize response systems, not just describe frameworks.',
+      angles: ['First 24-hour priority setting', 'Decision-making with incomplete situational awareness', 'Recovery and resilience planning after acute response'],
+      labels: ['Emergency Preparedness and Response', 'Management, Leadership and Program Planning']
+    },
+    {
+      title: 'Immunization confidence and measles',
+      why: 'Resurgent measles risk challenges communication, legal tools, and service access.',
+      angles: ['Exposure response and contact prioritization', 'Address misinformation without increasing polarization', 'Plan practical catch-up vaccination operations'],
+      labels: ['Communicable Diseases in Health Protection', 'Health Promotion, Chronic Diseases, Mental Health and Substance Use']
+    },
+    {
+      title: 'Toxic drug crisis and harm reduction',
+      why: 'Oral stations often probe high-stakes decisions where stigma and urgency collide.',
+      angles: ['Rapid overdose spike response', 'Partnering with lived-experience organizations', 'Communication to media and elected leaders'],
+      labels: ['Health Promotion, Chronic Diseases, Mental Health and Substance Use', 'Health Systems, Policy, Law and Ethics']
+    },
+    {
+      title: 'Avian influenza and emerging infectious threats',
+      why: 'Residents must show structured reasoning when evidence is changing quickly.',
+      angles: ['Precautionary planning under uncertainty', 'Healthcare and community risk communication', 'Surveillance, testing, and interagency updates'],
+      labels: ['Communicable Diseases in Health Protection', 'Population Health, Epidemiology, Methods and Basic Sciences']
+    },
+    {
+      title: 'Health-system strain and public health reform',
+      why: 'System stress requires practical policy judgment and implementation thinking.',
+      angles: ['Prioritize feasible reforms versus ideal reforms', 'Navigate accountability across institutions', 'Frame near-term wins and longer-term change'],
+      labels: ['Health Systems, Policy, Law and Ethics', 'Management, Leadership and Program Planning']
+    },
+    {
+      title: 'Indigenous health, equity, and culturally safe partnerships',
+      why: 'Applied stations expect trust-centered, partnership-based, and culturally safe approaches.',
+      angles: ['Shared decision-making with Indigenous partners', 'Address structural inequities in service design', 'Build accountability and continuity over time'],
+      labels: ['Health Systems, Policy, Law and Ethics', 'Management, Leadership and Program Planning']
+    }
+  ];
+
+  const STUDY_PLAN = [
+    {
+      week: 'Week 1',
+      focus: 'Breadth and answer structure',
+      actions: ['Run one short station from each major topic area', 'Use one repeatable answer scaffold: issue, stakeholders, recommendation, next steps', 'Practise concise key messages in 30- to 45-second summaries']
+    },
+    {
+      week: 'Week 2',
+      focus: 'Role-play and difficult conversations',
+      actions: ['Do partner role-play with skeptical media/public/elected stakeholder prompts', 'Practise clarity under interruption and ambiguity', 'Refine language for trust, uncertainty, and accountability']
+    },
+    {
+      week: 'Week 3',
+      focus: 'Weak spots plus hot topics',
+      actions: ['Review debrief notes and target two recurring weak areas', 'Run focused stations on high-yield hot topics', 'Keep responses decision-oriented rather than detail-heavy']
+    },
+    {
+      week: 'Week 4',
+      focus: 'Timed simulation and refinement',
+      actions: ['Run full timed mock blocks to mimic in-person station cadence', 'Tighten opening structure and closing recommendation', 'Finish each station with one concise key message and one concrete next step']
+    }
+  ];
+
+  const SELF_DEBRIEF_CHECKLIST = ['What was the issue?', 'Who mattered?', 'What was my structure?', 'What was my recommendation?', 'What did I miss?'];
+
   const STATION_BUILDER_CONFIG = {
-    topics: Object.values(TOPIC_META).map((topic) => ({ id: topic.id, label: topic.label })),
+    topics: Object.values(TOPIC_META),
     formats: [
-      { id: 'rapid-briefing', label: 'Rapid response briefing' },
-      { id: 'media-briefing', label: 'Media and public messaging' },
-      { id: 'stakeholder-advice', label: 'Stakeholder decision advice' },
-      { id: 'evaluation-design', label: 'Program evaluation design' }
+      { id: 'briefing', label: 'Medical Officer briefing to leadership' },
+      { id: 'media', label: 'Media communication and Q&A' },
+      { id: 'stakeholder', label: 'Stakeholder negotiation conversation' },
+      { id: 'clinical-ops', label: 'Clinical-public health interface decision' }
     ],
     settings: [
-      { id: 'regional-health-unit', label: 'Regional public health unit' },
-      { id: 'municipal-operations-centre', label: 'Municipal emergency operations centre' },
-      { id: 'community-partner-table', label: 'Community partner coordination table' },
-      { id: 'provincial-briefing', label: 'Provincial briefing environment' }
+      { id: 'urban', label: 'Large urban public health unit' },
+      { id: 'rural', label: 'Rural or remote regional setting' },
+      { id: 'provincial', label: 'Provincial policy and implementation context' },
+      { id: 'multi-jurisdiction', label: 'Multi-jurisdiction coordination setting' }
     ],
     challenges: [
       { id: 'escalating-signal', label: 'Escalating risk signal with limited data' },
-      { id: 'public-trust-pressure', label: 'Public trust pressure and misinformation' },
-      { id: 'equity-implementation-gap', label: 'Equity-sensitive implementation gap' },
-      { id: 'resource-constraint', label: 'Resource and staffing constraints' }
+      { id: 'high-visibility', label: 'High-visibility decision under media pressure' },
+      { id: 'equity-tradeoff', label: 'Equity and feasibility trade-off' },
+      { id: 'partnership-friction', label: 'Partnership conflict and trust repair' }
     ],
     difficulties: [
-      { id: 'core', label: 'Core', timeBox: '8 minutes', complexityNote: 'focus on first principles and immediate actions' },
-      { id: 'advanced', label: 'Advanced', timeBox: '10 minutes', complexityNote: 'include explicit trade-offs and legal/ethical considerations' },
-      { id: 'stretch', label: 'Stretch', timeBox: '12 minutes', complexityNote: 'address uncertainty and interjurisdictional escalation' }
+      { id: 'core', label: 'Core', timeBox: '8-minute station style', complexityNote: 'single dominant issue' },
+      { id: 'integrated', label: 'Integrated', timeBox: '8-minute station style', complexityNote: 'two linked pressures' },
+      { id: 'stress-test', label: 'Stress test', timeBox: '8-minute station style', complexityNote: 'uncertainty + conflicting priorities' }
     ]
   };
 
   function escapeHtml(value) {
     return String(value)
-      .replaceAll('&', '&amp;')
-      .replaceAll('<', '&lt;')
-      .replaceAll('>', '&gt;')
-      .replaceAll('"', '&quot;')
-      .replaceAll("'", '&#39;');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   function buildLauncherMap() {
@@ -193,6 +284,69 @@
         </article>
       `;
     }).join('');
+  }
+
+  function renderExamTests() {
+    const grid = document.getElementById('exam-tests-grid');
+    if (!grid) {
+      return;
+    }
+
+    grid.innerHTML = EXAM_TEST_ITEMS.map((item) => `
+      <article class="applied-mini-card">
+        <h4>${escapeHtml(item.title)}</h4>
+        <p>${escapeHtml(item.detail)}</p>
+      </article>
+    `).join('');
+  }
+
+  function renderHotTopics() {
+    const grid = document.getElementById('hot-topics-grid');
+    if (!grid) {
+      return;
+    }
+
+    grid.innerHTML = HOT_TOPICS.map((topic) => `
+      <article class="applied-topic-card">
+        <h4>${escapeHtml(topic.title)}</h4>
+        <p class="topic-why"><strong>Why this matters:</strong> ${escapeHtml(topic.why)}</p>
+        <p><strong>Mock oral angles:</strong></p>
+        <ul>
+          ${topic.angles.map((angle) => `<li>${escapeHtml(angle)}</li>`).join('')}
+        </ul>
+        <p><strong>Official topic label(s):</strong></p>
+        <ul class="topic-tag-list">
+          ${topic.labels.map((label) => `<li class="topic-tag" style="--topic-color:#2e5da8">${escapeHtml(label)}</li>`).join('')}
+        </ul>
+      </article>
+    `).join('');
+  }
+
+  function renderStudyPlanner() {
+    const node = document.getElementById('study-planner-content');
+    if (!node) {
+      return;
+    }
+
+    node.innerHTML = `
+      <div class="applied-card-grid">
+        ${STUDY_PLAN.map((phase) => `
+          <article class="applied-mini-card study-week-card">
+            <h4>${escapeHtml(phase.week)}: ${escapeHtml(phase.focus)}</h4>
+            <ul>
+              ${phase.actions.map((action) => `<li>${escapeHtml(action)}</li>`).join('')}
+            </ul>
+          </article>
+        `).join('')}
+      </div>
+      <article class="study-debrief-card">
+        <h4>Short self-debrief after each station</h4>
+        <ul>
+          ${SELF_DEBRIEF_CHECKLIST.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
+        </ul>
+        <p><strong>Practice cue:</strong> end with one concise key message the examiner could repeat back.</p>
+      </article>
+    `;
   }
 
   function bindChallengeExpansion() {
@@ -295,7 +449,7 @@
       `Scenario setting: ${setting.label}.`,
       `Challenge type: ${challenge.label}.`,
       `Difficulty: ${difficulty.label} (${difficulty.timeBox}; ${difficulty.complexityNote}).`,
-      'Present a realistic Canadian public health scenario, then ask for a structured response with priorities, rationale, immediate actions, and communication to partners.',
+      'Present a realistic Canadian public health scenario, then ask for a structured response with priorities, rationale, immediate actions, communication strategy, and feasible next steps.',
       'After the answer, provide concise examiner-style feedback with strengths, missed priorities, and one refinement for next attempt.'
     ].join(' ');
   }
@@ -399,6 +553,9 @@
   function initializeAppliedExamPage() {
     renderGptLaunchers();
     renderChallengeScenarios();
+    renderExamTests();
+    renderHotTopics();
+    renderStudyPlanner();
     bindSubTabs();
     bindChallengeExpansion();
     bindCopyActions();

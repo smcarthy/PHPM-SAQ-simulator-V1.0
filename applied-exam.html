@@ -20,15 +20,24 @@
       <section class="applied-hero applied-hero-intro" aria-labelledby="applied-overview">
         <h2 id="applied-overview">Applied Exam Practice Hub</h2>
         <p>
-          This page is a dedicated landing workspace for deterministic Royal College PHPM applied oral practice.
-          It offers quick GPT launch access, compact challenge scenarios, and a local station-prompt builder for
-          repeatable mock runs.
+          This page is a dedicated, static workspace for Royal College PHPM applied oral preparation. It complements the Written SAQ simulator with
+          decision-oriented station practice, concise structure drills, and realistic in-person flow prompts under time pressure.
         </p>
         <ul class="applied-intro-list">
-          <li><strong>What this page is:</strong> a static applied-exam companion, separate from the Written SAQ flow.</li>
-          <li><strong>What it offers:</strong> nine topic launchers, eleven challenge scenarios, and structured practice scaffolds.</li>
-          <li><strong>How it is organized:</strong> six focused sub-tabs so only one work area is open at a time.</li>
+          <li><strong>What this page is:</strong> a local-only applied-exam companion, separate from the Written SAQ runtime path.</li>
+          <li><strong>What it offers:</strong> nine topic GPT launchers, challenge scenarios, a station-prompt builder, and high-yield review tabs.</li>
+          <li><strong>How it is organized:</strong> six focused sub-tabs so residents can rehearse one practice mode at a time.</li>
+          <li><strong>How to use it:</strong> choose one station, answer in a clear structure, then debrief what mattered, what you recommended, and what to refine.</li>
         </ul>
+        <p class="sample-exam-link-wrap">
+          <a
+            class="sample-exam-link"
+            href="https://www.royalcollege.ca/ca/en/exam-eligibility-admission/exam-format-and-sample-questions.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Royal College official exam format and sample questions</a
+          >
+        </p>
       </section>
 
       <nav class="applied-subtabs" aria-label="Applied exam sections" role="tablist">
@@ -42,13 +51,13 @@
 
       <section id="panel-start-practising" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="section-start-practising">
         <h3 id="section-start-practising">Start Practising</h3>
-        <p>Launch one of the nine canonical topic GPTs using the approved labels and icon set.</p>
+        <p>Launch one of the nine canonical topic GPTs using approved labels and icon mapping.</p>
         <div id="gpt-launcher-grid" class="gpt-launcher-grid" aria-live="polite"></div>
       </section>
 
       <section id="panel-challenge-scenarios" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="section-challenge-scenarios" hidden>
         <h3 id="section-challenge-scenarios">Challenge Scenarios</h3>
-        <p>Compact card view by default. Hover to preview on desktop, then click/tap to expand full station details.</p>
+        <p>Compact cards by default. Hover to preview on desktop, then click/tap to expand full station details.</p>
         <div id="challenge-scenarios-list" class="challenge-scenarios-list" aria-live="polite"></div>
       </section>
 
@@ -93,20 +102,20 @@
 
       <section id="panel-exam-tests" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="section-exam-testing" hidden>
         <h3 id="section-exam-testing">What the Exam Tests</h3>
-        <p>Applied stations evaluate prioritization, defensible judgment, communication clarity, and practical system navigation.</p>
-        <div class="applied-placeholder">Placeholder: competency framing and examiner-style cues will be expanded in later content passes.</div>
+        <p>Use this as a quick station checklist: aim for clear logic, practical recommendations, and defensible judgment in real-time oral discussion.</p>
+        <div id="exam-tests-grid" class="applied-card-grid" aria-live="polite"></div>
       </section>
 
       <section id="panel-hot-topics" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="section-hot-topics" hidden>
         <h3 id="section-hot-topics">Hot Topics in Public Health</h3>
-        <p>Use this tab for rapid topic refreshers aligned with current public health context and oral station relevance.</p>
-        <div class="applied-placeholder">Placeholder: topic stream references and shortlist summaries are staged for later deterministic content work.</div>
+        <p>Concise high-yield topics for mock stations. Focus on how you would decide, communicate, and act.</p>
+        <div id="hot-topics-grid" class="applied-card-grid hot-topics-grid" aria-live="polite"></div>
       </section>
 
       <section id="panel-study-planner" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="section-study-planner" hidden>
         <h3 id="section-study-planner">Study Planner and Self-Improvement</h3>
-        <p>Plan short cycles of deliberate practice and post-station reflection without changing runtime exam behaviors.</p>
-        <div class="applied-placeholder">Placeholder: four-week planner checkpoints and mock oral reflection prompts will be added in next phase.</div>
+        <p>Four practical weeks to sharpen concise key messages, structure, and confidence under applied-exam timing.</p>
+        <div id="study-planner-content" aria-live="polite"></div>
       </section>
 
       <section class="applied-next-step" aria-label="Scope notes">
