@@ -136,6 +136,105 @@
     }
   ];
 
+  const STATION_BUILDER_CONFIG = {
+    topics: [
+      {
+        id: 'outbreak-management',
+        label: 'Outbreak Management',
+        topicLabels: ['Outbreak Management', 'Communicable Disease Control'],
+        recommendedGptByFormat: {
+          'rapid-briefing': 'gpt-outbreak-rapid-response',
+          'media-briefing': 'gpt-risk-communication',
+          default: 'gpt-outbreak-rapid-response'
+        }
+      },
+      {
+        id: 'risk-communication',
+        label: 'Risk Communication',
+        topicLabels: ['Risk Communication', 'Public Messaging'],
+        recommendedGptByFormat: {
+          'media-briefing': 'gpt-risk-communication',
+          default: 'gpt-risk-communication'
+        }
+      },
+      {
+        id: 'policy-governance',
+        label: 'Public Health Policy & Governance',
+        topicLabels: ['Public Health Policy', 'Ethics & Governance'],
+        recommendedGptByFormat: {
+          'stakeholder-advice': 'gpt-policy-advisor',
+          default: 'gpt-ethics-governance'
+        }
+      },
+      {
+        id: 'health-equity',
+        label: 'Health Equity',
+        topicLabels: ['Health Equity', 'Priority Populations'],
+        recommendedGptByFormat: {
+          'stakeholder-advice': 'gpt-health-equity',
+          default: 'gpt-health-equity'
+        }
+      },
+      {
+        id: 'environmental-health',
+        label: 'Environmental Health',
+        topicLabels: ['Environmental Health', 'Emergency Preparedness'],
+        recommendedGptByFormat: {
+          'rapid-briefing': 'gpt-environmental-health',
+          default: 'gpt-environmental-health'
+        }
+      },
+      {
+        id: 'program-evaluation',
+        label: 'Program Evaluation',
+        topicLabels: ['Program Evaluation', 'Performance Measurement'],
+        recommendedGptByFormat: {
+          'evaluation-design': 'gpt-program-evaluation',
+          default: 'gpt-program-evaluation'
+        }
+      }
+    ],
+    formats: [
+      { id: 'rapid-briefing', label: 'Rapid response briefing' },
+      { id: 'media-briefing', label: 'Media and public messaging' },
+      { id: 'stakeholder-advice', label: 'Stakeholder decision advice' },
+      { id: 'evaluation-design', label: 'Program evaluation design' }
+    ],
+    settings: [
+      { id: 'regional-health-unit', label: 'Regional public health unit' },
+      { id: 'municipal-operations-centre', label: 'Municipal emergency operations centre' },
+      { id: 'community-partner-table', label: 'Community partner coordination table' },
+      { id: 'provincial-briefing', label: 'Provincial briefing environment' }
+    ],
+    challenges: [
+      { id: 'escalating-signal', label: 'Escalating risk signal with limited data' },
+      { id: 'public-trust-pressure', label: 'Public trust pressure and misinformation' },
+      { id: 'equity-implementation-gap', label: 'Equity-sensitive implementation gap' },
+      { id: 'resource-constraint', label: 'Resource and staffing constraints' }
+    ],
+    difficulties: [
+      {
+        id: 'core',
+        label: 'Core',
+        timeBox: '8 minutes',
+        complexityNote: 'focus on first-principles structure and immediate actions'
+      },
+      {
+        id: 'advanced',
+        label: 'Advanced',
+        timeBox: '10 minutes',
+        complexityNote: 'include explicit trade-offs, legal/ethical considerations, and contingency triggers'
+      },
+      {
+        id: 'stretch',
+        label: 'Stretch',
+        timeBox: '12 minutes',
+        complexityNote: 'address uncertainty, interjurisdictional coordination, and adaptive escalation planning'
+      }
+    ]
+  };
+
+
   function buildLauncherMap() {
     return GPT_LAUNCHERS.reduce((acc, launcher) => {
       acc[launcher.id] = launcher;
@@ -232,12 +331,7 @@
   }
 
   function bindCopyActions() {
-    const list = document.getElementById('challenge-scenarios-list');
-    if (!list) {
-      return;
-    }
-
-    list.addEventListener('click', (event) => {
+    document.addEventListener('click', (event) => {
       const target = event.target;
       if (!(target instanceof HTMLElement) || !target.classList.contains('copy-prompt-btn')) {
         return;
@@ -257,10 +351,111 @@
     });
   }
 
+  function populateBuilderSelect(selectId, options) {
+    const select = document.getElementById(selectId);
+    if (!select) {
+      return;
+    }
+
+    select.innerHTML = options.map((option) => `<option value="${option.id}">${option.label}</option>`).join('');
+  }
+
+  function findBuilderOption(options, optionId) {
+    return options.find((option) => option.id === optionId) || options[0];
+  }
+
+  function resolveRecommendedGptId(topic, format) {
+    const formatSpecific = topic.recommendedGptByFormat[format.id];
+    if (formatSpecific) {
+      return formatSpecific;
+    }
+
+    return topic.recommendedGptByFormat.default || 'gpt-policy-advisor';
+  }
+
+  function buildStationPrompt(topic, format, setting, challenge, difficulty) {
+    return [
+      'Act as a Royal College PHPM applied oral examiner and run one station only.',
+      `Official topic area: ${topic.label}.`,
+      `Station format: ${format.label}.`,
+      `Scenario setting: ${setting.label}.`,
+      `Challenge type: ${challenge.label}.`,
+      `Difficulty: ${difficulty.label} (${difficulty.timeBox}; ${difficulty.complexityNote}).`,
+      'Instructions for the station: Present a realistic Canadian public health scenario, then ask me to provide a structured response with priorities, rationale, immediate actions, and how I would communicate decisions to partners.',
+      'After my answer, provide concise examiner-style feedback with: (1) strengths, (2) missed priorities, (3) one high-yield refinement for the next attempt.'
+    ].join(' ');
+  }
+
+  function updateBuilderOutput(launchersById) {
+    const topicSelect = document.getElementById('builder-topic');
+    const formatSelect = document.getElementById('builder-format');
+    const settingSelect = document.getElementById('builder-setting');
+    const challengeSelect = document.getElementById('builder-challenge');
+    const difficultySelect = document.getElementById('builder-difficulty');
+
+    if (!topicSelect || !formatSelect || !settingSelect || !challengeSelect || !difficultySelect) {
+      return;
+    }
+
+    const topic = findBuilderOption(STATION_BUILDER_CONFIG.topics, topicSelect.value);
+    const format = findBuilderOption(STATION_BUILDER_CONFIG.formats, formatSelect.value);
+    const setting = findBuilderOption(STATION_BUILDER_CONFIG.settings, settingSelect.value);
+    const challenge = findBuilderOption(STATION_BUILDER_CONFIG.challenges, challengeSelect.value);
+    const difficulty = findBuilderOption(STATION_BUILDER_CONFIG.difficulties, difficultySelect.value);
+
+    const prompt = buildStationPrompt(topic, format, setting, challenge, difficulty);
+    const recommendedGptId = resolveRecommendedGptId(topic, format);
+    const recommendedLauncher = launchersById[recommendedGptId] || { title: 'OpenAI Chat', url: 'https://chat.openai.com/' };
+
+    const topicTagsList = document.getElementById('builder-topic-tags');
+    const promptField = document.getElementById('builder-prompt');
+    const recommendedGptNode = document.getElementById('builder-recommended-gpt');
+    const openGptLink = document.getElementById('builder-open-gpt');
+
+    if (topicTagsList) {
+      topicTagsList.innerHTML = topic.topicLabels.map((label) => `<li class="topic-tag">${label}</li>`).join('');
+    }
+
+    if (promptField) {
+      promptField.value = prompt;
+    }
+
+    if (recommendedGptNode) {
+      recommendedGptNode.textContent = recommendedLauncher.title;
+    }
+
+    if (openGptLink) {
+      openGptLink.href = recommendedLauncher.url;
+      openGptLink.setAttribute('aria-label', `Open recommended GPT: ${recommendedLauncher.title}`);
+    }
+  }
+
+  function initializeStationBuilder() {
+    const builderForm = document.getElementById('builder-form');
+    if (!builderForm) {
+      return;
+    }
+
+    populateBuilderSelect('builder-topic', STATION_BUILDER_CONFIG.topics);
+    populateBuilderSelect('builder-format', STATION_BUILDER_CONFIG.formats);
+    populateBuilderSelect('builder-setting', STATION_BUILDER_CONFIG.settings);
+    populateBuilderSelect('builder-challenge', STATION_BUILDER_CONFIG.challenges);
+    populateBuilderSelect('builder-difficulty', STATION_BUILDER_CONFIG.difficulties);
+
+    const launchersById = buildLauncherMap();
+    updateBuilderOutput(launchersById);
+
+    builderForm.addEventListener('change', () => {
+      updateBuilderOutput(launchersById);
+    });
+  }
+
+
   function initializeAppliedExamPage() {
     renderGptLaunchers();
     renderChallengeScenarios();
     bindCopyActions();
+    initializeStationBuilder();
   }
 
   document.addEventListener('DOMContentLoaded', initializeAppliedExamPage);
