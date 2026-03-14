@@ -610,3 +610,64 @@ button.primary:hover {
   padding: 0 0.2rem;
   border-radius: 2px;
 }
+
+
+/* Top navigation tabs for written/applied pages */
+.site-tabs {
+  margin-top: 0.75rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.tab-link {
+  display: inline-block;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.tab-link:hover,
+.tab-link:focus-visible {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.tab-link.active {
+  background-color: #fff;
+  color: #003366;
+  border-color: #fff;
+}
+
+.applied-page {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.applied-hero,
+.applied-section,
+.applied-next-step {
+  background-color: #fff;
+  border: 1px solid #e3e7ec;
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.applied-hero h2,
+.applied-section h3,
+.applied-next-step h3 {
+  margin-top: 0;
+  color: #003366;
+}
+
+.applied-placeholder {
+  border-left: 3px solid #0078d7;
+  background-color: #f4f9ff;
+  padding: 0.6rem 0.75rem;
+  margin-top: 0.75rem;
+}
