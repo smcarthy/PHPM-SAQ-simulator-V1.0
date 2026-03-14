@@ -831,3 +831,60 @@ button.primary:hover {
   color: #1f7a1f;
   min-width: 3.2rem;
 }
+
+.applied-section-workbench {
+  border-color: #cfdced;
+}
+
+.section2-grid {
+  margin-top: 0.85rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.section2-panel {
+  border: 1px solid #d7dfe7;
+  border-radius: 8px;
+  padding: 0.85rem;
+  background: #fcfdff;
+}
+
+.section2-panel h4 {
+  margin-top: 0;
+  margin-bottom: 0.45rem;
+  color: #003366;
+}
+
+.builder-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.35rem;
+  margin-top: 0.75rem;
+}
+
+.builder-form label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #123b5f;
+}
+
+.builder-form select {
+  border: 1px solid #cfd8e2;
+  border-radius: 6px;
+  padding: 0.45rem 0.5rem;
+  font-size: 0.9rem;
+  background: #fff;
+  margin-bottom: 0.35rem;
+}
+
+.builder-output {
+  margin-top: 0.8rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid #e4ebf2;
+}
+
+.builder-output p {
+  margin: 0.35rem 0;
+}

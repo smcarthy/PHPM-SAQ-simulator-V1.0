@@ -31,17 +31,55 @@
         <div id="gpt-launcher-grid" class="gpt-launcher-grid" aria-live="polite"></div>
       </section>
 
-      <section class="applied-section" aria-labelledby="section-challenge-scenarios">
-        <h3 id="section-challenge-scenarios">Challenge Scenarios</h3>
-        <p>Use a deterministic station prompt, copy it, and open the recommended GPT for a mock oral run.</p>
-        <div id="challenge-scenarios-list" class="challenge-scenarios-list" aria-live="polite"></div>
-      </section>
+      <section class="applied-section applied-section-workbench" aria-labelledby="section-station-workbench">
+        <h3 id="section-station-workbench">Section 2: Station Prompt Workbench</h3>
+        <p>Use curated scenarios (2A) or assemble your own deterministic prompt (2B), then run the station in the recommended GPT.</p>
 
-      <section class="applied-section" aria-labelledby="section-station-builder">
-        <h3 id="section-station-builder">Build-your-own station prompt</h3>
-        <p>Section 2B is intentionally deferred for the next session.</p>
-        <div class="applied-placeholder">
-          Coming next: deterministic local builder controls for assembling custom station prompts.
+        <div class="section2-grid">
+          <article class="section2-panel" aria-labelledby="section-challenge-scenarios">
+            <h4 id="section-challenge-scenarios">2A. Curated Challenge Scenarios</h4>
+            <p>Use a deterministic station prompt, copy it, and open the recommended GPT for a mock oral run.</p>
+            <div id="challenge-scenarios-list" class="challenge-scenarios-list" aria-live="polite"></div>
+          </article>
+
+          <article class="section2-panel" aria-labelledby="section-station-builder">
+            <h4 id="section-station-builder">2B. Build-your-own station prompt</h4>
+            <p>Choose a small set of high-yield inputs. The builder assembles a polished prompt locally for copy/paste into a GPT.</p>
+
+            <form id="builder-form" class="builder-form" autocomplete="off">
+              <label for="builder-topic">Official topic area</label>
+              <select id="builder-topic" name="topic"></select>
+
+              <label for="builder-format">Station format</label>
+              <select id="builder-format" name="format"></select>
+
+              <label for="builder-setting">Scenario setting</label>
+              <select id="builder-setting" name="setting"></select>
+
+              <label for="builder-challenge">Challenge type</label>
+              <select id="builder-challenge" name="challenge"></select>
+
+              <label for="builder-difficulty">Difficulty</label>
+              <select id="builder-difficulty" name="difficulty"></select>
+            </form>
+
+            <div id="builder-output" class="builder-output" aria-live="polite">
+              <p><strong>Official topic label(s):</strong></p>
+              <ul id="builder-topic-tags" class="topic-tag-list"></ul>
+              <p><strong>Recommended GPT:</strong> <span id="builder-recommended-gpt"></span></p>
+
+              <div class="challenge-prompt-block">
+                <label for="builder-prompt"><strong>Station prompt</strong></label>
+                <textarea id="builder-prompt" class="challenge-prompt" readonly></textarea>
+              </div>
+
+              <div class="challenge-actions">
+                <button type="button" class="copy-prompt-btn" data-copy-target="builder-prompt">Copy Prompt</button>
+                <span class="copy-status" aria-live="polite"></span>
+                <a id="builder-open-gpt" href="https://chat.openai.com/" class="open-gpt-btn" target="_blank" rel="noopener noreferrer">Open Recommended GPT</a>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
