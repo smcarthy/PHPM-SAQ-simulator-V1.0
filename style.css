@@ -671,3 +671,163 @@ button.primary:hover {
   padding: 0.6rem 0.75rem;
   margin-top: 0.75rem;
 }
+
+/* Applied Exam interactive sections (Section 1 + Section 2A) */
+.gpt-launcher-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.gpt-launcher-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.gpt-launcher-circle {
+  width: 138px;
+  height: 138px;
+  border-radius: 50%;
+  border: 2px solid #0078d7;
+  background: linear-gradient(180deg, #f4f9ff 0%, #e7f3ff 100%);
+  color: #003366;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem;
+  font-weight: 700;
+  font-size: 0.92rem;
+  line-height: 1.25;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.gpt-launcher-circle:hover,
+.gpt-launcher-circle:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0, 51, 102, 0.2);
+  background: #dff0ff;
+}
+
+.gpt-launcher-descriptor {
+  margin: 0.6rem 0 0;
+  font-size: 0.86rem;
+  color: #444;
+  max-width: 20ch;
+}
+
+.challenge-scenarios-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+  margin-top: 0.75rem;
+}
+
+.challenge-card {
+  border: 1px solid #d7dfe7;
+  border-radius: 8px;
+  padding: 0.85rem;
+  background: #fcfdff;
+}
+
+.challenge-card-header h4 {
+  margin: 0;
+  color: #003366;
+}
+
+.challenge-card-header p {
+  margin: 0.45rem 0 0.65rem;
+}
+
+.challenge-meta p {
+  margin: 0.35rem 0;
+}
+
+.topic-tag-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.35rem 0 0.55rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.topic-tag {
+  background: #e7f3ff;
+  color: #003366;
+  border: 1px solid #b9d7f2;
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.challenge-prompt-block label {
+  display: inline-block;
+  margin-top: 0.2rem;
+  margin-bottom: 0.35rem;
+}
+
+.challenge-prompt {
+  width: 100%;
+  min-height: 92px;
+  border: 1px solid #cfd8e2;
+  border-radius: 6px;
+  padding: 0.55rem;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  box-sizing: border-box;
+  resize: vertical;
+  background: #fff;
+}
+
+.challenge-actions {
+  margin-top: 0.65rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.copy-prompt-btn,
+.open-gpt-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.86rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.copy-prompt-btn {
+  background-color: #0078d7;
+  color: #fff;
+}
+
+.copy-prompt-btn:hover,
+.copy-prompt-btn:focus-visible {
+  background-color: #005a9e;
+}
+
+.open-gpt-btn {
+  background-color: #eef3f8;
+  color: #003366;
+  border: 1px solid #c9d6e4;
+}
+
+.open-gpt-btn:hover,
+.open-gpt-btn:focus-visible {
+  background-color: #dfeaf7;
+}
+
+.copy-status {
+  font-size: 0.84rem;
+  color: #1f7a1f;
+  min-width: 3.2rem;
+}

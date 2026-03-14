@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>PHPM Applied Exam | Landing Page Scaffold</title>
+    <title>PHPM Applied Exam | Practice Hub</title>
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   </head>
@@ -18,18 +18,30 @@
 
     <main class="applied-page">
       <section class="applied-hero" aria-labelledby="applied-overview">
-        <h2 id="applied-overview">Applied Exam Landing Page (Scaffold)</h2>
+        <h2 id="applied-overview">Applied Exam Practice Hub</h2>
         <p>
-          This page is the first implementation pass for the Royal College PHPM applied oral exam preparation track.
-          It is a static scaffold only, designed for review before section-specific functionality is built.
+          This page supports focused preparation for the Royal College PHPM applied oral exam using deterministic,
+          prewritten resources. Start with a GPT launcher, then use a curated station prompt for deliberate practice.
         </p>
       </section>
 
       <section class="applied-section" aria-labelledby="section-start-practising">
         <h3 id="section-start-practising">Start practising now</h3>
-        <p>Quick entry point for a focused mock oral station run.</p>
+        <p>Launch one of the practice GPTs below. Each launcher is defined from local static data.</p>
+        <div id="gpt-launcher-grid" class="gpt-launcher-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="applied-section" aria-labelledby="section-challenge-scenarios">
+        <h3 id="section-challenge-scenarios">Challenge Scenarios</h3>
+        <p>Use a deterministic station prompt, copy it, and open the recommended GPT for a mock oral run.</p>
+        <div id="challenge-scenarios-list" class="challenge-scenarios-list" aria-live="polite"></div>
+      </section>
+
+      <section class="applied-section" aria-labelledby="section-station-builder">
+        <h3 id="section-station-builder">Build-your-own station prompt</h3>
+        <p>Section 2B is intentionally deferred for the next session.</p>
         <div class="applied-placeholder">
-          Placeholder block: future controls for selecting immediate practice mode will be added in a later phase.
+          Coming next: deterministic local builder controls for assembling custom station prompts.
         </div>
       </section>
 
@@ -76,10 +88,12 @@
       <section class="applied-next-step" aria-label="Scope notes">
         <h3>Current scope note</h3>
         <p>
-          This first pass introduces only page structure, navigation, and placeholders. It does not include AI generation,
-          APIs, accounts, analytics, saved dashboards, or backend behavior.
+          This implementation uses only local static content and front-end behavior. It does not include AI generation,
+          backend APIs, accounts, analytics, or saved dashboards.
         </p>
       </section>
     </main>
+
+    <script src="applied-exam.js"></script>
   </body>
 </html>
