@@ -644,7 +644,7 @@ button.primary:hover {
 }
 
 .applied-page {
-  max-width: 900px;
+  max-width: 1040px;
   margin: 0 auto;
 }
 
@@ -653,8 +653,8 @@ button.primary:hover {
 .applied-next-step {
   background-color: #fff;
   border: 1px solid #e3e7ec;
-  border-radius: 8px;
-  padding: 1rem 1.1rem;
+  border-radius: 10px;
+  padding: 1rem 1.15rem;
   margin-bottom: 1rem;
 }
 
@@ -665,6 +665,46 @@ button.primary:hover {
   color: #003366;
 }
 
+.applied-hero-intro {
+  border-left: 5px solid #196f84;
+}
+
+.applied-intro-list {
+  margin: 0.6rem 0 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.applied-subtabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 1rem;
+}
+
+.applied-subtab {
+  border: 1px solid #c8d6e5;
+  border-radius: 999px;
+  background: #f4f7fb;
+  color: #17456c;
+  padding: 0.45rem 0.82rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.applied-subtab:hover,
+.applied-subtab:focus-visible {
+  background: #e8f0f8;
+}
+
+.applied-subtab.active {
+  background: #003366;
+  border-color: #003366;
+  color: #fff;
+}
+
 .applied-placeholder {
   border-left: 3px solid #0078d7;
   background-color: #f4f9ff;
@@ -672,78 +712,104 @@ button.primary:hover {
   margin-top: 0.75rem;
 }
 
-/* Applied Exam interactive sections (Section 1 + Section 2A) */
 .gpt-launcher-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  gap: 0.9rem;
   margin-top: 0.75rem;
 }
 
-.gpt-launcher-item {
-  display: flex;
-  flex-direction: column;
+.gpt-launcher-card {
+  border: 1px solid color-mix(in srgb, var(--topic-color), #ffffff 55%);
+  border-left-width: 4px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--topic-color), #ffffff 90%);
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 0.62rem;
   align-items: center;
-  text-align: center;
-}
-
-.gpt-launcher-circle {
-  width: 138px;
-  height: 138px;
-  border-radius: 50%;
-  border: 2px solid #0078d7;
-  background: linear-gradient(180deg, #f4f9ff 0%, #e7f3ff 100%);
-  color: #003366;
+  padding: 0.62rem;
   text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.8rem;
-  font-weight: 700;
-  font-size: 0.92rem;
-  line-height: 1.25;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  color: #0f2e4a;
 }
 
-.gpt-launcher-circle:hover,
-.gpt-launcher-circle:focus-visible {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(0, 51, 102, 0.2);
-  background: #dff0ff;
+.gpt-launcher-card:hover,
+.gpt-launcher-card:focus-visible {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.gpt-launcher-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid #dce4ee;
+}
+
+.gpt-launcher-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .gpt-launcher-descriptor {
-  margin: 0.6rem 0 0;
-  font-size: 0.86rem;
-  color: #444;
-  max-width: 20ch;
+  margin: 0.35rem 0 0;
+  font-size: 0.8rem;
+  color: #4a5f72;
+  padding-left: 0.2rem;
 }
 
 .challenge-scenarios-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.95rem;
-  margin-top: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.75rem;
 }
 
 .challenge-card {
   border: 1px solid #d7dfe7;
-  border-radius: 8px;
-  padding: 0.85rem;
+  border-radius: 10px;
   background: #fcfdff;
+  overflow: hidden;
 }
 
-.challenge-card-header h4 {
-  margin: 0;
+.challenge-toggle {
+  width: 100%;
+  border: none;
+  background: transparent;
+  text-align: left;
+  padding: 0.72rem;
+  cursor: pointer;
+  display: grid;
+  gap: 0.34rem;
+}
+
+.challenge-title {
   color: #003366;
+  font-weight: 700;
+  font-size: 0.95rem;
 }
 
-.challenge-card-header p {
-  margin: 0.45rem 0 0.65rem;
+.challenge-context {
+  color: #3c4c5d;
+  font-size: 0.84rem;
 }
 
-.challenge-meta p {
-  margin: 0.35rem 0;
+.challenge-hover-preview {
+  display: none;
+  font-size: 0.8rem;
+  color: #54677b;
+}
+
+@media (hover: hover) {
+  .challenge-card:not([data-expanded='true']) .challenge-toggle:hover .challenge-hover-preview,
+  .challenge-card:not([data-expanded='true']) .challenge-toggle:focus-visible .challenge-hover-preview {
+    display: block;
+  }
+}
+
+.challenge-details {
+  border-top: 1px solid #e6edf5;
+  padding: 0.72rem;
 }
 
 .topic-tag-list {
@@ -755,14 +821,16 @@ button.primary:hover {
   gap: 0.4rem;
 }
 
-.topic-tag {
-  background: #e7f3ff;
-  color: #003366;
-  border: 1px solid #b9d7f2;
+.topic-tag,
+.recommended-gpt {
+  background: color-mix(in srgb, var(--topic-color), #ffffff 85%);
+  color: color-mix(in srgb, var(--topic-color), #000000 20%);
+  border: 1px solid color-mix(in srgb, var(--topic-color), #ffffff 58%);
   border-radius: 999px;
-  padding: 0.2rem 0.6rem;
-  font-size: 0.8rem;
-  font-weight: 600;
+  padding: 0.2rem 0.58rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  display: inline-flex;
 }
 
 .challenge-prompt-block label {
@@ -777,7 +845,7 @@ button.primary:hover {
   border: 1px solid #cfd8e2;
   border-radius: 6px;
   padding: 0.55rem;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   line-height: 1.35;
   box-sizing: border-box;
   resize: vertical;
@@ -830,31 +898,6 @@ button.primary:hover {
   font-size: 0.84rem;
   color: #1f7a1f;
   min-width: 3.2rem;
-}
-
-.applied-section-workbench {
-  border-color: #cfdced;
-}
-
-.section2-grid {
-  margin-top: 0.85rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1rem;
-  align-items: start;
-}
-
-.section2-panel {
-  border: 1px solid #d7dfe7;
-  border-radius: 8px;
-  padding: 0.85rem;
-  background: #fcfdff;
-}
-
-.section2-panel h4 {
-  margin-top: 0;
-  margin-bottom: 0.45rem;
-  color: #003366;
 }
 
 .builder-form {
