@@ -676,6 +676,89 @@ button.primary:hover {
   gap: 0.35rem;
 }
 
+
+.sample-exam-link-wrap {
+  margin: 0.85rem 0 0;
+}
+
+.sample-exam-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.62rem;
+  border: 1px solid #c9d8e8;
+  border-radius: 999px;
+  color: #12466f;
+  background: #f3f8fe;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.sample-exam-link:hover,
+.sample-exam-link:focus-visible {
+  background: #e4eefb;
+}
+
+.applied-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.applied-mini-card,
+.applied-topic-card,
+.study-debrief-card {
+  border: 1px solid #d9e2ec;
+  border-radius: 10px;
+  background: #fbfdff;
+  padding: 0.75rem;
+}
+
+.applied-mini-card h4,
+.applied-topic-card h4,
+.study-debrief-card h4 {
+  margin: 0 0 0.45rem;
+  color: #143f66;
+  font-size: 0.93rem;
+}
+
+.applied-mini-card p,
+.applied-topic-card p,
+.applied-mini-card ul,
+.applied-topic-card ul,
+.study-debrief-card ul,
+.study-debrief-card p {
+  margin: 0;
+  color: #304b61;
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+.applied-mini-card ul,
+.applied-topic-card ul,
+.study-debrief-card ul {
+  padding-left: 1.1rem;
+  margin-top: 0.3rem;
+}
+
+.applied-topic-card .topic-tag-list {
+  margin-top: 0.4rem;
+}
+
+.applied-topic-card .topic-why {
+  margin-bottom: 0.4rem;
+}
+
+.study-debrief-card {
+  margin-top: 0.75rem;
+  border-left: 4px solid #196f84;
+}
+
+.study-week-card h4 {
+  margin-bottom: 0.4rem;
+}
 .applied-subtabs {
   display: flex;
   flex-wrap: wrap;
