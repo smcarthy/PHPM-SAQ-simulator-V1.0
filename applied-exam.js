@@ -1,199 +1,89 @@
 (function () {
-  const GPT_LAUNCHERS = [
-    {
-      id: 'gpt-outbreak-rapid-response',
-      title: 'Outbreak Rapid Response',
-      descriptor: 'Practice first-hour outbreak framing and immediate control actions.',
-      url: 'https://chat.openai.com/'
+  const TOPIC_META = {
+    all: {
+      id: 'all',
+      label: 'All PHPM Topics and Hot Topics',
+      icon: 'assets/applied/icons/all-phpm-topics-and-hot-topics.svg',
+      color: '#2e5da8'
     },
-    {
-      id: 'gpt-risk-communication',
-      title: 'Risk Communication Coach',
-      descriptor: 'Rehearse concise media and public messaging under uncertainty.',
-      url: 'https://chat.openai.com/'
+    'health-promotion': {
+      id: 'health-promotion',
+      label: 'Health Promotion, Chronic Diseases, Mental Health and Substance Use',
+      icon: 'assets/applied/icons/health-promotion-chronic-diseases-mental-health-and-substance-use.svg',
+      color: '#8d2f87'
     },
-    {
-      id: 'gpt-policy-advisor',
-      title: 'Policy Decision Advisor',
-      descriptor: 'Stress-test options, trade-offs, and decision rationales quickly.',
-      url: 'https://chat.openai.com/'
+    'communicable': {
+      id: 'communicable',
+      label: 'Communicable Diseases in Health Protection',
+      icon: 'assets/applied/icons/communicable-diseases-in-health-protection.svg',
+      color: '#b7472a'
     },
-    {
-      id: 'gpt-health-equity',
-      title: 'Health Equity Lens',
-      descriptor: 'Apply equity-first reasoning to intervention planning.',
-      url: 'https://chat.openai.com/'
+    'environment': {
+      id: 'environment',
+      label: 'Environmental, Occupational, Built Environment and Injuries',
+      icon: 'assets/applied/icons/environmental-occupational-built-environment-and-injuries.svg',
+      color: '#2e7d4f'
     },
-    {
-      id: 'gpt-indigenous-health',
-      title: 'Indigenous Health Considerations',
-      descriptor: 'Integrate respectful, community-partnered public health approaches.',
-      url: 'https://chat.openai.com/'
+    'systems': {
+      id: 'systems',
+      label: 'Health Systems, Policy, Law and Ethics',
+      icon: 'assets/applied/icons/health-systems-policy-law-and-ethics.svg',
+      color: '#196f84'
     },
-    {
-      id: 'gpt-program-evaluation',
-      title: 'Program Evaluation Planner',
-      descriptor: 'Build practical indicators, timelines, and evaluation methods.',
-      url: 'https://chat.openai.com/'
+    'methods': {
+      id: 'methods',
+      label: 'Population Health, Epidemiology, Methods and Basic Sciences',
+      icon: 'assets/applied/icons/population-health-epidemiology-methods-and-basic-sciences.svg',
+      color: '#4b4ea1'
     },
-    {
-      id: 'gpt-environmental-health',
-      title: 'Environmental Health Briefing',
-      descriptor: 'Structure hazard assessment and precautionary response plans.',
-      url: 'https://chat.openai.com/'
+    'management': {
+      id: 'management',
+      label: 'Management, Leadership and Program Planning',
+      icon: 'assets/applied/icons/management-leadership-and-program-planning.svg',
+      color: '#bf7a13'
     },
-    {
-      id: 'gpt-emergency-preparedness',
-      title: 'Emergency Preparedness Drill',
-      descriptor: 'Run command, coordination, and surge-capacity scenarios.',
-      url: 'https://chat.openai.com/'
+    'emergency': {
+      id: 'emergency',
+      label: 'Emergency Preparedness and Response',
+      icon: 'assets/applied/icons/emergency-preparedness-and-response.svg',
+      color: '#a02929'
     },
-    {
-      id: 'gpt-ethics-governance',
-      title: 'Ethics & Governance Support',
-      descriptor: 'Practice defensible recommendations for contested decisions.',
-      url: 'https://chat.openai.com/'
+    'maternal': {
+      id: 'maternal',
+      label: 'Maternal and Child Health',
+      icon: 'assets/applied/icons/maternal-and-child-health.svg',
+      color: '#c24e7b'
     }
+  };
+
+  const GPT_LAUNCHERS = [
+    { id: 'gpt-all', topicId: 'all', title: 'All PHPM Topics and Hot Topics', descriptor: 'Broad mixed rehearsal across all domains.', url: 'https://chat.openai.com/' },
+    { id: 'gpt-health-promotion', topicId: 'health-promotion', title: 'Health Promotion, Chronic Diseases, Mental Health and Substance Use', descriptor: 'Prevention and chronic disease oral station practice.', url: 'https://chat.openai.com/' },
+    { id: 'gpt-communicable', topicId: 'communicable', title: 'Communicable Diseases in Health Protection', descriptor: 'Outbreak control and communicable disease response drills.', url: 'https://chat.openai.com/' },
+    { id: 'gpt-environment', topicId: 'environment', title: 'Environmental, Occupational, Built Environment and Injuries', descriptor: 'Environmental hazards and injury prevention framing.', url: 'https://chat.openai.com/' },
+    { id: 'gpt-systems', topicId: 'systems', title: 'Health Systems, Policy, Law and Ethics', descriptor: 'Policy, law and ethics argument practice.', url: 'https://chat.openai.com/' },
+    { id: 'gpt-methods', topicId: 'methods', title: 'Population Health, Epidemiology, Methods and Basic Sciences', descriptor: 'Methods-heavy interpretation and epidemiology reasoning.', url: 'https://chat.openai.com/' },
+    { id: 'gpt-management', topicId: 'management', title: 'Management, Leadership and Program Planning', descriptor: 'Leadership and implementation planning stations.', url: 'https://chat.openai.com/' },
+    { id: 'gpt-emergency', topicId: 'emergency', title: 'Emergency Preparedness and Response', descriptor: 'Incident command and emergency planning simulation.', url: 'https://chat.openai.com/' },
+    { id: 'gpt-maternal', topicId: 'maternal', title: 'Maternal and Child Health', descriptor: 'Maternal-child health interventions and policy drills.', url: 'https://chat.openai.com/' }
   ];
 
   const CHALLENGE_SCENARIOS = [
-    {
-      title: 'Long-term care respiratory outbreak escalation',
-      context: 'Cases are rising over 48 hours with staff shortages and anxious families.',
-      topicLabels: ['Outbreak Management', 'Communicable Disease Control', 'Risk Communication'],
-      recommendedGptId: 'gpt-outbreak-rapid-response',
-      prompt: 'You are the on-call PHPM resident for a regional unit. In 8 minutes, outline your first-hour outbreak response plan for an escalating respiratory outbreak in a long-term care home, including immediate control measures, data needs, communication priorities, and decision thresholds for escalation.'
-    },
-    {
-      title: 'Measles exposure at a mass gathering',
-      context: 'A confirmed case attended a weekend festival with interprovincial attendees.',
-      topicLabels: ['Vaccine-Preventable Diseases', 'Contact Management', 'Public Health Law'],
-      recommendedGptId: 'gpt-outbreak-rapid-response',
-      prompt: 'Act as examiner. Ask me to present a structured response to a measles exposure event after a mass gathering, including case/contact prioritization, post-exposure prophylaxis strategy, legal powers, and operational communication with partners.'
-    },
-    {
-      title: 'Boil-water advisory in a remote community',
-      context: 'A treatment failure has occurred with concerns about prolonged service disruption.',
-      topicLabels: ['Environmental Health', 'Indigenous Health', 'Emergency Management'],
-      recommendedGptId: 'gpt-indigenous-health',
-      prompt: 'Provide a mock oral station where I must lead the public health response to a boil-water advisory in a remote community. Test me on immediate risk mitigation, culturally safe communication, interagency coordination, and short-term surveillance actions.'
-    },
-    {
-      title: 'Heat wave mortality prevention plan',
-      context: 'Forecasted temperatures exceed historical thresholds for five consecutive days.',
-      topicLabels: ['Climate & Health', 'Health Equity', 'Emergency Preparedness'],
-      recommendedGptId: 'gpt-environmental-health',
-      prompt: 'Run a station on planning for an extreme heat event. Require me to identify priority populations, intervention triggers, municipal coordination, risk communication products, and outcome indicators for rapid monitoring.'
-    },
-    {
-      title: 'Needle-sharing HIV cluster in an urban core',
-      context: 'A cluster signal appears among people who use drugs with housing instability.',
-      topicLabels: ['STBBI Control', 'Harm Reduction', 'Health Equity'],
-      recommendedGptId: 'gpt-health-equity',
-      prompt: 'Simulate an oral exam station where I must propose a 30-day action plan for a suspected HIV transmission cluster linked to needle sharing, balancing rapid interventions, stigma reduction, and partner engagement.'
-    },
-    {
-      title: 'School refusal of routine immunization campaign',
-      context: 'Several schools report coordinated parental refusal and misinformation spread.',
-      topicLabels: ['Immunization Programs', 'Risk Communication', 'Program Planning'],
-      recommendedGptId: 'gpt-risk-communication',
-      prompt: 'Ask me to manage a station focused on declining school immunization uptake due to misinformation. Expect a clear strategy covering stakeholder mapping, communication tactics, clinical service supports, and monitoring metrics.'
-    },
-    {
-      title: 'Opioid overdose spike after toxic supply alert',
-      context: 'ED presentations and EMS calls have doubled in one week.',
-      topicLabels: ['Substance-Related Harms', 'Emergency Response', 'Systems Coordination'],
-      recommendedGptId: 'gpt-emergency-preparedness',
-      prompt: 'Create a mock oral prompt requiring an urgent public health response to a sudden overdose spike, including command structure, same-day harm-reduction actions, data dashboard priorities, and executive briefing points.'
-    },
-    {
-      title: 'Public backlash to tuberculosis contact investigation',
-      context: 'Community concerns are escalating around confidentiality and stigma.',
-      topicLabels: ['Tuberculosis Control', 'Ethics', 'Community Engagement'],
-      recommendedGptId: 'gpt-ethics-governance',
-      prompt: 'Present me with a TB contact investigation scenario where I must defend a plan that protects confidentiality, supports affected individuals, and maintains public trust while preserving epidemiologic effectiveness.'
-    },
-    {
-      title: 'Municipal council debate on supervised consumption expansion',
-      context: 'Council requests urgent recommendation with polarized public input.',
-      topicLabels: ['Public Health Policy', 'Evidence Appraisal', 'Health Equity'],
-      recommendedGptId: 'gpt-policy-advisor',
-      prompt: 'Run a station where I advise municipal council on expanding supervised consumption services. Assess my ability to synthesize evidence, address political concerns, articulate trade-offs, and propose implementation safeguards.'
-    },
-    {
-      title: 'Foodborne outbreak linked to multiple restaurants',
-      context: 'Early reports suggest common supplier involvement across municipalities.',
-      topicLabels: ['Food Safety', 'Outbreak Investigation', 'Interjurisdictional Coordination'],
-      recommendedGptId: 'gpt-outbreak-rapid-response',
-      prompt: 'Give me a station requiring management of a multi-restaurant foodborne outbreak investigation. Evaluate case definition refinement, traceback priorities, communication with inspection teams, and trigger points for public advisories.'
-    },
-    {
-      title: 'Program evaluation of a prenatal smoking cessation initiative',
-      context: 'Funding renewal depends on a practical and defensible evaluation framework.',
-      topicLabels: ['Program Evaluation', 'Maternal-Child Health', 'Performance Measurement'],
-      recommendedGptId: 'gpt-program-evaluation',
-      prompt: 'Create an oral exam prompt where I must design an evaluation plan for a prenatal smoking cessation program, including logic model elements, feasible indicators, data sources, equity considerations, and reporting cadence.'
-    }
+    { title: 'Long-term care respiratory outbreak escalation', context: 'Cases rise over 48 hours with staffing pressure.', topicIds: ['communicable', 'management'], recommendedGptId: 'gpt-communicable', prompt: 'You are the on-call PHPM resident. In 8 minutes, outline your first-hour response to an escalating respiratory outbreak in a long-term care home.' },
+    { title: 'Measles exposure at a mass gathering', context: 'A confirmed case attended a multijurisdictional festival.', topicIds: ['communicable', 'systems'], recommendedGptId: 'gpt-communicable', prompt: 'Present a structured measles exposure response plan including contact prioritization, prophylaxis, legal authority, and communication.' },
+    { title: 'Boil-water advisory in a remote community', context: 'Treatment failure with prolonged disruption risk.', topicIds: ['environment', 'emergency'], recommendedGptId: 'gpt-environment', prompt: 'Lead the public health response to a boil-water advisory, including culturally safe communication, risk mitigation, and coordination.' },
+    { title: 'Heat wave mortality prevention plan', context: 'Five-day extreme heat forecast above historical thresholds.', topicIds: ['environment', 'health-promotion'], recommendedGptId: 'gpt-environment', prompt: 'Develop a rapid heat response plan identifying priority populations, intervention triggers, and monitoring indicators.' },
+    { title: 'Needle-sharing HIV cluster in an urban core', context: 'Cluster signal with housing instability concerns.', topicIds: ['health-promotion', 'systems'], recommendedGptId: 'gpt-health-promotion', prompt: 'Propose a 30-day action plan for a suspected HIV cluster, balancing rapid intervention, stigma reduction, and partnerships.' },
+    { title: 'School refusal of routine immunization campaign', context: 'Coordinated refusal and misinformation spread.', topicIds: ['communicable', 'health-promotion'], recommendedGptId: 'gpt-communicable', prompt: 'Manage declining school immunization uptake with a strategy on communication, service support, and monitoring metrics.' },
+    { title: 'Opioid overdose spike after toxic supply alert', context: 'ED and EMS overdose demand doubled in one week.', topicIds: ['health-promotion', 'emergency'], recommendedGptId: 'gpt-emergency', prompt: 'Design an urgent overdose response plan with command structure, same-day harm reduction actions, and executive briefing points.' },
+    { title: 'Public backlash to TB contact investigation', context: 'Confidentiality and stigma concerns are escalating.', topicIds: ['communicable', 'systems'], recommendedGptId: 'gpt-systems', prompt: 'Defend a TB contact investigation plan protecting confidentiality, supporting affected people, and preserving epidemiologic effectiveness.' },
+    { title: 'Municipal council debate on supervised consumption expansion', context: 'Urgent recommendation needed amid polarized input.', topicIds: ['systems', 'health-promotion'], recommendedGptId: 'gpt-systems', prompt: 'Advise council on service expansion, addressing evidence, political concerns, trade-offs, and implementation safeguards.' },
+    { title: 'Foodborne outbreak linked to multiple restaurants', context: 'Possible common supplier across municipalities.', topicIds: ['communicable', 'methods'], recommendedGptId: 'gpt-communicable', prompt: 'Manage a multi-site foodborne outbreak with case definition refinement, traceback priorities, and advisory trigger points.' },
+    { title: 'Prenatal smoking cessation program evaluation', context: 'Funding renewal depends on defensible evaluation design.', topicIds: ['maternal', 'methods', 'management'], recommendedGptId: 'gpt-maternal', prompt: 'Design a pragmatic evaluation plan with logic model elements, feasible indicators, data sources, equity considerations, and reporting cadence.' }
   ];
 
   const STATION_BUILDER_CONFIG = {
-    topics: [
-      {
-        id: 'outbreak-management',
-        label: 'Outbreak Management',
-        topicLabels: ['Outbreak Management', 'Communicable Disease Control'],
-        recommendedGptByFormat: {
-          'rapid-briefing': 'gpt-outbreak-rapid-response',
-          'media-briefing': 'gpt-risk-communication',
-          default: 'gpt-outbreak-rapid-response'
-        }
-      },
-      {
-        id: 'risk-communication',
-        label: 'Risk Communication',
-        topicLabels: ['Risk Communication', 'Public Messaging'],
-        recommendedGptByFormat: {
-          'media-briefing': 'gpt-risk-communication',
-          default: 'gpt-risk-communication'
-        }
-      },
-      {
-        id: 'policy-governance',
-        label: 'Public Health Policy & Governance',
-        topicLabels: ['Public Health Policy', 'Ethics & Governance'],
-        recommendedGptByFormat: {
-          'stakeholder-advice': 'gpt-policy-advisor',
-          default: 'gpt-ethics-governance'
-        }
-      },
-      {
-        id: 'health-equity',
-        label: 'Health Equity',
-        topicLabels: ['Health Equity', 'Priority Populations'],
-        recommendedGptByFormat: {
-          'stakeholder-advice': 'gpt-health-equity',
-          default: 'gpt-health-equity'
-        }
-      },
-      {
-        id: 'environmental-health',
-        label: 'Environmental Health',
-        topicLabels: ['Environmental Health', 'Emergency Preparedness'],
-        recommendedGptByFormat: {
-          'rapid-briefing': 'gpt-environmental-health',
-          default: 'gpt-environmental-health'
-        }
-      },
-      {
-        id: 'program-evaluation',
-        label: 'Program Evaluation',
-        topicLabels: ['Program Evaluation', 'Performance Measurement'],
-        recommendedGptByFormat: {
-          'evaluation-design': 'gpt-program-evaluation',
-          default: 'gpt-program-evaluation'
-        }
-      }
-    ],
+    topics: Object.values(TOPIC_META).map((topic) => ({ id: topic.id, label: topic.label })),
     formats: [
       { id: 'rapid-briefing', label: 'Rapid response briefing' },
       { id: 'media-briefing', label: 'Media and public messaging' },
@@ -213,33 +103,38 @@
       { id: 'resource-constraint', label: 'Resource and staffing constraints' }
     ],
     difficulties: [
-      {
-        id: 'core',
-        label: 'Core',
-        timeBox: '8 minutes',
-        complexityNote: 'focus on first-principles structure and immediate actions'
-      },
-      {
-        id: 'advanced',
-        label: 'Advanced',
-        timeBox: '10 minutes',
-        complexityNote: 'include explicit trade-offs, legal/ethical considerations, and contingency triggers'
-      },
-      {
-        id: 'stretch',
-        label: 'Stretch',
-        timeBox: '12 minutes',
-        complexityNote: 'address uncertainty, interjurisdictional coordination, and adaptive escalation planning'
-      }
+      { id: 'core', label: 'Core', timeBox: '8 minutes', complexityNote: 'focus on first principles and immediate actions' },
+      { id: 'advanced', label: 'Advanced', timeBox: '10 minutes', complexityNote: 'include explicit trade-offs and legal/ethical considerations' },
+      { id: 'stretch', label: 'Stretch', timeBox: '12 minutes', complexityNote: 'address uncertainty and interjurisdictional escalation' }
     ]
   };
 
+  function escapeHtml(value) {
+    return String(value)
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;')
+      .replaceAll("'", '&#39;');
+  }
 
   function buildLauncherMap() {
     return GPT_LAUNCHERS.reduce((acc, launcher) => {
       acc[launcher.id] = launcher;
       return acc;
     }, {});
+  }
+
+  function renderTopicTags(topicIds) {
+    return topicIds
+      .map((topicId) => {
+        const topic = TOPIC_META[topicId];
+        if (!topic) {
+          return '';
+        }
+        return `<li class="topic-tag" style="--topic-color:${topic.color}">${escapeHtml(topic.label)}</li>`;
+      })
+      .join('');
   }
 
   function renderGptLaunchers() {
@@ -249,12 +144,14 @@
     }
 
     grid.innerHTML = GPT_LAUNCHERS.map((launcher) => {
+      const topic = TOPIC_META[launcher.topicId];
       return `
-        <article class="gpt-launcher-item">
-          <a class="gpt-launcher-circle" href="${launcher.url}" target="_blank" rel="noopener noreferrer" aria-label="Open ${launcher.title}">
-            <span>${launcher.title}</span>
+        <article class="gpt-launcher-item" style="--topic-color:${topic.color}">
+          <a class="gpt-launcher-card" href="${launcher.url}" target="_blank" rel="noopener noreferrer" aria-label="Open ${escapeHtml(launcher.title)}">
+            <img src="${topic.icon}" alt="${escapeHtml(launcher.title)} icon" class="gpt-launcher-icon" loading="lazy" />
+            <span class="gpt-launcher-title">${escapeHtml(launcher.title)}</span>
           </a>
-          <p class="gpt-launcher-descriptor">${launcher.descriptor}</p>
+          <p class="gpt-launcher-descriptor">${escapeHtml(launcher.descriptor)}</p>
         </article>
       `;
     }).join('');
@@ -269,36 +166,57 @@
     const launchersById = buildLauncherMap();
 
     list.innerHTML = CHALLENGE_SCENARIOS.map((scenario, index) => {
-      const launcher = launchersById[scenario.recommendedGptId];
-      const topicTags = scenario.topicLabels
-        .map((label) => `<li class="topic-tag">${label}</li>`)
-        .join('');
-      const gptTitle = launcher ? launcher.title : 'TBD GPT';
-      const gptUrl = launcher ? launcher.url : 'https://chat.openai.com/';
+      const launcher = launchersById[scenario.recommendedGptId] || launchersById['gpt-all'];
+      const recommendedTopic = TOPIC_META[launcher.topicId];
 
       return `
-        <article class="challenge-card">
-          <div class="challenge-card-header">
-            <h4>${index + 1}. ${scenario.title}</h4>
-            <p>${scenario.context}</p>
-          </div>
-          <div class="challenge-meta">
+        <article class="challenge-card" data-expanded="false">
+          <button type="button" class="challenge-toggle" aria-expanded="false">
+            <span class="challenge-title">${index + 1}. ${escapeHtml(scenario.title)}</span>
+            <span class="challenge-context">${escapeHtml(scenario.context)}</span>
+            <span class="challenge-hover-preview">${escapeHtml(scenario.prompt)}</span>
+          </button>
+          <div class="challenge-details" hidden>
             <p><strong>Official topic label(s):</strong></p>
-            <ul class="topic-tag-list">${topicTags}</ul>
-            <p><strong>Recommended GPT:</strong> ${gptTitle}</p>
-          </div>
-          <div class="challenge-prompt-block">
-            <label for="challenge-prompt-${index}"><strong>Station prompt</strong></label>
-            <textarea id="challenge-prompt-${index}" class="challenge-prompt" readonly>${scenario.prompt}</textarea>
-          </div>
-          <div class="challenge-actions">
-            <button type="button" class="copy-prompt-btn" data-copy-target="challenge-prompt-${index}">Copy prompt</button>
-            <span class="copy-status" aria-live="polite"></span>
-            <a href="${gptUrl}" class="open-gpt-btn" target="_blank" rel="noopener noreferrer">Open GPT</a>
+            <ul class="topic-tag-list">${renderTopicTags(scenario.topicIds)}</ul>
+            <p><strong>Recommended GPT:</strong> <span class="recommended-gpt" style="--topic-color:${recommendedTopic.color}">${escapeHtml(launcher.title)}</span></p>
+            <div class="challenge-prompt-block">
+              <label for="challenge-prompt-${index}"><strong>Station prompt</strong></label>
+              <textarea id="challenge-prompt-${index}" class="challenge-prompt" readonly>${escapeHtml(scenario.prompt)}</textarea>
+            </div>
+            <div class="challenge-actions">
+              <button type="button" class="copy-prompt-btn" data-copy-target="challenge-prompt-${index}">Copy prompt</button>
+              <span class="copy-status" aria-live="polite"></span>
+              <a href="${launcher.url}" class="open-gpt-btn" target="_blank" rel="noopener noreferrer">Open GPT</a>
+            </div>
           </div>
         </article>
       `;
     }).join('');
+  }
+
+  function bindChallengeExpansion() {
+    document.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLElement)) {
+        return;
+      }
+      const toggle = target.closest('.challenge-toggle');
+      if (!toggle) {
+        return;
+      }
+
+      const card = toggle.closest('.challenge-card');
+      const details = card ? card.querySelector('.challenge-details') : null;
+      if (!card || !details || !(details instanceof HTMLElement)) {
+        return;
+      }
+
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      card.dataset.expanded = String(!expanded);
+      details.hidden = expanded;
+    });
   }
 
   async function copyPromptFromTextarea(textareaId, statusNode) {
@@ -357,20 +275,16 @@
       return;
     }
 
-    select.innerHTML = options.map((option) => `<option value="${option.id}">${option.label}</option>`).join('');
+    select.innerHTML = options.map((option) => `<option value="${option.id}">${escapeHtml(option.label)}</option>`).join('');
   }
 
   function findBuilderOption(options, optionId) {
     return options.find((option) => option.id === optionId) || options[0];
   }
 
-  function resolveRecommendedGptId(topic, format) {
-    const formatSpecific = topic.recommendedGptByFormat[format.id];
-    if (formatSpecific) {
-      return formatSpecific;
-    }
-
-    return topic.recommendedGptByFormat.default || 'gpt-policy-advisor';
+  function resolveRecommendedGptId(topicId) {
+    const launcher = GPT_LAUNCHERS.find((item) => item.topicId === topicId);
+    return launcher ? launcher.id : 'gpt-all';
   }
 
   function buildStationPrompt(topic, format, setting, challenge, difficulty) {
@@ -381,8 +295,8 @@
       `Scenario setting: ${setting.label}.`,
       `Challenge type: ${challenge.label}.`,
       `Difficulty: ${difficulty.label} (${difficulty.timeBox}; ${difficulty.complexityNote}).`,
-      'Instructions for the station: Present a realistic Canadian public health scenario, then ask me to provide a structured response with priorities, rationale, immediate actions, and how I would communicate decisions to partners.',
-      'After my answer, provide concise examiner-style feedback with: (1) strengths, (2) missed priorities, (3) one high-yield refinement for the next attempt.'
+      'Present a realistic Canadian public health scenario, then ask for a structured response with priorities, rationale, immediate actions, and communication to partners.',
+      'After the answer, provide concise examiner-style feedback with strengths, missed priorities, and one refinement for next attempt.'
     ].join(' ');
   }
 
@@ -404,8 +318,9 @@
     const difficulty = findBuilderOption(STATION_BUILDER_CONFIG.difficulties, difficultySelect.value);
 
     const prompt = buildStationPrompt(topic, format, setting, challenge, difficulty);
-    const recommendedGptId = resolveRecommendedGptId(topic, format);
-    const recommendedLauncher = launchersById[recommendedGptId] || { title: 'OpenAI Chat', url: 'https://chat.openai.com/' };
+    const recommendedGptId = resolveRecommendedGptId(topic.id);
+    const recommendedLauncher = launchersById[recommendedGptId] || launchersById['gpt-all'];
+    const recommendedTopic = TOPIC_META[recommendedLauncher.topicId];
 
     const topicTagsList = document.getElementById('builder-topic-tags');
     const promptField = document.getElementById('builder-prompt');
@@ -413,7 +328,7 @@
     const openGptLink = document.getElementById('builder-open-gpt');
 
     if (topicTagsList) {
-      topicTagsList.innerHTML = topic.topicLabels.map((label) => `<li class="topic-tag">${label}</li>`).join('');
+      topicTagsList.innerHTML = `<li class="topic-tag" style="--topic-color:${recommendedTopic.color}">${escapeHtml(topic.label)}</li>`;
     }
 
     if (promptField) {
@@ -422,6 +337,8 @@
 
     if (recommendedGptNode) {
       recommendedGptNode.textContent = recommendedLauncher.title;
+      recommendedGptNode.style.setProperty('--topic-color', recommendedTopic.color);
+      recommendedGptNode.classList.add('recommended-gpt');
     }
 
     if (openGptLink) {
@@ -450,10 +367,40 @@
     });
   }
 
+  function bindSubTabs() {
+    const tabs = Array.from(document.querySelectorAll('.applied-subtab'));
+    const panels = Array.from(document.querySelectorAll('.applied-subtab-panel'));
+    if (!tabs.length || !panels.length) {
+      return;
+    }
+
+    function activate(tab) {
+      const targetId = tab.getAttribute('data-panel');
+      tabs.forEach((item) => {
+        const selected = item === tab;
+        item.classList.toggle('active', selected);
+        item.setAttribute('aria-selected', String(selected));
+        item.tabIndex = selected ? 0 : -1;
+      });
+
+      panels.forEach((panel) => {
+        const show = panel.id === targetId;
+        panel.hidden = !show;
+      });
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => activate(tab));
+    });
+
+    activate(tabs[0]);
+  }
 
   function initializeAppliedExamPage() {
     renderGptLaunchers();
     renderChallengeScenarios();
+    bindSubTabs();
+    bindChallengeExpansion();
     bindCopyActions();
     initializeStationBuilder();
   }
