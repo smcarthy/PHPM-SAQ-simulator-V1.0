@@ -763,6 +763,7 @@ button.primary:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 0.55rem;
+  margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -786,6 +787,56 @@ button.primary:hover {
   background: #003366;
   border-color: #003366;
   color: #fff;
+}
+
+.applied-home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.applied-motivating-line {
+  margin-top: 0.65rem;
+  padding: 0.55rem 0.65rem;
+  border-left: 4px solid #196f84;
+  background: #f4f9ff;
+  border-radius: 8px;
+}
+
+.today-challenge-card {
+  margin-top: 0.75rem;
+  border-left: 4px solid #2e5da8;
+}
+
+.home-quick-action,
+.home-return-btn {
+  border: 1px solid #c8d6e5;
+  border-radius: 999px;
+  background: #f4f7fb;
+  color: #17456c;
+  padding: 0.42rem 0.75rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.home-quick-action:hover,
+.home-quick-action:focus-visible,
+.home-return-btn:hover,
+.home-return-btn:focus-visible {
+  background: #e8f0f8;
+}
+
+.applied-resource-strip {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.applied-home-controls {
+  margin: 0 0 0.75rem;
 }
 
 .applied-placeholder {
