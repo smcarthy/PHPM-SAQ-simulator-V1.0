@@ -17,57 +17,83 @@
     </header>
 
     <main class="applied-page">
-      <section class="applied-hero applied-hero-intro" aria-labelledby="applied-overview">
-        <h2 id="applied-overview">Applied Exam Practice Hub</h2>
-        <p>
-          This page is a static workspace for Royal College PHPM applied oral preparation. It complements the Written SAQ simulator with
-          decision-focused station practice, concise structure drills, and realistic timed prompts.
-        </p>
-        <ul class="applied-intro-list">
-          <li><strong>What this page is:</strong> a local-only applied-exam companion, separate from the Written SAQ runtime path.</li>
-          <li><strong>What it offers:</strong> nine topic GPT launchers, challenge scenarios, a station-prompt builder, and high-yield review tabs.</li>
-          <li><strong>How it is organized:</strong> six focused sub-tabs so you can rehearse one practice mode at a time.</li>
-          <li><strong>How to use it:</strong> choose one station, answer in a clear structure, then debrief what mattered, what you recommended, and what to refine.</li>
-        </ul>
-        <p class="sample-exam-link-wrap">
-          <a
-            class="sample-exam-link"
-            href="https://www.royalcollege.ca/ca/en/exam-eligibility-admission/exam-format-and-sample-questions.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Royal College official exam format and sample questions</a
-          >
-        </p>
-        <ul class="applied-intro-list">
-          <li><strong>What this page is:</strong> a static applied-exam companion, separate from the Written SAQ flow.</li>
-          <li><strong>What it offers:</strong> nine topic launchers, eleven challenge scenarios, and structured practice scaffolds.</li>
-          <li><strong>How it is organized:</strong> six focused sub-tabs so only one work area is open at a time.</li>
-        </ul>
-      </section>
-
       <nav class="applied-subtabs" aria-label="Applied exam sections" role="tablist">
-        <button type="button" class="applied-subtab active" role="tab" aria-selected="true" data-panel="panel-start-practising">Start Practising</button>
-        <button type="button" class="applied-subtab" role="tab" aria-selected="false" data-panel="panel-challenge-scenarios">Challenge Scenarios</button>
-        <button type="button" class="applied-subtab" role="tab" aria-selected="false" data-panel="panel-builder">Build a Station Prompt</button>
-        <button type="button" class="applied-subtab" role="tab" aria-selected="false" data-panel="panel-exam-tests">What the Exam Tests</button>
-        <button type="button" class="applied-subtab" role="tab" aria-selected="false" data-panel="panel-hot-topics">Hot Topics in Public Health</button>
-        <button type="button" class="applied-subtab" role="tab" aria-selected="false" data-panel="panel-study-planner">Study Planner and Self-Improvement</button>
+        <button id="tab-start-practising" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-start-practising" data-panel="panel-start-practising">Start Practising</button>
+        <button id="tab-challenge-scenarios" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-challenge-scenarios" data-panel="panel-challenge-scenarios">Challenge Scenarios</button>
+        <button id="tab-builder" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-builder" data-panel="panel-builder">Build a Mock Oral Station Prompt</button>
+        <button id="tab-exam-tests" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-exam-tests" data-panel="panel-exam-tests">What the RC Exam Tests</button>
+        <button id="tab-hot-topics" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-hot-topics" data-panel="panel-hot-topics">Hot Topics in Public Health</button>
+        <button id="tab-study-planner" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-study-planner" data-panel="panel-study-planner">Study Planner and Self-Improvement</button>
       </nav>
 
-      <section id="panel-start-practising" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="section-start-practising">
+      <section id="applied-home" class="applied-hero applied-hero-intro" aria-labelledby="applied-overview" data-home-panel>
+        <h2 id="applied-overview">Applied Exam Practice Hub</h2>
+        <p>
+          This page is your practice hub for Royal College Public Health and Preventive Medicine applied-exam preparation. It is designed to
+          complement study groups, AHD mock orals, preceptor practice, and National Review Course preparation.
+        </p>
+        <p>
+          The hub gives you a structured place to launch topic-specific Custom GPTs, rehearse realistic oral stations, fill practice gaps,
+          and sharpen concise, defensible responses under time pressure.
+        </p>
+        <p class="applied-guiding-line">
+          You do not need to predict the exact station to do well. Residents need repeated practice giving clear, safe, structured public health answers across a wide range of realistic scenarios. These scenarios can help you practice a new framework or weaker topic area in a safe space prior to live practice with a peer or preceptor.
+        </p>
+
+        <div class="applied-home-grid">
+          <article class="applied-mini-card">
+            <h3>What this page offers</h3>
+            <ul class="applied-intro-list">
+              <li>Nine topic-based Custom GPT launchers mapped to applied-exam content.</li>
+              <li>Curated challenge scenarios for realistic oral practice.</li>
+              <li>A build-a-station prompt tool for tailored mock oral prep.</li>
+              <li>Concise review tabs on what the RC exam tests and prep for exam day.</li>
+              <li>Suggestions for hot topics and a final-month study planner.</li>
+            </ul>
+          </article>
+          <article class="applied-mini-card">
+            <h3>How to use the hub</h3>
+            <ul class="applied-intro-list">
+              <li>Pick one section button above to focus on one practice mode at a time.</li>
+              <li>Run short, repeated stations and prioritize structure, judgment, and safety.</li>
+              <li>Debrief immediately: what mattered most, what recommendation was safest, and what to improve next.</li>
+            </ul>
+          </article>
+        </div>
+
+        <article class="applied-mini-card today-challenge-card" aria-labelledby="today-challenge-title">
+          <h3 id="today-challenge-title">Today's Challenge</h3>
+          <p><strong>Quick start:</strong> Long-term care respiratory outbreak escalation.</p>
+          <p>Use this to practise a first-hour response with priorities, communication, and defensible recommendations.</p>
+          <button type="button" class="home-quick-action" data-open-panel="panel-challenge-scenarios">Open in Challenge Scenarios</button>
+        </article>
+
+        <div class="applied-resource-strip" aria-label="Official Royal College resources">
+          <a class="sample-exam-link" href="https://www.royalcollege.ca/en/eligibility-and-exams/exam-formats/public-health-and-preventive-medicine-exam-format.html" target="_blank" rel="noopener noreferrer">Exam format</a>
+          <a class="sample-exam-link" href="https://www.royalcollege.ca/content/dam/documents/ibd/public-health-and-preventive-medicine/2025-phpm-sample-applied-exam-e.pdf" target="_blank" rel="noopener noreferrer">Sample applied exam</a>
+          <a class="sample-exam-link" href="https://www.royalcollege.ca/content/dam/documents/ibd/public-health-and-preventive-medicine/public-health-preventive-medicine-otr-e.pdf" target="_blank" rel="noopener noreferrer">2014 objectives of training</a>
+          <a class="sample-exam-link" href="https://www.royalcollege.ca/content/dam/documents/ibd/public-health-and-preventive-medicine/phpm-competencies-e.pdf" target="_blank" rel="noopener noreferrer">2025 objectives of training</a>
+        </div>
+      </section>
+
+      <div class="applied-home-controls" data-home-controls hidden>
+        <button type="button" class="home-return-btn" data-open-home>← Back to Applied Hub Home</button>
+      </div>
+
+      <section id="panel-start-practising" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="tab-start-practising" hidden>
         <h3 id="section-start-practising">Start Practising</h3>
         <p>Launch one of the nine canonical topic GPTs with approved labels and icon mapping.</p>
         <div id="gpt-launcher-grid" class="gpt-launcher-grid" aria-live="polite"></div>
       </section>
 
-      <section id="panel-challenge-scenarios" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="section-challenge-scenarios" hidden>
+      <section id="panel-challenge-scenarios" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="tab-challenge-scenarios" hidden>
         <h3 id="section-challenge-scenarios">Challenge Scenarios</h3>
         <p>Cards stay compact by default. Hover to preview on desktop, then click or tap to expand full station details.</p>
         <div id="challenge-scenarios-list" class="challenge-scenarios-list" aria-live="polite"></div>
       </section>
 
-      <section id="panel-builder" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="section-station-builder" hidden>
-        <h3 id="section-station-builder">Build a Station Prompt</h3>
+      <section id="panel-builder" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="tab-builder" hidden>
+        <h3 id="section-station-builder">Build a Mock Oral Station Prompt</h3>
         <p>Choose a high-yield combination and generate a deterministic local station prompt for copy/paste.</p>
 
         <form id="builder-form" class="builder-form" autocomplete="off">
@@ -105,30 +131,22 @@
         </div>
       </section>
 
-      <section id="panel-exam-tests" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="section-exam-testing" hidden>
+      <section id="panel-exam-tests" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="tab-exam-tests" hidden>
         <h3 id="section-exam-testing">What the Exam Tests</h3>
         <p>Use this as a quick station checklist: aim for clear logic, practical recommendations, and defensible judgment in real-time oral discussion.</p>
         <div id="exam-tests-grid" class="applied-card-grid" aria-live="polite"></div>
       </section>
 
-      <section id="panel-hot-topics" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="section-hot-topics" hidden>
+      <section id="panel-hot-topics" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="tab-hot-topics" hidden>
         <h3 id="section-hot-topics">Hot Topics in Public Health</h3>
         <p>Concise high-yield topics for mock stations. Focus on how you would decide, communicate, and act.</p>
         <div id="hot-topics-grid" class="applied-card-grid hot-topics-grid" aria-live="polite"></div>
       </section>
 
-      <section id="panel-study-planner" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="section-study-planner" hidden>
+      <section id="panel-study-planner" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="tab-study-planner" hidden>
         <h3 id="section-study-planner">Study Planner and Self-Improvement</h3>
         <p>Four practical weeks to sharpen concise key messages, structure, and confidence under applied-exam timing.</p>
         <div id="study-planner-content" aria-live="polite"></div>
-      </section>
-
-      <section class="applied-next-step" aria-label="Scope notes">
-        <h3>Current scope note</h3>
-        <p>
-          This implementation remains static and local only. It includes no backend APIs, analytics, authentication,
-          or AI generation on-page.
-        </p>
       </section>
     </main>
 

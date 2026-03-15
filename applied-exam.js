@@ -538,8 +538,30 @@
   function bindSubTabs() {
     const tabs = Array.from(document.querySelectorAll('.applied-subtab'));
     const panels = Array.from(document.querySelectorAll('.applied-subtab-panel'));
+    const homePanel = document.querySelector('[data-home-panel]');
+    const homeControls = document.querySelector('[data-home-controls]');
     if (!tabs.length || !panels.length) {
       return;
+    }
+
+    function showHome() {
+      tabs.forEach((item) => {
+        item.classList.remove('active');
+        item.setAttribute('aria-selected', 'false');
+        item.tabIndex = 0;
+      });
+
+      panels.forEach((panel) => {
+        panel.hidden = true;
+      });
+
+      if (homePanel instanceof HTMLElement) {
+        homePanel.hidden = false;
+      }
+
+      if (homeControls instanceof HTMLElement) {
+        homeControls.hidden = true;
+      }
     }
 
     function activate(tab) {
@@ -555,6 +577,14 @@
         const show = panel.id === targetId;
         panel.hidden = !show;
       });
+
+      if (homePanel instanceof HTMLElement) {
+        homePanel.hidden = true;
+      }
+
+      if (homeControls instanceof HTMLElement) {
+        homeControls.hidden = false;
+      }
     }
 
     tabs.forEach((tab, index) => {
@@ -582,7 +612,40 @@
       });
     });
 
-    activate(tabs[0]);
+    const homeButtons = Array.from(document.querySelectorAll('[data-open-home]'));
+    homeButtons.forEach((button) => {
+      button.addEventListener('click', showHome);
+    });
+
+    const quickOpenButtons = Array.from(document.querySelectorAll('[data-open-panel]'));
+    quickOpenButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const targetPanel = button.getAttribute('data-open-panel');
+        const targetTab = tabs.find((tab) => tab.getAttribute('data-panel') === targetPanel);
+        if (targetTab) {
+          activate(targetTab);
+          targetTab.focus();
+        }
+      });
+    });
+
+    showHome();
+  }
+
+
+  function bindLauncherIconFallbacks() {
+    const icons = Array.from(document.querySelectorAll('.gpt-launcher-icon'));
+    icons.forEach((icon) => {
+      icon.addEventListener('error', () => {
+        const wrapper = icon.closest('.gpt-launcher-card');
+        if (!(wrapper instanceof HTMLElement)) {
+          return;
+        }
+
+        icon.hidden = true;
+        wrapper.style.gridTemplateColumns = '1fr';
+      }, { once: true });
+    });
   }
 
   function initializeAppliedExamPage() {
