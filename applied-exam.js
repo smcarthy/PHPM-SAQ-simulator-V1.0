@@ -587,6 +587,7 @@
 
   function initializeAppliedExamPage() {
     renderGptLaunchers();
+    bindLauncherIconFallbacks();
     renderChallengeScenarios();
     renderExamTests();
     renderHotTopics();
