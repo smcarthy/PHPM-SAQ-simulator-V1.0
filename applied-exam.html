@@ -17,117 +17,103 @@
     </header>
 
     <main class="applied-page">
-      <section class="applied-hero" aria-labelledby="applied-overview">
+      <section class="applied-hero applied-hero-intro" aria-labelledby="applied-overview">
         <h2 id="applied-overview">Applied Exam Practice Hub</h2>
         <p>
-          This page supports focused preparation for the Royal College PHPM applied oral exam using deterministic,
-          prewritten resources. Start with a GPT launcher, then use a curated station prompt for deliberate practice.
+          This page is a dedicated landing workspace for deterministic Royal College PHPM applied oral practice.
+          It offers quick GPT launch access, compact challenge scenarios, and a local station-prompt builder for
+          repeatable mock runs.
         </p>
+        <ul class="applied-intro-list">
+          <li><strong>What this page is:</strong> a static applied-exam companion, separate from the Written SAQ flow.</li>
+          <li><strong>What it offers:</strong> nine topic launchers, eleven challenge scenarios, and structured practice scaffolds.</li>
+          <li><strong>How it is organized:</strong> six focused sub-tabs so only one work area is open at a time.</li>
+        </ul>
       </section>
 
-      <section class="applied-section" aria-labelledby="section-start-practising">
-        <h3 id="section-start-practising">Start practising now</h3>
-        <p>Launch one of the practice GPTs below. Each launcher is defined from local static data.</p>
+      <nav class="applied-subtabs" aria-label="Applied exam sections" role="tablist">
+        <button type="button" class="applied-subtab active" role="tab" aria-selected="true" data-panel="panel-start-practising">Start Practising</button>
+        <button type="button" class="applied-subtab" role="tab" aria-selected="false" data-panel="panel-challenge-scenarios">Challenge Scenarios</button>
+        <button type="button" class="applied-subtab" role="tab" aria-selected="false" data-panel="panel-builder">Build a Station Prompt</button>
+        <button type="button" class="applied-subtab" role="tab" aria-selected="false" data-panel="panel-exam-tests">What the Exam Tests</button>
+        <button type="button" class="applied-subtab" role="tab" aria-selected="false" data-panel="panel-hot-topics">Hot Topics in Public Health</button>
+        <button type="button" class="applied-subtab" role="tab" aria-selected="false" data-panel="panel-study-planner">Study Planner and Self-Improvement</button>
+      </nav>
+
+      <section id="panel-start-practising" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="section-start-practising">
+        <h3 id="section-start-practising">Start Practising</h3>
+        <p>Launch one of the nine canonical topic GPTs using the approved labels and icon set.</p>
         <div id="gpt-launcher-grid" class="gpt-launcher-grid" aria-live="polite"></div>
       </section>
 
-      <section class="applied-section applied-section-workbench" aria-labelledby="section-station-workbench">
-        <h3 id="section-station-workbench">Section 2: Station Prompt Workbench</h3>
-        <p>Use curated scenarios (2A) or assemble your own deterministic prompt (2B), then run the station in the recommended GPT.</p>
+      <section id="panel-challenge-scenarios" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="section-challenge-scenarios" hidden>
+        <h3 id="section-challenge-scenarios">Challenge Scenarios</h3>
+        <p>Compact card view by default. Hover to preview on desktop, then click/tap to expand full station details.</p>
+        <div id="challenge-scenarios-list" class="challenge-scenarios-list" aria-live="polite"></div>
+      </section>
 
-        <div class="section2-grid">
-          <article class="section2-panel" aria-labelledby="section-challenge-scenarios">
-            <h4 id="section-challenge-scenarios">2A. Curated Challenge Scenarios</h4>
-            <p>Use a deterministic station prompt, copy it, and open the recommended GPT for a mock oral run.</p>
-            <div id="challenge-scenarios-list" class="challenge-scenarios-list" aria-live="polite"></div>
-          </article>
+      <section id="panel-builder" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="section-station-builder" hidden>
+        <h3 id="section-station-builder">Build a Station Prompt</h3>
+        <p>Choose a high-yield combination and generate a deterministic station prompt locally for copy/paste.</p>
 
-          <article class="section2-panel" aria-labelledby="section-station-builder">
-            <h4 id="section-station-builder">2B. Build-your-own station prompt</h4>
-            <p>Choose a small set of high-yield inputs. The builder assembles a polished prompt locally for copy/paste into a GPT.</p>
+        <form id="builder-form" class="builder-form" autocomplete="off">
+          <label for="builder-topic">Official topic area</label>
+          <select id="builder-topic" name="topic"></select>
 
-            <form id="builder-form" class="builder-form" autocomplete="off">
-              <label for="builder-topic">Official topic area</label>
-              <select id="builder-topic" name="topic"></select>
+          <label for="builder-format">Station format</label>
+          <select id="builder-format" name="format"></select>
 
-              <label for="builder-format">Station format</label>
-              <select id="builder-format" name="format"></select>
+          <label for="builder-setting">Scenario setting</label>
+          <select id="builder-setting" name="setting"></select>
 
-              <label for="builder-setting">Scenario setting</label>
-              <select id="builder-setting" name="setting"></select>
+          <label for="builder-challenge">Challenge type</label>
+          <select id="builder-challenge" name="challenge"></select>
 
-              <label for="builder-challenge">Challenge type</label>
-              <select id="builder-challenge" name="challenge"></select>
+          <label for="builder-difficulty">Difficulty</label>
+          <select id="builder-difficulty" name="difficulty"></select>
+        </form>
 
-              <label for="builder-difficulty">Difficulty</label>
-              <select id="builder-difficulty" name="difficulty"></select>
-            </form>
+        <div id="builder-output" class="builder-output" aria-live="polite">
+          <p><strong>Official topic label(s):</strong></p>
+          <ul id="builder-topic-tags" class="topic-tag-list"></ul>
+          <p><strong>Recommended GPT:</strong> <span id="builder-recommended-gpt"></span></p>
 
-            <div id="builder-output" class="builder-output" aria-live="polite">
-              <p><strong>Official topic label(s):</strong></p>
-              <ul id="builder-topic-tags" class="topic-tag-list"></ul>
-              <p><strong>Recommended GPT:</strong> <span id="builder-recommended-gpt"></span></p>
+          <div class="challenge-prompt-block">
+            <label for="builder-prompt"><strong>Station prompt</strong></label>
+            <textarea id="builder-prompt" class="challenge-prompt" readonly></textarea>
+          </div>
 
-              <div class="challenge-prompt-block">
-                <label for="builder-prompt"><strong>Station prompt</strong></label>
-                <textarea id="builder-prompt" class="challenge-prompt" readonly></textarea>
-              </div>
-
-              <div class="challenge-actions">
-                <button type="button" class="copy-prompt-btn" data-copy-target="builder-prompt">Copy Prompt</button>
-                <span class="copy-status" aria-live="polite"></span>
-                <a id="builder-open-gpt" href="https://chat.openai.com/" class="open-gpt-btn" target="_blank" rel="noopener noreferrer">Open Recommended GPT</a>
-              </div>
-            </div>
-          </article>
+          <div class="challenge-actions">
+            <button type="button" class="copy-prompt-btn" data-copy-target="builder-prompt">Copy Prompt</button>
+            <span class="copy-status" aria-live="polite"></span>
+            <a id="builder-open-gpt" href="https://chat.openai.com/" class="open-gpt-btn" target="_blank" rel="noopener noreferrer">Open Recommended GPT</a>
+          </div>
         </div>
       </section>
 
-      <section class="applied-section" aria-labelledby="section-choose-station">
-        <h3 id="section-choose-station">Choose a station challenge</h3>
-        <p>Station-style challenge selector area for applied exam rehearsal.</p>
-        <div class="applied-placeholder">
-          Placeholder block: challenge categories and deterministic local scenario assembly are intentionally deferred.
-        </div>
+      <section id="panel-exam-tests" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="section-exam-testing" hidden>
+        <h3 id="section-exam-testing">What the Exam Tests</h3>
+        <p>Applied stations evaluate prioritization, defensible judgment, communication clarity, and practical system navigation.</p>
+        <div class="applied-placeholder">Placeholder: competency framing and examiner-style cues will be expanded in later content passes.</div>
       </section>
 
-      <section class="applied-section" aria-labelledby="section-exam-testing">
-        <h3 id="section-exam-testing">What the exam is really testing</h3>
-        <p>Orientation section describing applied competencies and oral performance expectations.</p>
-        <div class="applied-placeholder">
-          Placeholder block: competency guidance and examiner-style framing content to be drafted in next passes.
-        </div>
+      <section id="panel-hot-topics" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="section-hot-topics" hidden>
+        <h3 id="section-hot-topics">Hot Topics in Public Health</h3>
+        <p>Use this tab for rapid topic refreshers aligned with current public health context and oral station relevance.</p>
+        <div class="applied-placeholder">Placeholder: topic stream references and shortlist summaries are staged for later deterministic content work.</div>
       </section>
 
-      <section class="applied-section" aria-labelledby="section-hot-topics">
-        <h3 id="section-hot-topics">Hot topics in Canadian public health, 2020–2025</h3>
-        <p>Curated topic stream for current-practice relevance and rapid review.</p>
-        <div class="applied-placeholder">
-          Placeholder block: topic list and references will be populated in a later deterministic-content phase.
-        </div>
-      </section>
-
-      <section class="applied-section" aria-labelledby="section-four-week-path">
-        <h3 id="section-four-week-path">Four-week applied exam preparation path</h3>
-        <p>Simple week-by-week progression scaffold for short-cycle preparation planning.</p>
-        <div class="applied-placeholder">
-          Placeholder block: week templates and checkpoints to be added after charter-aligned review.
-        </div>
-      </section>
-
-      <section class="applied-section" aria-labelledby="section-mock-oral-skill">
-        <h3 id="section-mock-oral-skill">Improve your mock oral skill</h3>
-        <p>Practice habits and reflection prompts to sharpen oral exam delivery.</p>
-        <div class="applied-placeholder">
-          Placeholder block: feedback prompts, structure cues, and rehearsal aids are planned for future iterations.
-        </div>
+      <section id="panel-study-planner" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="section-study-planner" hidden>
+        <h3 id="section-study-planner">Study Planner and Self-Improvement</h3>
+        <p>Plan short cycles of deliberate practice and post-station reflection without changing runtime exam behaviors.</p>
+        <div class="applied-placeholder">Placeholder: four-week planner checkpoints and mock oral reflection prompts will be added in next phase.</div>
       </section>
 
       <section class="applied-next-step" aria-label="Scope notes">
         <h3>Current scope note</h3>
         <p>
-          This implementation uses only local static content and front-end behavior. It does not include AI generation,
-          backend APIs, accounts, analytics, or saved dashboards.
+          This implementation remains static and local only. It includes no backend APIs, analytics, authentication,
+          or AI generation on-page.
         </p>
       </section>
     </main>
