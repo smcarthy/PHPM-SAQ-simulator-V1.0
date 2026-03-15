@@ -56,22 +56,36 @@
     }
   };
 
+  const DEFAULT_GPT_URL = 'https://chat.openai.com/';
+
+  const GPT_URLS = {
+    'gpt-all': DEFAULT_GPT_URL,
+    'gpt-health-promotion': DEFAULT_GPT_URL,
+    'gpt-communicable': DEFAULT_GPT_URL,
+    'gpt-environment': DEFAULT_GPT_URL,
+    'gpt-systems': 'https://chatgpt.com/g/g-6928d96e50108191b20927bd9b29f3bd-5-health-systems-policy-law-and-ethics',
+    'gpt-methods': DEFAULT_GPT_URL,
+    'gpt-management': DEFAULT_GPT_URL,
+    'gpt-emergency': DEFAULT_GPT_URL,
+    'gpt-maternal': DEFAULT_GPT_URL
+  };
+
   const GPT_LAUNCHERS = [
-    { id: 'gpt-all', topicId: 'all', title: 'All PHPM Topics and Hot Topics', descriptor: 'Broad mixed rehearsal across all domains.', url: 'https://chat.openai.com/' },
-    { id: 'gpt-health-promotion', topicId: 'health-promotion', title: 'Health Promotion, Chronic Diseases, Mental Health and Substance Use', descriptor: 'Prevention and chronic disease oral station practice.', url: 'https://chat.openai.com/' },
-    { id: 'gpt-communicable', topicId: 'communicable', title: 'Communicable Diseases in Health Protection', descriptor: 'Outbreak control and communicable disease response drills.', url: 'https://chat.openai.com/' },
-    { id: 'gpt-environment', topicId: 'environment', title: 'Environmental, Occupational, Built Environment and Injuries', descriptor: 'Environmental hazards and injury prevention framing.', url: 'https://chat.openai.com/' },
+    { id: 'gpt-all', topicId: 'all', title: 'All PHPM Topics and Hot Topics', descriptor: 'Broad mixed rehearsal across all domains.', url: GPT_URLS['gpt-all'] },
+    { id: 'gpt-health-promotion', topicId: 'health-promotion', title: 'Health Promotion, Chronic Diseases, Mental Health and Substance Use', descriptor: 'Prevention and chronic disease oral station practice.', url: GPT_URLS['gpt-health-promotion'] },
+    { id: 'gpt-communicable', topicId: 'communicable', title: 'Communicable Diseases in Health Protection', descriptor: 'Outbreak control and communicable disease response drills.', url: GPT_URLS['gpt-communicable'] },
+    { id: 'gpt-environment', topicId: 'environment', title: 'Environmental, Occupational, Built Environment and Injuries', descriptor: 'Environmental hazards and injury prevention framing.', url: GPT_URLS['gpt-environment'] },
     {
       id: 'gpt-systems',
       topicId: 'systems',
       title: 'Health Systems, Policy, Law and Ethics',
       descriptor: 'Policy, law and ethics argument practice.',
-      url: 'https://chatgpt.com/g/g-6928d96e50108191b20927bd9b29f3bd-5-health-systems-policy-law-and-ethics'
+      url: GPT_URLS['gpt-systems']
     },
-    { id: 'gpt-methods', topicId: 'methods', title: 'Population Health, Epidemiology, Methods and Basic Sciences', descriptor: 'Methods-heavy interpretation and epidemiology reasoning.', url: 'https://chat.openai.com/' },
-    { id: 'gpt-management', topicId: 'management', title: 'Management, Leadership and Program Planning', descriptor: 'Leadership and implementation planning stations.', url: 'https://chat.openai.com/' },
-    { id: 'gpt-emergency', topicId: 'emergency', title: 'Emergency Preparedness and Response', descriptor: 'Incident command and emergency planning simulation.', url: 'https://chat.openai.com/' },
-    { id: 'gpt-maternal', topicId: 'maternal', title: 'Maternal and Child Health', descriptor: 'Maternal-child health interventions and policy drills.', url: 'https://chat.openai.com/' }
+    { id: 'gpt-methods', topicId: 'methods', title: 'Population Health, Epidemiology, Methods and Basic Sciences', descriptor: 'Methods-heavy interpretation and epidemiology reasoning.', url: GPT_URLS['gpt-methods'] },
+    { id: 'gpt-management', topicId: 'management', title: 'Management, Leadership and Program Planning', descriptor: 'Leadership and implementation planning stations.', url: GPT_URLS['gpt-management'] },
+    { id: 'gpt-emergency', topicId: 'emergency', title: 'Emergency Preparedness and Response', descriptor: 'Incident command and emergency planning simulation.', url: GPT_URLS['gpt-emergency'] },
+    { id: 'gpt-maternal', topicId: 'maternal', title: 'Maternal and Child Health', descriptor: 'Maternal-child health interventions and policy drills.', url: GPT_URLS['gpt-maternal'] }
   ];
 
   const CHALLENGE_SCENARIOS = [
@@ -278,7 +292,7 @@
             <div class="challenge-actions">
               <button type="button" class="copy-prompt-btn" data-copy-target="challenge-prompt-${index}">Copy prompt</button>
               <span class="copy-status" aria-live="polite"></span>
-              <a href="${launcher.url}" class="open-gpt-btn" target="_blank" rel="noopener noreferrer">Open GPT</a>
+              <a href="${launcher.url}" class="open-gpt-btn" target="_blank" rel="noopener noreferrer">Open Recommended GPT</a>
             </div>
           </div>
         </article>
@@ -543,8 +557,29 @@
       });
     }
 
-    tabs.forEach((tab) => {
+    tabs.forEach((tab, index) => {
       tab.addEventListener('click', () => activate(tab));
+      tab.addEventListener('keydown', (event) => {
+        const { key } = event;
+        let nextIndex = index;
+
+        if (key === 'ArrowRight') {
+          nextIndex = (index + 1) % tabs.length;
+        } else if (key === 'ArrowLeft') {
+          nextIndex = (index - 1 + tabs.length) % tabs.length;
+        } else if (key === 'Home') {
+          nextIndex = 0;
+        } else if (key === 'End') {
+          nextIndex = tabs.length - 1;
+        } else {
+          return;
+        }
+
+        event.preventDefault();
+        const nextTab = tabs[nextIndex];
+        activate(nextTab);
+        nextTab.focus();
+      });
     });
 
     activate(tabs[0]);
