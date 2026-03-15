@@ -796,7 +796,7 @@ button.primary:hover {
   margin-top: 0.75rem;
 }
 
-.applied-guiding-line {
+.applied-motivating-line {
   margin-top: 0.65rem;
   padding: 0.55rem 0.65rem;
   border-left: 4px solid #196f84;
@@ -806,25 +806,7 @@ button.primary:hover {
 
 .today-challenge-card {
   margin-top: 0.75rem;
-  border: 1px solid #bdd3f5;
-  border-left: 5px solid #2e5da8;
-  background: linear-gradient(135deg, #eef5ff 0%, #f6fbff 52%, #e8f6ff 100%);
-}
-
-.today-challenge-card h3 {
-  color: #0f4f88;
-}
-
-.today-challenge-card .home-quick-action {
-  margin-top: 0.45rem;
-  background: #2e5da8;
-  border-color: #2e5da8;
-  color: #fff;
-}
-
-.today-challenge-card .home-quick-action:hover,
-.today-challenge-card .home-quick-action:focus-visible {
-  background: #234985;
+  border-left: 4px solid #2e5da8;
 }
 
 .home-quick-action,

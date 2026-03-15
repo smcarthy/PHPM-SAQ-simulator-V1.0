@@ -632,22 +632,6 @@
     showHome();
   }
 
-
-  function bindLauncherIconFallbacks() {
-    const icons = Array.from(document.querySelectorAll('.gpt-launcher-icon'));
-    icons.forEach((icon) => {
-      icon.addEventListener('error', () => {
-        const wrapper = icon.closest('.gpt-launcher-card');
-        if (!(wrapper instanceof HTMLElement)) {
-          return;
-        }
-
-        icon.hidden = true;
-        wrapper.style.gridTemplateColumns = '1fr';
-      }, { once: true });
-    });
-  }
-
   function initializeAppliedExamPage() {
     renderGptLaunchers();
     bindLauncherIconFallbacks();
