@@ -68,6 +68,8 @@
     'gpt-9': ''
   };
 
+  const CANONICAL_LAUNCHER_TITLES = Object.values(TOPIC_META).map((topic) => topic.label);
+
   const GPT_LAUNCHERS = [
     {
       id: 'gpt-all',
@@ -251,6 +253,65 @@
 
   const SELF_DEBRIEF_CHECKLIST = ['What was the issue?', 'Who mattered?', 'What was my structure?', 'What was my recommendation?', 'What did I miss?'];
 
+  const FRAMEWORKS_OF_THE_DAY = [
+    {
+      name: 'PDSA cycle',
+      meaning: 'Rapid quality-improvement loop: plan, do, study, act.',
+      whenToUse: 'When you need to test and refine an intervention quickly.',
+      mockOralUse: 'State one small test, measurable outcome, and next-cycle adjustment.',
+      commonMistake: 'Launching a full program before piloting and feedback.'
+    },
+    {
+      name: 'RE-AIM',
+      meaning: 'Framework for Reach, Effectiveness, Adoption, Implementation, and Maintenance.',
+      whenToUse: 'When judging whether a program can scale and sustain impact.',
+      mockOralUse: 'Briefly walk through each RE-AIM domain to justify your recommendation.',
+      commonMistake: 'Only discussing effectiveness while ignoring implementation feasibility.'
+    },
+    {
+      name: 'Health Equity Impact Assessment (HEIA)',
+      meaning: 'Structured check for differential effects across populations.',
+      whenToUse: 'When policies may create or worsen inequities.',
+      mockOralUse: 'Identify who may be disproportionately harmed and one mitigation.',
+      commonMistake: 'Naming equity as a value without operational mitigation steps.'
+    },
+    {
+      name: 'Incident Command System (ICS)',
+      meaning: 'Standardized emergency response structure with clear roles.',
+      whenToUse: 'In acute incidents requiring coordinated multi-partner actions.',
+      mockOralUse: 'Define command, operations, planning, and your first operational priorities.',
+      commonMistake: 'Skipping role clarity and causing communication duplication.'
+    },
+    {
+      name: 'One Health',
+      meaning: 'Integrated human-animal-environment approach to risk management.',
+      whenToUse: 'For zoonotic, food, or environmental health threats.',
+      mockOralUse: 'Name key sectors and one shared surveillance or control action.',
+      commonMistake: 'Keeping response siloed inside one sector.'
+    },
+    {
+      name: 'Precautionary principle',
+      meaning: 'Act protectively when credible risk exists despite uncertainty.',
+      whenToUse: 'When delayed action could cause significant preventable harm.',
+      mockOralUse: 'Justify proportionate early action while you collect better evidence.',
+      commonMistake: 'Treating uncertainty as a reason for inaction.'
+    },
+    {
+      name: 'Risk communication (CERC style)',
+      meaning: 'Crisis communication emphasizing empathy, clarity, and action guidance.',
+      whenToUse: 'When trust and behavior change are critical during uncertainty.',
+      mockOralUse: 'Give one key message, one uncertainty statement, and one call to action.',
+      commonMistake: 'Overloading with technical detail and unclear next steps.'
+    },
+    {
+      name: 'Logic model',
+      meaning: 'Map of inputs, activities, outputs, and outcomes.',
+      whenToUse: 'When designing or evaluating a policy or program option.',
+      mockOralUse: 'Describe the intervention pathway and where to monitor progress.',
+      commonMistake: 'Confusing activities with meaningful outcomes.'
+    }
+  ];
+
   const STATION_BUILDER_CONFIG = {
     topics: Object.values(TOPIC_META),
     formats: [
@@ -294,6 +355,33 @@
     }, {});
   }
 
+  function getTopicForLauncher(launcher) {
+    return TOPIC_META[launcher.topicColorKey] || TOPIC_META[launcher.topicId] || TOPIC_META.all;
+  }
+
+  function validateLauncherConfiguration() {
+    const expectedCount = 9;
+    if (GPT_LAUNCHERS.length !== expectedCount) {
+      console.warn(`Expected ${expectedCount} launchers, found ${GPT_LAUNCHERS.length}.`);
+    }
+
+    GPT_LAUNCHERS.forEach((launcher) => {
+      const topic = getTopicForLauncher(launcher);
+      const hasCanonicalTitle = CANONICAL_LAUNCHER_TITLES.includes(launcher.title);
+      if (!hasCanonicalTitle) {
+        console.warn(`Non-canonical launcher title detected: ${launcher.title}`);
+      }
+
+      if (!launcher.iconPath.startsWith('assets/applied/icons/')) {
+        console.warn(`Launcher icon path should be under assets/applied/icons/: ${launcher.iconPath}`);
+      }
+
+      if (launcher.iconPath !== topic.iconPath) {
+        console.warn(`Launcher icon mismatch for ${launcher.id}. Expected ${topic.iconPath}.`);
+      }
+    });
+  }
+
   function renderTopicTags(topicIds) {
     return topicIds
       .map((topicId) => {
@@ -313,7 +401,7 @@
     }
 
     grid.innerHTML = GPT_LAUNCHERS.map((launcher) => {
-      const topic = TOPIC_META[launcher.topicColorKey];
+      const topic = getTopicForLauncher(launcher);
       const hasUrl = Boolean(launcher.url);
       const actionMarkup = hasUrl
         ? `<a class="gpt-launcher-card" href="${launcher.url}" target="_blank" rel="noopener noreferrer" aria-label="Open ${escapeHtml(launcher.title)}">`
@@ -321,7 +409,7 @@
       const actionCloseMarkup = hasUrl ? '</a>' : '</div>';
 
       return `
-        <article class="gpt-launcher-item" style="--topic-color:${topic.color}">
+        <article class="gpt-launcher-item" data-topic-id="${escapeHtml(launcher.topicId)}" style="--topic-color:${topic.color}">
           ${actionMarkup}
             <img src="${launcher.iconPath}" alt="${escapeHtml(launcher.title)} icon" class="gpt-launcher-icon" loading="lazy" />
             <span class="gpt-launcher-title">${escapeHtml(launcher.title)}</span>
@@ -441,6 +529,43 @@
         <p><strong>Practice cue:</strong> end with one concise key message the examiner could repeat back.</p>
       </article>
     `;
+  }
+
+  function renderFrameworkOfTheDay() {
+    const nameNode = document.getElementById('framework-day-name');
+    const contentNode = document.getElementById('framework-day-content');
+    if (!nameNode || !contentNode || !FRAMEWORKS_OF_THE_DAY.length) {
+      return;
+    }
+
+    let index = Number(window.localStorage.getItem('appliedFrameworkIndex') || 0);
+    if (!Number.isFinite(index) || index < 0) {
+      index = 0;
+    }
+
+    function draw() {
+      const framework = FRAMEWORKS_OF_THE_DAY[index % FRAMEWORKS_OF_THE_DAY.length];
+      nameNode.textContent = framework.name;
+      contentNode.innerHTML = `
+        <p><strong>Meaning:</strong> ${escapeHtml(framework.meaning)}</p>
+        <p><strong>When to use:</strong> ${escapeHtml(framework.whenToUse)}</p>
+        <p><strong>Mock oral use:</strong> ${escapeHtml(framework.mockOralUse)}</p>
+        <p><strong>Avoid:</strong> ${escapeHtml(framework.commonMistake)}</p>
+      `;
+    }
+
+    draw();
+
+    const nextButton = document.getElementById('framework-day-next');
+    if (!nextButton) {
+      return;
+    }
+
+    nextButton.addEventListener('click', () => {
+      index = (index + 1) % FRAMEWORKS_OF_THE_DAY.length;
+      window.localStorage.setItem('appliedFrameworkIndex', String(index));
+      draw();
+    });
   }
 
   function bindChallengeExpansion() {
@@ -741,12 +866,14 @@
   }
 
   function initializeAppliedExamPage() {
+    validateLauncherConfiguration();
     renderGptLaunchers();
     bindLauncherIconFallbacks();
     renderChallengeScenarios();
     renderExamTests();
     renderHotTopics();
     renderStudyPlanner();
+    renderFrameworkOfTheDay();
     bindSubTabs();
     bindChallengeExpansion();
     bindCopyActions();
