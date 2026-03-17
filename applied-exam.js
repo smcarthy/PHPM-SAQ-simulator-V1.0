@@ -3,89 +3,153 @@
     all: {
       id: 'all',
       label: 'All PHPM Topics and Hot Topics',
-      icon: 'assets/applied/icons/all-phpm-topics-and-hot-topics.svg',
+      iconPath: 'assets/applied/icons/all-phpm-topics-and-hot-topics.png',
       color: '#2e5da8'
     },
     'health-promotion': {
       id: 'health-promotion',
       label: 'Health Promotion, Chronic Diseases, Mental Health and Substance Use',
-      icon: 'assets/applied/icons/health-promotion-chronic-diseases-mental-health-and-substance-use.svg',
+      iconPath: 'assets/applied/icons/health-promotion-chronic-diseases-mental-health-and-substance-use.png',
       color: '#8d2f87'
     },
     communicable: {
       id: 'communicable',
       label: 'Communicable Diseases in Health Protection',
-      icon: 'assets/applied/icons/communicable-diseases-in-health-protection.svg',
+      iconPath: 'assets/applied/icons/communicable-diseases-in-health-protection.png',
       color: '#b7472a'
     },
     environment: {
       id: 'environment',
       label: 'Environmental, Occupational, Built Environment and Injuries',
-      icon: 'assets/applied/icons/environmental-occupational-built-environment-and-injuries.svg',
+      iconPath: 'assets/applied/icons/environmental-occupational-built-environment-and-injuries.png',
       color: '#2e7d4f'
     },
     systems: {
       id: 'systems',
       label: 'Health Systems, Policy, Law and Ethics',
-      icon: 'assets/applied/icons/health-systems-policy-law-and-ethics.svg',
+      iconPath: 'assets/applied/icons/health-systems-health-systems-policy-law-and-ethics.png',
       color: '#196f84'
     },
     methods: {
       id: 'methods',
       label: 'Population Health, Epidemiology, Methods and Basic Sciences',
-      icon: 'assets/applied/icons/population-health-epidemiology-methods-and-basic-sciences.svg',
+      iconPath: 'assets/applied/icons/population-health-epidemiology-methods-and-basic-sciences.png',
       color: '#4b4ea1'
     },
     management: {
       id: 'management',
       label: 'Management, Leadership and Program Planning',
-      icon: 'assets/applied/icons/management-leadership-and-program-planning.svg',
+      iconPath: 'assets/applied/icons/management-leadership-and-program-planning.png',
       color: '#bf7a13'
     },
     emergency: {
       id: 'emergency',
       label: 'Emergency Preparedness and Response',
-      icon: 'assets/applied/icons/emergency-preparedness-and-response.svg',
+      iconPath: 'assets/applied/icons/emergency-preparedness-and-response.png',
       color: '#a02929'
     },
     maternal: {
       id: 'maternal',
       label: 'Maternal and Child Health',
-      icon: 'assets/applied/icons/maternal-and-child-health.svg',
+      iconPath: 'assets/applied/icons/maternal-and-child-health.png',
       color: '#c24e7b'
     }
   };
 
-  const DEFAULT_GPT_URL = 'https://chat.openai.com/';
-
   const GPT_URLS = {
-    'gpt-all': DEFAULT_GPT_URL,
-    'gpt-health-promotion': DEFAULT_GPT_URL,
-    'gpt-communicable': DEFAULT_GPT_URL,
-    'gpt-environment': DEFAULT_GPT_URL,
-    'gpt-systems': 'https://chatgpt.com/g/g-6928d96e50108191b20927bd9b29f3bd-5-health-systems-policy-law-and-ethics',
-    'gpt-methods': DEFAULT_GPT_URL,
-    'gpt-management': DEFAULT_GPT_URL,
-    'gpt-emergency': DEFAULT_GPT_URL,
-    'gpt-maternal': DEFAULT_GPT_URL
+    'gpt-1': '',
+    'gpt-2': 'https://chatgpt.com/g/g-69b8961572188191a201157e775c1410-2-hpcd-mental-health-and-substance-use',
+    'gpt-3': 'https://chatgpt.com/g/g-CP2Ch11qQ-3-communicable-diseases-in-health-protection',
+    'gpt-4': 'https://chatgpt.com/g/g-69115c1954708191b542275310c4787c-4-e-oh-built-environment-and-injuries',
+    'gpt-5': 'https://chatgpt.com/g/g-6928d96e50108191b20927bd9b29f3bd-5-health-systems-policy-law-and-ethics',
+    'gpt-6': 'https://chatgpt.com/g/g-69b89e9bc1fc8191900a9cf3b5fb20c4-6-pop-health-epi-methods-and-basic-sciences',
+    'gpt-7': 'https://chatgpt.com/g/g-69b8a993d4f88191b49486e4657689dd-7-management-leadership-and-program-planning',
+    'gpt-8': '',
+    'gpt-9': ''
   };
 
   const GPT_LAUNCHERS = [
-    { id: 'gpt-all', topicId: 'all', title: 'All PHPM Topics and Hot Topics', descriptor: 'Broad mixed rehearsal across all domains.', url: GPT_URLS['gpt-all'] },
-    { id: 'gpt-health-promotion', topicId: 'health-promotion', title: 'Health Promotion, Chronic Diseases, Mental Health and Substance Use', descriptor: 'Prevention and chronic disease oral station practice.', url: GPT_URLS['gpt-health-promotion'] },
-    { id: 'gpt-communicable', topicId: 'communicable', title: 'Communicable Diseases in Health Protection', descriptor: 'Outbreak control and communicable disease response drills.', url: GPT_URLS['gpt-communicable'] },
-    { id: 'gpt-environment', topicId: 'environment', title: 'Environmental, Occupational, Built Environment and Injuries', descriptor: 'Environmental hazards and injury prevention framing.', url: GPT_URLS['gpt-environment'] },
+    {
+      id: 'gpt-all',
+      title: 'All PHPM Topics and Hot Topics',
+      descriptor: 'Broad mixed rehearsal across all domains.',
+      url: GPT_URLS['gpt-1'],
+      iconPath: TOPIC_META.all.iconPath,
+      topicColorKey: 'all',
+      topicId: 'all'
+    },
+    {
+      id: 'gpt-health-promotion',
+      title: 'Health Promotion, Chronic Diseases, Mental Health and Substance Use',
+      descriptor: 'Prevention and chronic disease oral station practice.',
+      url: GPT_URLS['gpt-2'],
+      iconPath: TOPIC_META['health-promotion'].iconPath,
+      topicColorKey: 'health-promotion',
+      topicId: 'health-promotion'
+    },
+    {
+      id: 'gpt-communicable',
+      title: 'Communicable Diseases in Health Protection',
+      descriptor: 'Outbreak control and communicable disease response drills.',
+      url: GPT_URLS['gpt-3'],
+      iconPath: TOPIC_META.communicable.iconPath,
+      topicColorKey: 'communicable',
+      topicId: 'communicable'
+    },
+    {
+      id: 'gpt-environment',
+      title: 'Environmental, Occupational, Built Environment and Injuries',
+      descriptor: 'Environmental hazards and injury prevention framing.',
+      url: GPT_URLS['gpt-4'],
+      iconPath: TOPIC_META.environment.iconPath,
+      topicColorKey: 'environment',
+      topicId: 'environment'
+    },
     {
       id: 'gpt-systems',
-      topicId: 'systems',
       title: 'Health Systems, Policy, Law and Ethics',
       descriptor: 'Policy, law and ethics argument practice.',
-      url: GPT_URLS['gpt-systems']
+      url: GPT_URLS['gpt-5'],
+      iconPath: TOPIC_META.systems.iconPath,
+      topicColorKey: 'systems',
+      topicId: 'systems'
     },
-    { id: 'gpt-methods', topicId: 'methods', title: 'Population Health, Epidemiology, Methods and Basic Sciences', descriptor: 'Methods-heavy interpretation and epidemiology reasoning.', url: GPT_URLS['gpt-methods'] },
-    { id: 'gpt-management', topicId: 'management', title: 'Management, Leadership and Program Planning', descriptor: 'Leadership and implementation planning stations.', url: GPT_URLS['gpt-management'] },
-    { id: 'gpt-emergency', topicId: 'emergency', title: 'Emergency Preparedness and Response', descriptor: 'Incident command and emergency planning simulation.', url: GPT_URLS['gpt-emergency'] },
-    { id: 'gpt-maternal', topicId: 'maternal', title: 'Maternal and Child Health', descriptor: 'Maternal-child health interventions and policy drills.', url: GPT_URLS['gpt-maternal'] }
+    {
+      id: 'gpt-methods',
+      title: 'Population Health, Epidemiology, Methods and Basic Sciences',
+      descriptor: 'Methods-heavy interpretation and epidemiology reasoning.',
+      url: GPT_URLS['gpt-6'],
+      iconPath: TOPIC_META.methods.iconPath,
+      topicColorKey: 'methods',
+      topicId: 'methods'
+    },
+    {
+      id: 'gpt-management',
+      title: 'Management, Leadership and Program Planning',
+      descriptor: 'Leadership and implementation planning stations.',
+      url: GPT_URLS['gpt-7'],
+      iconPath: TOPIC_META.management.iconPath,
+      topicColorKey: 'management',
+      topicId: 'management'
+    },
+    {
+      id: 'gpt-emergency',
+      title: 'Emergency Preparedness and Response',
+      descriptor: 'Incident command and emergency planning simulation.',
+      url: GPT_URLS['gpt-8'],
+      iconPath: TOPIC_META.emergency.iconPath,
+      topicColorKey: 'emergency',
+      topicId: 'emergency'
+    },
+    {
+      id: 'gpt-maternal',
+      title: 'Maternal and Child Health',
+      descriptor: 'Maternal-child health interventions and policy drills.',
+      url: GPT_URLS['gpt-9'],
+      iconPath: TOPIC_META.maternal.iconPath,
+      topicColorKey: 'maternal',
+      topicId: 'maternal'
+    }
   ];
 
   const CHALLENGE_SCENARIOS = [
@@ -249,14 +313,21 @@
     }
 
     grid.innerHTML = GPT_LAUNCHERS.map((launcher) => {
-      const topic = TOPIC_META[launcher.topicId];
+      const topic = TOPIC_META[launcher.topicColorKey];
+      const hasUrl = Boolean(launcher.url);
+      const actionMarkup = hasUrl
+        ? `<a class="gpt-launcher-card" href="${launcher.url}" target="_blank" rel="noopener noreferrer" aria-label="Open ${escapeHtml(launcher.title)}">`
+        : `<div class="gpt-launcher-card gpt-launcher-card-disabled" role="group" aria-label="${escapeHtml(launcher.title)} link coming soon">`;
+      const actionCloseMarkup = hasUrl ? '</a>' : '</div>';
+
       return `
         <article class="gpt-launcher-item" style="--topic-color:${topic.color}">
-          <a class="gpt-launcher-card" href="${launcher.url}" target="_blank" rel="noopener noreferrer" aria-label="Open ${escapeHtml(launcher.title)}">
-            <img src="${topic.icon}" alt="${escapeHtml(launcher.title)} icon" class="gpt-launcher-icon" loading="lazy" />
+          ${actionMarkup}
+            <img src="${launcher.iconPath}" alt="${escapeHtml(launcher.title)} icon" class="gpt-launcher-icon" loading="lazy" />
             <span class="gpt-launcher-title">${escapeHtml(launcher.title)}</span>
-          </a>
+          ${actionCloseMarkup}
           <p class="gpt-launcher-descriptor">${escapeHtml(launcher.descriptor)}</p>
+          ${hasUrl ? '' : '<p class="launcher-link-note">Link coming soon</p>'}
         </article>
       `;
     }).join('');
@@ -292,7 +363,7 @@
             <div class="challenge-actions">
               <button type="button" class="copy-prompt-btn" data-copy-target="challenge-prompt-${index}">Copy prompt</button>
               <span class="copy-status" aria-live="polite"></span>
-              <a href="${launcher.url}" class="open-gpt-btn" target="_blank" rel="noopener noreferrer">Open Recommended GPT</a>
+              ${launcher.url ? `<a href="${launcher.url}" class="open-gpt-btn" target="_blank" rel="noopener noreferrer">Open Recommended GPT</a>` : '<button type="button" class="open-gpt-btn open-gpt-btn-disabled" disabled>Link coming soon</button>'}
             </div>
           </div>
         </article>
@@ -320,6 +391,11 @@
       return;
     }
 
+    const labelToTopicKey = Object.values(TOPIC_META).reduce((acc, topic) => {
+      acc[topic.label] = topic.id;
+      return acc;
+    }, {});
+
     grid.innerHTML = HOT_TOPICS.map((topic) => `
       <article class="applied-topic-card">
         <h4>${escapeHtml(topic.title)}</h4>
@@ -330,7 +406,11 @@
         </ul>
         <p><strong>Official topic label(s):</strong></p>
         <ul class="topic-tag-list">
-          ${topic.labels.map((label) => `<li class="topic-tag" style="--topic-color:#2e5da8">${escapeHtml(label)}</li>`).join('')}
+          ${topic.labels.map((label) => {
+            const topicKey = labelToTopicKey[label] || 'all';
+            const color = TOPIC_META[topicKey].color;
+            return `<li class="topic-tag" style="--topic-color:${color}">${escapeHtml(label)}</li>`;
+          }).join('')}
         </ul>
       </article>
     `).join('');
@@ -414,6 +494,16 @@
         statusNode.textContent = '';
       }, 2000);
     }
+  }
+
+  function bindLauncherIconFallbacks() {
+    const icons = Array.from(document.querySelectorAll('.gpt-launcher-icon'));
+    icons.forEach((icon) => {
+      icon.addEventListener('error', () => {
+        icon.classList.add('gpt-launcher-icon-fallback');
+        icon.alt = 'Topic icon unavailable';
+      }, { once: true });
+    });
   }
 
   function bindCopyActions() {
@@ -510,8 +600,17 @@
     }
 
     if (openGptLink) {
-      openGptLink.href = recommendedLauncher.url;
-      openGptLink.setAttribute('aria-label', `Open recommended GPT: ${recommendedLauncher.title}`);
+      const hasUrl = Boolean(recommendedLauncher.url);
+      openGptLink.href = hasUrl ? recommendedLauncher.url : '#';
+      openGptLink.setAttribute('aria-label', hasUrl ? `Open recommended GPT: ${recommendedLauncher.title}` : `${recommendedLauncher.title} link coming soon`);
+      openGptLink.classList.toggle('open-gpt-btn-disabled', !hasUrl);
+      if (hasUrl) {
+        openGptLink.removeAttribute('aria-disabled');
+        openGptLink.tabIndex = 0;
+      } else {
+        openGptLink.setAttribute('aria-disabled', 'true');
+        openGptLink.tabIndex = -1;
+      }
     }
   }
 
@@ -553,10 +652,12 @@
 
       panels.forEach((panel) => {
         panel.hidden = true;
+        panel.setAttribute('aria-hidden', 'true');
       });
 
       if (homePanel instanceof HTMLElement) {
         homePanel.hidden = false;
+        homePanel.setAttribute('aria-hidden', 'false');
       }
 
       if (homeControls instanceof HTMLElement) {
@@ -566,6 +667,11 @@
 
     function activate(tab) {
       const targetId = tab.getAttribute('data-panel');
+      if (!targetId) {
+        showHome();
+        return;
+      }
+
       tabs.forEach((item) => {
         const selected = item === tab;
         item.classList.toggle('active', selected);
@@ -576,10 +682,12 @@
       panels.forEach((panel) => {
         const show = panel.id === targetId;
         panel.hidden = !show;
+        panel.setAttribute('aria-hidden', String(!show));
       });
 
       if (homePanel instanceof HTMLElement) {
         homePanel.hidden = true;
+        homePanel.setAttribute('aria-hidden', 'true');
       }
 
       if (homeControls instanceof HTMLElement) {
