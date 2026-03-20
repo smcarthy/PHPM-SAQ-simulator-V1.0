@@ -1598,12 +1598,14 @@ main {
 .gpt-launcher-card {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 2 / 1;
+  min-height: 100%;
+  aspect-ratio: 1 / 1;
   grid-template-columns: 1fr;
-  gap: 0.8rem;
-  justify-items: center;
-  align-content: center;
-  padding: 1rem 1.15rem;
+  grid-template-rows: auto 1fr;
+  gap: 0.95rem;
+  align-items: start;
+  align-content: start;
+  padding: 1rem;
   border-radius: 22px;
   border-left-width: 1px;
   text-align: center;
@@ -1630,10 +1632,10 @@ main {
 .gpt-launcher-icon {
   position: relative;
   z-index: 1;
-  width: 84px;
-  height: 84px;
-  padding: 0.3rem;
-  border-radius: 20px;
+  width: 112px;
+  height: 112px;
+  padding: 0.35rem;
+  border-radius: 22px;
   border: 1px solid color-mix(in srgb, var(--topic-color), #ffffff 45%);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.68), color-mix(in srgb, var(--topic-color), #ffffff 70%));
   box-shadow: 0 8px 18px rgba(16, 55, 95, 0.12);
@@ -1780,9 +1782,9 @@ main {
   position: relative;
   z-index: 1;
   display: grid;
-  justify-items: center;
+  align-content: space-between;
   gap: 0.48rem;
-  text-align: center;
+  min-height: 100%;
 }
 
 .gpt-launcher-cta {
