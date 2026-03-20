@@ -9,16 +9,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <header>
-      <h1>Public Health &amp; Preventive Medicine SAQ Exam Simulator</h1>
-      <nav class="site-tabs" aria-label="PHPM simulator pages">
-        <a href="index.html" class="tab-link active" aria-current="page">Written SAQ Simulator</a>
-        <a href="applied-exam.html" class="tab-link">Applied Exam</a>
-      </nav>
+    <header class="site-header saq-header">
+      <div class="site-header-inner">
+        <div class="site-branding">
+          <div class="site-brand-mark" aria-hidden="true">⚕</div>
+          <div class="site-brand-copy">
+            <p class="site-eyebrow">Royal College PHPM study dashboard</p>
+            <h1>Public Health &amp; Preventive Medicine SAQ Exam Simulator</h1>
+          </div>
+        </div>
+        <nav class="site-tabs" aria-label="PHPM simulator pages">
+          <a href="index.html" class="tab-link active" aria-current="page">Written SAQ Simulator</a>
+          <a href="applied-exam.html" class="tab-link">Applied Exam</a>
+        </nav>
+      </div>
     </header>
     <main>
       <!-- Landing page -->
-      <section id="landing">
+      <section id="landing" class="dashboard-landing">
         <h2>Welcome</h2>
         <p>This simulator approximates the written short‑answer question (SAQ) portion of the Royal College Public Health and Preventive Medicine exam.</p>
         <div id="what-to-expect">
