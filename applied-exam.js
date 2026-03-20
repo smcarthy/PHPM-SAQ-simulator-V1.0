@@ -412,10 +412,13 @@
         <article class="gpt-launcher-item" data-topic-id="${escapeHtml(launcher.topicId)}" style="--topic-color:${topic.color}">
           ${actionMarkup}
             <img src="${launcher.iconPath}" alt="${escapeHtml(launcher.title)} icon" class="gpt-launcher-icon" loading="lazy" />
-            <span class="gpt-launcher-title">${escapeHtml(launcher.title)}</span>
+            <div class="gpt-launcher-copy">
+              <span class="gpt-launcher-title">${escapeHtml(launcher.title)}</span>
+              <p class="gpt-launcher-descriptor">${escapeHtml(launcher.descriptor)}</p>
+              <span class="gpt-launcher-cta">${hasUrl ? 'Launch practice card ↗' : 'Link coming soon'}</span>
+            </div>
           ${actionCloseMarkup}
-          <p class="gpt-launcher-descriptor">${escapeHtml(launcher.descriptor)}</p>
-          ${hasUrl ? '' : '<p class="launcher-link-note">Link coming soon</p>'}
+          ${hasUrl ? '' : '<p class="launcher-link-note">This launcher is intentionally staged while the final GPT URL is being finalized.</p>'}
         </article>
       `;
     }).join('');
