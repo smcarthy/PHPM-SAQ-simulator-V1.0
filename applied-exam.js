@@ -4,55 +4,55 @@
       id: 'all',
       label: 'All PHPM Topics and Hot Topics',
       iconPath: 'assets/applied/icons/all-phpm-topics-and-hot-topics.png',
-      color: '#2e5da8'
+      color: '#c9a227'
     },
     'health-promotion': {
       id: 'health-promotion',
       label: 'Health Promotion, Chronic Diseases, Mental Health and Substance Use',
       iconPath: 'assets/applied/icons/health-promotion-chronic-diseases-mental-health-and-substance-use.png',
-      color: '#8d2f87'
+      color: '#d97706'
     },
     communicable: {
       id: 'communicable',
       label: 'Communicable Diseases in Health Protection',
       iconPath: 'assets/applied/icons/communicable-diseases-in-health-protection.png',
-      color: '#b7472a'
+      color: '#2563eb'
     },
     environment: {
       id: 'environment',
       label: 'Environmental, Occupational, Built Environment and Injuries',
       iconPath: 'assets/applied/icons/environmental-occupational-built-environment-and-injuries.png',
-      color: '#2e7d4f'
+      color: '#2f855a'
     },
     systems: {
       id: 'systems',
       label: 'Health Systems, Policy, Law and Ethics',
       iconPath: 'assets/applied/icons/health-systems-health-systems-policy-law-and-ethics.png',
-      color: '#196f84'
+      color: '#9ca3af'
     },
     methods: {
       id: 'methods',
       label: 'Population Health, Epidemiology, Methods and Basic Sciences',
       iconPath: 'assets/applied/icons/population-health-epidemiology-methods-and-basic-sciences.png',
-      color: '#4b4ea1'
+      color: '#b87333'
     },
     management: {
       id: 'management',
       label: 'Management, Leadership and Program Planning',
       iconPath: 'assets/applied/icons/management-leadership-and-program-planning.png',
-      color: '#bf7a13'
+      color: '#1f2937'
     },
     emergency: {
       id: 'emergency',
       label: 'Emergency Preparedness and Response',
       iconPath: 'assets/applied/icons/emergency-preparedness-and-response.png',
-      color: '#a02929'
+      color: '#dc2626'
     },
     maternal: {
       id: 'maternal',
       label: 'Maternal and Child Health',
       iconPath: 'assets/applied/icons/maternal-and-child-health.png',
-      color: '#c24e7b'
+      color: '#7c3aed'
     }
   };
 
