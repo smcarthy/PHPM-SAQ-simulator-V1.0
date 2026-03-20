@@ -415,10 +415,9 @@
             <div class="gpt-launcher-copy">
               <span class="gpt-launcher-title">${escapeHtml(launcher.title)}</span>
               <p class="gpt-launcher-descriptor">${escapeHtml(launcher.descriptor)}</p>
-              <span class="gpt-launcher-cta">${hasUrl ? 'Launch practice card ↗' : 'Link coming soon'}</span>
+              <span class="gpt-launcher-cta">${hasUrl ? 'Launch now ↗' : 'Link coming soon'}</span>
             </div>
           ${actionCloseMarkup}
-          ${hasUrl ? '' : '<p class="launcher-link-note">This launcher is intentionally staged while the final GPT URL is being finalized.</p>'}
         </article>
       `;
     }).join('');

@@ -1598,8 +1598,8 @@ main {
 .gpt-launcher-card {
   position: relative;
   overflow: hidden;
-  grid-template-columns: 64px 1fr;
-  gap: 0.85rem;
+  grid-template-columns: 112px 1fr;
+  gap: 1rem;
   align-items: start;
   padding: 1rem;
   border-radius: 22px;
@@ -1627,10 +1627,10 @@ main {
 .gpt-launcher-icon {
   position: relative;
   z-index: 1;
-  width: 56px;
-  height: 56px;
-  padding: 0.2rem;
-  border-radius: 16px;
+  width: 112px;
+  height: 112px;
+  padding: 0.35rem;
+  border-radius: 22px;
   border: 1px solid color-mix(in srgb, var(--topic-color), #ffffff 45%);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.68), color-mix(in srgb, var(--topic-color), #ffffff 70%));
   box-shadow: 0 8px 18px rgba(16, 55, 95, 0.12);
