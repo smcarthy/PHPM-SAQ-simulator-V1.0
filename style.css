@@ -1598,9 +1598,13 @@ main {
 .gpt-launcher-card {
   position: relative;
   overflow: hidden;
-  grid-template-columns: 112px 1fr;
-  gap: 1rem;
+  min-height: 100%;
+  aspect-ratio: 1 / 1;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 0.95rem;
   align-items: start;
+  align-content: start;
   padding: 1rem;
   border-radius: 22px;
   border-left-width: 1px;
@@ -1777,7 +1781,9 @@ main {
   position: relative;
   z-index: 1;
   display: grid;
+  align-content: space-between;
   gap: 0.48rem;
+  min-height: 100%;
 }
 
 .gpt-launcher-cta {
