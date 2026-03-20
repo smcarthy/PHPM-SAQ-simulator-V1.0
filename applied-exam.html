@@ -8,24 +8,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <header>
-      <h1>Public Health &amp; Preventive Medicine Exam Simulator</h1>
-      <nav class="site-tabs" aria-label="PHPM simulator pages">
-        <a href="index.html" class="tab-link">Written SAQ Simulator</a>
-        <a href="applied-exam.html" class="tab-link active" aria-current="page">Applied Exam</a>
-      </nav>
+    <header class="site-header applied-header">
+      <div class="site-header-inner">
+        <h1>Public Health &amp; Preventive Medicine Exam Simulator</h1>
+        <nav class="site-tabs" aria-label="PHPM simulator pages">
+          <a href="index.html" class="tab-link">Written SAQ Simulator</a>
+          <a href="applied-exam.html" class="tab-link active" aria-current="page">Applied Exam Hub</a>
+        </nav>
+        <nav class="applied-subtabs applied-subtabs-banner" aria-label="Applied exam sections" role="tablist">
+        <button id="tab-start-practising" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-start-practising" data-panel="panel-start-practising"><span class="applied-subtab-icon" aria-hidden="true">◎</span><span>Start Practising</span></button>
+        <button id="tab-challenge-scenarios" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-challenge-scenarios" data-panel="panel-challenge-scenarios"><span class="applied-subtab-icon" aria-hidden="true">ϟ</span><span>Challenge Scenarios</span></button>
+        <button id="tab-builder" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-builder" data-panel="panel-builder"><span class="applied-subtab-icon" aria-hidden="true">⊞</span><span>Build a Mock Oral Station Prompt</span></button>
+        <button id="tab-exam-tests" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-exam-tests" data-panel="panel-exam-tests"><span class="applied-subtab-icon" aria-hidden="true">☰</span><span>What the RC Exam Tests</span></button>
+        <button id="tab-hot-topics" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-hot-topics" data-panel="panel-hot-topics"><span class="applied-subtab-icon" aria-hidden="true">✦</span><span>Hot Topics in Public Health</span></button>
+        <button id="tab-study-planner" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-study-planner" data-panel="panel-study-planner"><span class="applied-subtab-icon" aria-hidden="true">◷</span><span>Study Planner and Self-Improvement</span></button>
+        </nav>
+      </div>
     </header>
 
     <main class="applied-page">
-      <nav class="applied-subtabs" aria-label="Applied exam sections" role="tablist">
-        <button id="tab-start-practising" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-start-practising" data-panel="panel-start-practising">Start Practising</button>
-        <button id="tab-challenge-scenarios" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-challenge-scenarios" data-panel="panel-challenge-scenarios">Challenge Scenarios</button>
-        <button id="tab-builder" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-builder" data-panel="panel-builder">Build a Mock Oral Station Prompt</button>
-        <button id="tab-exam-tests" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-exam-tests" data-panel="panel-exam-tests">What the RC Exam Tests</button>
-        <button id="tab-hot-topics" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-hot-topics" data-panel="panel-hot-topics">Hot Topics in Public Health</button>
-        <button id="tab-study-planner" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-study-planner" data-panel="panel-study-planner">Study Planner and Self-Improvement</button>
-      </nav>
-
       <section id="applied-home" class="applied-hero applied-hero-intro" aria-labelledby="applied-overview" data-home-panel>
         <h2 id="applied-overview">Applied Exam Practice Hub</h2>
         <p>
