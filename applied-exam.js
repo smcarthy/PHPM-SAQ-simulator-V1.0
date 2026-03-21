@@ -429,7 +429,7 @@
             <div class="gpt-launcher-copy">
               <span class="gpt-launcher-title">${escapeHtml(launcher.title)}</span>
               <p class="gpt-launcher-descriptor">${escapeHtml(launcher.descriptor)}</p>
-              <span class="gpt-launcher-cta">${hasUrl ? 'Launch now ↗' : 'Link coming soon'}</span>
+              <span class="gpt-launcher-cta">${hasUrl ? 'Launch Now ↗' : 'Link coming soon'}</span>
             </div>
           ${actionCloseMarkup}
         </article>

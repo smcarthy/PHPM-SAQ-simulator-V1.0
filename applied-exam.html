@@ -26,12 +26,12 @@
 
     <main class="applied-page">
       <nav class="applied-subtabs" aria-label="Applied exam sections" role="tablist">
-        <button id="tab-start-practising" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-start-practising" data-panel="panel-start-practising"><span class="applied-subtab-icon" aria-hidden="true">🎯</span><span>Start Practising</span></button>
-        <button id="tab-challenge-scenarios" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-challenge-scenarios" data-panel="panel-challenge-scenarios"><span class="applied-subtab-icon" aria-hidden="true">⚡</span><span>Challenge Scenarios</span></button>
-        <button id="tab-builder" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-builder" data-panel="panel-builder"><span class="applied-subtab-icon" aria-hidden="true">🧩</span><span>Build a Mock Oral Station Prompt</span></button>
-        <button id="tab-exam-tests" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-exam-tests" data-panel="panel-exam-tests"><span class="applied-subtab-icon" aria-hidden="true">📋</span><span>What the RC Exam Tests</span></button>
-        <button id="tab-hot-topics" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-hot-topics" data-panel="panel-hot-topics"><span class="applied-subtab-icon" aria-hidden="true">🔥</span><span>Hot Topics in Public Health</span></button>
-        <button id="tab-study-planner" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-study-planner" data-panel="panel-study-planner"><span class="applied-subtab-icon" aria-hidden="true">🗓️</span><span>Study Planner and Self-Improvement</span></button>
+        <button id="tab-start-practising" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-start-practising" data-panel="panel-start-practising"><span class="applied-subtab-icon emoji-gears" aria-hidden="true"></span><span>Start Practising</span></button>
+        <button id="tab-challenge-scenarios" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-challenge-scenarios" data-panel="panel-challenge-scenarios"><span class="applied-subtab-icon emoji-arm" aria-hidden="true"></span><span>Challenge Scenarios</span></button>
+        <button id="tab-builder" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-builder" data-panel="panel-builder"><span class="applied-subtab-icon emoji-crane" aria-hidden="true"></span><span>Build a Mock Oral Station Prompt</span></button>
+        <button id="tab-exam-tests" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-exam-tests" data-panel="panel-exam-tests"><span class="applied-subtab-icon emoji-checklist" aria-hidden="true"></span><span>What the RC Exam Tests</span></button>
+        <button id="tab-hot-topics" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-hot-topics" data-panel="panel-hot-topics"><span class="applied-subtab-icon emoji-fire" aria-hidden="true"></span><span>Hot Topics in Public Health</span></button>
+        <button id="tab-study-planner" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-study-planner" data-panel="panel-study-planner"><span class="applied-subtab-icon emoji-calendar" aria-hidden="true"></span><span>Study Planner and Self-Improvement</span></button>
       </nav>
 
       <section id="applied-home" class="applied-hero applied-hero-intro" aria-labelledby="applied-overview" data-home-panel>
@@ -93,19 +93,19 @@
       </div>
 
       <section id="panel-start-practising" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="tab-start-practising" hidden>
-        <h3 id="section-start-practising">Start Practising</h3>
+        <h3 id="section-start-practising"><span class="section-heading-icon emoji-gears" aria-hidden="true"></span>Start Practising</h3>
         <p>Each of these nine custom bots have been mapped to the Royal College exam topics and study materials, to help you practice in specific subject areas. Click one to interact with the custom bot, which you can type with (best for SAQ question) or speak with (best for mock oral practice).</p>
         <div id="gpt-launcher-grid" class="gpt-launcher-grid" aria-live="polite"></div>
       </section>
 
       <section id="panel-challenge-scenarios" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="tab-challenge-scenarios" hidden>
-        <h3 id="section-challenge-scenarios">Challenge Scenarios</h3>
+        <h3 id="section-challenge-scenarios"><span class="section-heading-icon emoji-arm" aria-hidden="true"></span>Challenge Scenarios</h3>
         <p>Cards stay compact by default. Hover to preview on desktop, then click or tap to expand full station details.</p>
         <div id="challenge-scenarios-list" class="challenge-scenarios-list" aria-live="polite"></div>
       </section>
 
       <section id="panel-builder" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="tab-builder" hidden>
-        <h3 id="section-station-builder">Build a Mock Oral Station Prompt</h3>
+        <h3 id="section-station-builder"><span class="section-heading-icon emoji-crane" aria-hidden="true"></span>Build a Mock Oral Station Prompt</h3>
         <p>Choose a high-yield combination and generate a deterministic local station prompt for copy/paste.</p>
 
         <form id="builder-form" class="builder-form" autocomplete="off">
@@ -144,19 +144,19 @@
       </section>
 
       <section id="panel-exam-tests" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="tab-exam-tests" hidden>
-        <h3 id="section-exam-testing">What the Exam Tests</h3>
+        <h3 id="section-exam-testing"><span class="section-heading-icon emoji-checklist" aria-hidden="true"></span>What the Exam Tests</h3>
         <p>Use this as a quick station checklist: aim for clear logic, practical recommendations, and defensible judgment in real-time oral discussion.</p>
         <div id="exam-tests-grid" class="applied-card-grid" aria-live="polite"></div>
       </section>
 
       <section id="panel-hot-topics" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="tab-hot-topics" hidden>
-        <h3 id="section-hot-topics">Hot Topics in Public Health</h3>
+        <h3 id="section-hot-topics"><span class="section-heading-icon emoji-fire" aria-hidden="true"></span>Hot Topics in Public Health</h3>
         <p>Concise high-yield topics for mock stations. Focus on how you would decide, communicate, and act.</p>
         <div id="hot-topics-grid" class="applied-card-grid hot-topics-grid" aria-live="polite"></div>
       </section>
 
       <section id="panel-study-planner" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="tab-study-planner" hidden>
-        <h3 id="section-study-planner">Study Planner and Self-Improvement</h3>
+        <h3 id="section-study-planner"><span class="section-heading-icon emoji-calendar" aria-hidden="true"></span>Study Planner and Self-Improvement</h3>
         <p>Four practical weeks to sharpen concise key messages, structure, and confidence under applied-exam timing.</p>
         <div id="study-planner-content" aria-live="polite"></div>
       </section>
