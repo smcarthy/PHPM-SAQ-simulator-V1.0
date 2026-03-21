@@ -77,10 +77,16 @@ test('applied exam start practising cards render updated descriptions without ov
   await expect(subtabs.nth(4)).toContainText('Hot Topics');
   await expect(subtabs.nth(5)).toContainText('Study Planner');
 
-  const emojiBackgrounds = await page.locator('.applied-subtab-icon').evaluateAll((icons) => icons.map((icon) => getComputedStyle(icon).backgroundImage));
-  for (const backgroundImage of emojiBackgrounds) {
-    expect(backgroundImage).not.toBe('none');
+  const iconBackgrounds = await page.locator('.applied-subtab-icon').evaluateAll((icons) => icons.map((icon) => getComputedStyle(icon).backgroundImage));
+  for (const backgroundImage of iconBackgrounds) {
+    expect(backgroundImage).toContain('assets/applied/');
   }
+
+  const bannerBox = await page.locator('.site-header .applied-subtabs').boundingBox();
+  const homeBox = await page.locator('#applied-home').boundingBox();
+  expect(bannerBox).not.toBeNull();
+  expect(homeBox).not.toBeNull();
+  expect(bannerBox.y).toBeLessThan(homeBox.y);
 
   await page.getByRole('tab', { name: /start practising/i }).click();
 
