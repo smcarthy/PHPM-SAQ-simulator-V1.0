@@ -1605,6 +1605,8 @@
   const startHalfBtn = document.getElementById('start-half');
   const startPracticeBtn = document.getElementById('start-practice');
   const startAhdBtn = document.getElementById('start-ahd');
+  const resumeOption = document.getElementById('resume-option');
+  const resumeExamBtn = document.getElementById('resume-exam');
   const dataWarning = document.getElementById('data-warning');
   const timerDisplay = document.getElementById('timer');
   // Display of total available points. This element is shown near the timer.
@@ -2003,6 +2005,85 @@
     if (!dataWarning) return;
     dataWarning.classList.add('hidden');
     dataWarning.textContent = '';
+  }
+
+  function hasSavedSession() {
+    return Boolean(
+      localStorage.getItem(STORAGE_KEY_TIME) &&
+      localStorage.getItem(STORAGE_KEY_MODE) &&
+      localStorage.getItem(STORAGE_KEY_SELECTED)
+    );
+  }
+
+  function updateResumeOptionVisibility() {
+    if (!resumeOption) return;
+    resumeOption.classList.toggle('hidden', !hasSavedSession());
+  }
+
+  function clearSavedExamState() {
+    localStorage.removeItem(STORAGE_KEY_ANSWERS);
+    localStorage.removeItem(STORAGE_KEY_FLAGS);
+    localStorage.removeItem(STORAGE_KEY_TIME);
+    localStorage.removeItem(STORAGE_KEY_SELECTED);
+    localStorage.removeItem(STORAGE_KEY_MODE);
+    localStorage.removeItem(STORAGE_KEY_STARTED_AT);
+    localStorage.removeItem(STORAGE_KEY_SCORES);
+    localStorage.removeItem(STORAGE_KEY_LAST_TICK);
+    updateResumeOptionVisibility();
+  }
+
+  function hydrateSavedExamSession() {
+    const savedTime = localStorage.getItem(STORAGE_KEY_TIME);
+    const savedMode = localStorage.getItem(STORAGE_KEY_MODE);
+    const savedSelected = localStorage.getItem(STORAGE_KEY_SELECTED);
+    const savedStarted = localStorage.getItem(STORAGE_KEY_STARTED_AT);
+    if (!(savedTime && savedMode && savedSelected)) return false;
+
+    examMode = savedMode;
+    startedAt = savedStarted;
+    const targetFormId = MODE_TO_FORM_ID[savedMode];
+    const savedForm = examData.forms.forms.find((form) => form.form_id === targetFormId);
+    if (!savedForm) {
+      clearSavedExamState();
+      throw new Error(`Saved exam form ${targetFormId} not found.`);
+    }
+    examDuration = savedForm.duration_sec || 0;
+    currentFormId = savedForm.form_id;
+    currentFormTotalPoints = Number(savedForm.total_points) || 0;
+    const ids = JSON.parse(savedSelected);
+    const questionById = {};
+    examData.bank.questions.forEach((q) => {
+      questionById[q.id] = q;
+    });
+    activeQuestions = ids
+      .map((id) => questionById[id])
+      .filter(Boolean)
+      .map((q) => JSON.parse(JSON.stringify(q)));
+    activeQuestions.forEach((q, idx) => {
+      q.number = idx + 1;
+    });
+    if (pointsIndicator) {
+      const computedTotalPoints = activeQuestions.reduce((sum, q) => {
+        return sum + q.parts.reduce((partSum, part) => partSum + (part.max_score || 0), 0);
+      }, 0);
+      const totalPoints = currentFormTotalPoints || computedTotalPoints;
+      pointsIndicator.textContent = 'Total Points: ' + totalPoints;
+    }
+
+    const lastTickRaw = localStorage.getItem(STORAGE_KEY_LAST_TICK);
+    let adjustedTime = parseInt(savedTime, 10);
+    if (lastTickRaw) {
+      const elapsedSec = Math.floor((Date.now() - parseInt(lastTickRaw, 10)) / 1000);
+      if (!Number.isNaN(elapsedSec) && elapsedSec > 0) {
+        adjustedTime = Math.max(0, adjustedTime - elapsedSec);
+      }
+    }
+    currentIndex = 0;
+    renderQuestionList();
+    renderQuestion();
+    startTimer(adjustedTime);
+    switchSection('exam');
+    return true;
   }
 
   function resolveQuestionsForForm(bank, form) {
@@ -3140,14 +3221,7 @@
       return;
     }
     // Clear any previous state when starting a new exam
-    localStorage.removeItem(STORAGE_KEY_ANSWERS);
-    localStorage.removeItem(STORAGE_KEY_FLAGS);
-    localStorage.removeItem(STORAGE_KEY_TIME);
-    localStorage.removeItem(STORAGE_KEY_SELECTED);
-    localStorage.removeItem(STORAGE_KEY_MODE);
-    localStorage.removeItem(STORAGE_KEY_STARTED_AT);
-    localStorage.removeItem(STORAGE_KEY_SCORES);
-    localStorage.removeItem(STORAGE_KEY_LAST_TICK);
+    clearSavedExamState();
 
     examMode = mode;
     const targetFormId = MODE_TO_FORM_ID[mode];
@@ -3212,6 +3286,11 @@
   if (startAhdBtn) {
     startAhdBtn.addEventListener('click', () => {
       startExam('ahd');
+    });
+  }
+  if (resumeExamBtn) {
+    resumeExamBtn.addEventListener('click', () => {
+      hydrateSavedExamSession();
     });
   }
   prevQuestionBtn.addEventListener('click', () => {
@@ -3283,6 +3362,7 @@
     returnHomeBtn.addEventListener('click', () => {
       // On return, clear any leftover awarded scores
       localStorage.removeItem(STORAGE_KEY_SCORES);
+      updateResumeOptionVisibility();
       // Switch back to landing page
       switchSection('landing');
     });
@@ -3316,73 +3396,8 @@
     }
     updateLandingButtonState();
     runBankSanityChecks();
-    // Check if there is a saved session to resume
-    const savedTime = localStorage.getItem(STORAGE_KEY_TIME);
-    const savedMode = localStorage.getItem(STORAGE_KEY_MODE);
-    const savedSelected = localStorage.getItem(STORAGE_KEY_SELECTED);
-    const savedStarted = localStorage.getItem(STORAGE_KEY_STARTED_AT);
-    if (savedTime && savedMode && savedSelected) {
-      const resume = confirm('You have an unfinished exam. Would you like to resume?');
-      if (resume) {
-        examMode = savedMode;
-        startedAt = savedStarted;
-        const targetFormId = MODE_TO_FORM_ID[savedMode];
-        const savedForm = examData.forms.forms.find((form) => form.form_id === targetFormId);
-        if (!savedForm) {
-          throw new Error(`Saved exam form ${targetFormId} not found.`);
-        }
-        examDuration = savedForm.duration_sec || 0;
-        currentFormId = savedForm.form_id;
-        currentFormTotalPoints = Number(savedForm.total_points) || 0;
-        // Rebuild activeQuestions using saved selected ids
-        const ids = JSON.parse(savedSelected);
-        const questionById = {};
-        examData.bank.questions.forEach((q) => {
-          questionById[q.id] = q;
-        });
-        activeQuestions = ids
-          .map((id) => questionById[id])
-          .filter(Boolean)
-          .map((q) => JSON.parse(JSON.stringify(q)));
-        // Assign sequential numbers
-        activeQuestions.forEach((q, idx) => {
-          q.number = idx + 1;
-        });
-        if (pointsIndicator) {
-          const computedTotalPoints = activeQuestions.reduce((sum, q) => {
-            return sum + q.parts.reduce((partSum, part) => partSum + (part.max_score || 0), 0);
-          }, 0);
-          const totalPoints = currentFormTotalPoints || computedTotalPoints;
-          pointsIndicator.textContent = 'Total Points: ' + totalPoints;
-        }
-
-        const lastTickRaw = localStorage.getItem(STORAGE_KEY_LAST_TICK);
-        let adjustedTime = parseInt(savedTime, 10);
-        if (lastTickRaw) {
-          const elapsedSec = Math.floor((Date.now() - parseInt(lastTickRaw, 10)) / 1000);
-          if (!Number.isNaN(elapsedSec) && elapsedSec > 0) {
-            adjustedTime = Math.max(0, adjustedTime - elapsedSec);
-          }
-        }
-        currentIndex = 0;
-        renderQuestionList();
-        renderQuestion();
-        startTimer(adjustedTime);
-        switchSection('exam');
-        return;
-      } else {
-        // Clear saved state if not resuming
-        localStorage.removeItem(STORAGE_KEY_ANSWERS);
-        localStorage.removeItem(STORAGE_KEY_FLAGS);
-        localStorage.removeItem(STORAGE_KEY_TIME);
-        localStorage.removeItem(STORAGE_KEY_SELECTED);
-        localStorage.removeItem(STORAGE_KEY_MODE);
-        localStorage.removeItem(STORAGE_KEY_STARTED_AT);
-        localStorage.removeItem(STORAGE_KEY_SCORES);
-        localStorage.removeItem(STORAGE_KEY_LAST_TICK);
-      }
-    }
-    // Otherwise show landing page
+    updateResumeOptionVisibility();
+    // Always start on the landing page; saved sessions can be resumed explicitly.
     switchSection('landing');
   });
 })();
