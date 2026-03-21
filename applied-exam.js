@@ -414,34 +414,39 @@
       return;
     }
 
-    grid.innerHTML = GPT_LAUNCHERS.map((launcher) => {
+    grid.innerHTML = GPT_LAUNCHERS.map((launcher, index) => {
       const topic = getTopicForLauncher(launcher);
       const hasUrl = Boolean(launcher.url);
-      const actionMarkup = hasUrl
-        ? `<a class="gpt-launcher-card" href="${launcher.url}" target="_blank" rel="noopener noreferrer" aria-label="Open ${escapeHtml(launcher.title)}">`
-        : `<div class="gpt-launcher-card gpt-launcher-card-disabled" role="group" aria-label="${escapeHtml(launcher.title)} link coming soon">`;
-      const actionCloseMarkup = hasUrl ? '</a>' : '</div>';
+      const detailsId = `gpt-launcher-details-${index}`;
+      const titleId = `gpt-launcher-title-${index}`;
 
       return `
-        <article class="gpt-launcher-item" data-topic-id="${escapeHtml(launcher.topicId)}" style="${getLauncherCardStyles(topic)}">
-          ${actionMarkup}
-            <div class="gpt-launcher-top">
-              <div class="gpt-launcher-icon-block" aria-hidden="true">
+        <article class="challenge-card gpt-launcher-item" data-expanded="false" data-topic-id="${escapeHtml(launcher.topicId)}" style="${getLauncherCardStyles(topic)}">
+          <button type="button" class="challenge-toggle gpt-launcher-toggle" aria-expanded="false" aria-controls="${detailsId}">
+            <span class="gpt-launcher-top">
+              <span class="gpt-launcher-icon-block" aria-hidden="true">
                 <img src="${launcher.iconPath}" alt="${escapeHtml(launcher.title)} icon" class="gpt-launcher-icon" loading="lazy" />
-              </div>
-              <div class="gpt-launcher-copy">
-                <span class="gpt-launcher-title">${escapeHtml(launcher.title)}</span>
-                <p class="gpt-launcher-descriptor">${escapeHtml(launcher.descriptor)}</p>
-              </div>
+              </span>
+              <span class="gpt-launcher-copy">
+                <span class="challenge-title gpt-launcher-title" id="${titleId}">${escapeHtml(launcher.title)}</span>
+                <span class="challenge-context gpt-launcher-topic">${escapeHtml(topic.label)}</span>
+                <span class="challenge-hover-preview gpt-launcher-hover-preview">${escapeHtml(launcher.descriptor)}</span>
+              </span>
+            </span>
+          </button>
+          <div class="challenge-details gpt-launcher-details" id="${detailsId}" aria-labelledby="${titleId}" hidden>
+            <p><strong>Official topic label:</strong></p>
+            <ul class="topic-tag-list">${renderTopicTags([launcher.topicId])}</ul>
+            <p class="gpt-launcher-descriptor">${escapeHtml(launcher.descriptor)}</p>
+            <div class="challenge-actions">
+              ${hasUrl ? `<a href="${launcher.url}" class="open-gpt-btn" target="_blank" rel="noopener noreferrer">Open Custom GPT ↗</a>` : '<button type="button" class="open-gpt-btn open-gpt-btn-disabled" disabled>Link coming soon</button>'}
             </div>
-            <div class="gpt-launcher-footer">
-              <span class="gpt-launcher-cta">${hasUrl ? 'Launch Now ↗' : 'Link coming soon'}</span>
-            </div>
-          ${actionCloseMarkup}
+          </div>
         </article>
       `;
     }).join('');
   }
+
 
   function renderChallengeScenarios() {
     const list = document.getElementById('challenge-scenarios-list');
