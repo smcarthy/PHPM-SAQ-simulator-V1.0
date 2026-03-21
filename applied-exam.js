@@ -485,10 +485,15 @@
     }
 
     grid.innerHTML = EXAM_TEST_ITEMS.map((item) => `
-      <article class="applied-mini-card applied-shared-card applied-exam-test-card study-week-card">
-        <h4>${escapeHtml(item.title)}</h4>
-        <p>${escapeHtml(item.detail)}</p>
-      </article>
+      <details class="applied-topic-card hot-topic-card applied-exam-test-card exam-test-topic-card">
+        <summary class="hot-topic-summary exam-test-summary">
+          <h4>${escapeHtml(item.title)}</h4>
+          <p class="topic-why"><strong>What to demonstrate:</strong> ${escapeHtml(item.detail)}</p>
+        </summary>
+        <div class="hot-topic-details exam-test-details">
+          <p>${escapeHtml(item.detail)}</p>
+        </div>
+      </details>
     `).join('');
   }
 
