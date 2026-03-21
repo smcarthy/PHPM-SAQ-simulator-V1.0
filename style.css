@@ -1617,7 +1617,7 @@ main {
 }
 
 .gpt-launcher-grid {
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
   gap: 1rem;
   align-items: stretch;
 }
@@ -1640,7 +1640,7 @@ main {
   border: 1px solid color-mix(in srgb, var(--topic-color), #d8e4ef 52%);
   text-align: center;
   color: var(--topic-text, #122033);
-  box-shadow: 0 14px 30px rgba(16, 55, 95, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.24);
+  box-shadow: 0 12px 22px rgba(16, 55, 95, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.18);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(248, 251, 255, 0.94)),
     linear-gradient(135deg, color-mix(in srgb, var(--topic-color), #ffffff 86%) 0%, color-mix(in srgb, var(--topic-color), #eef4fa 82%) 100%);
