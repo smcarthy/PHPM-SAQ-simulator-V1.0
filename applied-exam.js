@@ -453,13 +453,13 @@
       const recommendedTopic = TOPIC_META[launcher.topicId];
 
       return `
-        <article class="applied-mini-card applied-shared-card applied-exam-test-card challenge-card challenge-scenario-card" data-expanded="false">
-          <button type="button" class="challenge-toggle" aria-expanded="false">
+        <details class="applied-mini-card applied-shared-card applied-exam-test-card challenge-card challenge-scenario-card">
+          <summary class="challenge-toggle">
             <span class="challenge-title">${index + 1}. ${escapeHtml(scenario.title)}</span>
             <span class="challenge-context">${escapeHtml(scenario.context)}</span>
             <span class="challenge-hover-preview">${escapeHtml(scenario.prompt)}</span>
-          </button>
-          <div class="challenge-details" hidden>
+          </summary>
+          <div class="challenge-details">
             <p><strong>Official topic label(s):</strong></p>
             <ul class="topic-tag-list">${renderTopicTags(scenario.topicIds)}</ul>
             <p><strong>Recommended GPT:</strong> <span class="recommended-gpt" style="--topic-color:${recommendedTopic.color}">${escapeHtml(launcher.title)}</span></p>
@@ -473,7 +473,7 @@
               ${launcher.url ? `<a href="${launcher.url}" class="open-gpt-btn" target="_blank" rel="noopener noreferrer">Open Recommended GPT</a>` : '<button type="button" class="open-gpt-btn open-gpt-btn-disabled" disabled>Link coming soon</button>'}
             </div>
           </div>
-        </article>
+        </details>
       `;
     }).join('');
   }
@@ -684,29 +684,6 @@
     }
   }
 
-  function bindChallengeExpansion() {
-    document.addEventListener('click', (event) => {
-      const target = event.target;
-      if (!(target instanceof HTMLElement)) {
-        return;
-      }
-      const toggle = target.closest('.challenge-toggle');
-      if (!toggle) {
-        return;
-      }
-
-      const card = toggle.closest('.challenge-card');
-      const details = card ? card.querySelector('.challenge-details') : null;
-      if (!card || !details || !(details instanceof HTMLElement)) {
-        return;
-      }
-
-      const expanded = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!expanded));
-      card.dataset.expanded = String(!expanded);
-      details.hidden = expanded;
-    });
-  }
 
   async function copyPromptFromTextarea(textareaId, statusNode) {
     const textarea = document.getElementById(textareaId);
@@ -992,7 +969,6 @@
     renderTodayChallenge();
     renderFrameworkOfTheDay();
     bindSubTabs();
-    bindChallengeExpansion();
     bindCopyActions();
     initializeStationBuilder();
   }
