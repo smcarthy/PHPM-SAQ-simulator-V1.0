@@ -74,7 +74,7 @@
     {
       id: 'gpt-all',
       title: 'All PHPM Topics and Hot Topics',
-      descriptor: 'Broad mixed rehearsal across all domains.',
+      descriptor: 'For PGY-5 ready to challenge the exam. This bot creates challenge scenarios that mix the other eight types of bots, and updated PHAC publications such as the Chief Public Health Officer (CPHO) reports.',
       url: GPT_URLS['gpt-1'],
       iconPath: TOPIC_META.all.iconPath,
       topicColorKey: 'all',
@@ -83,7 +83,7 @@
     {
       id: 'gpt-health-promotion',
       title: 'Health Promotion, Chronic Diseases, Mental Health and Substance Use',
-      descriptor: 'Prevention and chronic disease oral station practice.',
+      descriptor: 'For PGY-3/4/5 who are currently on their Health Promotion block or wanting to improve their mock oral practice in Health Promotion and Chronic Disease Prevention.',
       url: GPT_URLS['gpt-2'],
       iconPath: TOPIC_META['health-promotion'].iconPath,
       topicColorKey: 'health-promotion',
@@ -92,7 +92,7 @@
     {
       id: 'gpt-communicable',
       title: 'Communicable Diseases in Health Protection',
-      descriptor: 'Outbreak control and communicable disease response drills.',
+      descriptor: 'For PGY-3/4/5 who are currently on their Communicable Disease/Health Protection block or wanting to improve their mock oral practice in outbreak response, vaccination and infectious diseases.',
       url: GPT_URLS['gpt-3'],
       iconPath: TOPIC_META.communicable.iconPath,
       topicColorKey: 'communicable',
@@ -101,7 +101,7 @@
     {
       id: 'gpt-environment',
       title: 'Environmental, Occupational, Built Environment and Injuries',
-      descriptor: 'Environmental hazards and injury prevention framing.',
+      descriptor: 'For PGY-3/4/5 who are currently on their Environmental Health/Occupational Health block or wanting to improve their mock oral practice in environmental health risk assessment, occupational health, one health, the built environment or injury prevention.',
       url: GPT_URLS['gpt-4'],
       iconPath: TOPIC_META.environment.iconPath,
       topicColorKey: 'environment',
@@ -110,7 +110,7 @@
     {
       id: 'gpt-systems',
       title: 'Health Systems, Policy, Law and Ethics',
-      descriptor: 'Policy, law and ethics argument practice.',
+      descriptor: 'For PGY-5 nearing the exam and PGY-2/3 in their academic year of training wanting to improve mock oral practice in Canadian health systems, health policy process, federal and provincial laws, and public health ethics.',
       url: GPT_URLS['gpt-5'],
       iconPath: TOPIC_META.systems.iconPath,
       topicColorKey: 'systems',
@@ -119,7 +119,7 @@
     {
       id: 'gpt-methods',
       title: 'Population Health, Epidemiology, Methods and Basic Sciences',
-      descriptor: 'Methods-heavy interpretation and epidemiology reasoning.',
+      descriptor: 'For PGY-5 nearing the exam and PGY-2/3 in their academic year of training wanting to improve mock oral practice in epidemiology, population health and the methods used in public health.',
       url: GPT_URLS['gpt-6'],
       iconPath: TOPIC_META.methods.iconPath,
       topicColorKey: 'methods',
@@ -128,7 +128,7 @@
     {
       id: 'gpt-management',
       title: 'Management, Leadership and Program Planning',
-      descriptor: 'Leadership and implementation planning stations.',
+      descriptor: 'For PGY-4/5 currently on their Leadership and Management rotation, or wanting to improve their mock oral practice in leadership styles, conflict resolution, management, and program planning/evaluation.',
       url: GPT_URLS['gpt-7'],
       iconPath: TOPIC_META.management.iconPath,
       topicColorKey: 'management',
@@ -137,7 +137,7 @@
     {
       id: 'gpt-emergency',
       title: 'Emergency Preparedness and Response',
-      descriptor: 'Incident command and emergency planning simulation.',
+      descriptor: 'For PGY-4/5 currently on their Leadership and Management rotation, or wanting to improve incidence management systems structure in mock oral practice.',
       url: GPT_URLS['gpt-8'],
       iconPath: TOPIC_META.emergency.iconPath,
       topicColorKey: 'emergency',
@@ -146,7 +146,7 @@
     {
       id: 'gpt-maternal',
       title: 'Maternal and Child Health',
-      descriptor: 'Maternal-child health interventions and policy drills.',
+      descriptor: 'For PGY-3/4/5 who are currently on their Health Promotion block or wanting to improve their mock oral practice in maternal and child health.',
       url: GPT_URLS['gpt-9'],
       iconPath: TOPIC_META.maternal.iconPath,
       topicColorKey: 'maternal',

@@ -64,6 +64,45 @@ async function runCommonFlow(page, expectedMode) {
   expect(Array.isArray(payload.questions)).toBeTruthy();
 }
 
+
+test('applied exam start practising cards render updated descriptions without overlap', async ({ page }) => {
+  await page.goto('/applied-exam.html');
+  await page.getByRole('tab', { name: /start practising/i }).click();
+
+  const cards = page.locator('.gpt-launcher-card');
+  await expect(cards).toHaveCount(9);
+  await expect(cards.nth(0)).toContainText('For PGY-5 ready to challenge the exam.');
+  await expect(cards.nth(1)).toContainText('For PGY-3/4/5 who are currently on their Health Promotion block');
+  await expect(cards.nth(7)).toContainText('incidence management systems structure');
+
+  const iconBoxes = await page.locator('.gpt-launcher-icon').evaluateAll((icons) => icons.map((icon) => {
+    const iconRect = icon.getBoundingClientRect();
+    const cardRect = icon.closest('.gpt-launcher-card').getBoundingClientRect();
+    return {
+      leftGap: iconRect.left - cardRect.left,
+      rightGap: cardRect.right - iconRect.right
+    };
+  }));
+
+  for (const box of iconBoxes) {
+    expect(Math.abs(box.leftGap - box.rightGap)).toBeLessThan(24);
+  }
+
+  const cardBoxes = await cards.evaluateAll((nodes) => nodes.map((node) => {
+    const rect = node.getBoundingClientRect();
+    return { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom };
+  }));
+
+  for (let i = 0; i < cardBoxes.length; i += 1) {
+    for (let j = i + 1; j < cardBoxes.length; j += 1) {
+      const a = cardBoxes[i];
+      const b = cardBoxes[j];
+      const overlaps = !(a.right <= b.left || b.right <= a.left || a.bottom <= b.top || b.bottom <= a.top);
+      expect(overlaps).toBeFalsy();
+    }
+  }
+});
+
 test.describe('Deterministic mode smoke flow', () => {
   test('legacy mode load + full flow', async ({ page }) => {
     await page.goto('/index.html');
