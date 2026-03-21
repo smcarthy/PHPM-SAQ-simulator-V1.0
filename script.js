@@ -1610,6 +1610,7 @@
   // Display of total available points. This element is shown near the timer.
   const pointsIndicator = document.getElementById('points-indicator');
   const reviewButton = document.getElementById('review-button');
+  const siteTabs = document.querySelector('.site-tabs');
   const questionListEl = document.getElementById('question-list');
   const questionContentEl = document.getElementById('question-content');
   const prevQuestionBtn = document.getElementById('prev-question');
@@ -2780,6 +2781,10 @@
     }
 
     // Show or hide calculator icon/panel based on section
+    if (siteTabs) {
+      siteTabs.classList.toggle('is-hidden', sectionId !== 'landing');
+    }
+
     if (calculatorIcon && calculatorPanel) {
       if (sectionId === 'exam') {
         calculatorIcon.style.display = 'flex';

@@ -1280,6 +1280,11 @@ main {
   box-shadow: 0 8px 16px rgba(5, 30, 61, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
+
+.site-tabs.is-hidden {
+  display: none;
+}
+
 #landing,
 .applied-hero,
 .applied-section,
@@ -1338,6 +1343,11 @@ main {
   line-height: 1.65;
 }
 
+#landing > .landing-intro {
+  justify-self: center;
+  text-align: center;
+}
+
 #what-to-expect {
   margin-top: 1rem;
   padding: 1.25rem 1.35rem;
@@ -1373,8 +1383,6 @@ main {
 }
 
 .options button,
-.question-navigation button,
-#review-button,
 #back-to-exam,
 #final-submit,
 #return-home {
@@ -1383,6 +1391,16 @@ main {
   border-radius: 14px;
   background: linear-gradient(135deg, #114d88 0%, #1b8aa3 100%);
   box-shadow: 0 10px 22px rgba(17, 77, 136, 0.18);
+}
+
+.question-navigation button,
+#review-button {
+  width: auto;
+  padding: 0.9rem 1.15rem;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #114d88 0%, #1b8aa3 100%);
+  box-shadow: 0 10px 22px rgba(17, 77, 136, 0.18);
+  flex: 0 0 auto;
 }
 
 .options button:hover,
