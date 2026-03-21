@@ -554,6 +554,21 @@
     `;
   }
 
+  function autoSizeTextarea(textarea) {
+    if (!(textarea instanceof HTMLTextAreaElement)) {
+      return;
+    }
+
+    textarea.style.height = 'auto';
+    textarea.style.height = `${textarea.scrollHeight}px`;
+  }
+
+  function autoSizeChallengePrompts() {
+    document.querySelectorAll('.challenge-prompt').forEach((node) => {
+      autoSizeTextarea(node);
+    });
+  }
+
   function animateSwap(container, renderContent) {
     if (!(container instanceof HTMLElement)) {
       renderContent();
@@ -809,6 +824,7 @@
 
     if (promptField) {
       promptField.value = prompt;
+      autoSizeTextarea(promptField);
     }
 
     if (recommendedGptNode) {
@@ -971,6 +987,7 @@
     bindSubTabs();
     bindCopyActions();
     initializeStationBuilder();
+    autoSizeChallengePrompts();
   }
 
   document.addEventListener('DOMContentLoaded', initializeAppliedExamPage);

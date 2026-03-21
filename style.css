@@ -2022,7 +2022,11 @@ body {
 }
 
 .applied-subtabs-banner-wrap {
-  margin: 1.15rem auto -1.85rem;
+  width: 100vw;
+  max-width: none;
+  margin: 1.15rem 0 -1.85rem calc(50% - 50vw);
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 .applied-subtabs,
@@ -2033,22 +2037,29 @@ body {
 .applied-subtabs-banner {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 0.4rem;
-  padding: 0.55rem;
+  gap: 0.55rem;
+  width: min(100%, 1600px);
+  margin: 0 auto;
+  padding: 0.65rem;
   border-radius: 24px;
   background: linear-gradient(135deg, rgba(252,254,255,0.99), rgba(230,241,248,0.96));
 }
 
 .applied-subtab {
   min-width: 0;
-  gap: 0.42rem;
-  padding: 0.78rem 0.55rem;
-  font-size: 0.94rem;
+  gap: 0.5rem;
+  padding: 0.85rem 0.65rem;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  text-align: center;
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 .applied-subtabs-banner .applied-subtab {
-  min-height: 3.45rem;
-  font-size: 0.94rem;
+  min-height: 4.1rem;
+  font-size: 0.9rem;
 }
 
 .applied-subtab-icon {
@@ -2140,11 +2151,11 @@ body {
 }
 
 .gpt-launcher-icon-block {
-  width: 72px;
-  min-width: 72px;
-  height: 72px;
+  width: 94px;
+  min-width: 94px;
+  height: 94px;
   border-radius: 50%;
-  padding: 0.55rem;
+  padding: 0.65rem;
 }
 
 .gpt-launcher-icon {
@@ -2385,6 +2396,8 @@ body {
   aspect-ratio: auto;
   min-height: 380px;
   padding: 1.15rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .gpt-launcher-copy {
@@ -2405,13 +2418,16 @@ body {
 }
 
 .gpt-launcher-footer {
-  justify-content: flex-start;
-  margin-top: 1rem;
+  justify-content: center;
+  margin-top: auto;
+  padding-top: 1rem;
+  width: 100%;
 }
 
 .launch-now-btn {
-  min-width: 0;
-  width: 100%;
+  min-width: min(12rem, 100%);
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .challenge-scenarios-list {
@@ -2440,7 +2456,7 @@ body {
 .challenge-card:hover .challenge-details,
 .challenge-card:focus-within .challenge-details,
 .challenge-card[open] .challenge-details {
-  max-height: 420px;
+  max-height: 1200px;
   opacity: 1;
   transform: translateY(0);
 }
@@ -2457,6 +2473,15 @@ body {
   display: block;
 }
 
+.challenge-title {
+  font-weight: 700;
+}
+
+.challenge-context {
+  font-weight: 700;
+  color: #0f8b8d;
+}
+
 .builder-output {
   display: grid;
   gap: 0.7rem;
@@ -2469,9 +2494,11 @@ body {
 
 .challenge-prompt {
   width: 100%;
-  min-height: 210px;
-  resize: vertical;
+  min-height: 0;
+  height: auto;
+  resize: none;
   line-height: 1.55;
+  overflow-y: hidden;
 }
 
 .challenge-prompt-block {
@@ -2481,9 +2508,33 @@ body {
 
 .topic-tag,
 .recommended-gpt {
-  padding: 0.18rem 0.48rem;
-  border-radius: 10px;
-  line-height: 1.25;
+  padding: 0.14rem 0.42rem;
+  border-radius: 9px;
+  line-height: 1.2;
+  font-size: 0.82rem;
+}
+
+#exam-tests-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+#exam-tests-grid .applied-exam-test-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.applied-hot-topics-figure {
+  min-height: 520px;
+}
+
+.applied-hot-topics-figure img {
+  max-width: 880px;
+}
+
+.applied-hero-figure img {
+  max-width: 616px;
 }
 
 @media (max-width: 1100px) {
@@ -2499,6 +2550,11 @@ body {
 }
 
 @media (max-width: 640px) {
+  .applied-subtabs-banner-wrap {
+    margin-left: calc(50% - 50vw);
+    padding: 0 0.75rem;
+  }
+
   .gpt-launcher-grid {
     grid-template-columns: 1fr;
   }
