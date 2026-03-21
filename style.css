@@ -1170,6 +1170,14 @@ body {
   font-weight: 700;
 }
 
+
+.site-brand-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
 .site-eyebrow {
   margin: 0 0 0.25rem;
   color: rgba(232, 247, 255, 0.78);
@@ -2477,6 +2485,7 @@ body {
 
 .challenge-title {
   font-weight: 700;
+  color: rgb(59, 70, 224);
 }
 
 .challenge-context {
@@ -2504,7 +2513,7 @@ body {
   background: rgba(255, 255, 255, 0.94);
   color: #15384f;
   font-size: 0.97rem;
-  font-weight: 600;
+  font-weight: 400;
   resize: none;
   line-height: 1.6;
   overflow-y: hidden;
@@ -2546,7 +2555,7 @@ body {
 }
 
 .applied-hero-figure img {
-  max-width: 924px;
+  max-width: 1240px;
 }
 
 @media (max-width: 1100px) {
@@ -2575,6 +2584,14 @@ body {
   .today-challenge-card,
   .framework-day-card {
     min-height: auto;
+  }
+
+  .today-challenge-card-header {
+    grid-template-columns: 1fr;
+  }
+
+  .today-challenge-figure img {
+    max-width: 200px;
   }
 
   .framework-day-content {
@@ -2626,4 +2643,56 @@ body {
 #panel-exam-tests .applied-section-copy {
   display: grid;
   gap: 1rem;
+}
+
+
+.applied-inline-section-figure {
+  margin: 0.75rem 0 1rem;
+  max-width: 520px;
+}
+
+.challenge-scenarios-figure {
+  min-height: 220px;
+}
+
+.challenge-scenarios-figure img {
+  max-width: 520px;
+}
+
+.today-challenge-card-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(150px, 0.85fr);
+  gap: 1rem;
+  align-items: center;
+}
+
+.today-challenge-figure {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.today-challenge-figure img {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.builder-side-figure {
+  min-height: 100%;
+}
+
+.builder-side-figure img {
+  max-width: 520px;
+}
+
+#exam-tests-grid .applied-exam-test-card {
+  border-left: 4px solid #196f84;
+}
+
+#exam-tests-grid .applied-exam-test-card h4 {
+  margin-bottom: 0.4rem;
 }
