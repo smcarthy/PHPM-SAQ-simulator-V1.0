@@ -421,7 +421,7 @@
       const titleId = `gpt-launcher-title-${index}`;
 
       return `
-        <article class="challenge-card gpt-launcher-item" data-expanded="false" data-topic-id="${escapeHtml(launcher.topicId)}" style="${getLauncherCardStyles(topic)}">
+        <article class="applied-shared-card challenge-card gpt-launcher-item" data-expanded="false" data-topic-id="${escapeHtml(launcher.topicId)}" style="${getLauncherCardStyles(topic)}">
           <button type="button" class="challenge-toggle gpt-launcher-toggle" aria-expanded="false" aria-controls="${detailsId}">
             <span class="gpt-launcher-top">
               <span class="gpt-launcher-icon-block" aria-hidden="true">
@@ -461,7 +461,7 @@
       const recommendedTopic = TOPIC_META[launcher.topicId];
 
       return `
-        <article class="challenge-card" data-expanded="false">
+        <article class="applied-shared-card challenge-card" data-expanded="false">
           <button type="button" class="challenge-toggle" aria-expanded="false">
             <span class="challenge-title">${index + 1}. ${escapeHtml(scenario.title)}</span>
             <span class="challenge-context">${escapeHtml(scenario.context)}</span>
@@ -493,7 +493,7 @@
     }
 
     grid.innerHTML = EXAM_TEST_ITEMS.map((item) => `
-      <article class="applied-mini-card">
+      <article class="applied-mini-card applied-shared-card applied-exam-test-card">
         <h4>${escapeHtml(item.title)}</h4>
         <p>${escapeHtml(item.detail)}</p>
       </article>
