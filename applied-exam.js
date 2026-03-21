@@ -425,10 +425,16 @@
       return `
         <article class="gpt-launcher-item" data-topic-id="${escapeHtml(launcher.topicId)}" style="${getLauncherCardStyles(topic)}">
           ${actionMarkup}
-            <img src="${launcher.iconPath}" alt="${escapeHtml(launcher.title)} icon" class="gpt-launcher-icon" loading="lazy" />
-            <div class="gpt-launcher-copy">
-              <span class="gpt-launcher-title">${escapeHtml(launcher.title)}</span>
-              <p class="gpt-launcher-descriptor">${escapeHtml(launcher.descriptor)}</p>
+            <div class="gpt-launcher-top">
+              <div class="gpt-launcher-icon-block" aria-hidden="true">
+                <img src="${launcher.iconPath}" alt="${escapeHtml(launcher.title)} icon" class="gpt-launcher-icon" loading="lazy" />
+              </div>
+              <div class="gpt-launcher-copy">
+                <span class="gpt-launcher-title">${escapeHtml(launcher.title)}</span>
+                <p class="gpt-launcher-descriptor">${escapeHtml(launcher.descriptor)}</p>
+              </div>
+            </div>
+            <div class="gpt-launcher-footer">
               <span class="gpt-launcher-cta">${hasUrl ? 'Launch Now ↗' : 'Link coming soon'}</span>
             </div>
           ${actionCloseMarkup}
