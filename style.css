@@ -1552,21 +1552,33 @@ main {
   box-shadow: 0 14px 28px rgba(16, 72, 110, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
-.applied-subtab-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.55rem;
-  height: 1.55rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.58);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
-  font-size: 0.95rem;
+.applied-subtab-icon,
+.section-heading-icon {
+  display: inline-block;
+  flex: 0 0 auto;
+  background-image: url("assets/applied/emojis");
+  background-repeat: no-repeat;
+  background-size: 2047px 739px;
 }
 
-.applied-subtab.active .applied-subtab-icon {
-  background: rgba(255, 255, 255, 0.18);
+.applied-subtab-icon {
+  width: 1.65rem;
+  height: 1.65rem;
 }
+
+.section-heading-icon {
+  width: 1.9rem;
+  height: 1.9rem;
+  vertical-align: -0.35rem;
+  margin-right: 0.45rem;
+}
+
+.emoji-gears { background-position: -360px -80px; }
+.emoji-arm { background-position: -780px -78px; }
+.emoji-crane { background-position: -1238px -78px; }
+.emoji-checklist { background-position: -1690px -106px; }
+.emoji-fire { background-position: -214px -424px; }
+.emoji-calendar { background-position: -682px -425px; }
 
 .home-quick-action,
 .home-return-btn,
@@ -1601,18 +1613,19 @@ main {
   overflow: hidden;
   min-height: 100%;
   display: grid;
+  justify-items: center;
   grid-template-rows: auto 1fr;
-  gap: 1rem;
+  gap: 0.95rem;
   align-items: start;
-  padding: 1.15rem 1.15rem 1.35rem;
+  padding: 1.2rem 1.15rem 1.35rem;
   border-radius: 18px;
-  border: 1px solid color-mix(in srgb, var(--topic-color), #0f172a 18%);
-  text-align: left;
+  border: 1px solid color-mix(in srgb, var(--topic-color), #d8e4ef 52%);
+  text-align: center;
   color: var(--topic-text, #122033);
   box-shadow: 0 14px 30px rgba(16, 55, 95, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.24);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.04)),
-    linear-gradient(135deg, color-mix(in srgb, var(--topic-color), #ffffff 28%) 0%, color-mix(in srgb, var(--topic-color), #0f172a 6%) 100%);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(248, 251, 255, 0.94)),
+    linear-gradient(135deg, color-mix(in srgb, var(--topic-color), #ffffff 86%) 0%, color-mix(in srgb, var(--topic-color), #eef4fa 82%) 100%);
 }
 
 .gpt-launcher-card::before {
@@ -1632,14 +1645,15 @@ main {
 .gpt-launcher-icon {
   position: relative;
   z-index: 1;
-  width: 72px;
-  height: 72px;
+  width: 144px;
+  height: 144px;
   padding: 0.28rem;
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.24);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.52), color-mix(in srgb, var(--topic-color), #ffffff 24%));
   box-shadow: 0 8px 18px rgba(16, 55, 95, 0.18);
-  justify-self: start;
+  justify-self: center;
+  object-fit: contain;
 }
 
 .gpt-launcher-title,
@@ -1654,14 +1668,17 @@ main {
   z-index: 1;
   display: grid;
   align-content: space-between;
-  gap: 0.8rem;
+  justify-items: center;
+  gap: 0.72rem;
   width: 100%;
   min-height: 100%;
+  text-align: center;
 }
 
 .gpt-launcher-title {
-  font-size: 1.08rem;
-  line-height: 1.3;
+  font-size: 0.98rem;
+  line-height: 1.25;
+  max-width: 22ch;
   font-weight: 700;
   color: var(--topic-text, #122033);
 }
@@ -1669,25 +1686,29 @@ main {
 .gpt-launcher-descriptor {
   margin-top: 0;
   padding-left: 0;
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 0.84rem;
+  line-height: 1.4;
+  max-width: 30ch;
   color: var(--topic-muted, rgba(18, 32, 51, 0.78));
 }
 
 .gpt-launcher-cta {
   position: relative;
   z-index: 1;
-  margin-top: 0.1rem;
+  margin-top: 0.15rem;
   display: inline-flex;
   justify-content: center;
+  align-items: center;
+  align-self: end;
+  min-width: 8.5rem;
   font-size: 0.82rem;
   font-weight: 700;
 }
 
 .gpt-launcher-card-disabled {
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.04)),
-    linear-gradient(135deg, color-mix(in srgb, var(--topic-color), #ffffff 36%) 0%, color-mix(in srgb, var(--topic-color), #0f172a 10%) 100%);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(248, 251, 255, 0.94)),
+    linear-gradient(135deg, color-mix(in srgb, var(--topic-color), #ffffff 88%) 0%, color-mix(in srgb, var(--topic-color), #eef4fa 84%) 100%);
 }
 
 .launcher-link-note {
@@ -1829,4 +1850,25 @@ main {
   letter-spacing: 0.03em;
   text-transform: uppercase;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 8px 18px rgba(15, 23, 42, 0.14);
+}
+
+@media (max-width: 640px) {
+  .gpt-launcher-card {
+    padding: 1rem 0.95rem 1.15rem;
+  }
+
+  .gpt-launcher-icon {
+    width: 120px;
+    height: 120px;
+  }
+
+  .gpt-launcher-title {
+    font-size: 0.92rem;
+    max-width: none;
+  }
+
+  .gpt-launcher-descriptor {
+    font-size: 0.8rem;
+    max-width: none;
+  }
 }
