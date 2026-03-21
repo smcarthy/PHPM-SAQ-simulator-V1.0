@@ -67,6 +67,21 @@ async function runCommonFlow(page, expectedMode) {
 
 test('applied exam start practising cards render updated descriptions without overlap', async ({ page }) => {
   await page.goto('/applied-exam.html');
+
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Public Health & Preventive Medicine Applied Exam Hub');
+  await expect(page.getByRole('link', { name: 'Applied Exam Hub' })).toHaveAttribute('aria-current', 'page');
+
+  const subtabs = page.locator('.applied-subtab');
+  await expect(subtabs).toHaveCount(6);
+  await expect(subtabs.nth(2)).toContainText('Build a Station');
+  await expect(subtabs.nth(4)).toContainText('Hot Topics');
+  await expect(subtabs.nth(5)).toContainText('Study Planner');
+
+  const emojiBackgrounds = await page.locator('.applied-subtab-icon').evaluateAll((icons) => icons.map((icon) => getComputedStyle(icon).backgroundImage));
+  for (const backgroundImage of emojiBackgrounds) {
+    expect(backgroundImage).not.toBe('none');
+  }
+
   await page.getByRole('tab', { name: /start practising/i }).click();
 
   const cards = page.locator('.gpt-launcher-card');
@@ -80,12 +95,36 @@ test('applied exam start practising cards render updated descriptions without ov
     const cardRect = icon.closest('.gpt-launcher-card').getBoundingClientRect();
     return {
       leftGap: iconRect.left - cardRect.left,
-      rightGap: cardRect.right - iconRect.right
+      rightGap: cardRect.right - iconRect.right,
+      topGap: iconRect.top - cardRect.top
     };
   }));
 
   for (const box of iconBoxes) {
     expect(Math.abs(box.leftGap - box.rightGap)).toBeLessThan(24);
+    expect(box.topGap).toBeGreaterThan(12);
+  }
+
+  const copyAlignment = await page.locator('.gpt-launcher-card').evaluateAll((nodes) => nodes.map((node) => {
+    const title = node.querySelector('.gpt-launcher-title').getBoundingClientRect();
+    const desc = node.querySelector('.gpt-launcher-descriptor').getBoundingClientRect();
+    const cta = node.querySelector('.gpt-launcher-cta').getBoundingClientRect();
+    const rect = node.getBoundingClientRect();
+    const center = rect.left + (rect.width / 2);
+    const midpoint = (title.left + title.right) / 2;
+    const descMidpoint = (desc.left + desc.right) / 2;
+    const ctaMidpoint = (cta.left + cta.right) / 2;
+    return {
+      titleOffset: Math.abs(midpoint - center),
+      descOffset: Math.abs(descMidpoint - center),
+      ctaOffset: Math.abs(ctaMidpoint - center)
+    };
+  }));
+
+  for (const alignment of copyAlignment) {
+    expect(alignment.titleOffset).toBeLessThan(18);
+    expect(alignment.descOffset).toBeLessThan(18);
+    expect(alignment.ctaOffset).toBeLessThan(18);
   }
 
   const cardBoxes = await cards.evaluateAll((nodes) => nodes.map((node) => {
@@ -101,6 +140,24 @@ test('applied exam start practising cards render updated descriptions without ov
       expect(overlaps).toBeFalsy();
     }
   }
+});
+
+test('written landing banner and intro stay centered with updated title', async ({ page }) => {
+  await page.goto('/index.html');
+
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Public Health & Preventive Medicine Written SAQ Simulator');
+  await expect(page.getByRole('link', { name: 'Written SAQ Simulator' })).toHaveAttribute('aria-current', 'page');
+  await expect(page.locator('.landing-intro')).toContainText('This simulator approximates the written short-answer question');
+
+  const introAlignment = await page.locator('.landing-intro').evaluate((node) => {
+    const rect = node.getBoundingClientRect();
+    const parentRect = node.parentElement.getBoundingClientRect();
+    const midpoint = rect.left + (rect.width / 2);
+    const parentMidpoint = parentRect.left + (parentRect.width / 2);
+    return Math.abs(midpoint - parentMidpoint);
+  });
+
+  expect(introAlignment).toBeLessThan(24);
 });
 
 test.describe('Deterministic mode smoke flow', () => {
