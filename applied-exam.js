@@ -4,13 +4,13 @@
       id: 'all',
       label: 'All PHPM Topics and Hot Topics',
       iconPath: 'assets/applied/icons/all-phpm-topics-and-hot-topics.png',
-      color: '#c9a227'
+      color: '#d4af37'
     },
     'health-promotion': {
       id: 'health-promotion',
       label: 'Health Promotion, Chronic Diseases, Mental Health and Substance Use',
       iconPath: 'assets/applied/icons/health-promotion-chronic-diseases-mental-health-and-substance-use.png',
-      color: '#d97706'
+      color: '#f97316'
     },
     communicable: {
       id: 'communicable',
@@ -22,25 +22,25 @@
       id: 'environment',
       label: 'Environmental, Occupational, Built Environment and Injuries',
       iconPath: 'assets/applied/icons/environmental-occupational-built-environment-and-injuries.png',
-      color: '#2f855a'
+      color: '#16a34a'
     },
     systems: {
       id: 'systems',
       label: 'Health Systems, Policy, Law and Ethics',
       iconPath: 'assets/applied/icons/health-systems-health-systems-policy-law-and-ethics.png',
-      color: '#9ca3af'
+      color: '#c0c0c0'
     },
     methods: {
       id: 'methods',
       label: 'Population Health, Epidemiology, Methods and Basic Sciences',
       iconPath: 'assets/applied/icons/population-health-epidemiology-methods-and-basic-sciences.png',
-      color: '#b87333'
+      color: '#cd7f32'
     },
     management: {
       id: 'management',
       label: 'Management, Leadership and Program Planning',
       iconPath: 'assets/applied/icons/management-leadership-and-program-planning.png',
-      color: '#1f2937'
+      color: '#000000'
     },
     emergency: {
       id: 'emergency',
@@ -52,7 +52,7 @@
       id: 'maternal',
       label: 'Maternal and Child Health',
       iconPath: 'assets/applied/icons/maternal-and-child-health.png',
-      color: '#7c3aed'
+      color: '#9333ea'
     }
   };
 
@@ -394,6 +394,20 @@
       .join('');
   }
 
+
+  function getLauncherCardStyles(topic) {
+    const darkTopicIds = new Set(['management']);
+    const isDark = darkTopicIds.has(topic.id);
+    return [
+      `--topic-color:${topic.color}`,
+      `--topic-text:${isDark ? '#f8fafc' : '#122033'}`,
+      `--topic-muted:${isDark ? 'rgba(248, 250, 252, 0.92)' : 'rgba(18, 32, 51, 0.78)'}`,
+      `--topic-button-text:${isDark ? '#ffffff' : '#122033'}`,
+      `--topic-button-bg:${isDark ? 'rgba(255, 255, 255, 0.14)' : 'rgba(255, 255, 255, 0.9)'}`,
+      `--topic-button-border:${isDark ? 'rgba(255, 255, 255, 0.32)' : 'rgba(18, 32, 51, 0.1)'}`
+    ].join(';');
+  }
+
   function renderGptLaunchers() {
     const grid = document.getElementById('gpt-launcher-grid');
     if (!grid) {
@@ -409,7 +423,7 @@
       const actionCloseMarkup = hasUrl ? '</a>' : '</div>';
 
       return `
-        <article class="gpt-launcher-item" data-topic-id="${escapeHtml(launcher.topicId)}" style="--topic-color:${topic.color}">
+        <article class="gpt-launcher-item" data-topic-id="${escapeHtml(launcher.topicId)}" style="${getLauncherCardStyles(topic)}">
           ${actionMarkup}
             <img src="${launcher.iconPath}" alt="${escapeHtml(launcher.title)} icon" class="gpt-launcher-icon" loading="lazy" />
             <div class="gpt-launcher-copy">
