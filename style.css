@@ -2312,3 +2312,204 @@ body {
     aspect-ratio: auto;
   }
 }
+
+
+/* Applied exam image and layout refinements */
+.applied-hero-top,
+.applied-section-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.applied-hero-copy,
+.applied-section-copy {
+  min-width: 0;
+}
+
+.applied-section-figure {
+  margin: 0;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  border: 1px solid rgba(136, 165, 191, 0.18);
+  border-radius: 22px;
+  background: linear-gradient(165deg, rgba(255,255,255,0.96), rgba(238,246,252,0.92));
+  box-shadow: 0 18px 40px rgba(16, 55, 95, 0.08);
+}
+
+.applied-section-figure img {
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 18px;
+}
+
+.applied-hot-topics-figure {
+  margin-top: 1.2rem;
+  min-height: 260px;
+}
+
+.applied-hero-figure {
+  min-height: 260px;
+}
+
+.applied-home-grid {
+  grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
+  grid-template-areas:
+    'overview resources'
+    'howto resources'
+    'challenge framework';
+}
+
+.today-challenge-card,
+.framework-day-card {
+  min-height: 360px;
+}
+
+.framework-day-content {
+  min-height: 190px;
+}
+
+.gpt-launcher-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.gpt-launcher-item {
+  aspect-ratio: auto;
+  min-height: 380px;
+  padding: 1.15rem;
+}
+
+.gpt-launcher-copy {
+  align-items: flex-start;
+  text-align: left;
+  width: 100%;
+}
+
+.gpt-launcher-title,
+.gpt-launcher-descriptor {
+  text-align: left;
+}
+
+.gpt-launcher-descriptor {
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+}
+
+.gpt-launcher-footer {
+  justify-content: flex-start;
+  margin-top: 1rem;
+}
+
+.launch-now-btn {
+  min-width: 0;
+  width: 100%;
+}
+
+.challenge-scenarios-list {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.challenge-scenario-card {
+  padding: 0;
+}
+
+.challenge-scenario-card .challenge-toggle {
+  list-style: none;
+  cursor: pointer;
+}
+
+.challenge-scenario-card .challenge-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.challenge-card:hover,
+.challenge-card:focus-within,
+.challenge-card[open] {
+  box-shadow: 0 22px 42px rgba(16,55,95,0.14);
+}
+
+.challenge-card:hover .challenge-details,
+.challenge-card:focus-within .challenge-details,
+.challenge-card[open] .challenge-details {
+  max-height: 420px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.challenge-details {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-6px);
+  transition: max-height 0.28s ease, opacity 0.24s ease, transform 0.24s ease;
+}
+
+.challenge-hover-preview {
+  display: block;
+}
+
+.builder-output {
+  display: grid;
+  gap: 0.7rem;
+  padding: 1.1rem 0 0.2rem;
+}
+
+#builder-topic-tags {
+  margin-top: 0;
+}
+
+.challenge-prompt {
+  width: 100%;
+  min-height: 210px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.challenge-prompt-block {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.topic-tag,
+.recommended-gpt {
+  padding: 0.18rem 0.48rem;
+  border-radius: 10px;
+  line-height: 1.25;
+}
+
+@media (max-width: 1100px) {
+  .applied-hero-top,
+  .applied-section-split,
+  .applied-home-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gpt-launcher-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .gpt-launcher-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gpt-launcher-item,
+  .today-challenge-card,
+  .framework-day-card {
+    min-height: auto;
+  }
+
+  .framework-day-content {
+    min-height: 0;
+  }
+}
