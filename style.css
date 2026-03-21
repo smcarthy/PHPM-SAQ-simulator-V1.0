@@ -885,7 +885,7 @@ button.primary:hover {
 }
 
  .gpt-launcher-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.1rem;
   align-items: stretch;
 }
@@ -938,10 +938,10 @@ button.primary:hover {
 }
 
 .gpt-launcher-top {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
   gap: 0.95rem;
+  align-items: start;
   flex: 1 1 auto;
 }
 
@@ -969,10 +969,9 @@ button.primary:hover {
 .gpt-launcher-copy {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 0.6rem;
   min-width: 0;
-  width: 100%;
+  padding-top: 0.15rem;
 }
 
 .gpt-launcher-title {
@@ -981,16 +980,13 @@ button.primary:hover {
   max-width: 22ch;
   font-weight: 700;
   color: var(--topic-text, #122033);
-  text-align: center;
 }
 
 .gpt-launcher-descriptor {
   margin: 0;
-  max-width: 26ch;
   font-size: 0.82rem;
   line-height: 1.45;
   color: var(--topic-muted, rgba(18, 32, 51, 0.78));
-  text-align: center;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
@@ -1003,7 +999,6 @@ button.primary:hover {
   border-top: 1px solid color-mix(in srgb, var(--topic-color), rgba(255, 255, 255, 0.82) 68%);
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .gpt-launcher-cta {
@@ -1741,7 +1736,7 @@ main {
 }
 
 .gpt-launcher-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.1rem;
   align-items: stretch;
 }
@@ -1760,7 +1755,7 @@ main {
   padding: 1.15rem;
   border-radius: 20px;
   border: 1px solid color-mix(in srgb, var(--topic-color), #d8e4ef 52%);
-  text-align: center;
+  text-align: left;
   text-decoration: none;
   color: var(--topic-text, #122033);
   box-shadow: 0 16px 28px rgba(16, 55, 95, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -1794,8 +1789,15 @@ main {
 }
 
 .gpt-launcher-top {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  gap: 0.95rem;
+  align-items: start;
+  flex: 1 1 auto;
+}
+
+.gpt-launcher-icon-block {
   display: flex;
-  flex-direction: column;
   align-items: center;
   gap: 0.95rem;
   flex: 1 1 auto;
@@ -1825,10 +1827,9 @@ main {
 .gpt-launcher-copy {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 0.6rem;
   min-width: 0;
-  width: 100%;
+  padding-top: 0.15rem;
 }
 
 .gpt-launcher-title {
@@ -1842,11 +1843,9 @@ main {
 
 .gpt-launcher-descriptor {
   margin: 0;
-  max-width: 26ch;
   font-size: 0.82rem;
   line-height: 1.45;
   color: var(--topic-muted, rgba(18, 32, 51, 0.78));
-  text-align: center;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
@@ -1859,7 +1858,6 @@ main {
   border-top: 1px solid color-mix(in srgb, var(--topic-color), rgba(255, 255, 255, 0.82) 68%);
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .gpt-launcher-cta {
@@ -2007,12 +2005,6 @@ main {
   }
 }
 
-@media (max-width: 1024px) {
-  .gpt-launcher-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
 @media (max-width: 640px) {
   .gpt-launcher-grid {
     grid-template-columns: 1fr;
@@ -2024,6 +2016,7 @@ main {
   }
 
   .gpt-launcher-top {
+    grid-template-columns: 76px minmax(0, 1fr);
     gap: 0.8rem;
   }
 
