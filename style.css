@@ -1799,6 +1799,13 @@ main {
 .gpt-launcher-icon-block {
   display: flex;
   align-items: center;
+  gap: 0.95rem;
+  flex: 1 1 auto;
+}
+
+.gpt-launcher-icon-block {
+  display: flex;
+  align-items: center;
   justify-content: center;
   width: 88px;
   min-width: 88px;
@@ -1831,6 +1838,7 @@ main {
   max-width: 22ch;
   font-weight: 700;
   color: var(--topic-text, #122033);
+  text-align: center;
 }
 
 .gpt-launcher-descriptor {
@@ -1998,6 +2006,10 @@ main {
 }
 
 @media (max-width: 640px) {
+  .gpt-launcher-grid {
+    grid-template-columns: 1fr;
+  }
+
   .gpt-launcher-card {
     min-height: 300px;
     padding: 1rem 0.95rem 1.05rem;
