@@ -1914,3 +1914,401 @@ main {
   }
 
 }
+
+/* Applied exam refinement pass */
+body {
+  font-size: 1.04rem;
+}
+
+#results,
+#review {
+  padding: 1.35rem 1.45rem;
+}
+
+.sidebar {
+  padding: 1.25rem 1.1rem 1.25rem 1.25rem;
+}
+
+#question-list {
+  padding-left: 0.15rem;
+}
+
+.applied-hero-intro {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 248, 255, 0.96));
+}
+
+.applied-home-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+  grid-template-areas:
+    'overview resources'
+    'howto resources'
+    'challenge framework';
+  gap: 1.1rem;
+  align-items: stretch;
+}
+
+.applied-overview-card { grid-area: overview; }
+.applied-howto-card { grid-area: howto; }
+.applied-resource-card { grid-area: resources; }
+.today-challenge-card { grid-area: challenge; }
+.framework-day-card { grid-area: framework; }
+
+.applied-mini-card,
+.applied-topic-card,
+.study-debrief-card,
+.applied-exam-test-card,
+.challenge-card {
+  border-radius: 24px;
+  background: linear-gradient(165deg, rgba(255,255,255,0.99), rgba(246,250,255,0.95));
+  box-shadow: 0 18px 40px rgba(16, 55, 95, 0.1);
+}
+
+.applied-mini-card h3,
+.applied-mini-card h4,
+.applied-topic-card h4,
+.study-debrief-card h4,
+.applied-shared-card .gpt-launcher-title,
+.applied-shared-card .challenge-title {
+  font-size: 1.06rem;
+}
+
+.applied-mini-card p,
+.applied-mini-card li,
+.applied-topic-card p,
+.applied-topic-card li,
+.study-debrief-card p,
+.study-debrief-card li,
+.applied-shared-card p,
+.applied-shared-card .challenge-context,
+.applied-shared-card .gpt-launcher-descriptor {
+  font-size: 0.96rem;
+  line-height: 1.58;
+}
+
+.applied-resource-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: linear-gradient(145deg, rgba(255,252,244,0.98), rgba(239,247,255,0.94));
+}
+
+.applied-resource-strip {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.7rem;
+  margin-top: 0.35rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.sample-exam-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 3rem;
+  padding: 0.85rem 1rem;
+  border-radius: 16px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(242,248,255,0.92));
+  text-decoration: none;
+}
+
+.sample-exam-link::after {
+  content: '↗';
+  opacity: 0.7;
+}
+
+.applied-subtabs-banner-wrap {
+  margin: 1.15rem auto -1.85rem;
+}
+
+.applied-subtabs,
+.applied-subtabs-banner {
+  overflow: visible;
+}
+
+.applied-subtabs-banner {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.4rem;
+  padding: 0.55rem;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(252,254,255,0.99), rgba(230,241,248,0.96));
+}
+
+.applied-subtab {
+  min-width: 0;
+  gap: 0.42rem;
+  padding: 0.78rem 0.55rem;
+  font-size: 0.94rem;
+}
+
+.applied-subtabs-banner .applied-subtab {
+  min-height: 3.45rem;
+  font-size: 0.94rem;
+}
+
+.applied-subtab-icon {
+  width: 2rem;
+  height: 2rem;
+  padding: 0.28rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.92);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), 0 6px 14px rgba(16,55,95,0.12);
+}
+
+.applied-subtab.active .applied-subtab-icon {
+  background-color: rgba(255,255,255,0.2);
+}
+
+.today-challenge-card,
+.framework-day-card {
+  cursor: pointer;
+  background: linear-gradient(135deg, rgba(255,248,235,0.98), rgba(233,245,255,0.94));
+}
+
+.framework-day-card {
+  background: linear-gradient(135deg, rgba(246,241,255,0.98), rgba(230,246,255,0.95));
+}
+
+.today-challenge-card::before,
+.framework-day-card::before {
+  content: '';
+  position: absolute;
+  inset: -25% auto auto 70%;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.55), rgba(255,255,255,0));
+  pointer-events: none;
+}
+
+.today-challenge-name,
+.framework-day-name {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #0f3f67;
+  margin-bottom: 0.45rem;
+}
+
+.today-challenge-context {
+  font-weight: 600;
+  color: #285d83;
+  margin-bottom: 0.45rem;
+}
+
+.today-challenge-prompt {
+  color: #36566d;
+}
+
+.feature-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: auto;
+}
+
+.panel-slide-in {
+  animation: panelSlideIn 320ms cubic-bezier(.22,.8,.24,1);
+}
+
+@keyframes panelSlideIn {
+  from { opacity: 0; transform: translateX(32px) scale(0.96); }
+  to { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+.gpt-launcher-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.gpt-launcher-item {
+  min-height: 0;
+  aspect-ratio: 2 / 1;
+  padding: 1rem;
+  justify-content: space-between;
+}
+
+.gpt-launcher-top {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+  gap: 0.7rem;
+}
+
+.gpt-launcher-icon-block {
+  width: 72px;
+  min-width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  padding: 0.55rem;
+}
+
+.gpt-launcher-icon {
+  border-radius: 50%;
+}
+
+.gpt-launcher-copy {
+  align-items: center;
+  text-align: center;
+}
+
+.gpt-launcher-title,
+.gpt-launcher-descriptor {
+  text-align: center;
+}
+
+.gpt-launcher-descriptor {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.gpt-launcher-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.85rem;
+}
+
+.launch-now-btn {
+  min-width: 11rem;
+  justify-content: center;
+  font-weight: 700;
+}
+
+#exam-tests-grid,
+.challenge-scenarios-list,
+.hot-topics-grid {
+  align-items: stretch;
+}
+
+#exam-tests-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.applied-exam-test-card {
+  height: 100%;
+  padding: 1rem 1.05rem;
+}
+
+.challenge-scenarios-list {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.challenge-scenario-card .challenge-toggle {
+  gap: 0.65rem;
+  padding: 1rem 1.05rem 0.9rem;
+}
+
+.challenge-scenario-card .challenge-details {
+  padding: 0 1.05rem 1rem;
+  background: transparent;
+}
+
+.hot-topics-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.hot-topic-card {
+  overflow: hidden;
+}
+
+.hot-topic-summary {
+  list-style: none;
+  cursor: pointer;
+}
+.hot-topic-summary::-webkit-details-marker { display: none; }
+
+.hot-topic-summary h4,
+.hot-topic-summary .topic-why {
+  transition: color 0.18s ease;
+}
+
+.hot-topic-card:hover,
+.hot-topic-card[open] {
+  box-shadow: 0 22px 42px rgba(16,55,95,0.14);
+}
+
+.hot-topic-card:hover .hot-topic-details,
+.hot-topic-card:focus-within .hot-topic-details,
+.hot-topic-card[open] .hot-topic-details {
+  max-height: 280px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hot-topic-details {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-6px);
+  transition: max-height 0.28s ease, opacity 0.24s ease, transform 0.24s ease;
+}
+
+.topic-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  padding: 0;
+  margin: 0.55rem 0 0;
+  list-style: none;
+}
+
+.topic-tag,
+.recommended-gpt {
+  border: 1px solid color-mix(in srgb, var(--topic-color), white 42%);
+  background: color-mix(in srgb, var(--topic-color), white 86%);
+  color: color-mix(in srgb, var(--topic-color), black 30%);
+  font-weight: 700;
+}
+
+@media (max-width: 1100px) {
+  .applied-subtabs-banner {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .gpt-launcher-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .applied-home-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'overview'
+      'howto'
+      'resources'
+      'challenge'
+      'framework';
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 1rem;
+  }
+
+  .applied-subtabs-banner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .applied-subtab {
+    white-space: normal;
+    min-height: 4rem;
+  }
+
+  .gpt-launcher-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gpt-launcher-item {
+    aspect-ratio: auto;
+  }
+}

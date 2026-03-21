@@ -42,7 +42,7 @@
         </p>
 
         <div class="applied-home-grid">
-          <article class="applied-mini-card">
+          <article class="applied-mini-card applied-overview-card">
             <h3>What this page offers</h3>
             <ul class="applied-intro-list">
               <li>Nine topic-based Custom GPT launchers mapped to applied-exam content.</li>
@@ -52,7 +52,7 @@
               <li>Suggestions for hot topics and a final-month study planner.</li>
             </ul>
           </article>
-          <article class="applied-mini-card">
+          <article class="applied-mini-card applied-howto-card">
             <h3>How to use the hub</h3>
             <ul class="applied-intro-list">
               <li>Pick one section button above to focus on one practice mode at a time.</li>
@@ -64,27 +64,36 @@
               public health answers across diverse realistic scenarios.
             </p>
           </article>
-        </div>
+          <article class="applied-mini-card applied-resource-card" aria-label="Official Royal College resources">
+            <h3>Official Royal College resources</h3>
+            <div class="applied-resource-strip">
+              <a class="sample-exam-link" href="https://www.royalcollege.ca/en/eligibility-and-exams/exam-formats/public-health-and-preventive-medicine-exam-format.html" target="_blank" rel="noopener noreferrer">Exam format</a>
+              <a class="sample-exam-link" href="https://www.royalcollege.ca/content/dam/documents/ibd/public-health-and-preventive-medicine/2025-phpm-sample-applied-exam-e.pdf" target="_blank" rel="noopener noreferrer">Sample applied exam</a>
+              <a class="sample-exam-link" href="https://www.royalcollege.ca/content/dam/documents/ibd/public-health-and-preventive-medicine/public-health-preventive-medicine-otr-e.pdf" target="_blank" rel="noopener noreferrer">2014 objectives of training</a>
+              <a class="sample-exam-link" href="https://www.royalcollege.ca/content/dam/documents/ibd/public-health-and-preventive-medicine/phpm-competencies-e.pdf" target="_blank" rel="noopener noreferrer">2025 objectives of training</a>
+            </div>
+          </article>
 
-        <article class="applied-mini-card today-challenge-card" aria-labelledby="today-challenge-title">
+          <article class="applied-mini-card today-challenge-card" aria-labelledby="today-challenge-title" tabindex="0">
           <h3 id="today-challenge-title">Today's Challenge</h3>
-          <p><strong>Quick start:</strong> Long-term care respiratory outbreak escalation.</p>
-          <p>Use this to practise a first-hour response with priorities, communication, and defensible recommendations.</p>
-          <button type="button" class="home-quick-action" data-open-panel="panel-challenge-scenarios">Open in Challenge Scenarios</button>
+          <div class="today-challenge-body" aria-live="polite">
+            <p class="today-challenge-name"></p>
+            <p class="today-challenge-context"></p>
+            <p class="today-challenge-prompt"></p>
+          </div>
+          <div class="feature-card-actions">
+            <button type="button" class="home-quick-action today-challenge-next">New challenge</button>
+            <button type="button" class="home-quick-action" data-open-panel="panel-challenge-scenarios">Open in Challenge Scenarios</button>
+          </div>
         </article>
 
-        <article class="applied-mini-card framework-day-card" aria-labelledby="framework-day-title">
+          <article class="applied-mini-card framework-day-card" aria-labelledby="framework-day-title" tabindex="0">
           <h3 id="framework-day-title">Framework of the Day</h3>
           <p class="framework-day-name" id="framework-day-name"></p>
           <div class="framework-day-content" id="framework-day-content" aria-live="polite"></div>
           <button type="button" class="home-quick-action framework-day-next" id="framework-day-next">Next framework</button>
         </article>
 
-        <div class="applied-resource-strip" aria-label="Official Royal College resources">
-          <a class="sample-exam-link" href="https://www.royalcollege.ca/en/eligibility-and-exams/exam-formats/public-health-and-preventive-medicine-exam-format.html" target="_blank" rel="noopener noreferrer">Exam format</a>
-          <a class="sample-exam-link" href="https://www.royalcollege.ca/content/dam/documents/ibd/public-health-and-preventive-medicine/2025-phpm-sample-applied-exam-e.pdf" target="_blank" rel="noopener noreferrer">Sample applied exam</a>
-          <a class="sample-exam-link" href="https://www.royalcollege.ca/content/dam/documents/ibd/public-health-and-preventive-medicine/public-health-preventive-medicine-otr-e.pdf" target="_blank" rel="noopener noreferrer">2014 objectives of training</a>
-          <a class="sample-exam-link" href="https://www.royalcollege.ca/content/dam/documents/ibd/public-health-and-preventive-medicine/phpm-competencies-e.pdf" target="_blank" rel="noopener noreferrer">2025 objectives of training</a>
         </div>
       </section>
 
@@ -94,7 +103,7 @@
 
       <section id="panel-start-practising" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="tab-start-practising" hidden>
         <h3 id="section-start-practising"><span class="section-heading-icon emoji-gears" aria-hidden="true"></span>Start Practising</h3>
-        <p>Each of these nine custom bots has been mapped to the Royal College exam topics and study materials to support focused practice by subject area. Cards stay compact by default; hover to preview on desktop, then click or tap to expand the full description and launcher.</p>
+        <p>Each of these nine custom bots has been mapped to the Royal College exam topics and study materials to support focused practice by subject area. Cards stay compact, fully visible, and keep the launcher action available without accordion expansion.</p>
         <div id="gpt-launcher-grid" class="applied-shared-card-grid gpt-launcher-grid" aria-live="polite"></div>
       </section>
 
