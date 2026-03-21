@@ -464,7 +464,7 @@
             <ul class="topic-tag-list">${renderTopicTags(scenario.topicIds)}</ul>
             <p><strong>Recommended GPT:</strong> <span class="recommended-gpt" style="--topic-color:${recommendedTopic.color}">${escapeHtml(launcher.title)}</span></p>
             <div class="challenge-prompt-block">
-              <label for="challenge-prompt-${index}"><strong>Station prompt</strong></label>
+              <label for="challenge-prompt-${index}">Station prompt</label>
               <textarea id="challenge-prompt-${index}" class="challenge-prompt" readonly>${escapeHtml(scenario.prompt)}</textarea>
             </div>
             <div class="challenge-actions">
@@ -485,7 +485,7 @@
     }
 
     grid.innerHTML = EXAM_TEST_ITEMS.map((item) => `
-      <article class="applied-mini-card applied-shared-card applied-exam-test-card">
+      <article class="applied-mini-card applied-shared-card applied-exam-test-card study-week-card">
         <h4>${escapeHtml(item.title)}</h4>
         <p>${escapeHtml(item.detail)}</p>
       </article>

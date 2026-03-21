@@ -11,7 +11,7 @@
     <header class="site-header applied-header">
       <div class="site-header-inner">
         <div class="site-branding">
-          <div class="site-brand-mark" aria-hidden="true">⚕</div>
+          <div class="site-brand-mark" aria-hidden="true"><img src="assets/applied/medicine rod.png" alt="" loading="eager" /></div>
           <div class="site-brand-copy">
             <h1>Public Health &amp; Preventive Medicine Applied Exam Hub</h1>
           </div>
@@ -82,25 +82,31 @@
           </article>
 
           <article class="applied-mini-card today-challenge-card" aria-labelledby="today-challenge-title" tabindex="0">
-          <h3 id="today-challenge-title">Today's Challenge</h3>
-          <div class="today-challenge-body" aria-live="polite">
-            <p class="today-challenge-name"></p>
-            <p class="today-challenge-context"></p>
-            <p class="today-challenge-prompt"></p>
-          </div>
-          <div class="feature-card-actions">
-            <button type="button" class="home-quick-action today-challenge-next">New challenge</button>
-            <button type="button" class="home-quick-action" data-open-panel="panel-challenge-scenarios">Open in Challenge Scenarios</button>
-          </div>
-        </article>
+            <div class="today-challenge-card-header">
+              <div>
+                <h3 id="today-challenge-title">Today's Challenge</h3>
+                <div class="today-challenge-body" aria-live="polite">
+                  <p class="today-challenge-name"></p>
+                  <p class="today-challenge-context"></p>
+                  <p class="today-challenge-prompt"></p>
+                </div>
+              </div>
+              <figure class="today-challenge-figure">
+                <img src="assets/applied/Challenge 2.png" alt="Challenge illustration for Today's Challenge" loading="lazy" />
+              </figure>
+            </div>
+            <div class="feature-card-actions">
+              <button type="button" class="home-quick-action today-challenge-next">New challenge</button>
+              <button type="button" class="home-quick-action" data-open-panel="panel-challenge-scenarios">Open in Challenge Scenarios</button>
+            </div>
+          </article>
 
           <article class="applied-mini-card framework-day-card" aria-labelledby="framework-day-title" tabindex="0">
-          <h3 id="framework-day-title">Framework of the Day</h3>
-          <p class="framework-day-name" id="framework-day-name"></p>
-          <div class="framework-day-content" id="framework-day-content" aria-live="polite"></div>
-          <button type="button" class="home-quick-action framework-day-next" id="framework-day-next">Next framework</button>
-        </article>
-
+            <h3 id="framework-day-title">Framework of the Day</h3>
+            <p class="framework-day-name" id="framework-day-name"></p>
+            <div class="framework-day-content" id="framework-day-content" aria-live="polite"></div>
+            <button type="button" class="home-quick-action framework-day-next" id="framework-day-next">Next framework</button>
+          </article>
         </div>
       </section>
 
@@ -116,46 +122,56 @@
 
       <section id="panel-challenge-scenarios" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="tab-challenge-scenarios" hidden>
         <h3 id="section-challenge-scenarios"><span class="section-heading-icon icon-challenge" aria-hidden="true"></span>Challenge Scenarios</h3>
-        <p>Cards stay compact by default. Hover to preview on desktop, then click or tap to expand full station details.</p>
+        <figure class="applied-inline-section-figure challenge-scenarios-figure">
+          <img src="assets/applied/Challenge 1.png" alt="Challenge scenarios illustration" loading="lazy" />
+        </figure>
+        <p>Ready for a workout? Here are a variety of mock oral OSCE scenarios to try with a customGPT.</p>
         <div id="challenge-scenarios-list" class="applied-shared-card-grid challenge-scenarios-list" aria-live="polite"></div>
       </section>
 
       <section id="panel-builder" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="tab-builder" hidden>
-        <h3 id="section-station-builder"><span class="section-heading-icon icon-build" aria-hidden="true"></span>Build a Station</h3>
-        <p>Choose a high-yield combination and generate a deterministic local station prompt for copy/paste.</p>
+        <div class="applied-section-split builder-section-split">
+          <div class="applied-section-copy builder-section-copy">
+            <h3 id="section-station-builder"><span class="section-heading-icon icon-build" aria-hidden="true"></span>Build a Station</h3>
+            <p>Choose a high-yield combination and generate a deterministic local station prompt for copy/paste.</p>
 
-        <form id="builder-form" class="builder-form" autocomplete="off">
-          <label for="builder-topic">Official topic area</label>
-          <select id="builder-topic" name="topic"></select>
+            <form id="builder-form" class="builder-form" autocomplete="off">
+              <label for="builder-topic">Official topic area</label>
+              <select id="builder-topic" name="topic"></select>
 
-          <label for="builder-format">Station format</label>
-          <select id="builder-format" name="format"></select>
+              <label for="builder-format">Station format</label>
+              <select id="builder-format" name="format"></select>
 
-          <label for="builder-setting">Scenario setting</label>
-          <select id="builder-setting" name="setting"></select>
+              <label for="builder-setting">Scenario setting</label>
+              <select id="builder-setting" name="setting"></select>
 
-          <label for="builder-challenge">Challenge type</label>
-          <select id="builder-challenge" name="challenge"></select>
+              <label for="builder-challenge">Challenge type</label>
+              <select id="builder-challenge" name="challenge"></select>
 
-          <label for="builder-difficulty">Difficulty</label>
-          <select id="builder-difficulty" name="difficulty"></select>
-        </form>
+              <label for="builder-difficulty">Difficulty</label>
+              <select id="builder-difficulty" name="difficulty"></select>
+            </form>
 
-        <div id="builder-output" class="builder-output" aria-live="polite">
-          <p><strong>Official topic label(s):</strong></p>
-          <ul id="builder-topic-tags" class="topic-tag-list"></ul>
-          <p><strong>Recommended GPT:</strong> <span id="builder-recommended-gpt"></span></p>
+            <div id="builder-output" class="builder-output" aria-live="polite">
+              <p><strong>Official topic label(s):</strong></p>
+              <ul id="builder-topic-tags" class="topic-tag-list"></ul>
+              <p><strong>Recommended GPT:</strong> <span id="builder-recommended-gpt"></span></p>
 
-          <div class="challenge-prompt-block">
-            <label for="builder-prompt"><strong>Station prompt</strong></label>
-            <textarea id="builder-prompt" class="challenge-prompt" readonly></textarea>
+              <div class="challenge-prompt-block">
+                <label for="builder-prompt">Station prompt</label>
+                <textarea id="builder-prompt" class="challenge-prompt" readonly></textarea>
+              </div>
+
+              <div class="challenge-actions">
+                <button type="button" class="copy-prompt-btn" data-copy-target="builder-prompt">Copy Prompt</button>
+                <span class="copy-status" aria-live="polite"></span>
+                <a id="builder-open-gpt" href="https://chat.openai.com/" class="open-gpt-btn" target="_blank" rel="noopener noreferrer">Open Recommended GPT</a>
+              </div>
+            </div>
           </div>
-
-          <div class="challenge-actions">
-            <button type="button" class="copy-prompt-btn" data-copy-target="builder-prompt">Copy Prompt</button>
-            <span class="copy-status" aria-live="polite"></span>
-            <a id="builder-open-gpt" href="https://chat.openai.com/" class="open-gpt-btn" target="_blank" rel="noopener noreferrer">Open Recommended GPT</a>
-          </div>
+          <figure class="applied-section-figure builder-side-figure">
+            <img src="assets/applied/two residents.png" alt="Two residents discussing a station" loading="lazy" />
+          </figure>
         </div>
       </section>
 
