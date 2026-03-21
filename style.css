@@ -2696,3 +2696,132 @@ body {
 #exam-tests-grid .applied-exam-test-card h4 {
   margin-bottom: 0.4rem;
 }
+
+
+/* Applied exam March 2026 visual refinements */
+.applied-hero-with-image {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+}
+
+.applied-hero-copy {
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.applied-hero-figure {
+  width: 100%;
+  max-width: 980px;
+  min-height: auto;
+  margin-top: 0.5rem;
+}
+
+.applied-hero-figure img {
+  width: min(100%, 880px);
+  max-width: 880px;
+}
+
+.today-challenge-card-header {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  text-align: center;
+}
+
+.today-challenge-card-header > div {
+  width: 100%;
+}
+
+.today-challenge-figure {
+  order: -1;
+  width: 100%;
+  margin-bottom: 0.75rem;
+}
+
+.today-challenge-figure img {
+  width: min(100%, 420px);
+  max-width: 420px;
+}
+
+.challenge-scenarios-figure,
+.challenge-scenarios-intro {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.challenge-scenarios-figure {
+  max-width: 1000px;
+}
+
+.challenge-scenarios-figure img {
+  width: min(100%, 900px);
+  max-width: 900px;
+}
+
+.challenge-scenarios-intro {
+  max-width: 900px;
+  margin-bottom: 1.2rem;
+}
+
+.builder-section-split {
+  align-items: start;
+}
+
+.builder-side-figure {
+  align-self: start;
+  position: sticky;
+  top: 1.5rem;
+}
+
+.builder-side-figure img {
+  width: min(100%, 460px);
+  max-width: 460px;
+}
+
+#exam-tests-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.exam-test-topic-card {
+  min-height: 220px;
+}
+
+.exam-test-summary h4,
+#exam-tests-grid .applied-exam-test-card h4 {
+  color: #3B46E0;
+}
+
+.exam-test-summary .topic-why {
+  color: #304b61;
+}
+
+.exam-test-details {
+  padding-top: 0.35rem;
+}
+
+#exam-tests-grid .applied-exam-test-card {
+  border-left: 0;
+}
+
+.site-brand-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 1100px) {
+  .builder-side-figure {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .applied-hero-figure img,
+  .challenge-scenarios-figure img,
+  .today-challenge-figure img,
+  .builder-side-figure img {
+    width: 100%;
+  }
+}
