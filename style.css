@@ -1298,6 +1298,24 @@ main {
   background: var(--surface-white);
   backdrop-filter: blur(8px);
 }
+#resume-option {
+  text-align: center;
+}
+
+.resume-copy {
+  margin: 0.55rem 0 0;
+  color: #4c6678;
+  font-size: 0.95rem;
+}
+
+.secondary-action {
+  background: linear-gradient(135deg, #356f97, #295877);
+}
+
+.secondary-action:hover {
+  background: linear-gradient(135deg, #2c6388, #214a64);
+}
+
 
 .dashboard-landing {
   display: grid;
@@ -1344,6 +1362,7 @@ main {
 }
 
 #landing > .landing-intro {
+  grid-column: 1 / -1;
   justify-self: center;
   text-align: center;
 }
