@@ -253,6 +253,8 @@
 
   const SELF_DEBRIEF_CHECKLIST = ['What was the issue?', 'Who mattered?', 'What was my structure?', 'What was my recommendation?', 'What did I miss?'];
 
+  const TODAY_CHALLENGES = CHALLENGE_SCENARIOS.slice(0, 6);
+
   const FRAMEWORKS_OF_THE_DAY = [
     {
       name: 'PDSA cycle',
@@ -414,33 +416,23 @@
       return;
     }
 
-    grid.innerHTML = GPT_LAUNCHERS.map((launcher, index) => {
+    grid.innerHTML = GPT_LAUNCHERS.map((launcher) => {
       const topic = getTopicForLauncher(launcher);
       const hasUrl = Boolean(launcher.url);
-      const detailsId = `gpt-launcher-details-${index}`;
-      const titleId = `gpt-launcher-title-${index}`;
 
       return `
-        <article class="applied-shared-card challenge-card gpt-launcher-item" data-expanded="false" data-topic-id="${escapeHtml(launcher.topicId)}" style="${getLauncherCardStyles(topic)}">
-          <button type="button" class="challenge-toggle gpt-launcher-toggle" aria-expanded="false" aria-controls="${detailsId}">
-            <span class="gpt-launcher-top">
-              <span class="gpt-launcher-icon-block" aria-hidden="true">
-                <img src="${launcher.iconPath}" alt="${escapeHtml(launcher.title)} icon" class="gpt-launcher-icon" loading="lazy" />
-              </span>
-              <span class="gpt-launcher-copy">
-                <span class="challenge-title gpt-launcher-title" id="${titleId}">${escapeHtml(launcher.title)}</span>
-                <span class="challenge-context gpt-launcher-topic">${escapeHtml(topic.label)}</span>
-                <span class="challenge-hover-preview gpt-launcher-hover-preview">${escapeHtml(launcher.descriptor)}</span>
-              </span>
+        <article class="applied-shared-card gpt-launcher-item" data-topic-id="${escapeHtml(launcher.topicId)}" style="${getLauncherCardStyles(topic)}">
+          <div class="gpt-launcher-top">
+            <span class="gpt-launcher-icon-block" aria-hidden="true">
+              <img src="${launcher.iconPath}" alt="${escapeHtml(launcher.title)} icon" class="gpt-launcher-icon" loading="lazy" />
             </span>
-          </button>
-          <div class="challenge-details gpt-launcher-details" id="${detailsId}" aria-labelledby="${titleId}" hidden>
-            <p><strong>Official topic label:</strong></p>
-            <ul class="topic-tag-list">${renderTopicTags([launcher.topicId])}</ul>
-            <p class="gpt-launcher-descriptor">${escapeHtml(launcher.descriptor)}</p>
-            <div class="challenge-actions">
-              ${hasUrl ? `<a href="${launcher.url}" class="open-gpt-btn" target="_blank" rel="noopener noreferrer">Open Custom GPT ↗</a>` : '<button type="button" class="open-gpt-btn open-gpt-btn-disabled" disabled>Link coming soon</button>'}
+            <div class="gpt-launcher-copy">
+              <h4 class="gpt-launcher-title">${escapeHtml(launcher.title)}</h4>
+              <p class="gpt-launcher-descriptor">${escapeHtml(launcher.descriptor)}</p>
             </div>
+          </div>
+          <div class="gpt-launcher-footer">
+            ${hasUrl ? `<a href="${launcher.url}" class="open-gpt-btn launch-now-btn" target="_blank" rel="noopener noreferrer">Launch Now ↗</a>` : '<button type="button" class="open-gpt-btn open-gpt-btn-disabled launch-now-btn" disabled>Link coming soon</button>'}
           </div>
         </article>
       `;
@@ -461,7 +453,7 @@
       const recommendedTopic = TOPIC_META[launcher.topicId];
 
       return `
-        <article class="applied-shared-card challenge-card" data-expanded="false">
+        <article class="applied-mini-card applied-shared-card applied-exam-test-card challenge-card challenge-scenario-card" data-expanded="false">
           <button type="button" class="challenge-toggle" aria-expanded="false">
             <span class="challenge-title">${index + 1}. ${escapeHtml(scenario.title)}</span>
             <span class="challenge-context">${escapeHtml(scenario.context)}</span>
@@ -512,22 +504,26 @@
     }, {});
 
     grid.innerHTML = HOT_TOPICS.map((topic) => `
-      <article class="applied-topic-card">
-        <h4>${escapeHtml(topic.title)}</h4>
-        <p class="topic-why"><strong>Why this matters:</strong> ${escapeHtml(topic.why)}</p>
-        <p><strong>Mock oral angles:</strong></p>
-        <ul>
-          ${topic.angles.map((angle) => `<li>${escapeHtml(angle)}</li>`).join('')}
-        </ul>
-        <p><strong>Official topic label(s):</strong></p>
-        <ul class="topic-tag-list">
-          ${topic.labels.map((label) => {
-            const topicKey = labelToTopicKey[label] || 'all';
-            const color = TOPIC_META[topicKey].color;
-            return `<li class="topic-tag" style="--topic-color:${color}">${escapeHtml(label)}</li>`;
-          }).join('')}
-        </ul>
-      </article>
+      <details class="applied-topic-card hot-topic-card">
+        <summary class="hot-topic-summary">
+          <h4>${escapeHtml(topic.title)}</h4>
+          <p class="topic-why"><strong>Why this matters:</strong> ${escapeHtml(topic.why)}</p>
+        </summary>
+        <div class="hot-topic-details">
+          <p><strong>Mock oral angles:</strong></p>
+          <ul>
+            ${topic.angles.map((angle) => `<li>${escapeHtml(angle)}</li>`).join('')}
+          </ul>
+          <p><strong>Official topic label(s):</strong></p>
+          <ul class="topic-tag-list">
+            ${topic.labels.map((label) => {
+              const topicKey = labelToTopicKey[label] || 'all';
+              const color = TOPIC_META[topicKey].color;
+              return `<li class="topic-tag" style="--topic-color:${color}">${escapeHtml(label)}</li>`;
+            }).join('')}
+          </ul>
+        </div>
+      </details>
     `).join('');
   }
 
@@ -558,9 +554,82 @@
     `;
   }
 
+  function animateSwap(container, renderContent) {
+    if (!(container instanceof HTMLElement)) {
+      renderContent();
+      return;
+    }
+
+    container.classList.remove('panel-slide-in');
+    void container.offsetWidth;
+    renderContent();
+    container.classList.add('panel-slide-in');
+  }
+
+  function renderTodayChallenge() {
+    const titleNode = document.getElementById('today-challenge-title');
+    const cardNode = titleNode ? titleNode.closest('.today-challenge-card') : null;
+    if (!cardNode || !TODAY_CHALLENGES.length) {
+      return;
+    }
+
+    const challengeNameNode = cardNode.querySelector('.today-challenge-name');
+    const challengeContextNode = cardNode.querySelector('.today-challenge-context');
+    const challengePromptNode = cardNode.querySelector('.today-challenge-prompt');
+    const challengeButton = cardNode.querySelector('.today-challenge-next');
+    const launchersById = buildLauncherMap();
+    let index = Number(window.localStorage.getItem('appliedTodayChallengeIndex') || 0);
+    if (!Number.isFinite(index) || index < 0) {
+      index = 0;
+    }
+
+    function draw() {
+      const challenge = TODAY_CHALLENGES[index % TODAY_CHALLENGES.length];
+      const launcher = launchersById[challenge.recommendedGptId] || launchersById['gpt-all'];
+      animateSwap(cardNode.querySelector('.today-challenge-body'), () => {
+        if (challengeNameNode) {
+          challengeNameNode.textContent = challenge.title;
+        }
+        if (challengeContextNode) {
+          challengeContextNode.textContent = challenge.context;
+        }
+        if (challengePromptNode) {
+          challengePromptNode.textContent = challenge.prompt;
+        }
+        if (challengeButton) {
+          challengeButton.setAttribute('aria-label', `Show another challenge after ${challenge.title}`);
+        }
+        cardNode.dataset.challengeTarget = launcher ? launcher.id : 'gpt-all';
+      });
+    }
+
+    draw();
+
+    if (challengeButton instanceof HTMLElement) {
+      challengeButton.addEventListener('click', (event) => {
+        event.stopPropagation();
+        index = (index + 1) % TODAY_CHALLENGES.length;
+        window.localStorage.setItem('appliedTodayChallengeIndex', String(index));
+        draw();
+      });
+    }
+
+    cardNode.addEventListener('click', (event) => {
+      const target = event.target;
+      if (target instanceof HTMLElement && target.closest('.today-challenge-next')) {
+        return;
+      }
+      const openPanelButton = cardNode.querySelector('[data-open-panel]');
+      if (openPanelButton instanceof HTMLElement) {
+        openPanelButton.click();
+      }
+    });
+  }
+
   function renderFrameworkOfTheDay() {
     const nameNode = document.getElementById('framework-day-name');
     const contentNode = document.getElementById('framework-day-content');
+    const cardNode = nameNode ? nameNode.closest('.framework-day-card') : null;
     if (!nameNode || !contentNode || !FRAMEWORKS_OF_THE_DAY.length) {
       return;
     }
@@ -572,13 +641,18 @@
 
     function draw() {
       const framework = FRAMEWORKS_OF_THE_DAY[index % FRAMEWORKS_OF_THE_DAY.length];
-      nameNode.textContent = framework.name;
-      contentNode.innerHTML = `
-        <p><strong>Meaning:</strong> ${escapeHtml(framework.meaning)}</p>
-        <p><strong>When to use:</strong> ${escapeHtml(framework.whenToUse)}</p>
-        <p><strong>Mock oral use:</strong> ${escapeHtml(framework.mockOralUse)}</p>
-        <p><strong>Avoid:</strong> ${escapeHtml(framework.commonMistake)}</p>
-      `;
+      animateSwap(contentNode, () => {
+        nameNode.textContent = framework.name;
+        contentNode.innerHTML = `
+          <p><strong>Meaning:</strong> ${escapeHtml(framework.meaning)}</p>
+          <p><strong>When to use:</strong> ${escapeHtml(framework.whenToUse)}</p>
+          <p><strong>Mock oral use:</strong> ${escapeHtml(framework.mockOralUse)}</p>
+          <p><strong>Avoid:</strong> ${escapeHtml(framework.commonMistake)}</p>
+        `;
+      });
+      if (cardNode instanceof HTMLElement) {
+        cardNode.classList.add('is-featured');
+      }
     }
 
     draw();
@@ -588,11 +662,26 @@
       return;
     }
 
-    nextButton.addEventListener('click', () => {
+    function advanceFramework() {
       index = (index + 1) % FRAMEWORKS_OF_THE_DAY.length;
       window.localStorage.setItem('appliedFrameworkIndex', String(index));
       draw();
+    }
+
+    nextButton.addEventListener('click', (event) => {
+      event.stopPropagation();
+      advanceFramework();
     });
+
+    if (cardNode instanceof HTMLElement) {
+      cardNode.addEventListener('click', (event) => {
+        const target = event.target;
+        if (target instanceof HTMLElement && target.closest('.framework-day-next')) {
+          return;
+        }
+        advanceFramework();
+      });
+    }
   }
 
   function bindChallengeExpansion() {
@@ -900,6 +989,7 @@
     renderExamTests();
     renderHotTopics();
     renderStudyPlanner();
+    renderTodayChallenge();
     renderFrameworkOfTheDay();
     bindSubTabs();
     bindChallengeExpansion();
