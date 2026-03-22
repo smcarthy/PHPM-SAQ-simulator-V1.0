@@ -158,7 +158,7 @@
     {
       title: 'Long-term care respiratory outbreak escalation',
       context: 'Cases rise over 48 hours with staffing pressure.',
-      setting: 'Québec long-term care home linked to an acute-care hospital and regional public health unit',
+      setting: 'Ontario long-term care home linked to an acute-care hospital and regional public health unit',
       residentRole: 'You are the on-call PHPM resident supporting outbreak management for the health unit.',
       stationFormat: 'non-role-play',
       challengeType: 'Escalating respiratory outbreak with staffing shortages, frail residents, and urgent operational decisions',
@@ -205,7 +205,7 @@
     {
       title: 'Heat wave mortality prevention plan',
       context: 'Five-day extreme heat forecast above historical thresholds.',
-      setting: 'Urban southwestern Ontario public health unit preparing for a multi-day extreme heat event',
+      setting: 'Urban Ontario public health unit preparing for a multi-day extreme heat event',
       residentRole: 'You are the PHPM resident briefing senior public health leadership on the heat response approach.',
       stationFormat: 'non-role-play',
       challengeType: 'Extreme heat event requiring a Heat Alert Response System, vulnerable population protection, and intersectoral implementation',
@@ -220,7 +220,7 @@
     {
       title: 'Needle-sharing HIV cluster in an urban core',
       context: 'Cluster signal with housing instability concerns.',
-      setting: 'Urban Manitoba core with intersecting HIV risk, homelessness, substance use, and strained outreach services',
+      setting: 'Urban Ontario core with intersecting HIV risk, homelessness, substance use, and strained outreach services',
       residentRole: 'You are the PHPM resident presenting an urgent response approach to senior public health leadership.',
       stationFormat: 'role-play',
       counterpartRole: 'Medical Officer of Health asking for a defensible 30-day action plan',
@@ -236,7 +236,7 @@
     {
       title: 'School refusal of routine immunization campaign',
       context: 'Coordinated refusal and misinformation spread.',
-      setting: 'Saskatchewan school system with organized parental resistance and widening misinformation online',
+      setting: 'Ontario school system with organized parental resistance and widening misinformation online',
       residentRole: 'You are the PHPM resident advising the health unit on how to respond to falling uptake.',
       stationFormat: 'non-role-play',
       challengeType: 'Immunization program pressure involving misinformation, service access barriers, and polarized stakeholder reactions',
@@ -251,7 +251,7 @@
     {
       title: 'Opioid overdose spike after toxic supply alert',
       context: 'ED and EMS overdose demand doubled in one week.',
-      setting: 'British Columbia municipality facing a sudden overdose surge across emergency, hospital, and community settings',
+      setting: 'Ontario municipality facing a sudden overdose surge across emergency, hospital, and community settings',
       residentRole: 'You are the PHPM resident briefing leadership during an acute overdose emergency.',
       stationFormat: 'non-role-play',
       challengeType: 'Acute toxic drug emergency requiring activation of an Incident Management System (IMS), rapid harm reduction actions, and executive-level communication',
@@ -266,7 +266,7 @@
     {
       title: 'Public backlash to TB contact investigation',
       context: 'Confidentiality and stigma concerns are escalating.',
-      setting: 'Urban Nova Scotia public health service managing a sensitive TB contact investigation with growing media and community scrutiny',
+      setting: 'Urban public health unit managing a sensitive TB contact investigation with growing media and community scrutiny',
       residentRole: 'You are the PHPM resident supporting the TB response and preparing for a difficult external conversation.',
       stationFormat: 'role-play',
       counterpartRole: 'Community spokesperson challenging the fairness and confidentiality of the investigation',
@@ -282,7 +282,7 @@
     {
       title: 'Municipal council debate on supervised consumption expansion',
       context: 'Urgent recommendation needed amid polarized input.',
-      setting: 'Municipal council chamber in Québec considering expansion of supervised consumption services in a politically divided community',
+      setting: 'Municipal council chamber considering expansion of supervised consumption services in a politically divided community',
       residentRole: 'You are the PHPM resident presenting a recommendation on service expansion.',
       stationFormat: 'role-play',
       counterpartRole: 'Municipal council chair asking skeptical and politically charged follow-up questions',
@@ -298,7 +298,7 @@
     {
       title: 'Foodborne outbreak linked to multiple restaurants',
       context: 'Possible common supplier across municipalities.',
-      setting: 'Multi-municipality New Brunswick foodborne outbreak investigation involving local public health units and food inspection partners',
+      setting: 'Multi-municipality Ontario foodborne outbreak investigation involving local public health units and food inspection partners',
       residentRole: 'You are the PHPM resident helping coordinate outbreak investigation priorities.',
       stationFormat: 'non-role-play',
       challengeType: 'Multi-site outbreak investigation with evolving epidemiology, traceback complexity, and cross-jurisdiction coordination',
@@ -313,7 +313,7 @@
     {
       title: 'Prenatal smoking cessation program evaluation',
       context: 'Funding renewal depends on defensible evaluation design.',
-      setting: 'Northwest Territories maternal-child health program facing a near-term funding renewal decision',
+      setting: 'Regional maternal-child health program facing a near-term funding renewal decision',
       residentRole: 'You are the PHPM resident tasked with designing an evaluation approach for leadership.',
       stationFormat: 'non-role-play',
       challengeType: 'Program evaluation under funding pressure, feasibility constraints, and equity expectations',
