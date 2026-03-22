@@ -482,12 +482,11 @@
   const STATION_BUILDER_CONFIG = {
     topics: Object.values(TOPIC_META),
     formats: [
-      { id: 'non-role-play-advisory', label: 'Non-role-play advisory', needsCounterpart: false, figureFriendly: false },
-      { id: 'role-play', label: 'Role-play', needsCounterpart: true, figureFriendly: false },
-      { id: 'briefing', label: 'Briefing', needsCounterpart: false, figureFriendly: false },
-      { id: 'meeting', label: 'Meeting / committee discussion', needsCounterpart: true, figureFriendly: false },
-      { id: 'media', label: 'Media interview', needsCounterpart: true, figureFriendly: false },
-      { id: 'figure-interpretation', label: 'Figure / table / map interpretation', needsCounterpart: false, figureFriendly: true }
+      { id: 'non-role-play-advisory', label: 'Expert consultant', needsCounterpart: false },
+      { id: 'role-play', label: 'Role-play', needsCounterpart: true },
+      { id: 'briefing', label: 'Briefing', needsCounterpart: false },
+      { id: 'meeting', label: 'Meeting / committee discussion', needsCounterpart: true },
+      { id: 'media', label: 'Media interview', needsCounterpart: true }
     ],
     settings: [
       { id: 'large-urban-lphu', label: 'Large urban local public health unit' },
@@ -502,6 +501,7 @@
       { id: 'community-coalition', label: 'Community coalition / NGO setting' }
     ],
     challenges: [
+      { id: '', label: 'Not selected' },
       { id: 'limited-data', label: 'Uncertainty with limited data' },
       { id: 'hostile-stakeholder', label: 'Hostile stakeholder' },
       { id: 'ethics-conflict', label: 'Ethics conflict' },
@@ -521,7 +521,7 @@
       { id: 'exam-ready', label: 'Exam-ready', internalDifficulty: 'Royal College-style integrated pressure test' }
     ],
     residentRoles: [
-      { id: 'phpm-resident', label: 'PHPM resident' },
+      { id: '', label: 'Not selected' },
       { id: 'amoh', label: 'Associate Medical Officer of Health' },
       { id: 'moh', label: 'Medical Officer of Health' },
       { id: 'public-health-specialist', label: 'Public Health Specialist' },
@@ -541,7 +541,7 @@
       { id: 'indigenous-partner', label: 'Indigenous community partner' }
     ],
     hotTopicOverlays: [
-      { id: 'none', label: 'None' },
+      { id: '', label: 'Not selected' },
       { id: 'health-equity-trust', label: 'Health equity and trust repair' },
       { id: 'climate-wildfire', label: 'Climate change / heat / wildfire smoke' },
       { id: 'immunization-confidence', label: 'Immunization confidence and measles' },
@@ -1048,7 +1048,7 @@
       return;
     }
 
-    select.innerHTML = options.map((option) => `<option value="${option.id}">${escapeHtml(option.label)}</option>`).join('');
+    select.innerHTML = options.map((option) => `<option value="${escapeHtml(option.id)}">${escapeHtml(option.label)}</option>`).join('');
   }
 
   function findBuilderOption(options, optionId) {
@@ -1061,30 +1061,38 @@
   }
 
   function buildStationPrompt(selection) {
-    const counterpartLine = selection.counterpartRole
-      ? `Counterpart role: ${selection.counterpartRole.label}.`
-      : '';
-    const subtopicLine = selection.subtopic
-      ? `Subtopic area: ${selection.subtopic}.`
-      : 'Subtopic area: none specified; keep it aligned with the selected official topic area.';
+    const lines = [
+      'Create a mock oral station.',
+      `Official topic area: ${selection.topic.label}.`
+    ];
 
-    return [
-      'Create one polished, deterministic prompt for a Royal College-style PHPM applied mock oral station.',
-      'This is not an SAQ.',
-      `Official topic area: ${selection.topic.label}.`,
-      subtopicLine,
+    if (selection.subtopic) {
+      lines.push(`Subtopic area: ${selection.subtopic}.`);
+    }
+
+    lines.push(
       `Station format: ${selection.format.label}.`,
       `Scenario setting: ${selection.setting.label}.`,
-      `Challenge type: ${selection.challenge.label}.`,
-      `Training level: ${selection.trainingLevel.label} (translate internally to ${selection.trainingLevel.internalDifficulty}).`,
-      `Resident role: ${selection.residentRole.label}.`,
-      counterpartLine,
-      `Include figure / table / map interpretation: ${selection.includeFigureInterpretation ? 'Yes' : 'No'}.`,
-      `Hot-topic overlay: ${selection.hotTopic.label === 'None' ? 'No additional hot-topic overlay requested.' : selection.hotTopic.label + '.'}`,
-      'Keep the station local-only and deterministic; do not mention APIs, web search, or live data generation.',
-      'Generate a realistic Canadian public health scenario and ask the resident 4–5 sequential mock oral questions before feedback.',
-      'After the sequential questions, provide concise examiner-style feedback with strengths, missed priorities, and one refinement for the next attempt.'
-    ].join(' ');
+      `Training level of the user: ${selection.trainingLevel.label} (${selection.trainingLevel.internalDifficulty}).`
+    );
+
+    if (selection.challenge.id) {
+      lines.push(`Challenge type: ${selection.challenge.label}.`);
+    }
+
+    if (selection.residentRole.id) {
+      lines.push(`User role: ${selection.residentRole.label}.`);
+    }
+
+    if (selection.counterpartRole) {
+      lines.push(`Counterpart role: ${selection.counterpartRole.label}.`);
+    }
+
+    if (selection.hotTopic.id) {
+      lines.push(`Hot-topic overlay: ${selection.hotTopic.label}.`);
+    }
+
+    return lines.join('\n');
   }
 
   function updateBuilderOutput(launchersById) {
@@ -1097,10 +1105,9 @@
     const residentRoleSelect = document.getElementById('builder-resident-role');
     const counterpartRoleSelect = document.getElementById('builder-counterpart-role');
     const hotTopicSelect = document.getElementById('builder-hot-topic');
-    const figureInterpretationToggle = document.getElementById('builder-figure-interpretation');
     const counterpartField = document.getElementById('builder-counterpart-field');
 
-    if (!topicSelect || !subtopicInput || !formatSelect || !settingSelect || !challengeSelect || !trainingLevelSelect || !residentRoleSelect || !counterpartRoleSelect || !hotTopicSelect || !figureInterpretationToggle || !counterpartField) {
+    if (!topicSelect || !subtopicInput || !formatSelect || !settingSelect || !challengeSelect || !trainingLevelSelect || !residentRoleSelect || !counterpartRoleSelect || !hotTopicSelect || !counterpartField) {
       return;
     }
 
@@ -1114,7 +1121,6 @@
     const counterpartRole = format.needsCounterpart
       ? findBuilderOption(STATION_BUILDER_CONFIG.counterpartRoles, counterpartRoleSelect.value)
       : null;
-    const includeFigureInterpretation = Boolean(figureInterpretationToggle.checked || format.figureFriendly || challenge.id === 'evidence-interpretation');
 
     counterpartField.hidden = !format.needsCounterpart;
     counterpartRoleSelect.disabled = !format.needsCounterpart;
@@ -1128,8 +1134,7 @@
       trainingLevel,
       residentRole,
       counterpartRole,
-      hotTopic,
-      includeFigureInterpretation
+      hotTopic
     });
     const recommendedGptId = resolveRecommendedGptId(topic.id);
     const recommendedLauncher = launchersById[recommendedGptId] || launchersById['gpt-all'];
@@ -1195,8 +1200,8 @@
 
       if (subtopicHelp) {
         subtopicHelp.textContent = options.length
-          ? `Suggested subtopics: ${options.join(' • ')}`
-          : 'No subtopics seeded yet for this topic area.';
+          ? `Optional subtopics: ${options.join(' • ')}`
+          : 'Leave blank to keep the prompt aligned with the selected official topic area.';
       }
     }
 
