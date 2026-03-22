@@ -143,16 +143,16 @@
                     <h4 id="builder-core-heading">Core station-building controls</h4>
                   </div>
                   <div class="builder-grid builder-grid-core">
-                    <div class="builder-field">
+                    <div class="builder-field builder-field-topic">
                       <label for="builder-topic">Official topic area</label>
                       <select id="builder-topic" name="topic"></select>
                     </div>
 
                     <div class="builder-field">
                       <label for="builder-subtopic">Subtopic area</label>
-                      <input id="builder-subtopic" name="subtopic" type="search" list="builder-subtopic-options" placeholder="Select or type a subtopic" />
+                      <input id="builder-subtopic" name="subtopic" type="search" list="builder-subtopic-options" placeholder="Leave blank or select a subtopic" />
                       <datalist id="builder-subtopic-options"></datalist>
-                      <p id="builder-subtopic-help" class="builder-field-help">Subtopics update based on the selected official topic area.</p>
+                      <p id="builder-subtopic-help" class="builder-field-help">Leave blank to keep the prompt aligned with the selected official topic area.</p>
                     </div>
 
                     <div class="builder-field">
@@ -203,20 +203,15 @@
                         <label for="builder-hot-topic">Hot-topic overlay</label>
                         <select id="builder-hot-topic" name="hot-topic"></select>
                       </div>
-
-                      <div class="builder-field builder-field-checkbox">
-                        <label for="builder-figure-interpretation">Include figure / table / map interpretation</label>
-                        <input id="builder-figure-interpretation" name="figure-interpretation" type="checkbox" />
-                      </div>
-                    </div>
-
-                    <div class="builder-advanced-actions">
-                      <button type="button" id="builder-reset" class="builder-reset-btn">Reset builder</button>
                     </div>
                   </div>
                 </details>
               </div>
             </form>
+
+            <div class="builder-reset-row">
+              <button type="button" id="builder-reset" class="builder-reset-btn">Reset builder</button>
+            </div>
 
             <div id="builder-output" class="builder-output" aria-live="polite">
               <p><strong>Official topic label(s):</strong></p>
@@ -235,9 +230,7 @@
               </div>
             </div>
           </div>
-          <figure class="applied-section-figure builder-side-figure">
-            <img src="assets/applied/two residents.png" alt="Two residents discussing a station" loading="lazy" />
-          </figure>
+
         </div>
       </section>
 
