@@ -1092,6 +1092,8 @@
       lines.push(`Hot-topic overlay: ${selection.hotTopic.label}.`);
     }
 
+    lines.push('Begin by stating the station stem and the first question for the user.');
+
     return lines.join('\n');
   }
 
