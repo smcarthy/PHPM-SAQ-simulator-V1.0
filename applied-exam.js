@@ -482,28 +482,83 @@
   const STATION_BUILDER_CONFIG = {
     topics: Object.values(TOPIC_META),
     formats: [
-      { id: 'briefing', label: 'Medical Officer briefing to leadership' },
-      { id: 'media', label: 'Media communication and Q&A' },
-      { id: 'stakeholder', label: 'Stakeholder negotiation conversation' },
-      { id: 'clinical-ops', label: 'Clinical-public health interface decision' }
+      { id: 'non-role-play-advisory', label: 'Non-role-play advisory', needsCounterpart: false, figureFriendly: false },
+      { id: 'role-play', label: 'Role-play', needsCounterpart: true, figureFriendly: false },
+      { id: 'briefing', label: 'Briefing', needsCounterpart: false, figureFriendly: false },
+      { id: 'meeting', label: 'Meeting / committee discussion', needsCounterpart: true, figureFriendly: false },
+      { id: 'media', label: 'Media interview', needsCounterpart: true, figureFriendly: false },
+      { id: 'figure-interpretation', label: 'Figure / table / map interpretation', needsCounterpart: false, figureFriendly: true }
     ],
     settings: [
-      { id: 'urban', label: 'Large urban public health unit' },
-      { id: 'rural', label: 'Rural or remote regional setting' },
-      { id: 'provincial', label: 'Provincial policy and implementation context' },
-      { id: 'multi-jurisdiction', label: 'Multi-jurisdiction coordination setting' }
+      { id: 'large-urban-lphu', label: 'Large urban local public health unit' },
+      { id: 'mixed-urban-rural-lphu', label: 'Mixed urban-rural local public health unit' },
+      { id: 'rural-lphu', label: 'Rural local public health unit' },
+      { id: 'regional-phu', label: 'Regional public health unit' },
+      { id: 'provincial-phu', label: 'Provincial public health unit' },
+      { id: 'phac', label: 'Public Health Agency of Canada' },
+      { id: 'board-of-health', label: 'Board of Health' },
+      { id: 'hospital-system', label: 'Hospital or health-system setting' },
+      { id: 'municipality-table', label: 'Municipality or intersectoral table' },
+      { id: 'community-coalition', label: 'Community coalition / NGO setting' }
     ],
     challenges: [
-      { id: 'escalating-signal', label: 'Escalating risk signal with limited data' },
-      { id: 'high-visibility', label: 'High-visibility decision under media pressure' },
-      { id: 'equity-tradeoff', label: 'Equity and feasibility trade-off' },
-      { id: 'partnership-friction', label: 'Partnership conflict and trust repair' }
+      { id: 'limited-data', label: 'Uncertainty with limited data' },
+      { id: 'hostile-stakeholder', label: 'Hostile stakeholder' },
+      { id: 'ethics-conflict', label: 'Ethics conflict' },
+      { id: 'resource-constraints', label: 'Resource constraints' },
+      { id: 'indigenous-engagement', label: 'Indigenous engagement' },
+      { id: 'political-pressure', label: 'Political pressure' },
+      { id: 'media-scrutiny', label: 'Media scrutiny' },
+      { id: 'partner-disagreement', label: 'Partner disagreement' },
+      { id: 'time-pressure', label: 'Time pressure / escalation' },
+      { id: 'evidence-interpretation', label: 'Figure or evidence interpretation' }
     ],
-    difficulties: [
-      { id: 'core', label: 'Core', timeBox: '8-minute station style', complexityNote: 'single dominant issue' },
-      { id: 'integrated', label: 'Integrated', timeBox: '8-minute station style', complexityNote: 'two linked pressures' },
-      { id: 'stress-test', label: 'Stress test', timeBox: '8-minute station style', complexityNote: 'uncertainty + conflicting priorities' }
-    ]
+    trainingLevels: [
+      { id: 'pgy-1-2', label: 'PGY-1/2', internalDifficulty: 'foundational with one dominant issue' },
+      { id: 'pgy-3', label: 'PGY-3', internalDifficulty: 'early senior with practical trade-offs' },
+      { id: 'pgy-4', label: 'PGY-4', internalDifficulty: 'senior resident with linked operational pressures' },
+      { id: 'pgy-5', label: 'PGY-5', internalDifficulty: 'senior exam-track with ambiguity and prioritization demands' },
+      { id: 'exam-ready', label: 'Exam-ready', internalDifficulty: 'Royal College-style integrated pressure test' }
+    ],
+    residentRoles: [
+      { id: 'phpm-resident', label: 'PHPM resident' },
+      { id: 'amoh', label: 'Associate Medical Officer of Health' },
+      { id: 'moh', label: 'Medical Officer of Health' },
+      { id: 'public-health-specialist', label: 'Public Health Specialist' },
+      { id: 'ngo-consultant', label: 'NGO / coalition consultant' },
+      { id: 'clinical-researcher', label: 'Public Health Clinical Researcher' }
+    ],
+    counterpartRoles: [
+      { id: 'concerned-citizen', label: 'concerned citizen' },
+      { id: 'public-health-nurse', label: 'public health nurse' },
+      { id: 'mayor', label: 'mayor / municipal leader' },
+      { id: 'boh-chair', label: 'Board of Health chair' },
+      { id: 'deputy-minister', label: 'deputy minister / ministry official' },
+      { id: 'hospital-leader', label: 'hospital leader' },
+      { id: 'school-board', label: 'school board representative' },
+      { id: 'ngo-partner', label: 'NGO / community coalition representative' },
+      { id: 'journalist', label: 'journalist / media interviewer' },
+      { id: 'indigenous-partner', label: 'Indigenous community partner' }
+    ],
+    hotTopicOverlays: [
+      { id: 'none', label: 'None' },
+      { id: 'health-equity-trust', label: 'Health equity and trust repair' },
+      { id: 'climate-wildfire', label: 'Climate change / heat / wildfire smoke' },
+      { id: 'immunization-confidence', label: 'Immunization confidence and measles' },
+      { id: 'toxic-drug-crisis', label: 'Toxic drug crisis and harm reduction' },
+      { id: 'indigenous-partnerships', label: 'Indigenous health and culturally safe partnerships' }
+    ],
+    subtopicsByTopic: {
+      all: ['Cross-topic integrated oral station', 'Hot-topic mixed station', 'Leadership plus methods crossover'],
+      'health-promotion': ['Chronic disease prevention strategy', 'Substance use and harm reduction', 'Mental health promotion policy'],
+      communicable: ['Outbreak management', 'Immunization program strategy', 'Contact tracing and risk communication'],
+      environment: ['Drinking water advisory response', 'Heat and climate health planning', 'Built environment / injury prevention'],
+      systems: ['Public health law and powers', 'Ethics and proportionality', 'Policy briefing for elected leaders'],
+      methods: ['Interpreting surveillance trends', 'Program evaluation design', 'Applied epidemiologic investigation'],
+      management: ['Conflict management', 'Program planning and prioritization', 'Leadership during organizational strain'],
+      emergency: ['Incident Management System activation', 'Recovery and resilience planning', 'Escalation under uncertainty'],
+      maternal: ['Perinatal health equity', 'Early years program planning', 'Maternal-child screening and prevention']
+    }
   };
 
   function escapeHtml(value) {
@@ -1005,27 +1060,47 @@
     return launcher ? launcher.id : 'gpt-all';
   }
 
-  function buildStationPrompt(topic, format, setting, challenge, difficulty) {
+  function buildStationPrompt(selection) {
+    const counterpartLine = selection.counterpartRole
+      ? `Counterpart role: ${selection.counterpartRole.label}.`
+      : '';
+    const subtopicLine = selection.subtopic
+      ? `Subtopic area: ${selection.subtopic}.`
+      : 'Subtopic area: none specified; keep it aligned with the selected official topic area.';
+
     return [
-      'Act as a Royal College PHPM applied oral examiner and run one station only.',
-      `Official topic area: ${topic.label}.`,
-      `Station format: ${format.label}.`,
-      `Scenario setting: ${setting.label}.`,
-      `Challenge type: ${challenge.label}.`,
-      `Difficulty: ${difficulty.label} (${difficulty.timeBox}; ${difficulty.complexityNote}).`,
-      'Present a realistic Canadian public health scenario, then ask for a structured response with priorities, rationale, immediate actions, communication strategy, and feasible next steps.',
-      'After the answer, provide concise examiner-style feedback with strengths, missed priorities, and one refinement for next attempt.'
+      'Create one polished, deterministic prompt for a Royal College-style PHPM applied mock oral station.',
+      'This is not an SAQ.',
+      `Official topic area: ${selection.topic.label}.`,
+      subtopicLine,
+      `Station format: ${selection.format.label}.`,
+      `Scenario setting: ${selection.setting.label}.`,
+      `Challenge type: ${selection.challenge.label}.`,
+      `Training level: ${selection.trainingLevel.label} (translate internally to ${selection.trainingLevel.internalDifficulty}).`,
+      `Resident role: ${selection.residentRole.label}.`,
+      counterpartLine,
+      `Include figure / table / map interpretation: ${selection.includeFigureInterpretation ? 'Yes' : 'No'}.`,
+      `Hot-topic overlay: ${selection.hotTopic.label === 'None' ? 'No additional hot-topic overlay requested.' : selection.hotTopic.label + '.'}`,
+      'Keep the station local-only and deterministic; do not mention APIs, web search, or live data generation.',
+      'Generate a realistic Canadian public health scenario and ask the resident 4–5 sequential mock oral questions before feedback.',
+      'After the sequential questions, provide concise examiner-style feedback with strengths, missed priorities, and one refinement for the next attempt.'
     ].join(' ');
   }
 
   function updateBuilderOutput(launchersById) {
     const topicSelect = document.getElementById('builder-topic');
+    const subtopicInput = document.getElementById('builder-subtopic');
     const formatSelect = document.getElementById('builder-format');
     const settingSelect = document.getElementById('builder-setting');
     const challengeSelect = document.getElementById('builder-challenge');
-    const difficultySelect = document.getElementById('builder-difficulty');
+    const trainingLevelSelect = document.getElementById('builder-training-level');
+    const residentRoleSelect = document.getElementById('builder-resident-role');
+    const counterpartRoleSelect = document.getElementById('builder-counterpart-role');
+    const hotTopicSelect = document.getElementById('builder-hot-topic');
+    const figureInterpretationToggle = document.getElementById('builder-figure-interpretation');
+    const counterpartField = document.getElementById('builder-counterpart-field');
 
-    if (!topicSelect || !formatSelect || !settingSelect || !challengeSelect || !difficultySelect) {
+    if (!topicSelect || !subtopicInput || !formatSelect || !settingSelect || !challengeSelect || !trainingLevelSelect || !residentRoleSelect || !counterpartRoleSelect || !hotTopicSelect || !figureInterpretationToggle || !counterpartField) {
       return;
     }
 
@@ -1033,9 +1108,29 @@
     const format = findBuilderOption(STATION_BUILDER_CONFIG.formats, formatSelect.value);
     const setting = findBuilderOption(STATION_BUILDER_CONFIG.settings, settingSelect.value);
     const challenge = findBuilderOption(STATION_BUILDER_CONFIG.challenges, challengeSelect.value);
-    const difficulty = findBuilderOption(STATION_BUILDER_CONFIG.difficulties, difficultySelect.value);
+    const trainingLevel = findBuilderOption(STATION_BUILDER_CONFIG.trainingLevels, trainingLevelSelect.value);
+    const residentRole = findBuilderOption(STATION_BUILDER_CONFIG.residentRoles, residentRoleSelect.value);
+    const hotTopic = findBuilderOption(STATION_BUILDER_CONFIG.hotTopicOverlays, hotTopicSelect.value);
+    const counterpartRole = format.needsCounterpart
+      ? findBuilderOption(STATION_BUILDER_CONFIG.counterpartRoles, counterpartRoleSelect.value)
+      : null;
+    const includeFigureInterpretation = Boolean(figureInterpretationToggle.checked || format.figureFriendly || challenge.id === 'evidence-interpretation');
 
-    const prompt = buildStationPrompt(topic, format, setting, challenge, difficulty);
+    counterpartField.hidden = !format.needsCounterpart;
+    counterpartRoleSelect.disabled = !format.needsCounterpart;
+
+    const prompt = buildStationPrompt({
+      topic,
+      subtopic: subtopicInput.value.trim(),
+      format,
+      setting,
+      challenge,
+      trainingLevel,
+      residentRole,
+      counterpartRole,
+      hotTopic,
+      includeFigureInterpretation
+    });
     const recommendedGptId = resolveRecommendedGptId(topic.id);
     const recommendedLauncher = launchersById[recommendedGptId] || launchersById['gpt-all'];
     const recommendedTopic = TOPIC_META[recommendedLauncher.topicId];
@@ -1077,22 +1172,68 @@
 
   function initializeStationBuilder() {
     const builderForm = document.getElementById('builder-form');
+    const topicSelect = document.getElementById('builder-topic');
+    const subtopicInput = document.getElementById('builder-subtopic');
+    const subtopicOptions = document.getElementById('builder-subtopic-options');
+    const subtopicHelp = document.getElementById('builder-subtopic-help');
+    const resetButton = document.getElementById('builder-reset');
     if (!builderForm) {
       return;
     }
 
+    function syncSubtopicOptions(forceReset) {
+      if (!topicSelect || !subtopicInput || !subtopicOptions) {
+        return;
+      }
+
+      const options = STATION_BUILDER_CONFIG.subtopicsByTopic[topicSelect.value] || [];
+      subtopicOptions.innerHTML = options.map((item) => `<option value="${escapeHtml(item)}"></option>`).join('');
+
+      if (forceReset || (subtopicInput.value && !options.includes(subtopicInput.value))) {
+        subtopicInput.value = '';
+      }
+
+      if (subtopicHelp) {
+        subtopicHelp.textContent = options.length
+          ? `Suggested subtopics: ${options.join(' • ')}`
+          : 'No subtopics seeded yet for this topic area.';
+      }
+    }
+
     populateBuilderSelect('builder-topic', STATION_BUILDER_CONFIG.topics);
+    syncSubtopicOptions(true);
     populateBuilderSelect('builder-format', STATION_BUILDER_CONFIG.formats);
     populateBuilderSelect('builder-setting', STATION_BUILDER_CONFIG.settings);
     populateBuilderSelect('builder-challenge', STATION_BUILDER_CONFIG.challenges);
-    populateBuilderSelect('builder-difficulty', STATION_BUILDER_CONFIG.difficulties);
+    populateBuilderSelect('builder-training-level', STATION_BUILDER_CONFIG.trainingLevels);
+    populateBuilderSelect('builder-resident-role', STATION_BUILDER_CONFIG.residentRoles);
+    populateBuilderSelect('builder-counterpart-role', STATION_BUILDER_CONFIG.counterpartRoles);
+    populateBuilderSelect('builder-hot-topic', STATION_BUILDER_CONFIG.hotTopicOverlays);
 
     const launchersById = buildLauncherMap();
     updateBuilderOutput(launchersById);
 
     builderForm.addEventListener('change', () => {
+      if (topicSelect) {
+        syncSubtopicOptions(false);
+      }
       updateBuilderOutput(launchersById);
     });
+
+    builderForm.addEventListener('input', () => {
+      updateBuilderOutput(launchersById);
+    });
+
+    if (resetButton instanceof HTMLButtonElement) {
+      resetButton.addEventListener('click', () => {
+        builderForm.reset();
+        if (topicSelect) {
+          topicSelect.selectedIndex = 0;
+        }
+        syncSubtopicOptions(true);
+        updateBuilderOutput(launchersById);
+      });
+    }
   }
 
   function bindSubTabs() {
