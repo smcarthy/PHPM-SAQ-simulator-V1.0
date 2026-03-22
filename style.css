@@ -3854,13 +3854,45 @@ body {
   gap: 1rem;
 }
 
+.builder-instruction-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  margin: 0.15rem 0 1.2rem;
+}
+
+.builder-instruction-copy {
+  margin: 0;
+  max-width: 68ch;
+}
+
+.builder-instruction-figure {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.55rem;
+  border-radius: 16px;
+  border: 1px solid rgba(136, 165, 191, 0.22);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: var(--shadow-soft);
+}
+
+.builder-instruction-figure img {
+  display: block;
+  width: min(100%, 168px);
+  max-width: 168px;
+  height: auto;
+}
+
 .builder-step-heading {
   display: flex;
   align-items: baseline;
   gap: 0.7rem;
   margin: 0;
   color: var(--builder-electric-blue);
-  font-size: clamp(1.15rem, 1rem + 0.5vw, 1.55rem);
+  font-size: clamp(1.02rem, 0.94rem + 0.42vw, 1.34rem);
   line-height: 1.2;
 }
 
@@ -3871,7 +3903,7 @@ body {
 
 .builder-step-number {
   color: var(--builder-electric-blue);
-  font-size: clamp(1.8rem, 1.3rem + 1.2vw, 2.5rem);
+  font-size: clamp(1.55rem, 1.18rem + 0.9vw, 2.1rem);
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 0.95;
@@ -3946,6 +3978,15 @@ body {
 }
 
 @media (max-width: 900px) {
+  .builder-instruction-row {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+
+  .builder-instruction-figure img {
+    max-width: 148px;
+  }
+
   .builder-output-grid {
     grid-template-columns: 1fr;
   }
@@ -3956,6 +3997,19 @@ body {
 }
 
 @media (max-width: 640px) {
+  .builder-instruction-row {
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .builder-instruction-figure {
+    padding: 0.4rem 0.5rem;
+  }
+
+  .builder-instruction-figure img {
+    max-width: 132px;
+  }
+
   .sample-exam-link,
   .advice-quick-nav-btn,
   .copy-prompt-btn {
