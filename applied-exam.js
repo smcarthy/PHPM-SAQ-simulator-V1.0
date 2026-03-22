@@ -155,17 +155,191 @@
   ];
 
   const CHALLENGE_SCENARIOS = [
-    { title: 'Long-term care respiratory outbreak escalation', context: 'Cases rise over 48 hours with staffing pressure.', topicIds: ['communicable', 'management'], recommendedGptId: 'gpt-communicable', prompt: 'You are the on-call PHPM resident. In 8 minutes, outline your first-hour response to an escalating respiratory outbreak in a long-term care home.' },
-    { title: 'Measles exposure at a mass gathering', context: 'A confirmed case attended a multijurisdictional festival.', topicIds: ['communicable', 'systems'], recommendedGptId: 'gpt-communicable', prompt: 'Present a structured measles exposure response plan including contact prioritization, prophylaxis, legal authority, and communication.' },
-    { title: 'Boil-water advisory in a remote community', context: 'Treatment failure with prolonged disruption risk.', topicIds: ['environment', 'emergency'], recommendedGptId: 'gpt-environment', prompt: 'Lead the public health response to a boil-water advisory, including culturally safe communication, risk mitigation, and coordination.' },
-    { title: 'Heat wave mortality prevention plan', context: 'Five-day extreme heat forecast above historical thresholds.', topicIds: ['environment', 'health-promotion'], recommendedGptId: 'gpt-environment', prompt: 'Develop a rapid heat response plan identifying priority populations, intervention triggers, and monitoring indicators.' },
-    { title: 'Needle-sharing HIV cluster in an urban core', context: 'Cluster signal with housing instability concerns.', topicIds: ['health-promotion', 'systems'], recommendedGptId: 'gpt-health-promotion', prompt: 'Propose a 30-day action plan for a suspected HIV cluster, balancing rapid intervention, stigma reduction, and partnerships.' },
-    { title: 'School refusal of routine immunization campaign', context: 'Coordinated refusal and misinformation spread.', topicIds: ['communicable', 'health-promotion'], recommendedGptId: 'gpt-communicable', prompt: 'Manage declining school immunization uptake with a strategy on communication, service support, and monitoring metrics.' },
-    { title: 'Opioid overdose spike after toxic supply alert', context: 'ED and EMS overdose demand doubled in one week.', topicIds: ['health-promotion', 'emergency'], recommendedGptId: 'gpt-emergency', prompt: 'Design an urgent overdose response plan with command structure, same-day harm reduction actions, and executive briefing points.' },
-    { title: 'Public backlash to TB contact investigation', context: 'Confidentiality and stigma concerns are escalating.', topicIds: ['communicable', 'systems'], recommendedGptId: 'gpt-systems', prompt: 'Defend a TB contact investigation plan protecting confidentiality, supporting affected people, and preserving epidemiologic effectiveness.' },
-    { title: 'Municipal council debate on supervised consumption expansion', context: 'Urgent recommendation needed amid polarized input.', topicIds: ['systems', 'health-promotion'], recommendedGptId: 'gpt-systems', prompt: 'Advise council on service expansion, addressing evidence, political concerns, trade-offs, and implementation safeguards.' },
-    { title: 'Foodborne outbreak linked to multiple restaurants', context: 'Possible common supplier across municipalities.', topicIds: ['communicable', 'methods'], recommendedGptId: 'gpt-communicable', prompt: 'Manage a multi-site foodborne outbreak with case definition refinement, traceback priorities, and advisory trigger points.' },
-    { title: 'Prenatal smoking cessation program evaluation', context: 'Funding renewal depends on defensible evaluation design.', topicIds: ['maternal', 'methods', 'management'], recommendedGptId: 'gpt-maternal', prompt: 'Design a pragmatic evaluation plan with logic model elements, feasible indicators, data sources, equity considerations, and reporting cadence.' }
+    {
+      title: 'Long-term care respiratory outbreak escalation',
+      context: 'Cases rise over 48 hours with staffing pressure.',
+      setting: 'Ontario long-term care home linked to an acute-care hospital and regional public health unit',
+      residentRole: 'You are the on-call PHPM resident supporting outbreak management for the health unit.',
+      stationFormat: 'non-role-play',
+      challengeType: 'Escalating respiratory outbreak with staffing shortages, frail residents, and urgent operational decisions',
+      topicIds: ['communicable', 'management'],
+      recommendedGptId: 'gpt-communicable',
+      promptFocus: 'Ask the resident to structure the first-hour response, outbreak control priorities, partner communication, and thresholds for escalation if the situation worsens.',
+      promptNotes: [
+        'Keep the station focused on decision-making, resident safety, infection prevention and control, staffing contingencies, and communication with facility leadership and families.',
+        'Press the resident on immediate priorities, who must be notified, and how they would balance containment with continuity of care.'
+      ]
+    },
+    {
+      title: 'Measles exposure at a mass gathering',
+      context: 'A confirmed case attended a multijurisdictional festival.',
+      setting: 'Large Ontario festival involving multiple municipalities, event organizers, and provincial partners',
+      residentRole: 'You are the PHPM resident advising the public health response lead immediately after the exposure is confirmed.',
+      stationFormat: 'role-play',
+      counterpartRole: 'Festival incident lead seeking immediate advice on next steps and public messaging',
+      challengeType: 'High-profile communicable disease exposure with cross-jurisdiction coordination, contact prioritization, and public concern',
+      topicIds: ['communicable', 'systems'],
+      recommendedGptId: 'gpt-communicable',
+      promptFocus: 'Ask the resident to prioritize exposure management, prophylaxis timelines, legal and operational issues, and communication across multiple jurisdictions and partners.',
+      promptNotes: [
+        'The role-play should feel like a pressured briefing with practical questions from the festival incident lead.',
+        'Push the resident to explain who is highest priority, what can be done today, and how messaging should handle uncertainty without causing panic.'
+      ]
+    },
+    {
+      title: 'Boil-water advisory in a remote community',
+      context: 'Treatment failure with prolonged disruption risk.',
+      setting: 'Remote Ontario community facing prolonged drinking-water disruption and limited backup service capacity',
+      residentRole: 'You are the PHPM resident supporting the regional Medical Officer of Health on the public health response.',
+      stationFormat: 'role-play',
+      counterpartRole: 'Community emergency leadership representative requesting a practical public health plan',
+      challengeType: 'Environmental health threat requiring culturally safe communication, intersectoral coordination, and sustained risk mitigation',
+      topicIds: ['environment', 'emergency'],
+      recommendedGptId: 'gpt-environment',
+      promptFocus: 'Ask the resident to address immediate risk mitigation, communication with the community, vulnerable groups, coordination with water and emergency partners, and planning if the disruption persists.',
+      promptNotes: [
+        'Keep the station higher-order and focused on safe, feasible public health actions rather than technical engineering detail.',
+        'Expect the resident to address culturally safe engagement, practical access to safe water, and coordination across local and regional partners.'
+      ]
+    },
+    {
+      title: 'Heat wave mortality prevention plan',
+      context: 'Five-day extreme heat forecast above historical thresholds.',
+      setting: 'Urban Ontario public health unit preparing for a multi-day extreme heat event',
+      residentRole: 'You are the PHPM resident briefing senior public health leadership on the heat response approach.',
+      stationFormat: 'non-role-play',
+      challengeType: 'Extreme heat event requiring a Heat Alert Response System, vulnerable population protection, and intersectoral implementation',
+      topicIds: ['environment', 'health-promotion'],
+      recommendedGptId: 'gpt-environment',
+      promptFocus: 'Ask the resident to develop a Heat Alert Response System with activation triggers, priority populations, partner actions, risk communication, and monitoring indicators.',
+      promptNotes: [
+        'Use the exact phrase Heat Alert Response System in the station framing and questions.',
+        'Test practical decision-making about trigger thresholds, outreach, cooling supports, and how to monitor whether interventions are working.'
+      ]
+    },
+    {
+      title: 'Needle-sharing HIV cluster in an urban core',
+      context: 'Cluster signal with housing instability concerns.',
+      setting: 'Urban Ontario core with intersecting HIV risk, homelessness, substance use, and strained outreach services',
+      residentRole: 'You are the PHPM resident presenting an urgent response approach to senior public health leadership.',
+      stationFormat: 'role-play',
+      counterpartRole: 'Medical Officer of Health asking for a defensible 30-day action plan',
+      challengeType: 'Suspected HIV cluster with stigma risk, inequitable access to care, and pressure for rapid action without overreach',
+      topicIds: ['health-promotion', 'systems'],
+      recommendedGptId: 'gpt-health-promotion',
+      promptFocus: 'Ask the resident to propose a 30-day action plan covering case investigation priorities, harm reduction, community partnership, stigma-sensitive communication, and early indicators of success.',
+      promptNotes: [
+        'Keep the station decision-oriented and avoid trivia-heavy HIV management detail.',
+        'Push the resident on partnership choices, equity, and how to move quickly while maintaining trust.'
+      ]
+    },
+    {
+      title: 'School refusal of routine immunization campaign',
+      context: 'Coordinated refusal and misinformation spread.',
+      setting: 'Ontario school system with organized parental resistance and widening misinformation online',
+      residentRole: 'You are the PHPM resident advising the health unit on how to respond to falling uptake.',
+      stationFormat: 'non-role-play',
+      challengeType: 'Immunization program pressure involving misinformation, service access barriers, and polarized stakeholder reactions',
+      topicIds: ['communicable', 'health-promotion'],
+      recommendedGptId: 'gpt-communicable',
+      promptFocus: 'Ask the resident to manage declining school immunization uptake through communication strategy, service redesign, legal and policy considerations, and practical monitoring metrics.',
+      promptNotes: [
+        'Focus on higher-order communication and program strategy rather than detailed vaccine schedules.',
+        'Expect the resident to balance trust-building, misinformation response, and operational service delivery.'
+      ]
+    },
+    {
+      title: 'Opioid overdose spike after toxic supply alert',
+      context: 'ED and EMS overdose demand doubled in one week.',
+      setting: 'Ontario municipality facing a sudden overdose surge across emergency, hospital, and community settings',
+      residentRole: 'You are the PHPM resident briefing leadership during an acute overdose emergency.',
+      stationFormat: 'non-role-play',
+      challengeType: 'Acute toxic drug emergency requiring activation of an Incident Management System (IMS), rapid harm reduction actions, and executive-level communication',
+      topicIds: ['health-promotion', 'emergency'],
+      recommendedGptId: 'gpt-emergency',
+      promptFocus: 'Ask the resident to activate or work within an Incident Management System (IMS) structure, identify same-day priorities, coordinate with partners, and brief leadership on immediate and next-step actions.',
+      promptNotes: [
+        'Explicitly state in the station that the resident is expected to activate or operate within an Incident Management System (IMS) structure.',
+        'Press for command structure, operational roles, same-day harm reduction measures, public communication, and criteria for escalating or adapting the response.'
+      ]
+    },
+    {
+      title: 'Public backlash to TB contact investigation',
+      context: 'Confidentiality and stigma concerns are escalating.',
+      setting: 'Urban public health unit managing a sensitive TB contact investigation with growing media and community scrutiny',
+      residentRole: 'You are the PHPM resident supporting the TB response and preparing for a difficult external conversation.',
+      stationFormat: 'role-play',
+      counterpartRole: 'Community spokesperson challenging the fairness and confidentiality of the investigation',
+      challengeType: 'Communicable disease control under stigma, confidentiality pressure, and public distrust',
+      topicIds: ['communicable', 'systems'],
+      recommendedGptId: 'gpt-systems',
+      promptFocus: 'Ask the resident to defend the investigation plan, explain confidentiality protections, address stigma and trust, and preserve epidemiologic effectiveness.',
+      promptNotes: [
+        'Use the role-play to test communication under pressure rather than memorized TB facts.',
+        'Expect the resident to stay calm, empathetic, and legally and ethically grounded while maintaining public health effectiveness.'
+      ]
+    },
+    {
+      title: 'Municipal council debate on supervised consumption expansion',
+      context: 'Urgent recommendation needed amid polarized input.',
+      setting: 'Municipal council chamber considering expansion of supervised consumption services in a politically divided community',
+      residentRole: 'You are the PHPM resident presenting a recommendation on service expansion.',
+      stationFormat: 'role-play',
+      counterpartRole: 'Municipal council chair asking skeptical and politically charged follow-up questions',
+      challengeType: 'Politically sensitive service expansion decision with competing evidence claims, community pressure, and implementation trade-offs',
+      topicIds: ['systems', 'health-promotion'],
+      recommendedGptId: 'gpt-systems',
+      promptFocus: 'Ask the resident to advise council on whether and how to expand services, address evidence and trade-offs, anticipate opposition, and outline implementation safeguards.',
+      promptNotes: [
+        'The role-play should probe policy judgment, political navigation, and clear communication to elected leaders.',
+        'Keep the station higher-order and decision-oriented, not a debate over isolated statistics.'
+      ]
+    },
+    {
+      title: 'Foodborne outbreak linked to multiple restaurants',
+      context: 'Possible common supplier across municipalities.',
+      setting: 'Multi-municipality Ontario foodborne outbreak investigation involving local public health units and food inspection partners',
+      residentRole: 'You are the PHPM resident helping coordinate outbreak investigation priorities.',
+      stationFormat: 'non-role-play',
+      challengeType: 'Multi-site outbreak investigation with evolving epidemiology, traceback complexity, and cross-jurisdiction coordination',
+      topicIds: ['communicable', 'methods'],
+      recommendedGptId: 'gpt-communicable',
+      promptFocus: 'Ask the resident to manage the investigation through case definition refinement, analytic and environmental priorities, traceback decisions, public communication, and escalation thresholds.',
+      promptNotes: [
+        'Keep questions focused on investigation strategy, coordination, and decision points rather than obscure microbiology trivia.',
+        'Expect clear reasoning about evidence quality, uncertainty, and when to act before full confirmation.'
+      ]
+    },
+    {
+      title: 'Prenatal smoking cessation program evaluation',
+      context: 'Funding renewal depends on defensible evaluation design.',
+      setting: 'Regional maternal-child health program facing a near-term funding renewal decision',
+      residentRole: 'You are the PHPM resident tasked with designing an evaluation approach for leadership.',
+      stationFormat: 'non-role-play',
+      challengeType: 'Program evaluation under funding pressure, feasibility constraints, and equity expectations',
+      topicIds: ['maternal', 'methods', 'management'],
+      recommendedGptId: 'gpt-maternal',
+      promptFocus: 'Ask the resident to design a pragmatic evaluation plan with logic model elements, feasible indicators, data sources, equity considerations, and a reporting cadence that can inform funding renewal.',
+      promptNotes: [
+        'Test evaluation reasoning, feasibility, and use of evidence for decisions rather than academic perfectionism.',
+        'Encourage discussion of how to produce a defensible evaluation plan within real-world program constraints.'
+      ]
+    },
+    {
+      title: 'Tick-borne disease expansion and One Health response',
+      context: 'A rural-regional health unit is seeing rising tick submissions, expanding habitat, and public concern that multiple tick-borne infections now threaten residents.',
+      setting: 'Rural or mixed rural-urban Ontario public health unit',
+      residentRole: 'You are the PHPM resident briefing the Medical Officer of Health and senior leadership on a coordinated One Health response.',
+      stationFormat: 'non-role-play',
+      challengeType: 'Emerging zoonotic and environmental health risk with uncertain surveillance, media pressure, and multi-sector coordination needs',
+      topicIds: ['environment', 'communicable'],
+      recommendedGptId: 'gpt-environment',
+      promptFocus: 'Frame this explicitly as a One Health station and ask the resident to address surveillance, prevention, risk communication, partner coordination, and practical next steps for four tick-borne illnesses of concern that can be transmitted to humans in the jurisdiction.',
+      promptNotes: [
+        'Include likely partners such as veterinary or public animal health, wildlife and environmental partners, municipal or regional partners, clinical care, and laboratory or public health partners.',
+        'Keep the station higher-order, decision-oriented, and focused on One Health coordination under uncertainty rather than trivia about individual pathogens.'
+      ]
+    }
   ];
 
   const HOT_TOPICS = [
@@ -431,6 +605,75 @@
   }
 
 
+  function getTopicLabels(topicIds) {
+    return topicIds.map((topicId) => TOPIC_META[topicId]?.label).filter(Boolean);
+  }
+
+  function getScenarioPromptPreview(scenario) {
+    const rolePlayLine = scenario.stationFormat === 'role-play'
+      ? `Role-play with ${scenario.counterpartRole}.`
+      : 'Non-role-play applied oral station.';
+
+    return `${scenario.setting}. ${rolePlayLine} ${scenario.challengeType}.`;
+  }
+
+  function buildChallengeScenarioPrompt(scenario) {
+    const lines = [
+      'Act as a Royal College PHPM applied oral examiner and run one mock oral station only.',
+      'This is a Royal College-style PHPM applied mock oral station, not an SAQ.',
+      'Station duration: 15 minutes.',
+      'Ask 4 to 5 mock oral questions sequentially, one at a time.',
+      'Do not give the answer immediately.',
+      'Let the resident respond first to each question.',
+      'After the station is complete, provide concise examiner-style feedback and a model excellent answer.',
+      '',
+      `Scenario title: ${scenario.title}`,
+      `Setting/location: ${scenario.setting}`,
+      `Resident role: ${scenario.residentRole}`,
+      `Station format: ${scenario.stationFormat === 'role-play' ? 'Role-play' : 'Non-role-play'}`
+    ];
+
+    if (scenario.counterpartRole) {
+      lines.push(`Role-play counterpart: ${scenario.counterpartRole}`);
+    }
+
+    lines.push(
+      `Scenario context: ${scenario.context}`,
+      `Challenge: ${scenario.challengeType}`,
+      `Official topic area(s): ${getTopicLabels(scenario.topicIds).join('; ')}`,
+      `Station focus: ${scenario.promptFocus}`
+    );
+
+    scenario.promptNotes.forEach((note, index) => {
+      lines.push(`Instruction ${index + 1}: ${note}`);
+    });
+
+    lines.push('', 'Begin the station now.');
+
+    return lines.join('\n');
+  }
+
+  function renderScenarioMetaRows(scenario) {
+    const rows = [
+      ['Setting', scenario.setting],
+      ['Resident role', scenario.residentRole],
+      ['Station format', scenario.stationFormat === 'role-play' ? 'Role-play' : 'Non-role-play']
+    ];
+
+    if (scenario.counterpartRole) {
+      rows.push(['Role-play counterpart', scenario.counterpartRole]);
+    }
+
+    rows.push(['Challenge', scenario.challengeType]);
+
+    return rows.map(([label, value]) => `
+      <div class="challenge-meta-row">
+        <dt>${escapeHtml(label)}</dt>
+        <dd>${escapeHtml(value)}</dd>
+      </div>
+    `).join('');
+  }
+
   function renderChallengeScenarios() {
     const list = document.getElementById('challenge-scenarios-list');
     if (!list) {
@@ -442,21 +685,26 @@
     list.innerHTML = CHALLENGE_SCENARIOS.map((scenario, index) => {
       const launcher = launchersById[scenario.recommendedGptId] || launchersById['gpt-all'];
       const recommendedTopic = TOPIC_META[launcher.topicId];
+      const stationPrompt = buildChallengeScenarioPrompt(scenario);
+      const previewPrompt = getScenarioPromptPreview(scenario);
 
       return `
         <details class="applied-mini-card applied-shared-card applied-exam-test-card challenge-card challenge-scenario-card">
           <summary class="challenge-toggle">
             <span class="challenge-title">${index + 1}. ${escapeHtml(scenario.title)}</span>
             <span class="challenge-context">${escapeHtml(scenario.context)}</span>
-            <span class="challenge-hover-preview">${escapeHtml(scenario.prompt)}</span>
+            <span class="challenge-hover-preview">${escapeHtml(previewPrompt)}</span>
           </summary>
           <div class="challenge-details">
             <p><strong>Official topic label(s):</strong></p>
             <ul class="topic-tag-list">${renderTopicTags(scenario.topicIds)}</ul>
             <p><strong>Recommended GPT:</strong> <span class="recommended-gpt" style="--topic-color:${recommendedTopic.color}">${escapeHtml(launcher.title)}</span></p>
+            <dl class="challenge-meta-list">
+              ${renderScenarioMetaRows(scenario)}
+            </dl>
             <div class="challenge-prompt-block">
               <label for="challenge-prompt-${index}">Station prompt</label>
-              <textarea id="challenge-prompt-${index}" class="challenge-prompt" readonly>${escapeHtml(scenario.prompt)}</textarea>
+              <textarea id="challenge-prompt-${index}" class="challenge-prompt" readonly>${escapeHtml(stationPrompt)}</textarea>
             </div>
             <div class="challenge-actions">
               <button type="button" class="copy-prompt-btn" data-copy-target="challenge-prompt-${index}">Copy prompt</button>
@@ -588,7 +836,7 @@
           challengeContextNode.textContent = challenge.context;
         }
         if (challengePromptNode) {
-          challengePromptNode.textContent = challenge.prompt;
+          challengePromptNode.textContent = getScenarioPromptPreview(challenge);
         }
         if (challengeButton) {
           challengeButton.setAttribute('aria-label', `Show another challenge after ${challenge.title}`);
