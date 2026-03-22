@@ -25,7 +25,7 @@
           <button id="tab-start-practising" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-start-practising" data-panel="panel-start-practising"><span class="applied-subtab-icon icon-gears" aria-hidden="true"></span><span>Start Practising</span></button>
           <button id="tab-challenge-scenarios" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-challenge-scenarios" data-panel="panel-challenge-scenarios"><span class="applied-subtab-icon icon-challenge" aria-hidden="true"></span><span>Challenge Scenarios</span></button>
           <button id="tab-builder" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-builder" data-panel="panel-builder"><span class="applied-subtab-icon icon-build" aria-hidden="true"></span><span>Build a Station</span></button>
-          <button id="tab-exam-tests" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-exam-tests" data-panel="panel-exam-tests"><span class="applied-subtab-icon icon-checklist" aria-hidden="true"></span><span>What the RC Exam Tests</span></button>
+          <button id="tab-exam-tests" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-exam-tests" data-panel="panel-exam-tests"><span class="applied-subtab-icon icon-checklist" aria-hidden="true"></span><span>Past Resident Advice</span></button>
           <button id="tab-hot-topics" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-hot-topics" data-panel="panel-hot-topics"><span class="applied-subtab-icon icon-hot" aria-hidden="true"></span><span>Hot Topics</span></button>
           <button id="tab-study-planner" type="button" class="applied-subtab" role="tab" aria-selected="false" aria-controls="panel-study-planner" data-panel="panel-study-planner"><span class="applied-subtab-icon icon-planning" aria-hidden="true"></span><span>Study Planner</span></button>
         </nav>
@@ -175,10 +175,281 @@
         </div>
       </section>
 
-      <section id="panel-exam-tests" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="tab-exam-tests" hidden>
-        <h3 id="section-exam-testing"><span class="section-heading-icon icon-checklist" aria-hidden="true"></span>What the Exam Tests</h3>
-        <p>Use this as a quick station checklist: aim for clear logic, practical recommendations, and defensible judgment in real-time oral discussion.</p>
-        <div id="exam-tests-grid" class="applied-card-grid applied-shared-card-grid exam-tests-grid" aria-live="polite"></div>
+      <section id="panel-exam-tests" class="applied-section applied-subtab-panel applied-advice-panel" role="tabpanel" aria-labelledby="tab-exam-tests" hidden>
+        <div class="applied-advice-shell">
+          <header class="applied-advice-header">
+            <p class="applied-advice-kicker"><span class="section-heading-icon icon-checklist" aria-hidden="true"></span>Applied Exam resident debrief</p>
+            <h3 id="section-exam-testing">Past Resident Advice</h3>
+            <p class="applied-advice-subtitle">What recent PHPM resident graduates wish they had understood earlier about the applied Royal College exam.</p>
+          </header>
+
+          <aside class="applied-advice-framing-band" aria-label="Official framing">
+            <p>The applied exam evaluates more than factual recall. It tests how residents organize a response, communicate clearly, handle uncertainty, identify who matters, and move toward safe and defensible next steps.</p>
+          </aside>
+
+          <div class="applied-advice-layout">
+            <div class="applied-advice-spine">
+              <article class="advice-subsection" id="advice-decision-oriented">
+                <div class="advice-subsection-body">
+                  <span class="advice-index">1</span>
+                  <div>
+                    <h4>Most residents found the oral more decision-oriented than trivia-oriented</h4>
+                    <p>Past residents repeatedly described the oral as a higher-order exam. The station usually asks what you would do next, how you would prioritize, what you would communicate, and how you would keep the public safe. It is less about obscure memorized detail and more about judgment, management, and defensible action.</p>
+                  </div>
+                </div>
+                <div class="advice-inline-quotes" aria-label="Anonymous resident advice">
+                  <blockquote class="advice-pullquote"><p>“The questions are always higher-order. You must make a decision or take a position on the spot. It’s not easy.”</p></blockquote>
+                  <blockquote class="advice-pullquote"><p>“Never just answer the question — always provide rationale and background.”</p></blockquote>
+                </div>
+              </article>
+
+              <article class="advice-subsection" id="advice-structure-matters">
+                <div class="advice-subsection-body">
+                  <span class="advice-index">2</span>
+                  <div>
+                    <h4>Structure matters because the stations are often tight, vague, and a bit uncomfortable</h4>
+                    <p>Residents consistently described the stations as structured but pressured. Some stations are vague with limited information. Some examiners do not prompt much, while others repeat the question. A strong answer usually sounds organized even when the stem sounds vague: the resident candidate still needs to verbalize and identify the issue, name the priorities, explain their reasoning, give practical next steps, and keep moving.</p>
+                    <p class="advice-annotation"><strong>What helps:</strong> issue → priorities → actions → communication → next steps.</p>
+                  </div>
+                </div>
+                <div class="advice-inline-quotes" aria-label="Anonymous resident advice">
+                  <blockquote class="advice-pullquote"><p>“The examiners don’t prompt much ‘what else would you add?’ Sometimes you just need to try a different angle.”</p></blockquote>
+                </div>
+              </article>
+
+              <article class="advice-subsection" id="advice-key-messages">
+                <div class="advice-subsection-body">
+                  <span class="advice-index">3</span>
+                  <div>
+                    <h4>Key messages came up again and again</h4>
+                    <p>Several residents emphasized that key messages mattered across multiple stations. Examiners often seemed to reward not just analysis, but whether you can distill the response into concise, useful statements that can plausibly be used by leadership, a partner, media, or the public.</p>
+                    <p class="advice-emphasis">brief, specific, and action-oriented</p>
+                  </div>
+                </div>
+                <div class="advice-inline-quotes" aria-label="Anonymous resident advice">
+                  <blockquote class="advice-pullquote"><p>“Get very comfortable with key messages. Every station had them.”</p></blockquote>
+                  <blockquote class="advice-pullquote"><p>“They must actually be key — what you would put on a health promotion poster.”</p></blockquote>
+                </div>
+              </article>
+
+              <article class="advice-subsection" id="advice-exam-day-stress">
+                <div class="advice-subsection-body">
+                  <span class="advice-index">4</span>
+                  <div>
+                    <h4>Exam day is stressful in a very ordinary way</h4>
+                    <p>The in-person experience is mostly stressful from waiting, pacing, and neutral examiners. Checking in too early may not help; around 30 minutes early was described as sufficient, and waiting outside the door of station 1 for about 18 minutes doing nothing was itself stressful. Residents should expect the pre-station waiting to feel tense and can practise staying calm rather than assuming that calm will appear automatically on the day.</p>
+                  </div>
+                </div>
+                <div class="advice-inline-quotes" aria-label="Anonymous resident advice">
+                  <blockquote class="advice-pullquote"><p>“You stand outside the door, nervous, doing nothing for 18 minutes.”</p></blockquote>
+                  <blockquote class="advice-pullquote"><p>“Check in early, but 30 minutes is probably enough.”</p></blockquote>
+                </div>
+              </article>
+
+              <article class="advice-subsection" id="advice-neutral-examiners">
+                <div class="advice-subsection-body">
+                  <span class="advice-index">5</span>
+                  <div>
+                    <h4>Neutral examiners do not necessarily mean anything is wrong</h4>
+                    <p>Multiple residents said examiners often appeared neutral, unreadable, or even unhappy. They may be writing the whole time, shielding their scoring sheet, and not making much eye contact. That should not be overinterpreted. A resident may leave feeling awful and still have performed acceptably.</p>
+                  </div>
+                </div>
+                <div class="advice-inline-quotes" aria-label="Anonymous resident advice">
+                  <blockquote class="advice-pullquote"><p>“Prepare that the examiners are neutral or unhappy. It’s ok.”</p></blockquote>
+                  <blockquote class="advice-pullquote"><p>“Most people feel awful after the oral exam.”</p></blockquote>
+                </div>
+              </article>
+
+              <article class="advice-subsection" id="advice-note-taking">
+                <div class="advice-subsection-body">
+                  <span class="advice-index">6</span>
+                  <div>
+                    <h4>Time is tight, and note-taking may help some residents less than they expect</h4>
+                    <p>The advice here is nuanced rather than one-size-fits-all. In the recent in-person format, at least two residents suggested that writing notes was not especially helpful to them once they realized the 15 minutes included reading, thinking, and speaking time. One described stopping note-taking altogether. Another explicitly warned not to spend time writing because the timer effectively starts immediately. Residents can wear an analog watch, which could be useful if a resident practices wearing it for time keeping.</p>
+                    <p class="advice-nuance">Test your own note-taking strategy in realistic mocks.</p>
+                  </div>
+                </div>
+                <div class="advice-inline-quotes" aria-label="Anonymous resident advice">
+                  <blockquote class="advice-pullquote"><p>“The 15 minutes includes reading the stem and writing notes, so I stopped writing notes.”</p></blockquote>
+                  <blockquote class="advice-pullquote"><p>“Don’t spend time writing.”</p></blockquote>
+                </div>
+              </article>
+
+              <article class="advice-subsection" id="advice-frameworks">
+                <div class="advice-subsection-body">
+                  <span class="advice-index">7</span>
+                  <div>
+                    <h4>Use frameworks as supports, but translate them into concrete answers</h4>
+                    <p>Residents did value frameworks, but not as scripts to recite. The repeated lesson was that a framework should reduce cognitive load and help organize the answer. The examiner is more likely to reward what you would do, who you would involve, and what you would communicate than the fact that you named a framework correctly.</p>
+                  </div>
+                </div>
+                <div class="advice-inline-quotes" aria-label="Anonymous resident advice">
+                  <blockquote class="advice-pullquote"><p>“Don’t say ‘I would do TAGOPIE.’ Instead say who your team would include, what you would assess, and what you would do.”</p></blockquote>
+                </div>
+              </article>
+
+              <article class="advice-subsection" id="advice-station-patterns">
+                <div class="advice-subsection-body">
+                  <span class="advice-index">8</span>
+                  <div>
+                    <h4>Recurring themes of the eight stations</h4>
+                    <p>Residents described a fairly recognizable applied exam mix: 2 outbreak and communicable disease stations, 1 environmental hazard station, 1 environmental health station, 1 health promotion or disease prevention station, 1 management or leadership station, 1 health policy station, and 1 hot-topic station. They also noted recurring question styles: role-play, management under uncertainty, and non-standard visual interpretation such as weird tables, pictures, or maps rather than simple graphs. Note that the role-play may not be with media but with other public health professionals such as a public health nurse or another aMOH.</p>
+                  </div>
+                </div>
+              </article>
+
+              <aside class="advice-callout" aria-label="Core takeaway">
+                <p class="advice-callout-label">What this advice is really trying to teach you:</p>
+                <p>Past residents suggest practising structured, calm, usable answers under time pressure, expecting ambiguity, not over-interpreting examiner facial expressions, and keeping your response practical.</p>
+              </aside>
+
+              <section class="advice-summary" aria-labelledby="advice-summary-title">
+                <h4 id="advice-summary-title">If you remember only five things</h4>
+                <ul>
+                  <li>The oral is usually more judgment-based than trivia-based.</li>
+                  <li>A clear structure helps when the question feels vague.</li>
+                  <li>Key messages matter more than many residents expect.</li>
+                  <li>Neutral examiners and post-exam doubt are normal.</li>
+                  <li>Test your pacing and note-taking strategy in realistic mocks before exam day.</li>
+                </ul>
+              </section>
+
+              <details class="advice-guide" id="advice-practical-guide">
+                <summary>Before exam day: practical orientation from past residents</summary>
+                <div class="advice-guide-content">
+                  <section class="advice-guide-section">
+                    <h4>A. What to expect when entering a station room</h4>
+                    <ul>
+                      <li>open the door after the signal or beep</li>
+                      <li>enter and introduce yourself</li>
+                      <li>expect 1–2 examiners</li>
+                      <li>the examiner has a small barrier covering their marking sheet</li>
+                      <li>the timer is already running</li>
+                      <li>the stem or screen is off to the side and remains visible</li>
+                      <li>they read the stem and ask when you are ready to begin</li>
+                      <li>they usually do not tell you how many questions there will be, but recent residents described about 4 to 5 questions</li>
+                      <li>there is no visible timer in the room, so an analog watch may help if you have practised with it</li>
+                      <li>there is no water in the room, but you can carry a water bottle between stations</li>
+                      <li>it will feel awkward, but you must sit as the examiner writes and you are allowed to go to the next station</li>
+                      <li>there are about 3 minutes between stations and a buzzer or signal to move</li>
+                    </ul>
+                    <div class="advice-infographic-placeholder" role="img" aria-label="Infographic placeholder: station-room mechanics timeline">
+                      <span>Infographic placeholder: station-room mechanics timeline</span>
+                    </div>
+                  </section>
+
+                  <section class="advice-guide-section">
+                    <h4>B. Eight station patterns past residents anticipate</h4>
+                    <ul>
+                      <li>2 outbreak / communicable disease stations</li>
+                      <li>1 environmental health hazard station</li>
+                      <li>1 health promotion / chronic disease prevention station</li>
+                      <li>1 health policy station</li>
+                      <li>1 management station</li>
+                      <li>1 environmental health station</li>
+                      <li>1 hot-topic station</li>
+                      <li>about half the stations will be role plays</li>
+                    </ul>
+                    <p class="advice-caution">Station mix can shift, and some recent residents felt there was more than one hot-topic-style station.</p>
+                    <div class="advice-infographic-placeholder" role="img" aria-label="Infographic placeholder: eight station patterns">
+                      <span>Infographic placeholder: eight station patterns</span>
+                    </div>
+                  </section>
+
+                  <section class="advice-guide-section">
+                    <h4>C. Figures, tables, diagrams, and maps</h4>
+                    <p>Residents specifically warned that the interpret diagrams were often not traditional figures from journals. They described weird tables, pictures, and even maps rather than simple graphs. This suggests residents should practise interpret questions separately from describe-and-interpret questions.</p>
+                    <blockquote class="advice-pullquote advice-guide-quote"><p>“None of them were traditional figures. Expect weird tables and pictures. Maybe a map.”</p></blockquote>
+                    <div class="advice-infographic-placeholder" role="img" aria-label="Infographic placeholder: figures, tables, diagrams, and maps">
+                      <span>Infographic placeholder: figures, tables, diagrams, and maps</span>
+                    </div>
+                  </section>
+
+                  <section class="advice-guide-section">
+                    <h4>D. Key frameworks or structured approaches to have down cold</h4>
+                    <div class="advice-framework-grid">
+                      <section>
+                        <h5>Health promotion</h5>
+                        <ul>
+                          <li>Program assessment steps</li>
+                          <li>Program implementation steps</li>
+                          <li>Program evaluation steps</li>
+                          <li>4 pillars of substance use</li>
+                        </ul>
+                      </section>
+                      <section>
+                        <h5>Communicable disease / outbreaks</h5>
+                        <ul>
+                          <li>Outbreak response steps</li>
+                          <li>Case management</li>
+                          <li>Contact management</li>
+                          <li>Communications</li>
+                        </ul>
+                      </section>
+                      <section>
+                        <h5>Environmental health</h5>
+                        <ul>
+                          <li>HIRA steps</li>
+                          <li>Risk assessment</li>
+                          <li>Management options</li>
+                          <li>Risk mitigation</li>
+                          <li>Risk communication, including Sandman-style framing</li>
+                        </ul>
+                      </section>
+                      <section>
+                        <h5>Management</h5>
+                        <ul>
+                          <li>Identify the issue</li>
+                          <li>Assess the issue</li>
+                          <li>Address the issue</li>
+                        </ul>
+                      </section>
+                    </div>
+                    <div class="advice-infographic-placeholder" role="img" aria-label="Infographic placeholder: framework map">
+                      <span>Infographic placeholder: framework map</span>
+                    </div>
+                  </section>
+
+                  <section class="advice-guide-section">
+                    <h4>E. Endurance and physical practicality</h4>
+                    <ul>
+                      <li>one resident wished PGY-5s had done a full 8-hour mock day</li>
+                      <li>another strongly recommended doing at least 4 stations in a row once a week in the last month</li>
+                      <li>several comments implied you need to get used to sustained talking, pacing, and having water</li>
+                      <li>hotel breakfast may matter because some residents reported little real food afterward</li>
+                    </ul>
+                  </section>
+
+                  <section class="advice-guide-section">
+                    <h4>F. Small but useful resident warnings</h4>
+                    <ul>
+                      <li>do not assume the examiner will prompt you if you miss something</li>
+                      <li>do not assume every examiner will repeat a question the same way</li>
+                      <li>if you talk too long, they may cut you off and move on</li>
+                      <li>a few seconds to gather yourself may be fine, but long silence may not help</li>
+                      <li>vocabulary in the stem may be broader or less obvious than expected, for example words like “strategy”</li>
+                    </ul>
+                  </section>
+                </div>
+              </details>
+            </div>
+
+            <aside class="advice-quote-rail" aria-label="Anonymous resident pull quotes">
+              <blockquote class="advice-pullquote"><p>“The questions are always higher-order. You must make a decision or take a position on the spot. It’s not easy.”</p></blockquote>
+              <blockquote class="advice-pullquote"><p>“Never just answer the question — always provide rationale and background.”</p></blockquote>
+              <blockquote class="advice-pullquote"><p>“The examiners don’t prompt much ‘what else would you add?’ Sometimes you just need to try a different angle.”</p></blockquote>
+              <blockquote class="advice-pullquote"><p>“Get very comfortable with key messages. Every station had them.”</p></blockquote>
+              <blockquote class="advice-pullquote"><p>“They must actually be key — what you would put on a health promotion poster.”</p></blockquote>
+              <blockquote class="advice-pullquote"><p>“You stand outside the door, nervous, doing nothing for 18 minutes.”</p></blockquote>
+              <blockquote class="advice-pullquote"><p>“Check in early, but 30 minutes is probably enough.”</p></blockquote>
+              <blockquote class="advice-pullquote"><p>“Prepare that the examiners are neutral or unhappy. It’s ok.”</p></blockquote>
+              <blockquote class="advice-pullquote"><p>“Most people feel awful after the oral exam.”</p></blockquote>
+              <blockquote class="advice-pullquote"><p>“The 15 minutes includes reading the stem and writing notes, so I stopped writing notes.”</p></blockquote>
+              <blockquote class="advice-pullquote"><p>“Don’t spend time writing.”</p></blockquote>
+              <blockquote class="advice-pullquote"><p>“Don’t say ‘I would do TAGOPIE.’ Instead say who your team would include, what you would assess, and what you would do.”</p></blockquote>
+            </aside>
+          </div>
+        </div>
       </section>
 
       <section id="panel-hot-topics" class="applied-section applied-subtab-panel" role="tabpanel" aria-labelledby="tab-hot-topics" hidden>
