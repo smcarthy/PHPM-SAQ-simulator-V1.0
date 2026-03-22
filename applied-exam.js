@@ -853,7 +853,7 @@
     const homePanel = document.querySelector('[data-home-panel]');
     const homeControls = document.querySelector('[data-home-controls]');
     if (!tabs.length || !panels.length) {
-      return;
+      return {};
     }
 
     function showHome() {
@@ -951,6 +951,46 @@
     });
 
     showHome();
+    return { activate, tabs };
+  }
+
+  function bindAdviceQuickNav(subTabApi) {
+    const quickNavButtons = Array.from(document.querySelectorAll('[data-guide-target]'));
+    const adviceGuide = document.getElementById('advice-practical-guide');
+    if (!quickNavButtons.length || !(adviceGuide instanceof HTMLElement) || !subTabApi || typeof subTabApi.activate !== 'function') {
+      return;
+    }
+
+    const adviceTab = subTabApi.tabs.find((tab) => tab.getAttribute('data-panel') === 'panel-exam-tests');
+    if (!adviceTab) {
+      return;
+    }
+
+    quickNavButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const targetId = button.getAttribute('data-guide-target');
+        if (!targetId) {
+          return;
+        }
+
+        subTabApi.activate(adviceTab);
+        adviceGuide.open = true;
+
+        window.requestAnimationFrame(() => {
+          const target = document.getElementById(targetId);
+          if (!(target instanceof HTMLElement)) {
+            return;
+          }
+
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const heading = target.querySelector('h4');
+          if (heading instanceof HTMLElement) {
+            heading.tabIndex = -1;
+            heading.focus({ preventScroll: true });
+          }
+        });
+      });
+    });
   }
 
   function initializeAppliedExamPage() {
@@ -963,7 +1003,8 @@
     renderStudyPlanner();
     renderTodayChallenge();
     renderFrameworkOfTheDay();
-    bindSubTabs();
+    const subTabApi = bindSubTabs();
+    bindAdviceQuickNav(subTabApi);
     bindCopyActions();
     initializeStationBuilder();
     autoSizeChallengePrompts();
