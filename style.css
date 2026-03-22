@@ -3792,3 +3792,179 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* Narrow refinement pass: Applied Exam builder hierarchy and shared CTA button family */
+:root {
+  --cta-family-bg: linear-gradient(135deg, #114d88 0%, #1b8aa3 100%);
+  --cta-family-bg-hover: linear-gradient(135deg, #0d4274 0%, #16758b 100%);
+  --cta-family-shadow: 0 10px 22px rgba(17, 77, 136, 0.18);
+  --builder-electric-blue: #3b46e0;
+}
+
+.sample-exam-link,
+.advice-quick-nav-btn,
+.copy-prompt-btn {
+  border: 1px solid rgba(17, 77, 136, 0.18);
+  border-radius: 14px;
+  background: var(--cta-family-bg);
+  box-shadow: var(--cta-family-shadow);
+  color: #ffffff;
+  font-weight: 700;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease, filter 0.16s ease;
+}
+
+.sample-exam-link {
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.8rem 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.advice-quick-nav-btn {
+  padding: 0.8rem 0.95rem;
+}
+
+.copy-prompt-btn {
+  min-width: 190px;
+  padding: 0.9rem 1.35rem;
+  font-size: 1rem;
+}
+
+.sample-exam-link:hover,
+.sample-exam-link:focus-visible,
+.advice-quick-nav-btn:hover,
+.advice-quick-nav-btn:focus-visible,
+.copy-prompt-btn:hover,
+.copy-prompt-btn:focus-visible {
+  background: var(--cta-family-bg-hover);
+  box-shadow: 0 14px 28px rgba(17, 77, 136, 0.24);
+  transform: translateY(-1px);
+  filter: saturate(1.04);
+}
+
+.sample-exam-link:focus-visible,
+.advice-quick-nav-btn:focus-visible,
+.copy-prompt-btn:focus-visible {
+  outline: 3px solid rgba(66, 214, 208, 0.35);
+  outline-offset: 2px;
+}
+
+.builder-output {
+  gap: 1rem;
+}
+
+.builder-step-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  margin: 0;
+  color: var(--builder-electric-blue);
+  font-size: clamp(1.15rem, 1rem + 0.5vw, 1.55rem);
+  line-height: 1.2;
+}
+
+.builder-step-heading-inline {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.builder-step-number {
+  color: var(--builder-electric-blue);
+  font-size: clamp(1.8rem, 1.3rem + 1.2vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.builder-panel-header,
+.builder-step-action {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.builder-panel-header h4 {
+  color: var(--builder-electric-blue);
+}
+
+.builder-panel-kicker,
+.builder-field-help {
+  display: none;
+}
+
+.builder-advanced-panel summary {
+  padding: 1rem 1rem 0.95rem;
+  color: var(--builder-electric-blue);
+}
+
+.builder-advanced-panel summary::after {
+  color: var(--builder-electric-blue);
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.builder-output-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  gap: 1.2rem;
+  align-items: stretch;
+}
+
+.builder-output-card,
+.builder-step-action {
+  border: 1px solid rgba(136, 165, 191, 0.22);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow-soft);
+  padding: 1.1rem;
+}
+
+.builder-output-figure {
+  margin: 0;
+  min-width: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(136, 165, 191, 0.22);
+  background: linear-gradient(145deg, rgba(248, 251, 255, 0.98), rgba(233, 242, 249, 0.96));
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.builder-output-figure img {
+  display: block;
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  object-fit: contain;
+}
+
+.builder-step-action .challenge-actions {
+  margin-top: 0;
+}
+
+@media (max-width: 900px) {
+  .builder-output-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .builder-output-figure {
+    order: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .sample-exam-link,
+  .advice-quick-nav-btn,
+  .copy-prompt-btn {
+    width: 100%;
+  }
+
+  .builder-output-card,
+  .builder-step-action,
+  .builder-output-figure {
+    padding: 0.95rem;
+  }
+}

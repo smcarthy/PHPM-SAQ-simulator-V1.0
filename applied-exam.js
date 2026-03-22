@@ -506,7 +506,7 @@
       { id: 'hostile-stakeholder', label: 'Hostile stakeholder' },
       { id: 'ethics-conflict', label: 'Ethics conflict' },
       { id: 'resource-constraints', label: 'Resource constraints' },
-      { id: 'indigenous-engagement', label: 'Indigenous engagement' },
+      { id: 'indigenous-engagement', label: 'Equity group engagement' },
       { id: 'political-pressure', label: 'Political pressure' },
       { id: 'media-scrutiny', label: 'Media scrutiny' },
       { id: 'partner-disagreement', label: 'Partner disagreement' },
@@ -546,7 +546,7 @@
       { id: 'climate-wildfire', label: 'Climate change / heat / wildfire smoke' },
       { id: 'immunization-confidence', label: 'Immunization confidence and measles' },
       { id: 'toxic-drug-crisis', label: 'Toxic drug crisis and harm reduction' },
-      { id: 'indigenous-partnerships', label: 'Indigenous health and culturally safe partnerships' }
+      { id: 'indigenous-partnerships', label: 'Truth and Reconciliation and culturally safe partnerships' }
     ],
     subtopicsByTopic: {
       all: ['Cross-topic integrated oral station', 'Hot-topic mixed station', 'Leadership plus methods crossover'],

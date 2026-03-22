@@ -133,14 +133,13 @@
         <div class="applied-section-split builder-section-split">
           <div class="applied-section-copy builder-section-copy">
             <h3 id="section-station-builder"><span class="section-heading-icon icon-build" aria-hidden="true"></span>Build a Station</h3>
-            <p>Choose a high-yield combination and generate a deterministic local station prompt for copy/paste.</p>
+            <p>In three easy steps, customize a mock oral station that suits your learning needs. When you are ready, press “Copy prompt” at the bottom, open the recommended customGPT bot, and paste the text.</p>
 
             <form id="builder-form" class="builder-form" autocomplete="off">
               <div class="builder-form-shell">
                 <section class="builder-panel builder-core-panel" aria-labelledby="builder-core-heading">
                   <div class="builder-panel-header">
-                    <p class="builder-panel-kicker">Choose your station spine</p>
-                    <h4 id="builder-core-heading">Core station-building controls</h4>
+                    <h4 id="builder-core-heading" class="builder-step-heading"><span class="builder-step-number">1.</span><span>Core station-building controls</span></h4>
                   </div>
                   <div class="builder-grid builder-grid-core">
                     <div class="builder-field builder-field-topic">
@@ -152,7 +151,6 @@
                       <label for="builder-subtopic">Subtopic area</label>
                       <input id="builder-subtopic" name="subtopic" type="search" list="builder-subtopic-options" placeholder="Leave blank or select a subtopic" />
                       <datalist id="builder-subtopic-options"></datalist>
-                      <p id="builder-subtopic-help" class="builder-field-help">Leave blank to keep the prompt aligned with the selected official topic area.</p>
                     </div>
 
                     <div class="builder-field">
@@ -164,8 +162,7 @@
 
                 <section class="builder-panel builder-context-panel" aria-labelledby="builder-context-heading">
                   <div class="builder-panel-header">
-                    <p class="builder-panel-kicker">Add the context</p>
-                    <h4 id="builder-context-heading">Scenario framing</h4>
+                    <h4 id="builder-context-heading" class="builder-step-heading"><span class="builder-step-number">2A.</span><span>Scenario framing</span></h4>
                   </div>
                   <div class="builder-grid builder-grid-context">
                     <div class="builder-field">
@@ -186,7 +183,7 @@
                 </section>
 
                 <details class="builder-advanced-panel" id="builder-advanced-panel">
-                  <summary>Advanced controls</summary>
+                  <summary><span class="builder-step-heading builder-step-heading-inline"><span class="builder-step-number">2B.</span><span>Advanced controls</span></span></summary>
                   <div class="builder-advanced-content">
                     <div class="builder-grid builder-grid-advanced">
                       <div class="builder-field">
@@ -214,19 +211,30 @@
             </div>
 
             <div id="builder-output" class="builder-output" aria-live="polite">
-              <p><strong>Official topic label(s):</strong></p>
-              <ul id="builder-topic-tags" class="topic-tag-list"></ul>
-              <p><strong>Recommended GPT:</strong> <span id="builder-recommended-gpt"></span></p>
+              <div class="builder-output-grid">
+                <div class="builder-output-card">
+                  <p><strong>Official topic label(s):</strong></p>
+                  <ul id="builder-topic-tags" class="topic-tag-list"></ul>
+                  <p><strong>Recommended GPT:</strong> <span id="builder-recommended-gpt"></span></p>
 
-              <div class="challenge-prompt-block">
-                <label for="builder-prompt">Station prompt</label>
-                <textarea id="builder-prompt" class="challenge-prompt" readonly></textarea>
+                  <div class="challenge-prompt-block">
+                    <label for="builder-prompt">Station prompt</label>
+                    <textarea id="builder-prompt" class="challenge-prompt" readonly></textarea>
+                  </div>
+                </div>
+
+                <figure class="builder-output-figure">
+                  <img src="assets/applied/two residents.png" alt="Two residents preparing together for an oral station" loading="lazy" />
+                </figure>
               </div>
 
-              <div class="challenge-actions">
-                <button type="button" class="copy-prompt-btn" data-copy-target="builder-prompt">Copy Prompt</button>
-                <span class="copy-status" aria-live="polite"></span>
-                <a id="builder-open-gpt" href="https://chat.openai.com/" class="open-gpt-btn" target="_blank" rel="noopener noreferrer">Open Recommended GPT</a>
+              <div class="builder-step-action" aria-label="Copy prompt step">
+                <h4 class="builder-step-heading" id="builder-copy-heading"><span class="builder-step-number">3.</span><span>Copy prompt</span></h4>
+                <div class="challenge-actions">
+                  <button type="button" class="copy-prompt-btn" data-copy-target="builder-prompt">Copy prompt</button>
+                  <span class="copy-status" aria-live="polite"></span>
+                  <a id="builder-open-gpt" href="https://chat.openai.com/" class="open-gpt-btn" target="_blank" rel="noopener noreferrer">Open Recommended GPT</a>
+                </div>
               </div>
             </div>
           </div>
