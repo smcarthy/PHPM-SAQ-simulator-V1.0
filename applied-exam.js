@@ -173,7 +173,7 @@
     {
       title: 'Measles exposure at a mass gathering',
       context: 'A confirmed case attended a multijurisdictional festival.',
-      setting: 'Large Alberta festival involving multiple municipalities, event organizers, and provincial partners',
+      setting: 'Large Ontario festival involving multiple municipalities, event organizers, and provincial partners',
       residentRole: 'You are the PHPM resident advising the public health response lead immediately after the exposure is confirmed.',
       stationFormat: 'role-play',
       counterpartRole: 'Festival incident lead seeking immediate advice on next steps and public messaging',
@@ -189,7 +189,7 @@
     {
       title: 'Boil-water advisory in a remote community',
       context: 'Treatment failure with prolonged disruption risk.',
-      setting: 'Remote Nunavut community facing prolonged drinking-water disruption and limited backup service capacity',
+      setting: 'Remote Ontario community facing prolonged drinking-water disruption and limited backup service capacity',
       residentRole: 'You are the PHPM resident supporting the regional Medical Officer of Health on the public health response.',
       stationFormat: 'role-play',
       counterpartRole: 'Community emergency leadership representative requesting a practical public health plan',
