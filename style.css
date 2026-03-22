@@ -3167,6 +3167,67 @@ body {
 .advice-inline-quotes {
   position: relative;
   z-index: 1;
+  animation: adviceFloatUp 0.68s ease-out both;
+}
+
+.advice-inline-quotes {
+  animation-delay: 0.14s;
+}
+
+.advice-subsection:nth-of-type(2) .advice-subsection-body {
+  animation-delay: 0.04s;
+}
+
+.advice-subsection:nth-of-type(2) .advice-inline-quotes {
+  animation-delay: 0.18s;
+}
+
+.advice-subsection:nth-of-type(3) .advice-subsection-body {
+  animation-delay: 0.08s;
+}
+
+.advice-subsection:nth-of-type(3) .advice-inline-quotes {
+  animation-delay: 0.22s;
+}
+
+.advice-subsection:nth-of-type(4) .advice-subsection-body {
+  animation-delay: 0.12s;
+}
+
+.advice-subsection:nth-of-type(4) .advice-inline-quotes {
+  animation-delay: 0.26s;
+}
+
+.advice-subsection:nth-of-type(5) .advice-subsection-body {
+  animation-delay: 0.16s;
+}
+
+.advice-subsection:nth-of-type(5) .advice-inline-quotes {
+  animation-delay: 0.3s;
+}
+
+.advice-subsection:nth-of-type(6) .advice-subsection-body {
+  animation-delay: 0.2s;
+}
+
+.advice-subsection:nth-of-type(6) .advice-inline-quotes {
+  animation-delay: 0.34s;
+}
+
+.advice-subsection:nth-of-type(7) .advice-subsection-body {
+  animation-delay: 0.24s;
+}
+
+.advice-subsection:nth-of-type(7) .advice-inline-quotes {
+  animation-delay: 0.38s;
+}
+
+.advice-subsection:nth-of-type(8) .advice-subsection-body {
+  animation-delay: 0.28s;
+}
+
+.advice-subsection:nth-of-type(8) .advice-inline-quotes {
+  animation-delay: 0.42s;
 }
 
 .advice-subsection-body {
@@ -3175,6 +3236,18 @@ body {
   grid-template-columns: 58px minmax(0, 1fr);
   gap: 1.15rem;
   align-content: start;
+}
+
+@keyframes adviceFloatUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .advice-inline-quotes {
@@ -3494,6 +3567,13 @@ body {
 .advice-infographic-placeholder span {
   color: #265973;
   font-weight: 700;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .advice-subsection-body,
+  .advice-inline-quotes {
+    animation: none;
+  }
 }
 
 @media (max-width: 1024px) {
