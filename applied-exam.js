@@ -168,15 +168,6 @@
     { title: 'Prenatal smoking cessation program evaluation', context: 'Funding renewal depends on defensible evaluation design.', topicIds: ['maternal', 'methods', 'management'], recommendedGptId: 'gpt-maternal', prompt: 'Design a pragmatic evaluation plan with logic model elements, feasible indicators, data sources, equity considerations, and reporting cadence.' }
   ];
 
-  const EXAM_TEST_ITEMS = [
-    { title: 'Organization and logic', detail: 'Use a clear structure: issue framing, priorities, recommendation, and follow-through.' },
-    { title: 'Communication clarity', detail: 'Deliver concise key messages that would work in a real oral station under time pressure.' },
-    { title: 'Stakeholder awareness', detail: 'Show who matters, who is affected, and who must be engaged now versus later.' },
-    { title: 'Public health judgment', detail: 'Make defensible decisions under uncertainty using risk, evidence, and practical context.' },
-    { title: 'Feasibility and next steps', detail: 'Recommend actions that are implementable in real systems with immediate and near-term steps.' },
-    { title: 'Equity, ethics, and practical reasoning', detail: 'Integrate fairness, cultural safety, legal/ethical considerations, and unintended consequences.' }
-  ];
-
   const HOT_TOPICS = [
     {
       title: 'COVID-19 recovery, trust, and health equity',
@@ -478,24 +469,7 @@
     }).join('');
   }
 
-  function renderExamTests() {
-    const grid = document.getElementById('exam-tests-grid');
-    if (!grid) {
-      return;
-    }
-
-    grid.innerHTML = EXAM_TEST_ITEMS.map((item) => `
-      <details class="applied-topic-card hot-topic-card applied-exam-test-card exam-test-topic-card">
-        <summary class="hot-topic-summary exam-test-summary">
-          <h4>${escapeHtml(item.title)}</h4>
-          <p class="topic-why"><strong>What to demonstrate:</strong> ${escapeHtml(item.detail)}</p>
-        </summary>
-        <div class="hot-topic-details exam-test-details">
-          <p>${escapeHtml(item.detail)}</p>
-        </div>
-      </details>
-    `).join('');
-  }
+  function renderExamTests() {}
 
   function renderHotTopics() {
     const grid = document.getElementById('hot-topics-grid');
