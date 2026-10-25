@@ -1,0 +1,1523 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-10-24T15:53:28.198Z",
+  "overall_status": "FAIL",
+  "source_files": [
+    "exam_forms.json",
+    "question_bank.json",
+    "content/taxonomy.json",
+    "content/candidates/phpm_saq_approved_pilot_bank_v1.json",
+    "validate_bank.js",
+    "tests/smoke.spec.js",
+    "script.js"
+  ],
+  "summary": {
+    "hard_failure_count": 3,
+    "warning_count": 13,
+    "default_form_statuses": {
+      "EXAM_30": "FAIL",
+      "EXAM_AHD_15": "FAIL",
+      "EXAM_180_V1": "FAIL"
+    },
+    "pilot_form_status": "PASS_WITH_WARNINGS"
+  },
+  "question_bank": {
+    "version": "2.0.0",
+    "updated_at": "2026-02-28T12:00:00Z",
+    "question_count": 36,
+    "part_count": 92,
+    "calculated_total_points": 207,
+    "duplicate_question_ids": [],
+    "invalid_max_scores": [],
+    "questions_without_parts": [],
+    "duplicate_part_ids_within_question": [],
+    "globally_duplicate_part_ids": [],
+    "response_type_counts": {
+      "list": 69,
+      "text": 21,
+      "haddon_matrix": 1,
+      "two_by_two_workspace": 1
+    },
+    "unsupported_response_types": [],
+    "numeric_id_collisions": [
+      {
+        "numeric_id": 1,
+        "ids": [
+          "Q01",
+          "Q1"
+        ],
+        "exact_content_equal": false
+      },
+      {
+        "numeric_id": 2,
+        "ids": [
+          "Q02",
+          "Q2"
+        ],
+        "exact_content_equal": false
+      },
+      {
+        "numeric_id": 3,
+        "ids": [
+          "Q03",
+          "Q3"
+        ],
+        "exact_content_equal": false
+      },
+      {
+        "numeric_id": 4,
+        "ids": [
+          "Q04",
+          "Q4"
+        ],
+        "exact_content_equal": false
+      },
+      {
+        "numeric_id": 5,
+        "ids": [
+          "Q05",
+          "Q5"
+        ],
+        "exact_content_equal": false
+      },
+      {
+        "numeric_id": 6,
+        "ids": [
+          "Q06",
+          "Q6"
+        ],
+        "exact_content_equal": false
+      },
+      {
+        "numeric_id": 7,
+        "ids": [
+          "Q07",
+          "Q7"
+        ],
+        "exact_content_equal": false
+      }
+    ],
+    "prompt_list_count_warnings": [
+      {
+        "question_id": "Q01",
+        "part_id": "Q01_1a",
+        "prompt_implied_count": 5,
+        "configured_list_count": 4
+      },
+      {
+        "question_id": "Q01",
+        "part_id": "Q01_1b",
+        "prompt_implied_count": 2,
+        "configured_list_count": 3
+      },
+      {
+        "question_id": "Q09",
+        "part_id": "Q09_9a",
+        "prompt_implied_count": 4,
+        "configured_list_count": 3
+      },
+      {
+        "question_id": "Q17",
+        "part_id": "Q17_17b",
+        "prompt_implied_count": 1,
+        "configured_list_count": 4
+      }
+    ],
+    "unreferenced_question_ids": []
+  },
+  "default_forms": [
+    {
+      "data_mode": "legacy",
+      "form_id": "EXAM_30",
+      "status": "FAIL",
+      "declared_duration_sec": 1800,
+      "duration_minutes": 30,
+      "declared_total_points": 24,
+      "calculated_total_points": 30,
+      "point_delta": 6,
+      "question_count": 7,
+      "resolved_question_count": 7,
+      "question_ids": [
+        "Q4",
+        "Q1",
+        "Q7",
+        "Q3",
+        "Q6",
+        "Q2",
+        "Q5"
+      ],
+      "question_point_breakdown": [
+        {
+          "question_id": "Q4",
+          "points": 4
+        },
+        {
+          "question_id": "Q1",
+          "points": 7
+        },
+        {
+          "question_id": "Q7",
+          "points": 6.5
+        },
+        {
+          "question_id": "Q3",
+          "points": 4
+        },
+        {
+          "question_id": "Q6",
+          "points": 5
+        },
+        {
+          "question_id": "Q2",
+          "points": 1.5
+        },
+        {
+          "question_id": "Q5",
+          "points": 2
+        }
+      ],
+      "missing_question_ids": [],
+      "non_unique_bank_references": [],
+      "duplicate_question_ids": [],
+      "duplicate_canonical_ids": [],
+      "numeric_id_collision_memberships": [
+        {
+          "numeric_id": 1,
+          "ids_in_form": [
+            "Q1"
+          ],
+          "all_colliding_ids": [
+            "Q01",
+            "Q1"
+          ]
+        },
+        {
+          "numeric_id": 2,
+          "ids_in_form": [
+            "Q2"
+          ],
+          "all_colliding_ids": [
+            "Q02",
+            "Q2"
+          ]
+        },
+        {
+          "numeric_id": 3,
+          "ids_in_form": [
+            "Q3"
+          ],
+          "all_colliding_ids": [
+            "Q03",
+            "Q3"
+          ]
+        },
+        {
+          "numeric_id": 4,
+          "ids_in_form": [
+            "Q4"
+          ],
+          "all_colliding_ids": [
+            "Q04",
+            "Q4"
+          ]
+        },
+        {
+          "numeric_id": 5,
+          "ids_in_form": [
+            "Q5"
+          ],
+          "all_colliding_ids": [
+            "Q05",
+            "Q5"
+          ]
+        },
+        {
+          "numeric_id": 6,
+          "ids_in_form": [
+            "Q6"
+          ],
+          "all_colliding_ids": [
+            "Q06",
+            "Q6"
+          ]
+        },
+        {
+          "numeric_id": 7,
+          "ids_in_form": [
+            "Q7"
+          ],
+          "all_colliding_ids": [
+            "Q07",
+            "Q7"
+          ]
+        }
+      ],
+      "part_count": 14,
+      "invalid_max_scores": [],
+      "response_types": [
+        "list",
+        "text"
+      ],
+      "unsupported_response_types": [],
+      "specialized_supported_response_types": [],
+      "notice": "Legacy 30-minute practice block.",
+      "notice_analysis": {
+        "exact_overlaps": [
+          {
+            "other_form_id": "EXAM_AHD_15",
+            "question_ids": [
+              "Q4",
+              "Q1",
+              "Q6",
+              "Q5"
+            ]
+          }
+        ],
+        "assessment": "Accurate as a legacy 30-minute label; it does not mention that EXAM_AHD_15 reuses four questions."
+      },
+      "taxonomy": {
+        "source": "content/candidates/phpm_saq_approved_pilot_bank_v1.json",
+        "counting_rule": "first primary code at part level",
+        "question_coverage": {
+          "mapped": 6,
+          "total": 7,
+          "percent": 85.714,
+          "missing_question_ids": [
+            "Q7"
+          ]
+        },
+        "written_classification_coverage": {
+          "mapped_parts": 11,
+          "total_parts": 14,
+          "part_percent": 78.571,
+          "mapped_points": 23.5,
+          "total_points": 30,
+          "point_percent": 78.333,
+          "missing_parts": [
+            "Q7/Q7a",
+            "Q7/Q7b",
+            "Q7/Q7c"
+          ],
+          "distribution": {
+            "PH": {
+              "part_count": 0,
+              "points": 0
+            },
+            "HS": {
+              "part_count": 2,
+              "points": 4.5
+            },
+            "BS": {
+              "part_count": 1,
+              "points": 2
+            },
+            "HPDP": {
+              "part_count": 2,
+              "points": 2.5
+            },
+            "HP": {
+              "part_count": 3,
+              "points": 5.5
+            },
+            "MPP": {
+              "part_count": 3,
+              "points": 9
+            }
+          }
+        },
+        "topic_theme_coverage": {
+          "mapped_parts": 11,
+          "total_parts": 14,
+          "part_percent": 78.571,
+          "mapped_points": 23.5,
+          "total_points": 30,
+          "point_percent": 78.333,
+          "missing_parts": [
+            "Q7/Q7a",
+            "Q7/Q7b",
+            "Q7/Q7c"
+          ],
+          "distribution": {
+            "A": {
+              "part_count": 1,
+              "points": 1.5
+            },
+            "B": {
+              "part_count": 3,
+              "points": 5
+            },
+            "C": {
+              "part_count": 0,
+              "points": 0
+            },
+            "D": {
+              "part_count": 2,
+              "points": 4
+            },
+            "E": {
+              "part_count": 2,
+              "points": 4
+            },
+            "F": {
+              "part_count": 0,
+              "points": 0
+            },
+            "G": {
+              "part_count": 3,
+              "points": 9
+            }
+          }
+        },
+        "mapping_methods": {
+          "exact_normalized_prompt": 11
+        },
+        "ambiguous_part_mappings": [],
+        "canonical_score_mismatches": []
+      },
+      "errors": [
+        {
+          "code": "DECLARED_TOTAL_MISMATCH",
+          "message": "Declared 24 points but summed part max_score is 30 (delta 6).",
+          "details": {}
+        }
+      ],
+      "warnings": [
+        {
+          "code": "AMBIGUOUS_NUMERIC_ID_NAMESPACE",
+          "message": "The form uses IDs that collide numerically with distinct bank IDs: Q01/Q1, Q02/Q2, Q03/Q3, Q04/Q4, Q05/Q5, Q06/Q6, Q07/Q7. Exact runtime lookup is safe, but normalized or manual lookup is not.",
+          "details": {}
+        },
+        {
+          "code": "INCOMPLETE_CANONICAL_TAXONOMY",
+          "message": "Canonical part-level taxonomy is incomplete for this form; missing metadata was not inferred.",
+          "details": {}
+        },
+        {
+          "code": "NOTICE_OMITS_FORM_OVERLAP",
+          "message": "The notice does not mention that EXAM_AHD_15 reuses Q1, Q4, Q5, and Q6.",
+          "details": {}
+        }
+      ]
+    },
+    {
+      "data_mode": "legacy",
+      "form_id": "EXAM_AHD_15",
+      "status": "FAIL",
+      "declared_duration_sec": 900,
+      "duration_minutes": 15,
+      "declared_total_points": 24,
+      "calculated_total_points": 18,
+      "point_delta": -6,
+      "question_count": 4,
+      "resolved_question_count": 4,
+      "question_ids": [
+        "Q1",
+        "Q4",
+        "Q5",
+        "Q6"
+      ],
+      "question_point_breakdown": [
+        {
+          "question_id": "Q1",
+          "points": 7
+        },
+        {
+          "question_id": "Q4",
+          "points": 4
+        },
+        {
+          "question_id": "Q5",
+          "points": 2
+        },
+        {
+          "question_id": "Q6",
+          "points": 5
+        }
+      ],
+      "missing_question_ids": [],
+      "non_unique_bank_references": [],
+      "duplicate_question_ids": [],
+      "duplicate_canonical_ids": [],
+      "numeric_id_collision_memberships": [
+        {
+          "numeric_id": 1,
+          "ids_in_form": [
+            "Q1"
+          ],
+          "all_colliding_ids": [
+            "Q01",
+            "Q1"
+          ]
+        },
+        {
+          "numeric_id": 4,
+          "ids_in_form": [
+            "Q4"
+          ],
+          "all_colliding_ids": [
+            "Q04",
+            "Q4"
+          ]
+        },
+        {
+          "numeric_id": 5,
+          "ids_in_form": [
+            "Q5"
+          ],
+          "all_colliding_ids": [
+            "Q05",
+            "Q5"
+          ]
+        },
+        {
+          "numeric_id": 6,
+          "ids_in_form": [
+            "Q6"
+          ],
+          "all_colliding_ids": [
+            "Q06",
+            "Q6"
+          ]
+        }
+      ],
+      "part_count": 8,
+      "invalid_max_scores": [],
+      "response_types": [
+        "list",
+        "text"
+      ],
+      "unsupported_response_types": [],
+      "specialized_supported_response_types": [],
+      "notice": "15-minute AHD practice block (Q1, Q4, Q5, Q6 sourced from the 30-minute bank).",
+      "notice_analysis": {
+        "exact_overlaps": [
+          {
+            "other_form_id": "EXAM_30",
+            "question_ids": [
+              "Q4",
+              "Q1",
+              "Q6",
+              "Q5"
+            ]
+          }
+        ],
+        "assessment": "Accurately identifies Q1, Q4, Q5, and Q6 as reused from EXAM_30."
+      },
+      "taxonomy": {
+        "source": "content/candidates/phpm_saq_approved_pilot_bank_v1.json",
+        "counting_rule": "first primary code at part level",
+        "question_coverage": {
+          "mapped": 4,
+          "total": 4,
+          "percent": 100,
+          "missing_question_ids": []
+        },
+        "written_classification_coverage": {
+          "mapped_parts": 8,
+          "total_parts": 8,
+          "part_percent": 100,
+          "mapped_points": 18,
+          "total_points": 18,
+          "point_percent": 100,
+          "missing_parts": [],
+          "distribution": {
+            "PH": {
+              "part_count": 0,
+              "points": 0
+            },
+            "HS": {
+              "part_count": 2,
+              "points": 4.5
+            },
+            "BS": {
+              "part_count": 1,
+              "points": 2
+            },
+            "HPDP": {
+              "part_count": 2,
+              "points": 2.5
+            },
+            "HP": {
+              "part_count": 0,
+              "points": 0
+            },
+            "MPP": {
+              "part_count": 3,
+              "points": 9
+            }
+          }
+        },
+        "topic_theme_coverage": {
+          "mapped_parts": 8,
+          "total_parts": 8,
+          "part_percent": 100,
+          "mapped_points": 18,
+          "total_points": 18,
+          "point_percent": 100,
+          "missing_parts": [],
+          "distribution": {
+            "A": {
+              "part_count": 0,
+              "points": 0
+            },
+            "B": {
+              "part_count": 3,
+              "points": 5
+            },
+            "C": {
+              "part_count": 0,
+              "points": 0
+            },
+            "D": {
+              "part_count": 0,
+              "points": 0
+            },
+            "E": {
+              "part_count": 2,
+              "points": 4
+            },
+            "F": {
+              "part_count": 0,
+              "points": 0
+            },
+            "G": {
+              "part_count": 3,
+              "points": 9
+            }
+          }
+        },
+        "mapping_methods": {
+          "exact_normalized_prompt": 8
+        },
+        "ambiguous_part_mappings": [],
+        "canonical_score_mismatches": []
+      },
+      "errors": [
+        {
+          "code": "DECLARED_TOTAL_MISMATCH",
+          "message": "Declared 24 points but summed part max_score is 18 (delta -6).",
+          "details": {}
+        }
+      ],
+      "warnings": [
+        {
+          "code": "AMBIGUOUS_NUMERIC_ID_NAMESPACE",
+          "message": "The form uses IDs that collide numerically with distinct bank IDs: Q01/Q1, Q04/Q4, Q05/Q5, Q06/Q6. Exact runtime lookup is safe, but normalized or manual lookup is not.",
+          "details": {}
+        }
+      ]
+    },
+    {
+      "data_mode": "legacy",
+      "form_id": "EXAM_180_V1",
+      "status": "FAIL",
+      "declared_duration_sec": 10800,
+      "duration_minutes": 180,
+      "declared_total_points": 180,
+      "calculated_total_points": 177,
+      "point_delta": -3,
+      "question_count": 29,
+      "resolved_question_count": 29,
+      "question_ids": [
+        "Q24",
+        "Q11",
+        "Q03",
+        "Q28",
+        "Q17",
+        "Q06",
+        "Q25",
+        "Q13",
+        "Q20",
+        "Q08",
+        "Q02",
+        "Q16",
+        "Q27",
+        "Q29",
+        "Q15",
+        "Q21",
+        "Q09",
+        "Q04",
+        "Q10",
+        "Q22",
+        "Q18",
+        "Q07",
+        "Q19",
+        "Q12",
+        "Q05",
+        "Q26",
+        "Q23",
+        "Q14",
+        "Q01"
+      ],
+      "question_point_breakdown": [
+        {
+          "question_id": "Q24",
+          "points": 9.5
+        },
+        {
+          "question_id": "Q11",
+          "points": 10
+        },
+        {
+          "question_id": "Q03",
+          "points": 3.5
+        },
+        {
+          "question_id": "Q28",
+          "points": 12.5
+        },
+        {
+          "question_id": "Q17",
+          "points": 6
+        },
+        {
+          "question_id": "Q06",
+          "points": 4.5
+        },
+        {
+          "question_id": "Q25",
+          "points": 6
+        },
+        {
+          "question_id": "Q13",
+          "points": 6
+        },
+        {
+          "question_id": "Q20",
+          "points": 6.5
+        },
+        {
+          "question_id": "Q08",
+          "points": 4
+        },
+        {
+          "question_id": "Q02",
+          "points": 1.5
+        },
+        {
+          "question_id": "Q16",
+          "points": 5
+        },
+        {
+          "question_id": "Q27",
+          "points": 9.5
+        },
+        {
+          "question_id": "Q29",
+          "points": 6
+        },
+        {
+          "question_id": "Q15",
+          "points": 5.5
+        },
+        {
+          "question_id": "Q21",
+          "points": 5
+        },
+        {
+          "question_id": "Q09",
+          "points": 5
+        },
+        {
+          "question_id": "Q04",
+          "points": 4.5
+        },
+        {
+          "question_id": "Q10",
+          "points": 4
+        },
+        {
+          "question_id": "Q22",
+          "points": 4.5
+        },
+        {
+          "question_id": "Q18",
+          "points": 7
+        },
+        {
+          "question_id": "Q07",
+          "points": 3
+        },
+        {
+          "question_id": "Q19",
+          "points": 8.5
+        },
+        {
+          "question_id": "Q12",
+          "points": 5
+        },
+        {
+          "question_id": "Q05",
+          "points": 5.5
+        },
+        {
+          "question_id": "Q26",
+          "points": 8
+        },
+        {
+          "question_id": "Q23",
+          "points": 11
+        },
+        {
+          "question_id": "Q14",
+          "points": 6.5
+        },
+        {
+          "question_id": "Q01",
+          "points": 3.5
+        }
+      ],
+      "missing_question_ids": [],
+      "non_unique_bank_references": [],
+      "duplicate_question_ids": [],
+      "duplicate_canonical_ids": [],
+      "numeric_id_collision_memberships": [
+        {
+          "numeric_id": 1,
+          "ids_in_form": [
+            "Q01"
+          ],
+          "all_colliding_ids": [
+            "Q01",
+            "Q1"
+          ]
+        },
+        {
+          "numeric_id": 2,
+          "ids_in_form": [
+            "Q02"
+          ],
+          "all_colliding_ids": [
+            "Q02",
+            "Q2"
+          ]
+        },
+        {
+          "numeric_id": 3,
+          "ids_in_form": [
+            "Q03"
+          ],
+          "all_colliding_ids": [
+            "Q03",
+            "Q3"
+          ]
+        },
+        {
+          "numeric_id": 4,
+          "ids_in_form": [
+            "Q04"
+          ],
+          "all_colliding_ids": [
+            "Q04",
+            "Q4"
+          ]
+        },
+        {
+          "numeric_id": 5,
+          "ids_in_form": [
+            "Q05"
+          ],
+          "all_colliding_ids": [
+            "Q05",
+            "Q5"
+          ]
+        },
+        {
+          "numeric_id": 6,
+          "ids_in_form": [
+            "Q06"
+          ],
+          "all_colliding_ids": [
+            "Q06",
+            "Q6"
+          ]
+        },
+        {
+          "numeric_id": 7,
+          "ids_in_form": [
+            "Q07"
+          ],
+          "all_colliding_ids": [
+            "Q07",
+            "Q7"
+          ]
+        }
+      ],
+      "part_count": 78,
+      "invalid_max_scores": [],
+      "response_types": [
+        "haddon_matrix",
+        "list",
+        "text",
+        "two_by_two_workspace"
+      ],
+      "unsupported_response_types": [],
+      "specialized_supported_response_types": [
+        "haddon_matrix",
+        "two_by_two_workspace"
+      ],
+      "notice": "",
+      "notice_analysis": {
+        "exact_overlaps": [],
+        "assessment": "Empty notice; no exact question IDs overlap the shorter forms."
+      },
+      "taxonomy": {
+        "source": "content/candidates/phpm_saq_approved_pilot_bank_v1.json",
+        "counting_rule": "first primary code at part level",
+        "question_coverage": {
+          "mapped": 9,
+          "total": 29,
+          "percent": 31.034,
+          "missing_question_ids": [
+            "Q01",
+            "Q02",
+            "Q03",
+            "Q04",
+            "Q05",
+            "Q06",
+            "Q07",
+            "Q08",
+            "Q09",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "Q18",
+            "Q23",
+            "Q24",
+            "Q26",
+            "Q27",
+            "Q28",
+            "Q29"
+          ]
+        },
+        "written_classification_coverage": {
+          "mapped_parts": 27,
+          "total_parts": 78,
+          "part_percent": 34.615,
+          "mapped_points": 53.5,
+          "total_points": 177,
+          "point_percent": 30.226,
+          "missing_parts": [
+            "Q01/Q01_1a",
+            "Q01/Q01_1b",
+            "Q02/Q02_2",
+            "Q03/Q03_3a",
+            "Q03/Q03_3b",
+            "Q04/Q04_4",
+            "Q05/Q05_5a",
+            "Q05/Q05_5b",
+            "Q05/Q05_5c",
+            "Q06/Q06_6a",
+            "Q06/Q06_6b",
+            "Q06/Q06_6c",
+            "Q07/Q07_7a",
+            "Q07/Q07_7b",
+            "Q08/Q08_8",
+            "Q09/Q09_9a",
+            "Q09/Q09_9b",
+            "Q09/Q09_9c",
+            "Q10/Q10_10a",
+            "Q10/Q10_10b",
+            "Q11/Q11_11a",
+            "Q11/Q11_11b",
+            "Q11/Q11_11c",
+            "Q11/Q11_11d",
+            "Q11/Q11_11e",
+            "Q12/Q12_12a",
+            "Q12/Q12_12b",
+            "Q12/Q12_12c",
+            "Q13/Q13_13a",
+            "Q13/Q13_13b",
+            "Q18/Q18_18a",
+            "Q18/Q18_18b",
+            "Q18/Q18_18c",
+            "Q23/Q23_23a",
+            "Q23/Q23_23b",
+            "Q23/Q23_23c",
+            "Q24/Q24_24a",
+            "Q24/Q24_24b",
+            "Q24/Q24_24c",
+            "Q24/Q24_24d",
+            "Q26/Q26_26a",
+            "Q26/Q26_26b",
+            "Q27/Q27_27a",
+            "Q27/Q27_27b",
+            "Q27/Q27_27c",
+            "Q28/Q28_28a",
+            "Q28/Q28_28b",
+            "Q28/Q28_28c",
+            "Q28/Q28_28d",
+            "Q29/Q29_29a",
+            "Q29/Q29_29b"
+          ],
+          "distribution": {
+            "PH": {
+              "part_count": 2,
+              "points": 3.5
+            },
+            "HS": {
+              "part_count": 2,
+              "points": 4
+            },
+            "BS": {
+              "part_count": 2,
+              "points": 2.5
+            },
+            "HPDP": {
+              "part_count": 0,
+              "points": 0
+            },
+            "HP": {
+              "part_count": 17,
+              "points": 35
+            },
+            "MPP": {
+              "part_count": 4,
+              "points": 8.5
+            }
+          }
+        },
+        "topic_theme_coverage": {
+          "mapped_parts": 27,
+          "total_parts": 78,
+          "part_percent": 34.615,
+          "mapped_points": 53.5,
+          "total_points": 177,
+          "point_percent": 30.226,
+          "missing_parts": [
+            "Q01/Q01_1a",
+            "Q01/Q01_1b",
+            "Q02/Q02_2",
+            "Q03/Q03_3a",
+            "Q03/Q03_3b",
+            "Q04/Q04_4",
+            "Q05/Q05_5a",
+            "Q05/Q05_5b",
+            "Q05/Q05_5c",
+            "Q06/Q06_6a",
+            "Q06/Q06_6b",
+            "Q06/Q06_6c",
+            "Q07/Q07_7a",
+            "Q07/Q07_7b",
+            "Q08/Q08_8",
+            "Q09/Q09_9a",
+            "Q09/Q09_9b",
+            "Q09/Q09_9c",
+            "Q10/Q10_10a",
+            "Q10/Q10_10b",
+            "Q11/Q11_11a",
+            "Q11/Q11_11b",
+            "Q11/Q11_11c",
+            "Q11/Q11_11d",
+            "Q11/Q11_11e",
+            "Q12/Q12_12a",
+            "Q12/Q12_12b",
+            "Q12/Q12_12c",
+            "Q13/Q13_13a",
+            "Q13/Q13_13b",
+            "Q18/Q18_18a",
+            "Q18/Q18_18b",
+            "Q18/Q18_18c",
+            "Q23/Q23_23a",
+            "Q23/Q23_23b",
+            "Q23/Q23_23c",
+            "Q24/Q24_24a",
+            "Q24/Q24_24b",
+            "Q24/Q24_24c",
+            "Q24/Q24_24d",
+            "Q26/Q26_26a",
+            "Q26/Q26_26b",
+            "Q27/Q27_27a",
+            "Q27/Q27_27b",
+            "Q27/Q27_27c",
+            "Q28/Q28_28a",
+            "Q28/Q28_28b",
+            "Q28/Q28_28c",
+            "Q28/Q28_28d",
+            "Q29/Q29_29a",
+            "Q29/Q29_29b"
+          ],
+          "distribution": {
+            "A": {
+              "part_count": 16,
+              "points": 30.5
+            },
+            "B": {
+              "part_count": 0,
+              "points": 0
+            },
+            "C": {
+              "part_count": 2,
+              "points": 4.5
+            },
+            "D": {
+              "part_count": 7,
+              "points": 13.5
+            },
+            "E": {
+              "part_count": 1,
+              "points": 3
+            },
+            "F": {
+              "part_count": 0,
+              "points": 0
+            },
+            "G": {
+              "part_count": 1,
+              "points": 2
+            }
+          }
+        },
+        "mapping_methods": {
+          "legacy_part_id": 27
+        },
+        "ambiguous_part_mappings": [],
+        "canonical_score_mismatches": []
+      },
+      "errors": [
+        {
+          "code": "DECLARED_TOTAL_MISMATCH",
+          "message": "Declared 180 points but summed part max_score is 177 (delta -3).",
+          "details": {}
+        }
+      ],
+      "warnings": [
+        {
+          "code": "AMBIGUOUS_NUMERIC_ID_NAMESPACE",
+          "message": "The form uses IDs that collide numerically with distinct bank IDs: Q01/Q1, Q02/Q2, Q03/Q3, Q04/Q4, Q05/Q5, Q06/Q6, Q07/Q7. Exact runtime lookup is safe, but normalized or manual lookup is not.",
+          "details": {}
+        },
+        {
+          "code": "INCOMPLETE_CANONICAL_TAXONOMY",
+          "message": "Canonical part-level taxonomy is incomplete for this form; missing metadata was not inferred.",
+          "details": {}
+        }
+      ]
+    }
+  ],
+  "pilot_form": {
+    "data_mode": "pilot",
+    "form_id": "EXAM_180_V1",
+    "audit_id": "pilot:EXAM_180_V1",
+    "status": "PASS_WITH_WARNINGS",
+    "declared_duration_sec": 10800,
+    "duration_minutes": 180,
+    "declared_total_points": 77,
+    "calculated_total_points": 77,
+    "point_delta": 0,
+    "question_count": 15,
+    "part_count": 38,
+    "runtime_question_ids": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4",
+      "Q5",
+      "Q6",
+      "PHPM_SAQ_LGC_0014",
+      "PHPM_SAQ_LGC_0015",
+      "PHPM_SAQ_LGC_0019",
+      "PHPM_SAQ_LGC_0020",
+      "PHPM_SAQ_LGC_0025",
+      "PHPM_SAQ_LGC_0016",
+      "PHPM_SAQ_LGC_0017",
+      "PHPM_SAQ_LGC_0021",
+      "PHPM_SAQ_LGC_0022"
+    ],
+    "duplicate_runtime_question_ids": [],
+    "response_types": [
+      "list",
+      "short_text",
+      "text"
+    ],
+    "runtime_response_types": [
+      "list",
+      "text"
+    ],
+    "unsupported_response_types": [],
+    "notice": "Pilot compatibility mode: runs approved 15-item pilot bank in full mode only with 180-minute timer.",
+    "taxonomy": {
+      "source": "content/candidates/phpm_saq_approved_pilot_bank_v1.json",
+      "counting_rule": "first primary code at part level",
+      "question_coverage": {
+        "mapped": 15,
+        "total": 15,
+        "percent": 100,
+        "missing_question_ids": []
+      },
+      "written_classification_coverage": {
+        "mapped_parts": 38,
+        "total_parts": 38,
+        "part_percent": 100,
+        "mapped_points": 77,
+        "total_points": 77,
+        "point_percent": 100,
+        "missing_parts": [],
+        "distribution": {
+          "PH": {
+            "part_count": 2,
+            "points": 3.5
+          },
+          "HS": {
+            "part_count": 4,
+            "points": 8.5
+          },
+          "BS": {
+            "part_count": 3,
+            "points": 4.5
+          },
+          "HPDP": {
+            "part_count": 2,
+            "points": 2.5
+          },
+          "HP": {
+            "part_count": 20,
+            "points": 40.5
+          },
+          "MPP": {
+            "part_count": 7,
+            "points": 17.5
+          }
+        }
+      },
+      "topic_theme_coverage": {
+        "mapped_parts": 38,
+        "total_parts": 38,
+        "part_percent": 100,
+        "mapped_points": 77,
+        "total_points": 77,
+        "point_percent": 100,
+        "missing_parts": [],
+        "distribution": {
+          "A": {
+            "part_count": 17,
+            "points": 32
+          },
+          "B": {
+            "part_count": 3,
+            "points": 5
+          },
+          "C": {
+            "part_count": 2,
+            "points": 4.5
+          },
+          "D": {
+            "part_count": 9,
+            "points": 17.5
+          },
+          "E": {
+            "part_count": 3,
+            "points": 7
+          },
+          "F": {
+            "part_count": 0,
+            "points": 0
+          },
+          "G": {
+            "part_count": 4,
+            "points": 11
+          }
+        }
+      },
+      "mapping_methods": {
+        "direct_pilot_part_metadata": 38
+      },
+      "ambiguous_part_mappings": [],
+      "canonical_score_mismatches": []
+    },
+    "source_review_pending_question_ids": [
+      "PHPM_SAQ_LGC_0014",
+      "PHPM_SAQ_LGC_0015",
+      "PHPM_SAQ_LGC_0019",
+      "PHPM_SAQ_LGC_0020",
+      "PHPM_SAQ_LGC_0025",
+      "PHPM_SAQ_LGC_0016",
+      "PHPM_SAQ_LGC_0017",
+      "PHPM_SAQ_LGC_0021",
+      "PHPM_SAQ_LGC_0022"
+    ],
+    "provisional_taxonomy_part_count": 38,
+    "errors": [],
+    "warnings": [
+      {
+        "code": "PILOT_SOURCE_REVIEW_PENDING",
+        "message": "9 migrated pilot questions retain needs_full_source_review provenance.",
+        "details": {}
+      },
+      {
+        "code": "PILOT_TAXONOMY_PROVISIONAL",
+        "message": "38 pilot parts use proposed candidate taxonomy assignments.",
+        "details": {}
+      }
+    ]
+  },
+  "canonical_and_candidate_artifacts": {
+    "authoritative_taxonomy_file": "content/taxonomy.json",
+    "taxonomy_codes": {
+      "written_classifications": [
+        {
+          "code": "PH",
+          "label": "Population Health",
+          "description": "Written exam content area focused on population health concepts, methods, and applications.",
+          "weight_min_percent": 10,
+          "weight_max_percent": 20,
+          "active": true,
+          "notes": "Official written classification. Use for question-part scoring alignment."
+        },
+        {
+          "code": "HS",
+          "label": "Health Systems",
+          "description": "Written exam content area focused on health system organization, policy, performance, and stewardship.",
+          "weight_min_percent": 10,
+          "weight_max_percent": 15,
+          "active": true
+        },
+        {
+          "code": "BS",
+          "label": "Basic Sciences of Public Health and Preventive Medicine",
+          "description": "Written exam content area focused on foundational scientific principles supporting PHPM practice.",
+          "weight_min_percent": 20,
+          "weight_max_percent": 30,
+          "active": true
+        },
+        {
+          "code": "HPDP",
+          "label": "Intervention and Methods in Health Promotion and Disease Prevention",
+          "description": "Written exam content area focused on promotion/prevention interventions, implementation, and evaluation methods.",
+          "weight_min_percent": 15,
+          "weight_max_percent": 25,
+          "active": true
+        },
+        {
+          "code": "HP",
+          "label": "Intervention and Methods in Health Protection",
+          "description": "Written exam content area focused on health protection interventions, controls, and applied methods.",
+          "weight_min_percent": 15,
+          "weight_max_percent": 25,
+          "active": true
+        },
+        {
+          "code": "MPP",
+          "label": "Management and Program Planning",
+          "description": "Written exam content area focused on management, leadership, and program planning in PHPM contexts.",
+          "weight_min_percent": 5,
+          "weight_max_percent": 15,
+          "active": true
+        }
+      ],
+      "topic_themes": [
+        {
+          "code": "A",
+          "label": "Communicable Diseases",
+          "description": "Official topic theme covering communicable disease epidemiology, prevention, control, and response.",
+          "active": true
+        },
+        {
+          "code": "B",
+          "label": "Non-Communicable Diseases",
+          "description": "Official topic theme covering chronic disease burden, determinants, prevention, and management strategies.",
+          "active": true
+        },
+        {
+          "code": "C",
+          "label": "Mental Health and Substance Use",
+          "description": "Official topic theme covering mental health and substance-use epidemiology, programs, and interventions.",
+          "active": true
+        },
+        {
+          "code": "D",
+          "label": "Environmental Health",
+          "description": "Official topic theme covering environmental hazards, exposure pathways, and control measures.",
+          "active": true
+        },
+        {
+          "code": "E",
+          "label": "Maternal and Child Health",
+          "description": "Official topic theme covering maternal, neonatal, child, and family health priorities.",
+          "active": true
+        },
+        {
+          "code": "F",
+          "label": "Injury: Voluntary and Involuntary",
+          "description": "Official topic theme covering intentional and unintentional injury prevention and control.",
+          "active": true
+        },
+        {
+          "code": "G",
+          "label": "Other",
+          "description": "Simulator extension theme for official-sample or legacy content that does not cleanly fit themes A–F. Use only at the theme layer.",
+          "active": true,
+          "notes": "Constitution-locked extension. Not a written-classification code."
+        }
+      ]
+    },
+    "taxonomy_join_source": "content/candidates/phpm_saq_approved_pilot_bank_v1.json",
+    "duplicate_canonical_traceability": [],
+    "artifacts_inspected": [
+      {
+        "file": "content/candidates/legacy_low_risk_migration_candidate_v1.json",
+        "artifact_id": "legacy_low_risk_migration_candidate_v1",
+        "artifact_version": "1.0.0",
+        "question_count": 5,
+        "part_count": 16,
+        "calculated_total_points": 33
+      },
+      {
+        "file": "content/candidates/legacy_low_risk_migration_candidate_v2.json",
+        "artifact_id": "legacy_low_risk_migration_candidate_v2",
+        "artifact_version": "2.0.0",
+        "question_count": 5,
+        "part_count": 16,
+        "calculated_total_points": 33
+      },
+      {
+        "file": "content/candidates/legacy_low_risk_migration_candidate_v3_corrected_tranche1.json",
+        "artifact_id": "legacy_low_risk_migration_candidate_v3_corrected_tranche1",
+        "artifact_version": "3.0.0",
+        "question_count": 5,
+        "part_count": 16,
+        "calculated_total_points": 33
+      },
+      {
+        "file": "content/candidates/legacy_low_risk_migration_candidate_v3_tranche2.json",
+        "artifact_id": "legacy_low_risk_migration_candidate_v3_tranche2",
+        "artifact_version": "3.0.0",
+        "question_count": 5,
+        "part_count": 14,
+        "calculated_total_points": 27.5
+      },
+      {
+        "file": "content/candidates/legacy_low_risk_migration_candidate_v4_corrected_tranche2.json",
+        "artifact_id": "legacy_low_risk_migration_candidate_v4_corrected_tranche2",
+        "artifact_version": "4.0.0",
+        "question_count": 4,
+        "part_count": 11,
+        "calculated_total_points": 20.5
+      },
+      {
+        "file": "content/candidates/phpm_saq_approved_pilot_bank_v1.json",
+        "artifact_id": "phpm_saq_approved_pilot_bank_v1",
+        "artifact_version": "1.0.0",
+        "question_count": 15,
+        "part_count": 38,
+        "calculated_total_points": 77
+      },
+      {
+        "file": "content/gold_standard/royal_college_sample_saq_2025.json",
+        "artifact_id": null,
+        "artifact_version": null,
+        "question_count": 6,
+        "part_count": 11,
+        "calculated_total_points": 23.5
+      },
+      {
+        "file": "content/gold_standard/royal_college_sample_saq_2025.taxonomy_candidate.json",
+        "artifact_id": null,
+        "artifact_version": null,
+        "question_count": 6,
+        "part_count": 11,
+        "calculated_total_points": 23.5
+      }
+    ]
+  },
+  "runtime_analysis": {
+    "embedded_bank_matches_json": true,
+    "embedded_forms_match_json": true,
+    "exact_string_question_lookup": true,
+    "behaviour": [
+      {
+        "area": "Exam points display",
+        "finding": "startExam and resume prefer non-zero form.total_points over the computed sum, so the UI displays 24, 24, and 180 for the three default forms despite computed totals of 30, 18, and 177."
+      },
+      {
+        "area": "Scoring denominator",
+        "finding": "updateScoreSummary sums active part max_score values, so scoring denominators are 30, 18, and 177. This conflicts with the points indicator for every default form."
+      },
+      {
+        "area": "Attempt export",
+        "finding": "Attempt and scored exports include exam_form_id, duration, and per-part max_score values, but no declared or computed form total. A consumer must sum parts and will obtain the computed totals."
+      },
+      {
+        "area": "Pilot total",
+        "finding": "createPilotExamForms computes total_points from adapted pilot parts at runtime, so its declared and computed values both equal 77."
+      },
+      {
+        "area": "ID lookup",
+        "finding": "resolveQuestionsForForm indexes exact string IDs. Q1 and Q01 do not collide at runtime, although normalization or manual review can conflate them."
+      }
+    ]
+  },
+  "taxonomy_limitations": [
+    {
+      "code": "PARTIAL_LIVE_BANK_COVERAGE",
+      "message": "Approved canonical/pilot traceability covers Q1-Q6 and Q14, Q15, Q16, Q17, Q19, Q20, Q21, Q22, and Q25 only. Other live questions remain unmapped in this audit."
+    },
+    {
+      "code": "NO_SILENT_INFERENCE",
+      "message": "Legacy numeric domain or rc_classification values were not converted to canonical codes unless an explicit approved-pilot mapping existed."
+    },
+    {
+      "code": "PROVISIONAL_ASSIGNMENTS",
+      "message": "All 38 pilot parts carry proposed candidate taxonomy status; this audit reports those labels but does not treat them as final expert review."
+    },
+    {
+      "code": "SOURCE_REVIEW_PENDING",
+      "message": "Nine migrated pilot questions retain needs_full_source_review and should not be treated as fully reviewed educational content."
+    },
+    {
+      "code": "COUNTING_POLICY",
+      "message": "Coverage distributions use the taxonomy policy’s first primary part-level code. Secondary labels are not double-counted."
+    }
+  ],
+  "repair_guidance": {
+    "safe_automatic": [
+      "Run this validator in CI and preserve its JSON output as release evidence.",
+      "Add regression tests for exact references, duplicate references, duration, declared-versus-computed totals, response support, and embedded-data parity.",
+      "Add explicit test fixtures for Q1/Q01 collisions without renaming live IDs.",
+      "Update form-overlap documentation after the authoritative form decisions are approved."
+    ],
+    "requires_educational_review": [
+      "Changing any form total_points value, question membership, part max_score, rubric, or notice that describes educational intent.",
+      "Deciding whether EXAM_180_V1 should become 177 points or gain/reweight content to reach 180 points.",
+      "Deciding whether EXAM_30 should be 30 points and EXAM_AHD_15 should be 18 points, or whether their memberships or scoring were intended to differ.",
+      "Resolving or renaming Q1/Q01 through Q7/Q07 identifier namespaces.",
+      "Approving missing taxonomy, source provenance, blueprint balance, and the educational suitability of candidate questions."
+    ]
+  },
+  "recommendation_90_minute": [
+    "Do not publish EXAM_90 until Stephen resolves the three current point-total mismatches and approves the intended score target for a 90-minute form.",
+    "Create a candidate artifact outside exam_forms.json using exact live IDs and never include both members of a Qn/Q0n collision without explicit review.",
+    "Select only reviewed questions with valid part scores, supported response types, acceptable provenance, and explicitly approved canonical taxonomy.",
+    "Use first-primary part-level taxonomy codes to measure draft blueprint coverage, show all missing metadata, and obtain educational approval for classification and theme balance rather than filling gaps by inference.",
+    "Require calculated points to equal the approved declared total, document all overlap with existing forms, and add form-specific data and browser tests before making the candidate live."
+  ],
+  "global_errors": [],
+  "global_warnings": [
+    {
+      "code": "NUMERIC_QUESTION_ID_COLLISIONS",
+      "message": "7 normalized numeric ID groups contain multiple exact IDs.",
+      "details": {}
+    },
+    {
+      "code": "PROMPT_LIST_COUNT_MISMATCH",
+      "message": "Q01/Q01_1a implies 5 items but configures 4.",
+      "details": {}
+    },
+    {
+      "code": "PROMPT_LIST_COUNT_MISMATCH",
+      "message": "Q01/Q01_1b implies 2 items but configures 3.",
+      "details": {}
+    },
+    {
+      "code": "PROMPT_LIST_COUNT_MISMATCH",
+      "message": "Q09/Q09_9a implies 4 items but configures 3.",
+      "details": {}
+    },
+    {
+      "code": "PROMPT_LIST_COUNT_MISMATCH",
+      "message": "Q17/Q17_17b implies 1 items but configures 4.",
+      "details": {}
+    }
+  ]
+}
