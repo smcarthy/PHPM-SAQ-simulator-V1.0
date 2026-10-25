@@ -378,6 +378,11 @@ main {
   text-align: center;
   margin: 0.5rem;
 }
+
+.exam-option.hidden {
+  display: none;
+}
+
 .exam-option button {
   margin-bottom: 0;
 }
@@ -1195,6 +1200,19 @@ body {
   text-shadow: 0 2px 12px rgba(7, 26, 48, 0.18);
 }
 
+.site-version-badge {
+  display: inline-flex;
+  margin: 0.65rem 0 0;
+  padding: 0.32rem 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #f4fbff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
 main {
   padding: 1.5rem 1rem 2.5rem;
 }
@@ -1279,6 +1297,7 @@ main {
 .dashboard-landing > h2,
 .dashboard-landing > p,
 .dashboard-landing > #what-to-expect,
+.dashboard-landing > .version-highlights,
 .dashboard-landing > #data-warning,
 .dashboard-landing > .options,
 .dashboard-landing > #credits {
@@ -1287,7 +1306,7 @@ main {
 
 .dashboard-landing > .landing-art {
   grid-column: 2;
-  grid-row: 1 / span 5;
+  grid-row: 1 / span 6;
   align-self: stretch;
 }
 
@@ -1329,6 +1348,27 @@ main {
   background: linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(241, 248, 255, 0.92));
 }
 
+.version-highlights {
+  margin-top: 1rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid rgba(28, 107, 148, 0.16);
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(235, 247, 255, 0.96), rgba(243, 250, 248, 0.94));
+}
+
+.version-highlights h3 {
+  margin: 0 0 0.6rem;
+  color: #123b5f;
+  font-size: 1.05rem;
+}
+
+.version-highlights ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: #365266;
+  line-height: 1.5;
+}
+
 #what-to-expect h3 {
   margin-top: 0;
   margin-bottom: 0.75rem;
@@ -1352,6 +1392,23 @@ main {
   border: 1px solid var(--surface-border);
   border-radius: 20px;
   box-shadow: var(--shadow-soft);
+}
+
+.options .exam-option h3 {
+  margin: 0 0 0.4rem;
+  color: #143f66;
+}
+
+.options .exam-option p {
+  margin: 0.35rem 0 0.9rem;
+  color: #4c6678;
+  line-height: 1.45;
+}
+
+.options .exam-option .exam-option-meta {
+  margin-bottom: 0.25rem;
+  color: #176b7d;
+  font-weight: 700;
 }
 
 .options button,

@@ -1,6 +1,8 @@
 // @ts-check
 const { defineConfig } = require('@playwright/test');
 
+const chromiumExecutablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH;
+
 module.exports = defineConfig({
   testDir: './tests',
   timeout: 90_000,
@@ -8,7 +10,8 @@ module.exports = defineConfig({
   use: {
     baseURL: 'http://127.0.0.1:4173',
     headless: true,
-    trace: 'off'
+    trace: 'off',
+    launchOptions: chromiumExecutablePath ? { executablePath: chromiumExecutablePath } : undefined
   },
   reporter: [['list'], ['json', { outputFile: 'reports/smoke-playwright-report.json' }]],
   webServer: {

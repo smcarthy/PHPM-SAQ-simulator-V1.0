@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-25 — Version 4.0 NRC release
+
+- Added the Version 4.0 landing-page update for the National Review Course demonstration.
+- Completed destinations for all nine Applied Exam AI Practice Assistants: seven now launch ChatGPT Plugins, while assistants 3 and 4 retain legacy Custom GPT compatibility.
+- Simplified the Written SAQ landing page to the 180-minute Full Practice Exam and 15-minute Focused Practice Block; the historical 30-minute form remains in data for compatibility but is no longer exposed as a start option.
+- Preserved all existing SAQ questions, rubrics, part scores, form membership, and scoring behaviour.
+
 ## 2026-02-28
 
 - Enabled dual-exam landing workflow so **Start Practice Block (0:30)** launches the legacy `EXAM_30` form and **Start Full Exam (3:00)** launches `EXAM_180_V1`.

@@ -15,6 +15,7 @@
           <div class="site-brand-mark" aria-hidden="true"><img src="assets/applied/medicine rod.png" alt="" loading="eager" /></div>
           <div class="site-brand-copy">
             <h1>Public Health &amp; Preventive Medicine Written SAQ Simulator</h1>
+            <p class="site-version-badge">Version 4.0 • NRC 2026</p>
           </div>
         </div>
         <nav class="site-tabs" aria-label="PHPM simulator pages">
@@ -28,6 +29,15 @@
       <section id="landing" class="dashboard-landing">
         <h2>Welcome</h2>
         <p class="landing-intro">This simulator approximates the written short‑answer question (SAQ) portion of the Royal College Public Health and Preventive Medicine exam.</p>
+        <section class="version-highlights" aria-labelledby="version-highlights-title">
+          <h3 id="version-highlights-title">What’s new in Version 4.0</h3>
+          <ul>
+            <li>Nine topic-specific AI Practice Assistants for Applied Exam preparation.</li>
+            <li>A redesigned Applied Exam Practice Hub with challenge scenarios and custom station building.</li>
+            <li>Simplified Written SAQ practice with focused and full-exam modes.</li>
+            <li>Updated project architecture to support continued question-bank and educational development.</li>
+          </ul>
+        </section>
         <div id="what-to-expect">
           <h3>What to Expect</h3>
           <!-- Order of paragraphs adjusted to follow the requested narrative -->
@@ -38,7 +48,7 @@
             Example: You might be asked to list FIVE steps in the progressive management of an underperforming employee. You must provide FIVE discrete steps, and the rubric includes at least one mandatory item. Another part might ask for TWO <u>immediate</u> recommendations for contaminated well water; failure to mention boiling or disinfecting means zero points even if other suggestions are provided.
           </p>
           <p>
-            Workflow: choose an exam length below, answer the questions in sequence (flag any you want to revisit), review your answers, then submit. You may pause the timer if you need a break, but be aware that the timer runs continuously for the real exam. Upon submission your answers will be automatically downloaded as a file. You can upload this file into the recommended Custom GPT for grading and feedback. Good luck!
+            Workflow: choose an exam length below, answer the questions in sequence (flag any you want to revisit), review your answers, then submit. You may pause the timer if you need a break, but be aware that the timer runs continuously for the real exam. Upon submission your answers will be automatically downloaded as a file. You can upload this file into the recommended AI Practice Assistant for grading and feedback. Good luck!
           </p>
         </div>
         <p id="data-warning" class="hidden" role="alert"></p>
@@ -47,14 +57,17 @@
             <button id="resume-exam" class="secondary-action">Resume Saved Exam</button>
             <p class="resume-copy">Continue your most recent unfinished written exam attempt.</p>
           </div>
-          <div class="exam-option">
-            <button id="start-ahd">Start AHD Questions (0:15)</button>
+          <div class="exam-option" data-exam-form-id="EXAM_AHD_15">
+            <h3>Focused Practice</h3>
+            <p class="exam-option-meta">15 minutes • 4 questions</p>
+            <p>A short practice block for focused SAQ work.</p>
+            <button id="start-ahd" data-exam-form-id="EXAM_AHD_15">Start Focused Practice</button>
           </div>
-          <div class="exam-option">
-            <button id="start-practice">Start Practice Block (0:30)</button>
-          </div>
-          <div class="exam-option">
-            <button id="start-full">Start Full Exam (3:00)</button>
+          <div class="exam-option" data-exam-form-id="EXAM_180_V1">
+            <h3>Full Practice Exam</h3>
+            <p class="exam-option-meta">3 hours • Full simulation</p>
+            <p>A longer timed practice experience for exam-day pacing and endurance.</p>
+            <button id="start-full" data-exam-form-id="EXAM_180_V1">Start Full Practice Exam</button>
           </div>
         </div>
 
@@ -66,7 +79,7 @@
 
         <!-- Credits positioned at the bottom right of the landing section -->
         <div id="credits">
-          Created by Stephen McCarthy, uOttawa PGY5. Version 2.0 March 6, 2026.
+          Created by Stephen McCarthy, uOttawa PGY5. Version 4.0 • NRC 2026.
           For questions, feedback or suggestions, email: <a href="mailto:smcca104@uottawa.ca">smcca104@uottawa.ca</a>.
         </div>
 

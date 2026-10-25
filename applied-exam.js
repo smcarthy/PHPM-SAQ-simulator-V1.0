@@ -8,7 +8,7 @@
     },
     'health-promotion': {
       id: 'health-promotion',
-      label: 'Health Promotion, Chronic Diseases, Mental Health and Substance Use',
+      label: 'HPCD, Mental Health and Substance Use',
       iconPath: 'assets/applied/icons/health-promotion-chronic-diseases-mental-health-and-substance-use.png',
       color: '#f97316'
     },
@@ -32,7 +32,7 @@
     },
     methods: {
       id: 'methods',
-      label: 'Population Health, Epidemiology, Methods and Basic Sciences',
+      label: 'Pop Health, Epi, Methods and Basic Sciences',
       iconPath: 'assets/applied/icons/population-health-epidemiology-methods-and-basic-sciences.png',
       color: '#cd7f32'
     },
@@ -57,15 +57,15 @@
   };
 
   const GPT_URLS = {
-    'gpt-1': '',
-    'gpt-2': 'https://chatgpt.com/g/g-69b8961572188191a201157e775c1410-2-hpcd-mental-health-and-substance-use',
+    'gpt-1': 'app://plugins_6ade8858bf2c8191ae509ca267a74b96',
+    'gpt-2': 'app://plugin_a54c973540ec819196cd56b1a1ebb2eb',
     'gpt-3': 'https://chatgpt.com/g/g-CP2Ch11qQ-3-communicable-diseases-in-health-protection',
     'gpt-4': 'https://chatgpt.com/g/g-69115c1954708191b542275310c4787c-4-e-oh-built-environment-and-injuries',
-    'gpt-5': 'https://chatgpt.com/g/g-6928d96e50108191b20927bd9b29f3bd-5-health-systems-policy-law-and-ethics',
-    'gpt-6': 'https://chatgpt.com/g/g-69b89e9bc1fc8191900a9cf3b5fb20c4-6-pop-health-epi-methods-and-basic-sciences',
-    'gpt-7': 'https://chatgpt.com/g/g-69b8a993d4f88191b49486e4657689dd-7-management-leadership-and-program-planning',
-    'gpt-8': '',
-    'gpt-9': ''
+    'gpt-5': 'app://plugin_88102ac800f081919fca35400fddc2cc',
+    'gpt-6': 'app://plugin_7343b40173348191aa1667b43aa26573',
+    'gpt-7': 'app://plugin_7ed326d02d588191806d8b8727ca49c8',
+    'gpt-8': 'app://plugins_6ade809c0c188191ad97d438ad37b1b8',
+    'gpt-9': 'app://plugins_6ade840a0ab88191bdb0ffbee341e1f7'
   };
 
   const CANONICAL_LAUNCHER_TITLES = Object.values(TOPIC_META).map((topic) => topic.label);
@@ -73,6 +73,7 @@
   const GPT_LAUNCHERS = [
     {
       id: 'gpt-all',
+      assistantId: 'gpt-1',
       title: 'All PHPM Topics and Hot Topics',
       descriptor: 'For PGY-5 ready to challenge the exam. This bot creates challenge scenarios that mix the other eight types of bots, and updated PHAC publications such as the Chief Public Health Officer (CPHO) reports.',
       url: GPT_URLS['gpt-1'],
@@ -82,7 +83,8 @@
     },
     {
       id: 'gpt-health-promotion',
-      title: 'Health Promotion, Chronic Diseases, Mental Health and Substance Use',
+      assistantId: 'gpt-2',
+      title: 'HPCD, Mental Health and Substance Use',
       descriptor: 'For PGY-3/4/5 who are currently on their Health Promotion block or wanting to improve their mock oral practice in Health Promotion and Chronic Disease Prevention.',
       url: GPT_URLS['gpt-2'],
       iconPath: TOPIC_META['health-promotion'].iconPath,
@@ -91,6 +93,7 @@
     },
     {
       id: 'gpt-communicable',
+      assistantId: 'gpt-3',
       title: 'Communicable Diseases in Health Protection',
       descriptor: 'For PGY-3/4/5 who are currently on their Communicable Disease/Health Protection block or wanting to improve their mock oral practice in outbreak response, vaccination and infectious diseases.',
       url: GPT_URLS['gpt-3'],
@@ -100,6 +103,7 @@
     },
     {
       id: 'gpt-environment',
+      assistantId: 'gpt-4',
       title: 'Environmental, Occupational, Built Environment and Injuries',
       descriptor: 'For PGY-3/4/5 who are currently on their Environmental Health/Occupational Health block or wanting to improve their mock oral practice in environmental health risk assessment, occupational health, one health, the built environment or injury prevention.',
       url: GPT_URLS['gpt-4'],
@@ -109,6 +113,7 @@
     },
     {
       id: 'gpt-systems',
+      assistantId: 'gpt-5',
       title: 'Health Systems, Policy, Law and Ethics',
       descriptor: 'For PGY-5 nearing the exam and PGY-2/3 in their academic year of training wanting to improve mock oral practice in Canadian health systems, health policy process, federal and provincial laws, and public health ethics.',
       url: GPT_URLS['gpt-5'],
@@ -118,7 +123,8 @@
     },
     {
       id: 'gpt-methods',
-      title: 'Population Health, Epidemiology, Methods and Basic Sciences',
+      assistantId: 'gpt-6',
+      title: 'Pop Health, Epi, Methods and Basic Sciences',
       descriptor: 'For PGY-5 nearing the exam and PGY-2/3 in their academic year of training wanting to improve mock oral practice in epidemiology, population health and the methods used in public health.',
       url: GPT_URLS['gpt-6'],
       iconPath: TOPIC_META.methods.iconPath,
@@ -127,6 +133,7 @@
     },
     {
       id: 'gpt-management',
+      assistantId: 'gpt-7',
       title: 'Management, Leadership and Program Planning',
       descriptor: 'For PGY-4/5 currently on their Leadership and Management rotation, or wanting to improve their mock oral practice in leadership styles, conflict resolution, management, and program planning/evaluation.',
       url: GPT_URLS['gpt-7'],
@@ -136,6 +143,7 @@
     },
     {
       id: 'gpt-emergency',
+      assistantId: 'gpt-8',
       title: 'Emergency Preparedness and Response',
       descriptor: 'For PGY-4/5 currently on their Leadership and Management rotation, or wanting to improve incidence management systems structure in mock oral practice.',
       url: GPT_URLS['gpt-8'],
@@ -145,6 +153,7 @@
     },
     {
       id: 'gpt-maternal',
+      assistantId: 'gpt-9',
       title: 'Maternal and Child Health',
       descriptor: 'For PGY-3/4/5 who are currently on their Health Promotion block or wanting to improve their mock oral practice in maternal and child health.',
       url: GPT_URLS['gpt-9'],
@@ -641,7 +650,7 @@
       const hasUrl = Boolean(launcher.url);
 
       return `
-        <article class="applied-shared-card gpt-launcher-item" data-topic-id="${escapeHtml(launcher.topicId)}" style="${getLauncherCardStyles(topic)}">
+        <article class="applied-shared-card gpt-launcher-item" data-assistant-id="${escapeHtml(launcher.assistantId)}" data-topic-id="${escapeHtml(launcher.topicId)}" style="${getLauncherCardStyles(topic)}">
           <div class="gpt-launcher-top">
             <span class="gpt-launcher-icon-block" aria-hidden="true">
               <img src="${launcher.iconPath}" alt="${escapeHtml(launcher.title)} icon" class="gpt-launcher-icon" loading="lazy" />
@@ -753,7 +762,7 @@
           <div class="challenge-details">
             <p><strong>Official topic label(s):</strong></p>
             <ul class="topic-tag-list">${renderTopicTags(scenario.topicIds)}</ul>
-            <p><strong>Recommended GPT:</strong> <span class="recommended-gpt" style="--topic-color:${recommendedTopic.color}">${escapeHtml(launcher.title)}</span></p>
+            <p><strong>Recommended Assistant:</strong> <span class="recommended-gpt" style="--topic-color:${recommendedTopic.color}">${escapeHtml(launcher.title)}</span></p>
             <dl class="challenge-meta-list">
               ${renderScenarioMetaRows(scenario)}
             </dl>
@@ -764,7 +773,7 @@
             <div class="challenge-actions">
               <button type="button" class="copy-prompt-btn" data-copy-target="challenge-prompt-${index}">Copy prompt</button>
               <span class="copy-status" aria-live="polite"></span>
-              ${launcher.url ? `<a href="${launcher.url}" class="open-gpt-btn" target="_blank" rel="noopener noreferrer">Open Recommended GPT</a>` : '<button type="button" class="open-gpt-btn open-gpt-btn-disabled" disabled>Link coming soon</button>'}
+              ${launcher.url ? `<a href="${launcher.url}" class="open-gpt-btn" target="_blank" rel="noopener noreferrer">Open Recommended Assistant</a>` : '<button type="button" class="open-gpt-btn open-gpt-btn-disabled" disabled>Link coming soon</button>'}
             </div>
           </div>
         </details>
@@ -1165,7 +1174,7 @@
     if (openGptLink) {
       const hasUrl = Boolean(recommendedLauncher.url);
       openGptLink.href = hasUrl ? recommendedLauncher.url : '#';
-      openGptLink.setAttribute('aria-label', hasUrl ? `Open recommended GPT: ${recommendedLauncher.title}` : `${recommendedLauncher.title} link coming soon`);
+      openGptLink.setAttribute('aria-label', hasUrl ? `Open recommended assistant: ${recommendedLauncher.title}` : `${recommendedLauncher.title} link coming soon`);
       openGptLink.classList.toggle('open-gpt-btn-disabled', !hasUrl);
       if (hasUrl) {
         openGptLink.removeAttribute('aria-disabled');
