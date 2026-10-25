@@ -570,6 +570,16 @@
     }
   };
 
+  function getLaunchLinkAttributes(url) {
+    // ChatGPT Plugin deep links use a custom app:// protocol. Keeping these
+    // in the current browsing context gives the browser/OS the best chance
+    // to hand the link off to ChatGPT. Standard HTTPS Custom GPT links still
+    // open in a new tab.
+    return String(url || '').startsWith('app://')
+      ? ''
+      : ' target="_blank" rel="noopener noreferrer"';
+  }
+
   function escapeHtml(value) {
     return String(value)
       .replace(/&/g, '&amp;')
@@ -661,7 +671,7 @@
             </div>
           </div>
           <div class="gpt-launcher-footer">
-            ${hasUrl ? `<a href="${launcher.url}" class="open-gpt-btn launch-now-btn" target="_blank" rel="noopener noreferrer">Launch Now ↗</a>` : '<button type="button" class="open-gpt-btn open-gpt-btn-disabled launch-now-btn" disabled>Link coming soon</button>'}
+            ${hasUrl ? `<a href="${launcher.url}" class="open-gpt-btn launch-now-btn"${getLaunchLinkAttributes(launcher.url)}>Launch Now ↗</a>` : '<button type="button" class="open-gpt-btn open-gpt-btn-disabled launch-now-btn" disabled>Link coming soon</button>'}
           </div>
         </article>
       `;
@@ -773,7 +783,7 @@
             <div class="challenge-actions">
               <button type="button" class="copy-prompt-btn" data-copy-target="challenge-prompt-${index}">Copy prompt</button>
               <span class="copy-status" aria-live="polite"></span>
-              ${launcher.url ? `<a href="${launcher.url}" class="open-gpt-btn" target="_blank" rel="noopener noreferrer">Open Recommended Assistant</a>` : '<button type="button" class="open-gpt-btn open-gpt-btn-disabled" disabled>Link coming soon</button>'}
+              ${launcher.url ? `<a href="${launcher.url}" class="open-gpt-btn"${getLaunchLinkAttributes(launcher.url)}>Open Recommended Assistant</a>` : '<button type="button" class="open-gpt-btn open-gpt-btn-disabled" disabled>Link coming soon</button>'}
             </div>
           </div>
         </details>
@@ -1179,6 +1189,13 @@
       if (hasUrl) {
         openGptLink.removeAttribute('aria-disabled');
         openGptLink.tabIndex = 0;
+        if (String(recommendedLauncher.url).startsWith('app://')) {
+          openGptLink.removeAttribute('target');
+          openGptLink.removeAttribute('rel');
+        } else {
+          openGptLink.setAttribute('target', '_blank');
+          openGptLink.setAttribute('rel', 'noopener noreferrer');
+        }
       } else {
         openGptLink.setAttribute('aria-disabled', 'true');
         openGptLink.tabIndex = -1;
