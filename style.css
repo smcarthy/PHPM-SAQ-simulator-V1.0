@@ -4265,6 +4265,9 @@ button:disabled, .open-gpt-btn-disabled { cursor: not-allowed; opacity: 0.6; }
 .builder-output-card { min-width: 0; }
 .builder-output-figure { padding: 12px; border-radius: 12px; background: #f8fafc; box-shadow: none; }
 .builder-step-number { font-size: 1.5rem; }
+.challenge-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 16px; }
+.copy-status:empty { display: none; }
+.recommended-gpt { display: inline-block; box-sizing: border-box; max-width: 100%; }
 
 /* Calm examination chrome; preserve all controls and visibility hooks. */
 .saq-header:has(.site-tabs.is-hidden) { background: #164875; padding-block: 12px; }
