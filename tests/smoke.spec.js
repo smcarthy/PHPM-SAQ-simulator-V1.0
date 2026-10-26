@@ -1,15 +1,15 @@
 const { test, expect } = require('@playwright/test');
 
 const EXPECTED_ASSISTANT_URLS = {
-  'gpt-1': 'app://plugins_6ade8858bf2c8191ae509ca267a74b96',
-  'gpt-2': 'app://plugin_a54c973540ec819196cd56b1a1ebb2eb',
+  'gpt-1': 'https://chatgpt.com/plugins/plugins_6ade8858bf2c8191ae509ca267a74b96',
+  'gpt-2': 'https://chatgpt.com/plugins/plugin_a54c973540ec819196cd56b1a1ebb2eb',
   'gpt-3': 'https://chatgpt.com/g/g-CP2Ch11qQ-3-communicable-diseases-in-health-protection',
   'gpt-4': 'https://chatgpt.com/g/g-69115c1954708191b542275310c4787c-4-e-oh-built-environment-and-injuries',
-  'gpt-5': 'app://plugin_88102ac800f081919fca35400fddc2cc',
-  'gpt-6': 'app://plugin_7343b40173348191aa1667b43aa26573',
-  'gpt-7': 'app://plugin_7ed326d02d588191806d8b8727ca49c8',
-  'gpt-8': 'app://plugins_6ade809c0c188191ad97d438ad37b1b8',
-  'gpt-9': 'app://plugins_6ade840a0ab88191bdb0ffbee341e1f7'
+  'gpt-5': 'https://chatgpt.com/plugins/plugin_88102ac800f081919fca35400fddc2cc',
+  'gpt-6': 'https://chatgpt.com/plugins/plugin_7343b40173348191aa1667b43aa26573',
+  'gpt-7': 'https://chatgpt.com/plugins/plugin_7ed326d02d588191806d8b8727ca49c8',
+  'gpt-8': 'https://chatgpt.com/plugins/plugins_6ade809c0c188191ad97d438ad37b1b8',
+  'gpt-9': 'https://chatgpt.com/plugins/plugins_6ade840a0ab88191bdb0ffbee341e1f7'
 };
 
 function parseClock(text) {
@@ -172,6 +172,7 @@ test('all nine assistant destinations and centralized recommendation routes are 
   }
   await expect(page.locator('.gpt-launcher-item .open-gpt-btn-disabled')).toHaveCount(0);
   await expect(page.locator('.gpt-launcher-item a[href^="https://chat.openai.com"]')).toHaveCount(0);
+  await expect(page.locator('.gpt-launcher-item a[href^="app://"]')).toHaveCount(0);
 
   const launcherRoutes = await launchers.evaluateAll((cards) => Object.fromEntries(cards.map((card) => [
     card.querySelector('.gpt-launcher-title').textContent.trim(),
