@@ -1090,13 +1090,13 @@ button.primary:hover {
 
 /* Polished PHPM dashboard refresh: shared header, landing, and applied-exam surfaces */
 :root {
-  --dashboard-bg: linear-gradient(180deg, #f4f8fd 0%, #eef4fb 48%, #f8fbff 100%);
-  --surface-white: rgba(255, 255, 255, 0.92);
-  --surface-border: rgba(136, 165, 191, 0.22);
-  --shadow-soft: 0 10px 30px rgba(16, 55, 95, 0.08);
-  --shadow-raised: 0 18px 42px rgba(16, 55, 95, 0.14);
-  --hero-gradient: linear-gradient(135deg, #0d3476 0%, #12589e 38%, #1c8aa3 100%);
-  --hero-gradient-saq: linear-gradient(135deg, #0c2f68 0%, #14528f 46%, #197f9d 100%);
+  --dashboard-bg: #f4f7fa;
+  --surface-white: #fff;
+  --surface-border: #d8e2ea;
+  --shadow-soft: 0 2px 8px rgba(23, 43, 58, 0.06);
+  --shadow-raised: 0 4px 12px rgba(23, 43, 58, 0.1);
+  --hero-gradient: linear-gradient(120deg, #164875, #0f6b78);
+  --hero-gradient-saq: var(--hero-gradient);
 }
 
 body {
@@ -4078,4 +4078,247 @@ body {
   .builder-output-figure {
     padding: 0.95rem;
   }
+}
+
+/* V4 NRC visual refinement. Section display/hidden state remains runtime-owned. */
+body { font-size: 1rem; color: #172b3a; }
+main, .applied-page { box-sizing: border-box; max-width: 1200px; padding: 24px; }
+.site-header { padding: 20px 24px; box-shadow: none; }
+.site-header::before, .site-header::after { display: none; }
+.site-header-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px 24px;
+}
+.site-branding { justify-content: flex-start; gap: 16px; min-width: 0; }
+.site-brand-mark { width: 56px; height: 56px; flex: 0 0 56px; }
+.site-brand-copy h1, .site-header h1 {
+  font-size: clamp(1.5rem, 2.35vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  text-shadow: none;
+}
+.site-version-badge { margin-top: 8px; padding: 3px 8px; font-size: 0.75rem; font-weight: 600; }
+.site-tabs {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 4px;
+  gap: 4px;
+  border-radius: 12px;
+  box-shadow: none;
+}
+.tab-link { box-sizing: border-box; min-height: 44px; padding: 12px; border-radius: 8px; font-size: 0.875rem; }
+.tab-link.active { background: #fff; color: #164875; border-color: transparent; box-shadow: none; }
+.applied-subtabs-banner-wrap {
+  grid-column: 1 / -1;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.applied-subtabs-banner { padding: 4px; gap: 4px; border-radius: 12px; background: #f8fafc; box-shadow: none; }
+.applied-subtabs-banner .applied-subtab {
+  min-width: 0;
+  min-height: 48px;
+  padding: 8px;
+  border-radius: 8px;
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+  color: #334e63;
+  font-size: 0.875rem;
+  transform: none;
+}
+.applied-subtabs-banner .applied-subtab:hover { background: #eaf2f8; }
+.applied-subtabs-banner .applied-subtab.active { background: #e4eef5; color: #164875; border-color: #a6bdcf; }
+.applied-subtab-icon, .applied-subtab.active .applied-subtab-icon {
+  width: 24px; height: 24px; padding: 0; border-radius: 0; background-color: transparent; box-shadow: none;
+}
+
+/* Neutral surfaces and a consistent reading hierarchy. */
+#landing, .applied-hero, .applied-section, #review, #results {
+  border: 1px solid var(--surface-border); border-radius: 16px; background: #fff; box-shadow: none; backdrop-filter: none;
+}
+.applied-mini-card, .applied-shared-card, .applied-topic-card, .study-debrief-card,
+.builder-panel, .builder-advanced-panel, .builder-output-card, .builder-step-action,
+.options .exam-option {
+  border: 1px solid var(--surface-border); border-radius: 12px; background: #fff; box-shadow: var(--shadow-soft);
+}
+.applied-mini-card h3, .applied-mini-card h4,
+.applied-shared-card .gpt-launcher-title, .applied-shared-card .challenge-title,
+.applied-home-grid .applied-mini-card h3, .applied-home-grid .applied-mini-card h4,
+#builder-output strong, .builder-panel-header h4, .builder-step-heading, .builder-step-number {
+  color: #172b3a;
+}
+.applied-hero h2, .applied-section h3 { color: #0f6b78; }
+.applied-home-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: 'overview howto' 'resources resources' 'challenge framework'; }
+.applied-resource-strip { grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: stretch; }
+.today-challenge-card, .framework-day-card, .framework-day-content { min-height: 0; }
+.today-challenge-card::before, .today-challenge-card::after,
+.framework-day-card::before, .framework-day-card::after { display: none; }
+.framework-day-card { border-top: 3px solid #5b3f78; }
+
+/* Bring the two existing Written modes into the initial viewport. */
+#landing { padding: 24px; }
+#landing h2 { font-size: 1.75rem; }
+#what-to-expect, .version-highlights {
+  padding: 16px 20px; text-align: left; border-radius: 12px; box-shadow: none; background: #f8fafc;
+}
+#what-to-expect summary { cursor: pointer; min-height: 28px; color: #164875; }
+#what-to-expect summary h3 { display: inline; margin: 0; font-size: 1rem; }
+#what-to-expect p { max-width: 75ch; margin: 16px auto 0; }
+.options { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 24px 0; }
+.options .exam-option { box-sizing: border-box; padding: 20px; text-align: left; }
+.options .exam-option:not(.hidden) { display: flex; flex-direction: column; }
+.options .exam-option button { box-sizing: border-box; margin: auto 0 0; }
+#resume-option { grid-column: 1 / -1; }
+.landing-art { margin: 24px auto 0; padding: 0; max-width: 400px; border: 0; background: transparent; box-shadow: none; }
+.landing-art img { display: block; width: 100%; height: auto; border-radius: 12px; box-shadow: none; }
+#credits { border: 0; background: transparent; font-size: 0.875rem; }
+.applied-hero-with-image { grid-template-columns: minmax(0, 1fr) minmax(240px, 360px); gap: 32px; text-align: left; }
+.applied-hero-copy { max-width: 65ch; margin: 0; text-align: left; }
+.applied-hero-figure { box-sizing: border-box; width: 100%; max-width: 360px; margin: 0; padding: 0; border: 0; background: transparent; box-shadow: none; }
+.applied-hero-figure img { width: 100%; max-width: 360px; height: auto; border-radius: 12px; }
+.challenge-scenarios-figure { margin: 16px auto; }
+.challenge-scenarios-figure img { display: block; width: auto; max-width: 100%; max-height: 220px; margin: auto; object-fit: contain; }
+
+/* Canonical topic colours remain in the icon and restrained card accents. */
+.gpt-launcher-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.gpt-launcher-item {
+  box-sizing: border-box;
+  min-height: 0;
+  padding: 20px;
+  border-top: 3px solid var(--topic-color);
+  background: color-mix(in srgb, var(--topic-color) 4%, white);
+  box-shadow: var(--shadow-soft);
+}
+.gpt-launcher-top { gap: 12px; }
+.gpt-launcher-icon-block { box-sizing: border-box; width: 64px; min-width: 64px; height: 64px; padding: 0; border: 0; background: transparent; box-shadow: none; }
+.gpt-launcher-icon { width: 100%; height: 100%; object-fit: contain; }
+.gpt-launcher-title { font-size: 1.0625rem; line-height: 1.4; }
+.gpt-launcher-descriptor { font-size: 0.96rem; line-height: 1.55; }
+.gpt-launcher-footer { padding-top: 16px; }
+
+/* Buttons share a family, including anchors and their visited states. */
+:is(.launch-now-btn, .open-gpt-btn, .copy-prompt-btn, .home-quick-action, .sample-exam-link,
+.advice-quick-nav-btn, .home-return-btn, .builder-reset-btn, .options button,
+.question-navigation button, #review-button, #back-to-exam, #final-submit, #return-home) {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 0;
+  padding: 10px 16px;
+  border: 1px solid #164875;
+  border-radius: 8px;
+  background: #164875;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+  box-shadow: none;
+  transform: none;
+  filter: none;
+  cursor: pointer;
+  transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease;
+}
+:is(.launch-now-btn, .open-gpt-btn, .copy-prompt-btn, .options button,
+.question-navigation button, #review-button, #back-to-exam, #final-submit, #return-home):is(:hover, :visited) {
+  color: #fff; text-decoration: none;
+}
+:is(.launch-now-btn, .open-gpt-btn, .copy-prompt-btn, .options button,
+.question-navigation button, #review-button, #back-to-exam, #final-submit, #return-home):hover { background: #103858; }
+:is(.sample-exam-link, .advice-quick-nav-btn, .home-quick-action, .home-return-btn, .builder-reset-btn,
+#resume-exam, #prev-question, #flag-question, #back-to-exam):is(:link, :visited, :hover, :focus-visible),
+:is(.sample-exam-link, .advice-quick-nav-btn, .home-quick-action, .home-return-btn, .builder-reset-btn,
+#resume-exam, #prev-question, #flag-question, #back-to-exam) {
+  background: #fff; color: #164875; border-color: #7a8d9c; box-shadow: none; transform: none; filter: none; text-decoration: none;
+}
+:is(.sample-exam-link, .advice-quick-nav-btn, .home-quick-action, .home-return-btn, .builder-reset-btn,
+#resume-exam, #prev-question, #flag-question, #back-to-exam):hover { background: #eaf2f8; }
+:is(button, a, summary, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid #2563eb; outline-offset: 3px; box-shadow: 0 0 0 3px #fff;
+}
+button:disabled, .open-gpt-btn-disabled { cursor: not-allowed; opacity: 0.6; }
+
+/* Expanded scenarios keep their own height; prompt text stays accessible. */
+.challenge-scenarios-list { align-items: start; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.challenge-scenario-card { min-height: 0; height: auto; }
+.challenge-scenario-card .challenge-toggle { position: relative; padding-right: 36px; }
+.challenge-scenario-card .challenge-toggle::after {
+  content: ''; position: absolute; top: 22px; right: 16px; width: 7px; height: 7px;
+  border-right: 2px solid #52677a; border-bottom: 2px solid #52677a; transform: rotate(45deg);
+}
+.challenge-scenario-card[open] .challenge-toggle::after { transform: rotate(225deg); }
+.challenge-scenario-card:is(:hover, :focus-within, [open]) { box-shadow: var(--shadow-raised); }
+.challenge-scenario-card[open] .challenge-details { max-height: none; overflow: visible; }
+.applied-page :is(input, select, textarea) { box-sizing: border-box; max-width: 100%; }
+.builder-form :is(select, input[type='search']) { width: 100%; min-height: 44px; padding: 10px 12px; border: 1px solid #7a8d9c; border-radius: 8px; font: inherit; }
+.applied-page .challenge-prompt { min-width: 0; width: 100%; min-height: 12rem; max-height: 28rem; overflow-y: auto; resize: vertical; border: 1px solid #7a8d9c; border-radius: 8px; }
+.builder-output-grid { grid-template-columns: minmax(0, 1fr) minmax(180px, 260px); align-items: start; }
+.builder-output-card { min-width: 0; }
+.builder-output-figure { padding: 12px; border-radius: 12px; background: #f8fafc; box-shadow: none; }
+.builder-step-number { font-size: 1.5rem; }
+
+/* Calm examination chrome; preserve all controls and visibility hooks. */
+.saq-header:has(.site-tabs.is-hidden) { background: #164875; padding-block: 12px; }
+.saq-header:has(.site-tabs.is-hidden) .site-header-inner { grid-template-columns: 1fr; }
+.saq-header:has(.site-tabs.is-hidden) h1 { font-size: 1.125rem; letter-spacing: 0; }
+.saq-header:has(.site-tabs.is-hidden) .site-brand-mark { width: 36px; height: 36px; flex-basis: 36px; }
+.saq-header:has(.site-tabs.is-hidden) .site-version-badge { margin-top: 4px; }
+.sidebar, .question-container { box-sizing: border-box; border-radius: 8px; background: #fff; box-shadow: none; backdrop-filter: none; }
+.exam-body { gap: 16px; }
+.sidebar { flex: 0 0 180px; }
+.question-container { min-width: 0; }
+.exam-header, .timer-wrapper, .question-navigation { flex-wrap: wrap; gap: 12px; }
+#timer { font-variant-numeric: tabular-nums; }
+
+@media (max-width: 1100px) {
+  .site-header-inner { grid-template-columns: 1fr; }
+  .site-tabs { justify-self: start; }
+  .applied-subtabs-banner { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .gpt-launcher-grid, .challenge-scenarios-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .applied-hero-with-image { grid-template-columns: 1fr; gap: 16px; }
+  .applied-hero-figure { justify-self: center; }
+  .applied-hero-figure img { max-height: 220px; object-fit: contain; }
+  .applied-home-grid { grid-template-columns: 1fr; grid-template-areas: 'overview' 'howto' 'resources' 'challenge' 'framework'; }
+  .applied-resource-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .builder-output-grid { grid-template-columns: 1fr; }
+  .builder-output-figure { max-width: 260px; }
+}
+@media (max-width: 640px) {
+  main, .applied-page { padding: 16px; }
+  .site-header { padding: 16px; }
+  .site-branding { flex-direction: row; text-align: left; gap: 12px; }
+  .site-brand-mark { width: 44px; height: 44px; flex-basis: 44px; }
+  .site-header h1 { font-size: 1.4375rem; }
+  .site-tabs { width: 100%; }
+  .tab-link { flex: 1 1 0; padding: 10px 8px; }
+  .applied-subtabs-banner { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .applied-subtabs-banner .applied-subtab { justify-content: flex-start; text-align: left; }
+  #landing, .applied-hero, .applied-section { padding: 16px; }
+  #what-to-expect, .version-highlights { padding: 12px 16px; }
+  .options, .gpt-launcher-grid, .challenge-scenarios-list, .applied-resource-strip { grid-template-columns: minmax(0, 1fr); }
+  .gpt-launcher-item, .options .exam-option { padding: 16px; }
+  .challenge-actions, .feature-card-actions { flex-direction: column; align-items: stretch; }
+  .challenge-actions > :is(a, button), .feature-card-actions > button { width: 100%; }
+  .exam-body { flex-direction: column; }
+  .sidebar { flex-basis: auto; width: 100%; padding: 12px; }
+  .sidebar h2 { font-size: 1rem; margin-bottom: 8px; }
+  #question-list { display: flex; gap: 4px; overflow-x: auto; padding: 0; }
+  #question-list li { box-sizing: border-box; flex-shrink: 0; min-height: 44px; min-width: 44px; align-items: center; }
+  .question-container { padding: 16px; }
+  .question-navigation button { flex: 1 1 auto; }
+  .question-container :is(input, textarea) { font-size: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }

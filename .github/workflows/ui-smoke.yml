@@ -1,0 +1,35 @@
+name: PHPM visual and exam smoke checks
+on:
+  pull_request:
+    paths:
+      - '*.html'
+      - '*.css'
+      - '*.js'
+      - 'tests/**'
+      - '.github/workflows/ui-smoke.yml'
+permissions:
+  contents: read
+jobs:
+  browser-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install test runner
+        run: npm install --ignore-scripts --no-package-lock --no-save @playwright/test@1.52.0
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Run exam and responsive checks
+        run: npx playwright test --workers=2
+      - name: Retain screenshots and results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: phpm-browser-checks
+          path: |
+            test-results/
+            reports/smoke-playwright-report.json
+          retention-days: 7

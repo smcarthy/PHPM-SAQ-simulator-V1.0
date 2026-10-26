@@ -29,17 +29,8 @@
       <section id="landing" class="dashboard-landing">
         <h2>Welcome</h2>
         <p class="landing-intro">This simulator approximates the written short‑answer question (SAQ) portion of the Royal College Public Health and Preventive Medicine exam.</p>
-        <section class="version-highlights" aria-labelledby="version-highlights-title">
-          <h3 id="version-highlights-title">What’s new in Version 4.0</h3>
-          <ul>
-            <li>Nine topic-specific AI Practice Assistants for Applied Exam preparation.</li>
-            <li>A redesigned Applied Exam Practice Hub with challenge scenarios and custom station building.</li>
-            <li>Simplified Written SAQ practice with focused and full-exam modes.</li>
-            <li>Updated project architecture to support continued question-bank and educational development.</li>
-          </ul>
-        </section>
-        <div id="what-to-expect">
-          <h3>What to Expect</h3>
+        <details id="what-to-expect">
+          <summary><h3>What to Expect</h3></summary>
           <!-- Order of paragraphs adjusted to follow the requested narrative -->
           <p>
             This simulation is timed and contains multi‑part questions. Each sub‑question has an assigned point value. Some prompts instruct you to list a specific number of items; each item should be entered separately. Certain prompts may also include “must‑have” points that are required to obtain any credit for that part.
@@ -50,7 +41,7 @@
           <p>
             Workflow: choose an exam length below, answer the questions in sequence (flag any you want to revisit), review your answers, then submit. You may pause the timer if you need a break, but be aware that the timer runs continuously for the real exam. Upon submission your answers will be automatically downloaded as a file. You can upload this file into the recommended AI Practice Assistant for grading and feedback. Good luck!
           </p>
-        </div>
+        </details>
         <p id="data-warning" class="hidden" role="alert"></p>
         <div class="options">
           <div id="resume-option" class="exam-option hidden">
@@ -70,6 +61,16 @@
             <button id="start-full" data-exam-form-id="EXAM_180_V1">Start Full Practice Exam</button>
           </div>
         </div>
+
+        <section class="version-highlights" aria-labelledby="version-highlights-title">
+          <h3 id="version-highlights-title">What’s new in Version 4.0</h3>
+          <ul>
+            <li>Nine topic-specific AI Practice Assistants for Applied Exam preparation.</li>
+            <li>A redesigned Applied Exam Practice Hub with challenge scenarios and custom station building.</li>
+            <li>Simplified Written SAQ practice with focused and full-exam modes.</li>
+            <li>Updated project architecture to support continued question-bank and educational development.</li>
+          </ul>
+        </section>
 
         <!-- Decorative art for the landing page -->
         <div class="landing-art">
