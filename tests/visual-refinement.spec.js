@@ -48,6 +48,9 @@ for (const width of [1366, 768, 390, 320]) {
     await expect(page.locator('.launch-now-btn').first()).toHaveCSS('color', 'rgb(255, 255, 255)');
     await expect(page.locator('.launch-now-btn').first()).toHaveCSS('text-decoration-line', 'none');
     await page.locator('.launch-now-btn').first().focus();
+    // Use real keyboard navigation so :focus-visible reflects keyboard modality.
+    await page.keyboard.press('Tab');
+    await page.keyboard.press('Shift+Tab');
     await expect(page.locator('.launch-now-btn').first()).toHaveCSS('outline-style', 'solid');
 
     // Arrow navigation must continue to select the existing panels.

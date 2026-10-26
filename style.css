@@ -4131,7 +4131,7 @@ main, .applied-page { box-sizing: border-box; max-width: 1200px; padding: 24px; 
   transform: none;
 }
 .applied-subtabs-banner .applied-subtab:hover { background: #eaf2f8; }
-.applied-subtabs-banner .applied-subtab.active { background: #e4eef5; color: #164875; border-color: #a6bdcf; }
+.applied-subtabs-banner .applied-subtab.active { background: #e4eef5; color: #164875; border-color: #164875; }
 .applied-subtab-icon, .applied-subtab.active .applied-subtab-icon {
   width: 24px; height: 24px; padding: 0; border-radius: 0; background-color: transparent; box-shadow: none;
 }
@@ -4169,7 +4169,7 @@ main, .applied-page { box-sizing: border-box; max-width: 1200px; padding: 24px; 
 #what-to-expect summary h3 { display: inline; margin: 0; font-size: 1rem; }
 #what-to-expect p { max-width: 75ch; margin: 16px auto 0; }
 .options { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 24px 0; }
-.options .exam-option { box-sizing: border-box; padding: 20px; text-align: left; }
+.options .exam-option { box-sizing: border-box; margin: 0; padding: 20px; text-align: left; }
 .options .exam-option:not(.hidden) { display: flex; flex-direction: column; }
 .options .exam-option button { box-sizing: border-box; margin: auto 0 0; }
 #resume-option { grid-column: 1 / -1; }
