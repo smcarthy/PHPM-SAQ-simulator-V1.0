@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-11-05 — Plugin submission support
+
+- Added public support, privacy-policy, and terms-of-service pages for PHPM
+  Leadership Practice and the PHPM Exam Hub.
+- Documented local browser storage, third-party hosting, support communications,
+  independent educational status, and the provisional nature of AI-generated
+  educational content.
+- Made no changes to exam questions, rubrics, scoring, form membership, or
+  runtime behaviour.
+
 ## 2026-10-25 — Version 4.0 NRC release
 
 - Added the Version 4.0 landing-page update for the National Review Course demonstration.
