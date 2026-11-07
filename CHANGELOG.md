@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-11-07 — Hosted plugin transport
+
+- Added a stateless HTTPS MCP service and Render Blueprint for PHPM Leadership
+  Practice so the public directory submission does not require a local command
+  server.
+- Preserved the existing two read-only tools and their input validation; the
+  service does not generate or score educational content.
+- Updated the privacy policy to disclose the limited tool fields and ordinary
+  hosting metadata processed by the service.
+- Made no changes to exam questions, rubrics, scoring, form membership, or the
+  PHPM Exam Hub runtime.
+
 ## 2026-11-05 — Plugin submission support
 
 - Added public support, privacy-policy, and terms-of-service pages for PHPM
